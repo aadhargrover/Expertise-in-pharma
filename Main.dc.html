@@ -1,0 +1,535 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Work+Sans:wght@300;400;500;600;700&display=swap');
+
+    :root{
+      --navy-950: oklch(0.19 0.055 262);
+      --navy-900: oklch(0.235 0.058 262);
+      --navy-800: oklch(0.28 0.089 259);
+      --navy-700: oklch(0.36 0.08 260);
+      --cream-50: oklch(0.992 0.003 106);
+      --cream-100: oklch(0.97 0.004 106);
+      --cream-200: oklch(0.93 0.006 100);
+      --ink-900: oklch(0.20 0.05 262);
+      --ink-600: oklch(0.42 0.03 262);
+      --ink-400: oklch(0.60 0.02 262);
+      --cyan-700: oklch(0.50 0.10 213);
+      --cyan-600: oklch(0.60 0.115 213);
+      --cyan-500: oklch(0.73 0.117 213);
+      --cyan-400: oklch(0.80 0.09 213);
+      --violet: oklch(0.55 0.135 292);
+      --violet-100: oklch(0.93 0.03 292);
+      --line: oklch(0.88 0.008 100);
+      --line-dark: oklch(0.32 0.04 262);
+      --cream-on-navy: oklch(0.97 0.004 106);
+      --cream-on-navy-dim: oklch(0.97 0.004 106 / 0.68);
+    }
+    *{ box-sizing:border-box; }
+    body{ margin:0; }
+    a{ color:inherit; text-decoration:none; }
+    p{ margin:0; }
+
+    .btn-primary{ display:inline-flex; align-items:center; gap:10px; background:var(--cyan-500); color:var(--navy-950); font:600 15px/1 'Work Sans',sans-serif; padding:17px 30px; border-radius:1px; transition:background .2s ease, transform .2s ease; }
+    .btn-primary:hover{ background:var(--cyan-400); transform:translateY(-1px); }
+
+    .btn-outline{ display:inline-flex; align-items:center; gap:10px; background:transparent; color:var(--cream-on-navy); border:1px solid var(--line-dark); font:600 15px/1 'Work Sans',sans-serif; padding:17px 30px; border-radius:1px; transition:border-color .2s ease, background .2s ease; }
+    .btn-outline:hover{ border-color:var(--cyan-500); background:rgba(255,255,255,0.035); }
+
+    .btn-outline-ink{ display:inline-flex; align-items:center; gap:10px; background:transparent; color:var(--ink-900); border:1px solid var(--ink-900); font:600 15px/1 'Work Sans',sans-serif; padding:17px 30px; border-radius:1px; transition:border-color .2s ease, background .2s ease, color .2s ease; }
+    .btn-outline-ink:hover{ border-color:var(--cyan-700); color:var(--cyan-700); }
+
+    .nav-link{ font:500 14px/1 'Work Sans',sans-serif; color:var(--cream-on-navy-dim); padding:6px 0; border-bottom:1px solid transparent; transition:color .2s ease, border-color .2s ease; }
+    .nav-link:hover{ color:var(--cream-on-navy); border-color:var(--cyan-500); }
+
+    .arrow-link{ display:inline-flex; align-items:center; gap:8px; font:600 14px/1 'Work Sans',sans-serif; color:var(--cyan-700); }
+    .arrow-link .arrow-ic{ transition:transform .2s ease; }
+    .arrow-link:hover .arrow-ic{ transform:translateX(4px); }
+
+    .gap-card{ border-top:1px solid var(--line); padding:32px 0; transition:border-color .2s ease; }
+    .gap-card:hover{ border-color:var(--cyan-700); }
+    .gap-card:hover .gap-num{ color:var(--cyan-700); }
+
+    .diff-card{ border-top:1px solid var(--line-dark); padding:32px 0; transition:border-color .2s ease; }
+    .diff-card:hover{ border-color:var(--cyan-500); }
+    .diff-card:hover .diff-num{ color:var(--cyan-500); }
+
+    .svc-row{ border-top:1px solid var(--line); padding:40px 0; transition:background .2s ease; }
+    .svc-row:hover{ background:rgba(40,188,210,0.035); }
+    .svc-row:hover .svc-num{ color:var(--cyan-700); border-color:var(--cyan-700); }
+
+    .pill{ display:inline-flex; align-items:center; font:500 13px/1 'Work Sans',sans-serif; color:var(--ink-600); background:var(--cream-100); border:1px solid var(--line); padding:11px 18px; border-radius:2px; transition:border-color .2s ease, color .2s ease; }
+    .pill:hover{ border-color:var(--cyan-500); color:var(--ink-900); }
+
+    .step-node{ transition:transform .2s ease; }
+    .step-card:hover .step-node{ transform:translateY(-3px); }
+    .step-card:hover .step-title{ color:var(--cyan-500); }
+
+    .foot-link{ font:400 14px/1 'Work Sans',sans-serif; color:var(--cream-on-navy-dim); transition:color .2s ease; }
+    .foot-link:hover{ color:var(--cyan-500); }
+  </style>
+</helmet>
+
+<div id="page" style="width:1440px; background:var(--navy-950); font-family:'Work Sans',sans-serif; color:var(--ink-900); position:relative;">
+
+  <!-- TOP UTILITY BAR -->
+  <div style="height:40px; background:var(--navy-950); border-bottom:1px solid var(--line-dark); display:flex; align-items:center; justify-content:space-between; padding:0 100px;">
+    <p style="font:400 12px/1 'Work Sans',sans-serif; color:var(--cream-on-navy-dim); letter-spacing:.02em;">Global &nbsp;&middot;&nbsp; United States &nbsp;&middot;&nbsp; Europe &nbsp;&middot;&nbsp; United Kingdom &nbsp;&middot;&nbsp; Emerging markets</p>
+    <div style="display:flex; align-items:center; gap:24px;">
+      <p style="font:400 12px/1 'Work Sans',sans-serif; color:var(--cream-on-navy-dim);">info@expertiseinpharma.com</p>
+      <a href="#" class="foot-link" style="font-size:12px;">LinkedIn</a>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <div style="position:sticky; top:0; z-index:50; height:84px; background:var(--navy-950); border-bottom:1px solid var(--line-dark); display:flex; align-items:center; justify-content:space-between; padding:0 100px;">
+    <div style="display:flex; align-items:center; gap:12px;">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+        <path d="M2 2 L16 17 L2 32" stroke="var(--cyan-500)" stroke-width="3.4" stroke-linecap="square" fill="none"/>
+        <path d="M32 2 L18 17 L32 32" stroke="var(--cream-on-navy)" stroke-width="3.4" stroke-linecap="square" fill="none"/>
+      </svg>
+      <div>
+        <p style="font:600 16px/1.1 'Work Sans',sans-serif; color:var(--cream-on-navy); letter-spacing:.01em;">Expertise</p>
+        <p style="font:600 16px/1.1 'Work Sans',sans-serif; color:var(--cyan-500); letter-spacing:.01em;">In&nbsp;Pharma</p>
+      </div>
+    </div>
+    <div style="display:flex; align-items:center; gap:40px;">
+      <a href="#" class="nav-link">About Us</a>
+      <a href="#" class="nav-link">Services</a>
+      <a href="#" class="nav-link">Industry Solutions</a>
+      <a href="#" class="nav-link">How We Partner</a>
+      <a href="#" class="nav-link">Careers</a>
+    </div>
+    <a href="#" class="btn-primary" style="padding:13px 24px;">Talk to our team</a>
+  </div>
+
+  <!-- HERO -->
+  <div style="background:var(--navy-900); padding:110px 100px 0 100px;">
+    <div style="display:grid; grid-template-columns:1.15fr 0.85fr; gap:80px; align-items:start;">
+      <div>
+        <p class="eyebrow" style="color:var(--cyan-500); font:600 12px/1 'Work Sans',sans-serif; letter-spacing:.18em; text-transform:uppercase; margin-bottom:28px;">Global Pharma &amp; CRO Workforce Solutions</p>
+        <h1 style="font:500 66px/1.08 'Newsreader',serif; color:var(--cream-on-navy); margin:0 0 30px 0; max-width:680px;">Building production&#8209;ready teams for Pharma &amp; CROs</h1>
+        <p style="font:400 18px/1.6 'Work Sans',sans-serif; color:var(--cream-on-navy-dim); max-width:520px; margin-bottom:44px;">Industry expertise, talent and workforce solutions built for the realities of pharmaceutical delivery.</p>
+        <div style="display:flex; align-items:center; gap:18px;">
+          <a href="#" class="btn-primary">Talk to our team
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="var(--navy-950)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#" class="btn-outline">Explore our solutions</a>
+        </div>
+      </div>
+      <div style="position:relative; width:100%; height:470px; border-radius:1px; overflow:hidden; background:linear-gradient(150deg, var(--navy-800) 0%, var(--navy-950) 65%, var(--navy-800) 100%);">
+        <div style="position:absolute; inset:0; background:radial-gradient(circle at 72% 24%, rgba(40,188,210,0.20), transparent 55%);"></div>
+        <div style="position:absolute; top:20px; left:20px; width:26px; height:26px; border-top:1px solid var(--cyan-500); border-left:1px solid var(--cyan-500);"></div>
+        <div style="position:absolute; bottom:20px; right:20px; width:26px; height:26px; border-bottom:1px solid var(--cyan-500); border-right:1px solid var(--cyan-500);"></div>
+        <div style="position:absolute; left:0; right:0; bottom:0; padding:20px 24px; background:linear-gradient(0deg, rgba(0,0,0,0.4), transparent);">
+          <p style="font:500 11px/1 'Work Sans',sans-serif; letter-spacing:.08em; text-transform:uppercase; color:var(--cream-on-navy-dim);">Photo &mdash; pharma team on the delivery floor</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- stats strip -->
+    <div style="margin-top:96px; border-top:1px solid var(--line-dark); display:grid; grid-template-columns:repeat(3,1fr);">
+      <div style="padding:36px 0; border-right:1px solid var(--line-dark);">
+        <p style="font:500 40px/1 'Newsreader',serif; color:var(--cyan-500); margin-bottom:10px;">5,000+</p>
+        <p style="font:400 14px/1.4 'Work Sans',sans-serif; color:var(--cream-on-navy-dim);">Professionals trained globally</p>
+      </div>
+      <div style="padding:36px 48px; border-right:1px solid var(--line-dark);">
+        <p style="font:500 40px/1 'Newsreader',serif; color:var(--cyan-500); margin-bottom:10px;">50+</p>
+        <p style="font:400 14px/1.4 'Work Sans',sans-serif; color:var(--cream-on-navy-dim);">Pharma &amp; CRO companies</p>
+      </div>
+      <div style="padding:36px 0 36px 48px;">
+        <p style="font:500 40px/1 'Newsreader',serif; color:var(--cyan-500); margin-bottom:10px;">14+</p>
+        <p style="font:400 14px/1.4 'Work Sans',sans-serif; color:var(--cream-on-navy-dim);">Industry collaborations</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE CONSTRAINT -->
+  <div style="background:var(--cream-50); padding:150px 100px;">
+    <div style="display:grid; grid-template-columns:0.82fr 1.18fr; gap:88px;">
+      <div>
+        <p class="eyebrow" style="color:var(--cyan-700); font:600 12px/1 'Work Sans',sans-serif; letter-spacing:.18em; text-transform:uppercase; margin-bottom:24px;">01 &mdash; The constraint</p>
+        <h2 style="font:500 42px/1.16 'Newsreader',serif; color:var(--ink-900); margin:0 0 26px 0;">The readiness gaps holding you back</h2>
+        <p style="font:400 16px/1.65 'Work Sans',sans-serif; color:var(--ink-600); margin-bottom:44px;">You're managing complex product launch timelines, regulatory expectations, and margin pressures. But the real constraint? Getting the right people ready, fast enough, and at the right quality.</p>
+        <div style="position:relative; width:100%; height:340px; border-radius:1px; overflow:hidden; background:linear-gradient(150deg, var(--navy-800) 0%, var(--navy-950) 70%);">
+          <div style="position:absolute; inset:0; background:radial-gradient(circle at 30% 75%, rgba(40,188,210,0.15), transparent 55%);"></div>
+          <div style="position:absolute; top:16px; left:16px; width:22px; height:22px; border-top:1px solid var(--cyan-500); border-left:1px solid var(--cyan-500);"></div>
+          <div style="position:absolute; left:0; right:0; bottom:0; padding:18px 20px; background:linear-gradient(0deg, rgba(0,0,0,0.4), transparent);">
+            <p style="font:500 11px/1.4 'Work Sans',sans-serif; letter-spacing:.06em; text-transform:uppercase; color:var(--cream-on-navy-dim);">Photo &mdash; clinical research professionals reviewing study documentation</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:0 56px;">
+        <div class="gap-card">
+          <div style="display:flex; align-items:flex-start; gap:18px;">
+            <span class="gap-num" style="font:500 20px/1 'Newsreader',serif; color:var(--ink-400); min-width:30px; transition:color .2s ease;">01</span>
+            <div>
+              <div style="margin-bottom:10px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M10 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="var(--ink-900)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <p style="font:600 17px/1.3 'Work Sans',sans-serif; color:var(--ink-900); margin-bottom:8px;">Talent shortages</p>
+              <p style="font:400 14px/1.6 'Work Sans',sans-serif; color:var(--ink-600);">High turnover and slow hiring keep roles unfilled.</p>
+            </div>
+          </div>
+        </div>
+        <div class="gap-card">
+          <div style="display:flex; align-items:flex-start; gap:18px;">
+            <span class="gap-num" style="font:500 20px/1 'Newsreader',serif; color:var(--ink-400); min-width:30px; transition:color .2s ease;">02</span>
+            <div>
+              <div style="margin-bottom:10px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="var(--ink-900)" stroke-width="1.4"/><path d="M12 7v5l3.5 2" stroke="var(--ink-900)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <p style="font:600 17px/1.3 'Work Sans',sans-serif; color:var(--ink-900); margin-bottom:8px;">Slow onboarding</p>
+              <p style="font:400 14px/1.6 'Work Sans',sans-serif; color:var(--ink-600);">Delays in getting new hires production-ready; skill gaps appear too late.</p>
+            </div>
+          </div>
+        </div>
+        <div class="gap-card">
+          <div style="display:flex; align-items:flex-start; gap:18px;">
+            <span class="gap-num" style="font:500 20px/1 'Newsreader',serif; color:var(--ink-400); min-width:30px; transition:color .2s ease;">03</span>
+            <div>
+              <div style="margin-bottom:10px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z" stroke="var(--ink-900)" stroke-width="1.4" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="var(--ink-900)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <p style="font:600 17px/1.3 'Work Sans',sans-serif; color:var(--ink-900); margin-bottom:8px;">Compliance risk</p>
+              <p style="font:400 14px/1.6 'Work Sans',sans-serif; color:var(--ink-600);">Limited SME support leaves you exposed to audits and inspections.</p>
+            </div>
+          </div>
+        </div>
+        <div class="gap-card">
+          <div style="display:flex; align-items:flex-start; gap:18px;">
+            <span class="gap-num" style="font:500 20px/1 'Newsreader',serif; color:var(--ink-400); min-width:30px; transition:color .2s ease;">04</span>
+            <div>
+              <div style="margin-bottom:10px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="var(--ink-900)" stroke-width="1.4"/><circle cx="12" cy="12" r="4.2" stroke="var(--ink-900)" stroke-width="1.4"/><circle cx="12" cy="12" r="0.9" fill="var(--ink-900)"/></svg></div>
+              <p style="font:600 17px/1.3 'Work Sans',sans-serif; color:var(--ink-900); margin-bottom:8px;">Execution uncertainty</p>
+              <p style="font:400 14px/1.6 'Work Sans',sans-serif; color:var(--ink-600);">Gaps in management and quality impact client and regulator trust, and time to market.</p>
+            </div>
+          </div>
+        </div>
+        <div class="gap-card">
+          <div style="display:flex; align-items:flex-start; gap:18px;">
+            <span class="gap-num" style="font:500 20px/1 'Newsreader',serif; color:var(--ink-400); min-width:30px; transition:color .2s ease;">05</span>
+            <div>
+              <div style="margin-bottom:10px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 17l6-6 4 4 8-8M21 7v6M21 7h-6" stroke="var(--ink-900)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <p style="font:600 17px/1.3 'Work Sans',sans-serif; color:var(--ink-900); margin-bottom:8px;">No flex capacity</p>
+              <p style="font:400 14px/1.6 'Work Sans',sans-serif; color:var(--ink-600);">Limitations to scale up quickly for bids or project surges.</p>
+            </div>
+          </div>
+        </div>
+        <div class="gap-card" style="border-bottom:1px solid var(--line);">
+          <div style="display:flex; align-items:flex-start; gap:18px;">
+            <span class="gap-num" style="font:500 20px/1 'Newsreader',serif; color:var(--ink-400); min-width:30px; transition:color .2s ease;">06</span>
+            <div>
+              <div style="margin-bottom:10px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5" stroke="var(--ink-900)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <p style="font:600 17px/1.3 'Work Sans',sans-serif; color:var(--ink-900); margin-bottom:8px;">Expansion hurdles</p>
+              <p style="font:400 14px/1.6 'Work Sans',sans-serif; color:var(--ink-600);">Scaling GCCs or shifting models strains current resources.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BY THE NUMBERS -->
+  <div style="background:var(--navy-900); padding:130px 100px;">
+    <p class="eyebrow" style="color:var(--cyan-500); font:600 12px/1 'Work Sans',sans-serif; letter-spacing:.18em; text-transform:uppercase; margin-bottom:24px;">02 &mdash; By the numbers</p>
+    <h2 style="font:500 42px/1.16 'Newsreader',serif; color:var(--cream-on-navy); margin:0 0 72px 0; max-width:640px;">Scale proven in the field</h2>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:0;">
+      <div style="border-top:1px solid var(--line-dark); padding-top:32px; padding-right:56px;">
+        <p style="font:500 64px/1 'Newsreader',serif; color:var(--cyan-500); margin-bottom:22px;">5,000+</p>
+        <p style="font:600 16px/1.3 'Work Sans',sans-serif; color:var(--cream-on-navy); margin-bottom:12px;">Professionals trained globally</p>
+        <p style="font:400 14px/1.65 'Work Sans',sans-serif; color:var(--cream-on-navy-dim); max-width:320px;">Trained on real-world cases, assessments and simulations for production-level readiness.</p>
+      </div>
+      <div style="border-top:1px solid var(--line-dark); padding-top:32px; padding-right:56px; border-left:1px solid var(--line-dark); padding-left:56px;">
+        <p style="font:500 64px/1 'Newsreader',serif; color:var(--cyan-500); margin-bottom:22px;">50+</p>
+        <p style="font:600 16px/1.3 'Work Sans',sans-serif; color:var(--cream-on-navy); margin-bottom:12px;">Pharma &amp; CRO companies</p>
+        <p style="font:400 14px/1.65 'Work Sans',sans-serif; color:var(--cream-on-navy-dim); max-width:320px;">Engagement models based on how Pharma and CRO organizations actually work.</p>
+      </div>
+      <div style="border-top:1px solid var(--line-dark); padding-top:32px; border-left:1px solid var(--line-dark); padding-left:56px;">
+        <p style="font:500 64px/1 'Newsreader',serif; color:var(--cyan-500); margin-bottom:22px;">14+</p>
+        <p style="font:600 16px/1.3 'Work Sans',sans-serif; color:var(--cream-on-navy); margin-bottom:12px;">Industry collaborations</p>
+        <p style="font:400 14px/1.65 'Work Sans',sans-serif; color:var(--cream-on-navy-dim); max-width:320px;">Partnerships across Pharma, CROs, technology platforms and service ecosystems.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW WE ENABLE -->
+  <div style="background:var(--cream-50); padding:150px 100px;">
+    <div style="display:grid; grid-template-columns:0.82fr 1.18fr; gap:88px; margin-bottom:16px;">
+      <div>
+        <p class="eyebrow" style="color:var(--cyan-700); font:600 12px/1 'Work Sans',sans-serif; letter-spacing:.18em; text-transform:uppercase; margin-bottom:24px;">03 &mdash; How we enable your workforce</p>
+        <h2 style="font:500 40px/1.18 'Newsreader',serif; color:var(--ink-900); margin:0;">Staffing fills roles. Training fills calendars. We enable workforces.</h2>
+      </div>
+      <div style="padding-top:8px;">
+        <p style="font:400 17px/1.65 'Work Sans',sans-serif; color:var(--ink-600); max-width:480px;">Solutions built by industry professionals who know what audits, scale, and pressure really demand.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:56px;">
+      <div class="svc-row" style="display:grid; grid-template-columns:80px 1fr 1fr; gap:32px; align-items:start;">
+        <span class="svc-num" style="font:500 18px/1 'Newsreader',serif; color:var(--ink-400); border:1px solid var(--line); border-radius:50%; width:52px; height:52px; display:flex; align-items:center; justify-content:center; transition:color .2s ease, border-color .2s ease;">01</span>
+        <p style="font:600 24px/1.3 'Newsreader',serif; color:var(--ink-900);">GCC Enablement</p>
+        <p style="font:400 16px/1.6 'Work Sans',sans-serif; color:var(--ink-600); padding-top:6px;">Reduce vendor costs by 25% with your own GCC.</p>
+      </div>
+      <div class="svc-row" style="display:grid; grid-template-columns:80px 1fr 1fr; gap:32px; align-items:start;">
+        <span class="svc-num" style="font:500 18px/1 'Newsreader',serif; color:var(--ink-400); border:1px solid var(--line); border-radius:50%; width:52px; height:52px; display:flex; align-items:center; justify-content:center; transition:color .2s ease, border-color .2s ease;">02</span>
+        <p style="font:600 24px/1.3 'Newsreader',serif; color:var(--ink-900);">SME on Demand</p>
+        <p style="font:400 16px/1.6 'Work Sans',sans-serif; color:var(--ink-600); padding-top:6px;">Industry-ready expertise, delivered on demand.</p>
+      </div>
+      <div class="svc-row" style="display:grid; grid-template-columns:80px 1fr 1fr; gap:32px; align-items:start; background:var(--violet-100);">
+        <span class="svc-num" style="font:500 18px/1 'Newsreader',serif; color:var(--violet); border:1px solid var(--violet); border-radius:50%; width:52px; height:52px; display:flex; align-items:center; justify-content:center;">03</span>
+        <div>
+          <p style="font:600 24px/1.3 'Newsreader',serif; color:var(--ink-900); margin-bottom:8px;">Resource on Demand</p>
+          <p style="font:600 13px/1 'Work Sans',sans-serif; color:var(--violet); letter-spacing:.04em; text-transform:uppercase;">75% faster search-to-productivity</p>
+        </div>
+        <p style="font:400 16px/1.6 'Work Sans',sans-serif; color:var(--ink-600); padding-top:6px;">Access a vetted pool of entry-level and experienced life sciences graduates and MBBS professionals. Thoroughly trained on real-life scenarios, screened, and ready for immediate impact as per industry KPIs &mdash; bringing down your cost of onboarding-to-production cycle.</p>
+      </div>
+      <div class="svc-row" style="display:grid; grid-template-columns:80px 1fr 1fr; gap:32px; align-items:start; border-bottom:1px solid var(--line);">
+        <span class="svc-num" style="font:500 18px/1 'Newsreader',serif; color:var(--ink-400); border:1px solid var(--line); border-radius:50%; width:52px; height:52px; display:flex; align-items:center; justify-content:center; transition:color .2s ease, border-color .2s ease;">04</span>
+        <p style="font:600 24px/1.3 'Newsreader',serif; color:var(--ink-900);">Outsourced L&amp;D Enablement</p>
+        <p style="font:400 16px/1.6 'Work Sans',sans-serif; color:var(--ink-600); padding-top:6px;">Enterprise training without expanding your L&amp;D team.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT MAKES US DIFFERENT -->
+  <div style="background:var(--navy-900); padding:150px 100px;">
+    <div style="display:grid; grid-template-columns:0.82fr 1.18fr; gap:88px; margin-bottom:80px;">
+      <div>
+        <p class="eyebrow" style="color:var(--cyan-500); font:600 12px/1 'Work Sans',sans-serif; letter-spacing:.18em; text-transform:uppercase; margin-bottom:24px;">04 &mdash; Difference</p>
+        <h2 style="font:500 40px/1.18 'Newsreader',serif; color:var(--cream-on-navy); margin:0;">What makes us different</h2>
+      </div>
+      <p style="font:400 17px/1.65 'Work Sans',sans-serif; color:var(--cream-on-navy-dim); max-width:520px; padding-top:8px;">Deep understanding of regulatory frameworks (GxP, PV, Clinical, Regulatory Affairs, Quality, Medical Affairs) ensures right-first-time execution and audit readiness.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:0 56px;">
+      <div class="diff-card">
+        <span class="diff-num" style="display:block; font:500 32px/1 'Newsreader',serif; color:var(--line-dark); margin-bottom:20px; transition:color .2s ease;">01</span>
+        <p style="font:600 18px/1.35 'Work Sans',sans-serif; color:var(--cream-on-navy);">Pharma-first domain expertise</p>
+      </div>
+      <div class="diff-card">
+        <span class="diff-num" style="display:block; font:500 32px/1 'Newsreader',serif; color:var(--line-dark); margin-bottom:20px; transition:color .2s ease;">02</span>
+        <p style="font:600 18px/1.35 'Work Sans',sans-serif; color:var(--cream-on-navy);">Production-ready by design</p>
+      </div>
+      <div class="diff-card">
+        <span class="diff-num" style="display:block; font:500 32px/1 'Newsreader',serif; color:var(--line-dark); margin-bottom:20px; transition:color .2s ease;">03</span>
+        <p style="font:600 18px/1.35 'Work Sans',sans-serif; color:var(--cream-on-navy);">Mentor-led approach</p>
+      </div>
+      <div class="diff-card">
+        <span class="diff-num" style="display:block; font:500 32px/1 'Newsreader',serif; color:var(--line-dark); margin-bottom:20px; transition:color .2s ease;">04</span>
+        <p style="font:600 18px/1.35 'Work Sans',sans-serif; color:var(--cream-on-navy);">End-to-end workforce continuum</p>
+      </div>
+      <div class="diff-card">
+        <span class="diff-num" style="display:block; font:500 32px/1 'Newsreader',serif; color:var(--line-dark); margin-bottom:20px; transition:color .2s ease;">05</span>
+        <p style="font:600 18px/1.35 'Work Sans',sans-serif; color:var(--cream-on-navy);">Deployment-ready talent pool</p>
+      </div>
+      <div class="diff-card" style="border-bottom:1px solid var(--line-dark);">
+        <span class="diff-num" style="display:block; font:500 32px/1 'Newsreader',serif; color:var(--line-dark); margin-bottom:20px; transition:color .2s ease;">06</span>
+        <p style="font:600 18px/1.35 'Work Sans',sans-serif; color:var(--cream-on-navy);">Flexible commercial models</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- INDUSTRY SOLUTIONS -->
+  <div style="background:var(--cream-50); padding:150px 100px;">
+    <p class="eyebrow" style="color:var(--cyan-700); font:600 12px/1 'Work Sans',sans-serif; letter-spacing:.18em; text-transform:uppercase; margin-bottom:24px;">05 &mdash; Industry solutions</p>
+    <div style="display:grid; grid-template-columns:0.82fr 1.18fr; gap:88px; margin-bottom:80px;">
+      <h2 style="font:500 40px/1.18 'Newsreader',serif; color:var(--ink-900); margin:0;">Different business models. Shared workforce challenges.</h2>
+      <p style="font:400 17px/1.65 'Work Sans',sans-serif; color:var(--ink-600); max-width:540px; padding-top:8px;">Pharma companies and CROs operate with distinct business models and strategic priorities &mdash; yet both face talent gaps, compliance risk, vendor dependency and scaling pressure. The difference is in how these challenges manifest and what success looks like.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:0;">
+      <div style="border-top:2px solid var(--ink-900); padding:40px 48px 0 0; border-right:1px solid var(--line);">
+        <p style="font:600 22px/1.3 'Newsreader',serif; color:var(--ink-900); margin-bottom:28px;">For Pharmaceutical Companies</p>
+        <p style="font:600 12px/1 'Work Sans',sans-serif; color:var(--cyan-700); letter-spacing:.12em; text-transform:uppercase; margin-bottom:16px;">Priorities</p>
+        <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:36px;">
+          <p style="font:400 15px/1.5 'Work Sans',sans-serif; color:var(--ink-600); padding-left:16px; position:relative;"><span style="position:absolute; left:0; top:9px; width:6px; height:1px; background:var(--cyan-700);"></span>Accelerate innovation</p>
+          <p style="font:400 15px/1.5 'Work Sans',sans-serif; color:var(--ink-600); padding-left:16px; position:relative;"><span style="position:absolute; left:0; top:9px; width:6px; height:1px; background:var(--cyan-700);"></span>Ensure regulatory compliance</p>
+          <p style="font:400 15px/1.5 'Work Sans',sans-serif; color:var(--ink-600); padding-left:16px; position:relative;"><span style="position:absolute; left:0; top:9px; width:6px; height:1px; background:var(--cyan-700);"></span>Access experienced domain specialists to drive quality</p>
+          <p style="font:400 15px/1.5 'Work Sans',sans-serif; color:var(--ink-600); padding-left:16px; position:relative;"><span style="position:absolute; left:0; top:9px; width:6px; height:1px; background:var(--cyan-700);"></span>Speed to market</p>
+          <p style="font:400 15px/1.5 'Work Sans',sans-serif; color:var(--ink-600); padding-left:16px; position:relative;"><span style="position:absolute; left:0; top:9px; width:6px; height:1px; background:var(--cyan-700);"></span>Reduce vendor dependency while maintaining operational control</p>
+        </div>
+        <p style="font:600 12px/1 'Work Sans',sans-serif; color:var(--cyan-700); letter-spacing:.12em; text-transform:uppercase; margin-bottom:16px;">How we help</p>
+        <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:32px;">
+          <p style="font:400 15px/1.55 'Work Sans',sans-serif; color:var(--ink-900);"><strong style="font-weight:600;">GCC Enablement</strong> &mdash; reduce costs by 25% with full operational control</p>
+          <p style="font:400 15px/1.55 'Work Sans',sans-serif; color:var(--ink-900);"><strong style="font-weight:600;">SME on Demand</strong> &mdash; regulatory strategy, audit prep, market entry guidance</p>
+          <p style="font:400 15px/1.55 'Work Sans',sans-serif; color:var(--ink-900);"><strong style="font-weight:600;">Resource on Demand</strong> &mdash; pre-trained talent in Pharmacovigilance, Medical Information, Regulatory Affairs and more</p>
+          <p style="font:400 15px/1.55 'Work Sans',sans-serif; color:var(--ink-900);"><strong style="font-weight:600;">Outsourced L&amp;D</strong> &mdash; enterprise training without internal headcount expansion</p>
+        </div>
+        <a href="#" class="arrow-link">Explore solutions <svg class="arrow-ic" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="var(--cyan-700)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+
+      <div style="border-top:2px solid var(--ink-900); padding:40px 0 0 48px;">
+        <p style="font:600 22px/1.3 'Newsreader',serif; color:var(--ink-900); margin-bottom:28px;">For Clinical Research Organizations</p>
+        <p style="font:600 12px/1 'Work Sans',sans-serif; color:var(--cyan-700); letter-spacing:.12em; text-transform:uppercase; margin-bottom:16px;">Priorities</p>
+        <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:36px;">
+          <p style="font:400 15px/1.5 'Work Sans',sans-serif; color:var(--ink-600); padding-left:16px; position:relative;"><span style="position:absolute; left:0; top:9px; width:6px; height:1px; background:var(--cyan-700);"></span>Protect margins</p>
+          <p style="font:400 15px/1.5 'Work Sans',sans-serif; color:var(--ink-600); padding-left:16px; position:relative;"><span style="position:absolute; left:0; top:9px; width:6px; height:1px; background:var(--cyan-700);"></span>Strengthen client confidence</p>
+          <p style="font:400 15px/1.5 'Work Sans',sans-serif; color:var(--ink-600); padding-left:16px; position:relative;"><span style="position:absolute; left:0; top:9px; width:6px; height:1px; background:var(--cyan-700);"></span>Support competitive bids</p>
+          <p style="font:400 15px/1.5 'Work Sans',sans-serif; color:var(--ink-600); padding-left:16px; position:relative;"><span style="position:absolute; left:0; top:9px; width:6px; height:1px; background:var(--cyan-700);"></span>Scale delivery capacity</p>
+          <p style="font:400 15px/1.5 'Work Sans',sans-serif; color:var(--ink-600); padding-left:16px; position:relative;"><span style="position:absolute; left:0; top:9px; width:6px; height:1px; background:var(--cyan-700);"></span>Reduce time-to-billability without compromising quality</p>
+        </div>
+        <p style="font:600 12px/1 'Work Sans',sans-serif; color:var(--cyan-700); letter-spacing:.12em; text-transform:uppercase; margin-bottom:16px;">How we help</p>
+        <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:32px;">
+          <p style="font:400 15px/1.55 'Work Sans',sans-serif; color:var(--ink-900);"><strong style="font-weight:600;">SME on Demand</strong> &mdash; audit support, bid representation, compliance expertise</p>
+          <p style="font:400 15px/1.55 'Work Sans',sans-serif; color:var(--ink-900);"><strong style="font-weight:600;">Resource on Demand</strong> &mdash; pre-trained talent that reduces time-to-billability by 75%</p>
+          <p style="font:400 15px/1.55 'Work Sans',sans-serif; color:var(--ink-900);"><strong style="font-weight:600;">Outsourced L&amp;D</strong> &mdash; remove training burden from delivery teams</p>
+          <p style="font:400 15px/1.55 'Work Sans',sans-serif; color:var(--ink-900);"><strong style="font-weight:600;">Flexible models</strong> &mdash; scale with pipeline fluctuations without long-term commitments</p>
+        </div>
+        <a href="#" class="arrow-link">Explore solutions <svg class="arrow-ic" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="var(--cyan-700)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW WE PARTNER -->
+  <div style="background:var(--navy-900); padding:150px 100px;">
+    <div style="display:grid; grid-template-columns:0.82fr 1.18fr; gap:88px; margin-bottom:96px;">
+      <div>
+        <p class="eyebrow" style="color:var(--cyan-500); font:600 12px/1 'Work Sans',sans-serif; letter-spacing:.18em; text-transform:uppercase; margin-bottom:24px;">06 &mdash; How we partner</p>
+        <h2 style="font:500 40px/1.18 'Newsreader',serif; color:var(--cream-on-navy); margin:0;">From pilot to partnership, in four deliberate moves</h2>
+      </div>
+      <p style="font:400 17px/1.65 'Work Sans',sans-serif; color:var(--cream-on-navy-dim); max-width:480px; padding-top:8px;">Use one service or combine several. Start small and expand. Scale down when priorities shift. We flex to your reality.</p>
+    </div>
+
+    <div style="position:relative; display:grid; grid-template-columns:repeat(4,1fr); gap:40px; margin-bottom:110px;">
+      <div style="position:absolute; top:26px; left:52px; right:52px; height:1px; background:var(--line-dark);"></div>
+      <div class="step-card">
+        <div class="step-node" style="position:relative; z-index:2; width:52px; height:52px; border-radius:50%; background:var(--navy-900); border:1px solid var(--cyan-500); display:flex; align-items:center; justify-content:center; margin-bottom:28px;">
+          <span style="font:500 17px/1 'Newsreader',serif; color:var(--cyan-500);">01</span>
+        </div>
+        <p class="step-title" style="font:600 13px/1 'Work Sans',sans-serif; color:var(--cyan-500); letter-spacing:.1em; text-transform:uppercase; margin-bottom:14px; transition:color .2s ease;">Step 01</p>
+        <p style="font:600 20px/1.3 'Newsreader',serif; color:var(--cream-on-navy); margin-bottom:12px;">Assess</p>
+        <p style="font:400 14px/1.6 'Work Sans',sans-serif; color:var(--cream-on-navy-dim);">We start with your business reality &mdash; capability gaps, compliance exposure, delivery pressure and cost structure.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-node" style="position:relative; z-index:2; width:52px; height:52px; border-radius:50%; background:var(--navy-900); border:1px solid var(--cyan-500); display:flex; align-items:center; justify-content:center; margin-bottom:28px;">
+          <span style="font:500 17px/1 'Newsreader',serif; color:var(--cyan-500);">02</span>
+        </div>
+        <p class="step-title" style="font:600 13px/1 'Work Sans',sans-serif; color:var(--cyan-500); letter-spacing:.1em; text-transform:uppercase; margin-bottom:14px; transition:color .2s ease;">Step 02</p>
+        <p style="font:600 20px/1.3 'Newsreader',serif; color:var(--cream-on-navy); margin-bottom:12px;">Design</p>
+        <p style="font:400 14px/1.6 'Work Sans',sans-serif; color:var(--cream-on-navy-dim);">We shape the right scope and commercial model: a GCC feasibility study, expert access, deployment-ready talent or outsourced L&amp;D.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-node" style="position:relative; z-index:2; width:52px; height:52px; border-radius:50%; background:var(--navy-900); border:1px solid var(--cyan-500); display:flex; align-items:center; justify-content:center; margin-bottom:28px;">
+          <span style="font:500 17px/1 'Newsreader',serif; color:var(--cyan-500);">03</span>
+        </div>
+        <p class="step-title" style="font:600 13px/1 'Work Sans',sans-serif; color:var(--cyan-500); letter-spacing:.1em; text-transform:uppercase; margin-bottom:14px; transition:color .2s ease;">Step 03</p>
+        <p style="font:600 20px/1.3 'Newsreader',serif; color:var(--cream-on-navy); margin-bottom:12px;">Deploy</p>
+        <p style="font:400 14px/1.6 'Work Sans',sans-serif; color:var(--cream-on-navy-dim);">Mentor-led execution puts people, processes and programs into production with audit readiness built in.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-node" style="position:relative; z-index:2; width:52px; height:52px; border-radius:50%; background:var(--navy-900); border:1px solid var(--cyan-500); display:flex; align-items:center; justify-content:center; margin-bottom:28px;">
+          <span style="font:500 17px/1 'Newsreader',serif; color:var(--cyan-500);">04</span>
+        </div>
+        <p class="step-title" style="font:600 13px/1 'Work Sans',sans-serif; color:var(--cyan-500); letter-spacing:.1em; text-transform:uppercase; margin-bottom:14px; transition:color .2s ease;">Step 04</p>
+        <p style="font:600 20px/1.3 'Newsreader',serif; color:var(--cream-on-navy); margin-bottom:12px;">Scale</p>
+        <p style="font:400 14px/1.6 'Work Sans',sans-serif; color:var(--cream-on-navy-dim);">Expand services, capacity or geographies as value is proven &mdash; and scale down when priorities shift.</p>
+      </div>
+    </div>
+
+    <div style="border-top:1px solid var(--line-dark); padding-top:44px; display:grid; grid-template-columns:repeat(2,1fr); gap:28px 56px;">
+      <p style="font:400 15px/1.5 'Work Sans',sans-serif; color:var(--cream-on-navy); padding-left:20px; position:relative;"><span style="position:absolute; left:0; top:8px; width:8px; height:1px; background:var(--cyan-500);"></span>Start where it makes sense &mdash; no forced packages</p>
+      <p style="font:400 15px/1.5 'Work Sans',sans-serif; color:var(--cream-on-navy); padding-left:20px; position:relative;"><span style="position:absolute; left:0; top:8px; width:8px; height:1px; background:var(--cyan-500);"></span>Commercial flexibility aligned to your budget cycles</p>
+      <p style="font:400 15px/1.5 'Work Sans',sans-serif; color:var(--cream-on-navy); padding-left:20px; position:relative;"><span style="position:absolute; left:0; top:8px; width:8px; height:1px; background:var(--cyan-500);"></span>One partner across GCC, SME, talent and training</p>
+      <p style="font:400 15px/1.5 'Work Sans',sans-serif; color:var(--cream-on-navy); padding-left:20px; position:relative;"><span style="position:absolute; left:0; top:8px; width:8px; height:1px; background:var(--cyan-500);"></span>Engagement models based on how 50+ Pharma and CRO companies actually work</p>
+    </div>
+  </div>
+
+  <!-- GLOBAL CREDIBILITY -->
+  <div style="background:var(--cream-50); padding:150px 100px;">
+    <div style="display:grid; grid-template-columns:0.82fr 1.18fr; gap:88px; margin-bottom:64px;">
+      <div>
+        <p class="eyebrow" style="color:var(--cyan-700); font:600 12px/1 'Work Sans',sans-serif; letter-spacing:.18em; text-transform:uppercase; margin-bottom:24px;">07 &mdash; Global credibility</p>
+        <h2 style="font:500 40px/1.18 'Newsreader',serif; color:var(--ink-900); margin:0;">Trusted across the Pharma ecosystem</h2>
+      </div>
+      <p style="font:400 17px/1.65 'Work Sans',sans-serif; color:var(--ink-600); max-width:520px; padding-top:8px;">Professionals trained globally and organizations engaging our services across the US, EU, UK, and emerging markets.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:88px; align-items:start;">
+      <div style="position:relative; width:100%; height:400px; border-radius:1px; overflow:hidden; background:linear-gradient(150deg, var(--navy-800) 0%, var(--navy-950) 70%);">
+        <div style="position:absolute; inset:0; background:radial-gradient(circle at 70% 30%, rgba(40,188,210,0.17), transparent 55%);"></div>
+        <div style="position:absolute; top:16px; left:16px; width:22px; height:22px; border-top:1px solid var(--cyan-500); border-left:1px solid var(--cyan-500);"></div>
+        <div style="position:absolute; bottom:16px; right:16px; width:22px; height:22px; border-bottom:1px solid var(--cyan-500); border-right:1px solid var(--cyan-500);"></div>
+        <div style="position:absolute; left:0; right:0; bottom:0; padding:18px 20px; background:linear-gradient(0deg, rgba(0,0,0,0.4), transparent);">
+          <p style="font:500 11px/1.4 'Work Sans',sans-serif; letter-spacing:.06em; text-transform:uppercase; color:var(--cream-on-navy-dim);">Photo &mdash; modern life sciences headquarters at dusk</p>
+        </div>
+      </div>
+
+      <div>
+        <p style="font:600 12px/1 'Work Sans',sans-serif; color:var(--cyan-700); letter-spacing:.12em; text-transform:uppercase; margin-bottom:20px;">Functional coverage</p>
+        <div style="display:flex; flex-wrap:wrap; gap:12px; margin-bottom:48px;">
+          <span class="pill">Pharmacovigilance</span>
+          <span class="pill">Clinical Operations</span>
+          <span class="pill">Clinical Data Management</span>
+          <span class="pill">Medical Writing</span>
+          <span class="pill">Medical Coding</span>
+          <span class="pill">Drug Safety</span>
+          <span class="pill">Regulatory Affairs</span>
+          <span class="pill">SAS Programming</span>
+        </div>
+        <p style="font:600 12px/1 'Work Sans',sans-serif; color:var(--cyan-700); letter-spacing:.12em; text-transform:uppercase; margin-bottom:20px;">Strategic partnerships</p>
+        <p style="font:400 16px/1.65 'Work Sans',sans-serif; color:var(--ink-600);">We partner with Pharma companies, CROs, technology platforms, and service ecosystem organizations to ensure our training, talent, and enablement services remain aligned with evolving delivery standards and compliance expectations.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINAL CTA -->
+  <div style="background:var(--navy-950); padding:130px 100px; position:relative; overflow:hidden;">
+    <div style="position:absolute; inset:0; background:radial-gradient(circle at 85% 20%, rgba(124,92,196,0.16), transparent 50%);"></div>
+    <div style="position:relative; max-width:760px;">
+      <h2 style="font:500 46px/1.2 'Newsreader',serif; color:var(--cream-on-navy); margin:0 0 24px 0;">Ready to build production-ready teams?</h2>
+      <p style="font:400 17px/1.65 'Work Sans',sans-serif; color:var(--cream-on-navy-dim); margin-bottom:44px; max-width:600px;">Whether you're building a GCC, managing a talent gap, preparing for an audit, or strengthening bench capacity for an upcoming bid &mdash; we're here to help.</p>
+      <a href="#" class="btn-primary">Talk to our team
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="var(--navy-950)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="background:var(--navy-950); border-top:1px solid var(--line-dark); padding:88px 100px 40px 100px;">
+    <div style="display:grid; grid-template-columns:1.4fr 0.8fr 0.8fr; gap:64px; margin-bottom:64px;">
+      <div>
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:24px;">
+          <svg width="30" height="30" viewBox="0 0 34 34" fill="none">
+            <path d="M2 2 L16 17 L2 32" stroke="var(--cyan-500)" stroke-width="3.4" stroke-linecap="square" fill="none"/>
+            <path d="M32 2 L18 17 L32 32" stroke="var(--cream-on-navy)" stroke-width="3.4" stroke-linecap="square" fill="none"/>
+          </svg>
+          <p style="font:600 15px/1.1 'Work Sans',sans-serif; color:var(--cream-on-navy);">Expertise<span style="color:var(--cyan-500);">InPharma</span></p>
+        </div>
+        <p style="font:400 15px/1.7 'Work Sans',sans-serif; color:var(--cream-on-navy-dim); max-width:460px; margin-bottom:18px;">ExpertiseInPharma is a global organization dedicated to helping pharmaceutical sponsors and contract research organizations navigate complex regulatory landscapes, accelerate innovation and boost productivity.</p>
+        <p style="font:400 15px/1.7 'Work Sans',sans-serif; color:var(--cream-on-navy-dim); max-width:460px;">Our solutions &mdash; GCC Consulting, SME on Demand, Resource on Demand and Outsourced L&amp;D &mdash; are curated and delivered by industry practitioners who understand pharma delivery environments, regulatory expectations, and execution pressures.</p>
+      </div>
+      <div>
+        <p style="font:600 12px/1 'Work Sans',sans-serif; color:var(--cyan-500); letter-spacing:.12em; text-transform:uppercase; margin-bottom:22px;">Explore</p>
+        <div style="display:flex; flex-direction:column; gap:14px;">
+          <a href="#" class="foot-link">Home</a>
+          <a href="#" class="foot-link">About Us</a>
+          <a href="#" class="foot-link">Services</a>
+          <a href="#" class="foot-link">Industry Solutions</a>
+          <a href="#" class="foot-link">How We Partner</a>
+          <a href="#" class="foot-link">Careers</a>
+          <a href="#" class="foot-link">Contact</a>
+        </div>
+      </div>
+      <div>
+        <p style="font:600 12px/1 'Work Sans',sans-serif; color:var(--cyan-500); letter-spacing:.12em; text-transform:uppercase; margin-bottom:22px;">Contact us</p>
+        <p style="font:400 15px/1.6 'Work Sans',sans-serif; color:var(--cream-on-navy-dim); margin-bottom:28px;">contact@sipedtech.com</p>
+        <p style="font:600 12px/1 'Work Sans',sans-serif; color:var(--cyan-500); letter-spacing:.12em; text-transform:uppercase; margin-bottom:22px;">Other links</p>
+        <div style="display:flex; flex-direction:column; gap:14px;">
+          <a href="#" class="foot-link">Privacy Policy</a>
+          <a href="#" class="foot-link">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--line-dark); padding-top:28px; display:flex; align-items:center; justify-content:space-between;">
+      <p style="font:400 13px/1 'Work Sans',sans-serif; color:var(--cream-on-navy-dim);">&copy; 2026 ExpertiseInPharma. All rights reserved.</p>
+      <p style="font:400 13px/1 'Work Sans',sans-serif; color:var(--cream-on-navy-dim);">Global &nbsp;&middot;&nbsp; United States &nbsp;&middot;&nbsp; Europe &nbsp;&middot;&nbsp; United Kingdom &nbsp;&middot;&nbsp; Emerging markets</p>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

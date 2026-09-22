@@ -1,0 +1,819 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Careers — ExpertiseInPharma</title>
+<meta name="description" content="Connecting talent with opportunity — explore roles with leading Pharma companies and CROs, or reach production-ready professionals for your open positions.">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+  /* ---- page-specific: careers.html ---- */
+
+  .hero-carousel{ position:relative; width:100%; height:64vh; min-height:520px; max-height:640px; overflow:hidden; background:var(--navy-950); }
+  .hero-slide{ position:absolute; inset:0; opacity:1; }
+  .hero-slide-bg{ position:absolute; inset:0; }
+  .hero-slide-overlay{ position:absolute; inset:0; background:linear-gradient(0deg, rgba(7,22,45,0.96) 0%, rgba(7,22,45,0.82) 35%, rgba(7,22,45,0.62) 60%, rgba(7,22,45,0.72) 100%); }
+  .hero-slide-content{ position:absolute; left:0; right:0; bottom:0; padding:0 clamp(20px,5vw,100px) 68px clamp(64px,9vw,160px); max-width:1000px; }
+  .breadcrumb{ display:flex; align-items:center; gap:8px; font:500 13px/1 'Inter',sans-serif; color:var(--cream-on-navy-dim); margin-bottom:22px; }
+  .breadcrumb a{ transition:color .2s ease; }
+  .breadcrumb a:hover{ color:var(--cyan-500); }
+  .hero-quick-actions{ display:flex; flex-wrap:wrap; gap:14px; margin-top:34px; }
+
+  /* Featured roles */
+  .job-card{ position:relative; background:var(--cream-50); border:1px solid var(--line); border-radius:16px; padding:26px 24px 24px; overflow:hidden; transition:transform .3s cubic-bezier(.2,.7,.2,1), border-color .3s ease, box-shadow .3s ease; }
+  .job-card:hover{ transform:translateY(-5px); border-color:var(--cyan-600); box-shadow:0 24px 46px -28px rgba(3,9,20,0.22); }
+  .job-card::before{ content:''; position:absolute; top:0; left:0; right:0; height:4px; background:var(--cyan-500); }
+  .job-card[data-accent="violet"]::before{ background:var(--violet); }
+  .job-card[data-accent="amber"]::before{ background:var(--amber-500); }
+  .job-icon{ width:40px; height:40px; border-radius:11px; background:rgba(40,188,210,0.1); display:flex; align-items:center; justify-content:center; margin-bottom:16px; }
+  .job-card[data-accent="violet"] .job-icon{ background:rgba(124,92,196,0.12); }
+  .job-card[data-accent="amber"] .job-icon{ background:var(--amber-100); }
+  .job-fn-tag{ display:block; font:600 11.5px/1 'Inter',sans-serif; color:var(--cyan-700); letter-spacing:.06em; text-transform:uppercase; margin-bottom:10px; }
+  .job-card[data-accent="violet"] .job-fn-tag{ color:var(--violet); }
+  .job-card[data-accent="amber"] .job-fn-tag{ color:var(--amber-700); }
+  .job-title{ font:600 19px/1.3 var(--font-display); color:var(--ink-900); margin:0 0 14px; }
+  .job-meta{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; }
+  .job-meta-item{ display:inline-flex; align-items:center; gap:5px; font:500 12.5px/1 'Inter',sans-serif; color:var(--ink-600); background:var(--cream-100); border:1px solid var(--line); padding:6px 11px; border-radius:999px; }
+  .job-card .arrow-link{ color:var(--cyan-700); }
+  .job-card[data-accent="violet"] .arrow-link{ color:var(--violet); }
+  .job-card[data-accent="amber"] .arrow-link{ color:var(--amber-700); }
+  .job-card-hidden{ display:none; }
+
+  /* Functional area accordion pills */
+  .fa-pill{ border:1px solid var(--line-dark); border-radius:12px; background:rgba(255,255,255,0.025); padding:22px 26px; cursor:pointer; transition:border-color .3s ease, background .3s ease; }
+  .fa-pill:hover{ border-color:rgba(40,188,210,0.55); background:rgba(255,255,255,0.04); }
+  .fa-pill.is-open{ border-color:var(--cyan-500); background:rgba(40,188,210,0.06); }
+  .fa-pill-head{ display:flex; align-items:center; justify-content:space-between; gap:16px; }
+  .fa-pill-title{ font:600 17px/1.3 'Inter',sans-serif; color:var(--cream-on-navy); }
+  .fa-pill-plus{ flex:none; transition:transform .35s ease; }
+  .fa-pill.is-open .fa-pill-plus{ transform:rotate(135deg); }
+  .fa-pill-body{ max-height:0; overflow:hidden; transition:max-height .4s ease; }
+  .fa-pill.is-open .fa-pill-body{ max-height:160px; }
+  .fa-pill-body p{ font:400 15px/1.65 'Inter',sans-serif; color:var(--cream-on-navy-dim); padding-top:14px; }
+
+  .looking-row{ display:flex; gap:18px; padding:22px 0; border-top:1px solid var(--line-dark); transition:transform .3s ease; }
+  .looking-row:hover{ transform:translateX(6px); }
+  .looking-row:last-child{ border-bottom:1px solid var(--line-dark); }
+  .looking-row-icon{ flex:none; width:42px; height:42px; border-radius:50%; background:rgba(124,92,196,0.12); border:1px solid rgba(124,92,196,0.4); display:flex; align-items:center; justify-content:center; }
+  .looking-row p{ font:400 15.5px/1.65 'Inter',sans-serif; color:var(--cream-on-navy-dim); }
+  .looking-row strong{ color:var(--cream-on-navy); font-weight:600; }
+
+  /* Benefit rows (for companies) */
+  .benefit-row{ position:relative; display:flex; gap:20px; padding:28px; border:1px solid var(--line-dark); border-radius:14px; background:rgba(255,255,255,0.02); overflow:hidden; transition:border-color .35s ease, transform .35s ease; }
+  .benefit-row::before{ content:''; position:absolute; inset:0; background:radial-gradient(300px circle at var(--mx,50%) var(--my,50%), rgba(124,92,196,0.14), transparent 62%); opacity:0; transition:opacity .4s ease; pointer-events:none; }
+  .benefit-row:hover{ transform:translateY(-4px); border-color:rgba(124,92,196,0.5); }
+  .benefit-row:hover::before{ opacity:1; }
+  .benefit-row-icon{ position:relative; z-index:1; flex:none; width:46px; height:46px; border-radius:12px; background:rgba(124,92,196,0.12); border:1px solid rgba(124,92,196,0.4); display:flex; align-items:center; justify-content:center; }
+  .benefit-row p{ position:relative; z-index:1; font:400 15.5px/1.65 'Inter',sans-serif; color:var(--cream-on-navy-dim); }
+  .benefit-row strong{ color:var(--cream-on-navy); font-weight:600; }
+
+  .h-onlight-title{ font-family:var(--font-display); }
+</style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <div id="site-nav">
+    <div class="wrap" style="height:84px; display:flex; align-items:center; justify-content:space-between;">
+      <a href="index.html" class="logo-mark-onDark"><img src="assets/logo-dark.png" alt="ExpertiseInPharma" style="height:38px; width:auto; display:block;"></a>
+      <a href="index.html" class="logo-mark-onLight"><img src="assets/logo-light.png" alt="ExpertiseInPharma" style="height:38px; width:auto; display:block;"></a>
+
+      <div class="nav-links" style="display:flex; align-items:center; gap:36px; height:100%;">
+        <div class="nav-item"><a href="about.html" class="nav-link">About Us</a></div>
+
+        <div class="nav-item">
+          <a href="sme-on-demand.html" class="nav-link" style="display:flex; align-items:center;">Services
+            <svg class="nav-caret" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="mega mega-services">
+            <div class="mega-grid mega-grid-1col">
+              <a href="sme-on-demand.html" class="mega-item">
+                <span class="mega-num">01</span>
+                <span class="mega-title">SME on Demand</span>
+                <span class="mega-desc">Industry-ready expertise, delivered on demand.</span>
+              </a>
+              <a href="#" class="mega-item">
+                <span class="mega-num">02</span>
+                <span class="mega-title">Resource on Demand</span>
+                <span class="mega-desc">Vetted, production-ready life sciences talent &mdash; 75% faster search-to-productivity.</span>
+              </a>
+              <a href="#" class="mega-item">
+                <span class="mega-num">03</span>
+                <span class="mega-title">Outsourced L&amp;D Enablement</span>
+                <span class="mega-desc">Enterprise training without expanding your L&amp;D team.</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <a href="pharmaceutical-companies.html" class="nav-link" style="display:flex; align-items:center;">Industry Solutions
+            <svg class="nav-caret" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="mega mega-industry">
+            <div class="mega-grid">
+              <a href="pharmaceutical-companies.html" class="mega-item">
+                <span class="mega-title">Pharmaceutical Companies</span>
+                <span class="mega-desc">Accelerate innovation, ensure compliance, reduce vendor dependency.</span>
+              </a>
+              <a href="index.html" class="mega-item">
+                <span class="mega-title">Clinical Research Organizations (CRO)</span>
+                <span class="mega-desc">Protect margins, strengthen client confidence, scale delivery capacity.</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item"><a href="how-we-partner.html" class="nav-link">How We Partner</a></div>
+        <div class="nav-item"><a href="careers.html" class="nav-link is-current">Careers</a></div>
+        <div class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></div>
+      </div>
+
+      <button type="button" class="btn-primary nav-cta" style="padding:13px 24px;" onclick="openLeadModal('nav')">Talk to our team</button>
+
+      <button type="button" id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+
+  <!-- MOBILE DRAWER -->
+  <div id="mobile-drawer" class="mobile-drawer">
+    <div class="wrap">
+      <a href="about.html" class="nav-link">About Us</a>
+      <a href="sme-on-demand.html" class="nav-link">Services</a>
+      <a href="pharmaceutical-companies.html" class="nav-link">Industry Solutions</a>
+      <a href="how-we-partner.html" class="nav-link">How We Partner</a>
+      <a href="careers.html" class="nav-link is-current">Careers</a>
+      <a href="contact.html" class="nav-link">Contact Us</a>
+      <button type="button" class="btn-primary" onclick="openLeadModal('mobile-nav')">Talk to our team</button>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero-carousel" id="hero-carousel">
+    <div class="hero-slide">
+      <div class="hero-slide-bg photo-tint" style="background-image:url('assets/img10.jpg'); background-size:cover; background-position:center 30%;"></div>
+      <div class="hero-slide-overlay"></div>
+      <div class="hero-slide-content">
+        <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span style="color:var(--cyan-500);">Careers</span></div>
+        <p class="eyebrow" style="color:var(--cyan-500); margin-bottom:18px;">Careers</p>
+        <h1 style="font-size:42px; line-height:1.22; color:var(--cream-on-navy); margin:0 0 22px 0; max-width:760px;">Connecting <span class="hl">talent</span> with <span class="hl">opportunity</span></h1>
+        <p style="font:400 19px/1.65 'Inter',sans-serif; color:var(--cream-on-navy-dim); max-width:640px;">Whether you're an organization seeking production-ready professionals or an experienced candidate looking for your next career move &mdash; we bridge the gap.</p>
+        <div class="hero-quick-actions">
+          <button class="btn-primary btn-primary--amber" onclick="switchRole('professionals', true)">I'm looking for a role
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="var(--navy-950)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="btn-primary btn-primary--violet" onclick="switchRole('companies', true)">I'm hiring talent
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="var(--cream-50)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 INTRO -->
+  <section style="width:100%; background:var(--cream-50);" data-rail-section data-rail-num="01" data-rail-label="Two paths" data-rail-theme="light">
+    <div class="wrap" style="padding-top:110px; padding-bottom:90px;">
+      <p class="eyebrow" style="color:var(--cyan-700); margin-bottom:24px;">01 &mdash; Two paths, one platform</p>
+      <h2 data-reveal="up" style="font-size:38px; line-height:1.25; color:var(--ink-900); margin:0 0 28px; max-width:720px;">We work at the intersection of workforce readiness and career growth</h2>
+      <p data-reveal="up" style="font:400 19px/1.7 'Inter',sans-serif; color:var(--ink-600); max-width:760px;">We connect talented professionals with organizations that value their expertise, and help companies find the skilled talent they need to deliver with confidence.</p>
+    </div>
+  </section>
+
+  <!-- 02 FEATURED OPEN ROLES -->
+  <section style="width:100%; background:var(--cream-100);" data-rail-section data-rail-num="02" data-rail-label="Open roles" data-rail-theme="light">
+    <div class="wrap" style="padding-top:90px; padding-bottom:100px;">
+      <p class="eyebrow" style="color:var(--cyan-700); margin-bottom:24px;">02 &mdash; A sample of what's open right now</p>
+      <div class="resp-grid" style="display:grid; grid-template-columns:0.82fr 1.18fr; gap:88px; align-items:start; margin-bottom:44px;">
+        <h2 data-reveal="up" style="font-size:36px; line-height:1.25; color:var(--ink-900); margin:0;">Featured open roles</h2>
+        <p style="font:400 17px/1.7 'Inter',sans-serif; color:var(--ink-600); max-width:540px; margin:0;">A representative slice of the roles our community works across &mdash; filter by function, then submit your profile below to be matched against these and roles not yet listed.</p>
+      </div>
+
+      <div class="tab-row tab-row--onlight" id="job-tabs" style="margin-bottom:36px;">
+        <button type="button" class="tab-btn is-active" data-job-tab="all">All roles</button>
+        <button type="button" class="tab-btn" data-job-tab="pv">Pharmacovigilance</button>
+        <button type="button" class="tab-btn" data-job-tab="mw">Medical Writing</button>
+        <button type="button" class="tab-btn" data-job-tab="qa">Quality Assurance</button>
+        <button type="button" class="tab-btn" data-job-tab="ra">Regulatory Affairs</button>
+        <button type="button" class="tab-btn" data-job-tab="mi">Medical Information</button>
+        <button type="button" class="tab-btn" data-job-tab="co">Clinical Operations</button>
+      </div>
+
+      <div class="resp-grid" id="job-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
+        <div class="job-card" data-job-fn="pv" data-accent="cyan">
+          <div class="job-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z" stroke="var(--cyan-700)" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="var(--cyan-700)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span class="job-fn-tag">Pharmacovigilance</span>
+          <p class="job-title">Senior Pharmacovigilance Associate</p>
+          <div class="job-meta">
+            <span class="job-meta-item">Remote &middot; US</span>
+            <span class="job-meta-item">Full-time</span>
+          </div>
+          <a href="#" class="arrow-link" onclick="switchRole('professionals', true); return false;">View &amp; apply <svg class="arrow-ic" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+        <div class="job-card" data-job-fn="ra" data-accent="violet">
+          <div class="job-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 15l6-6" stroke="var(--violet)" stroke-width="1.5" stroke-linecap="round"/><path d="M8 12l-2.5 2.5a3 3 0 104.24 4.24L12 16.5" stroke="var(--violet)" stroke-width="1.5" stroke-linecap="round"/><path d="M16 12l2.5-2.5a3 3 0 10-4.24-4.24L12 7.5" stroke="var(--violet)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          <span class="job-fn-tag">Regulatory Affairs</span>
+          <p class="job-title">Regulatory Affairs Manager</p>
+          <div class="job-meta">
+            <span class="job-meta-item">Hybrid &middot; UK</span>
+            <span class="job-meta-item">Full-time</span>
+          </div>
+          <a href="#" class="arrow-link" onclick="switchRole('professionals', true); return false;">View &amp; apply <svg class="arrow-ic" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+        <div class="job-card" data-job-fn="mw" data-accent="amber">
+          <div class="job-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 3h6M10 3v6.2c0 .5-.15 1-.43 1.4L5.9 16.3c-.9 1.28.02 3.03 1.58 3.03h9.04c1.56 0 2.48-1.75 1.58-3.03l-3.67-5.7A2.5 2.5 0 0 1 14 9.2V3" stroke="var(--amber-700)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span class="job-fn-tag">Medical Writing</span>
+          <p class="job-title">Medical Writer II &mdash; Clinical Study Reports</p>
+          <div class="job-meta">
+            <span class="job-meta-item">Remote &middot; EU</span>
+            <span class="job-meta-item">Contract</span>
+          </div>
+          <a href="#" class="arrow-link" onclick="switchRole('professionals', true); return false;">View &amp; apply <svg class="arrow-ic" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+        <div class="job-card" data-job-fn="qa" data-accent="cyan">
+          <div class="job-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M8.5 12.5l2.3 2.3L15.5 9.5" stroke="var(--cyan-700)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="var(--cyan-700)" stroke-width="1.5"/></svg></div>
+          <span class="job-fn-tag">Quality Assurance</span>
+          <p class="job-title">QA Auditor, GxP Compliance</p>
+          <div class="job-meta">
+            <span class="job-meta-item">On-site &middot; India</span>
+            <span class="job-meta-item">Full-time</span>
+          </div>
+          <a href="#" class="arrow-link" onclick="switchRole('professionals', true); return false;">View &amp; apply <svg class="arrow-ic" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+        <div class="job-card" data-job-fn="mi" data-accent="violet">
+          <div class="job-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M10 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="var(--violet)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span class="job-fn-tag">Medical Information</span>
+          <p class="job-title">Medical Information Specialist</p>
+          <div class="job-meta">
+            <span class="job-meta-item">Remote &middot; US</span>
+            <span class="job-meta-item">Part-time</span>
+          </div>
+          <a href="#" class="arrow-link" onclick="switchRole('professionals', true); return false;">View &amp; apply <svg class="arrow-ic" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+        <div class="job-card" data-job-fn="co" data-accent="amber">
+          <div class="job-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke="var(--amber-700)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span class="job-fn-tag">Clinical Operations</span>
+          <p class="job-title">Clinical Trial Associate</p>
+          <div class="job-meta">
+            <span class="job-meta-item">Hybrid &middot; Emerging markets</span>
+            <span class="job-meta-item">Full-time</span>
+          </div>
+          <a href="#" class="arrow-link" onclick="switchRole('professionals', true); return false;">View &amp; apply <svg class="arrow-ic" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+        <div class="job-card" data-job-fn="pv" data-accent="cyan">
+          <div class="job-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 9v4M12 17h.01" stroke="var(--cyan-700)" stroke-width="1.6" stroke-linecap="round"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z" stroke="var(--cyan-700)" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+          <span class="job-fn-tag">Pharmacovigilance</span>
+          <p class="job-title">Drug Safety Scientist</p>
+          <div class="job-meta">
+            <span class="job-meta-item">Remote &middot; EU</span>
+            <span class="job-meta-item">Full-time</span>
+          </div>
+          <a href="#" class="arrow-link" onclick="switchRole('professionals', true); return false;">View &amp; apply <svg class="arrow-ic" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+        <div class="job-card" data-job-fn="ra" data-accent="violet">
+          <div class="job-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M14 3v4a1 1 0 0 0 1 1h4" stroke="var(--violet)" stroke-width="1.5" stroke-linejoin="round"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z" stroke="var(--violet)" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+          <span class="job-fn-tag">Regulatory Affairs</span>
+          <p class="job-title">Regulatory Submissions Associate</p>
+          <div class="job-meta">
+            <span class="job-meta-item">On-site &middot; US</span>
+            <span class="job-meta-item">Contract</span>
+          </div>
+          <a href="#" class="arrow-link" onclick="switchRole('professionals', true); return false;">View &amp; apply <svg class="arrow-ic" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+      <p style="font:400 13px/1.6 'Inter',sans-serif; color:var(--ink-400); margin-top:28px;">Illustrative roles shown for reference &mdash; submit your profile below and we'll match you against current and upcoming openings.</p>
+    </div>
+  </section>
+
+  <!-- 03 ROLE PANELS -->
+  <section id="role-section" style="width:100%; background:var(--navy-950);" data-rail-section data-rail-num="03" data-rail-label="Choose your path" data-rail-theme="dark">
+    <div class="wrap" style="padding-top:100px; padding-bottom:120px;">
+      <p class="eyebrow" style="color:var(--cyan-500); margin-bottom:24px; text-align:center;">03 &mdash; Choose your path</p>
+      <div style="display:flex; justify-content:center; margin-bottom:80px;">
+        <div class="role-toggle" id="role-toggle" data-active="professionals">
+          <span class="role-toggle-glow"></span>
+          <button class="role-toggle-btn is-active" id="toggle-professionals" onclick="switchRole('professionals')">For professionals</button>
+          <button class="role-toggle-btn" id="toggle-companies" onclick="switchRole('companies')">For companies</button>
+        </div>
+      </div>
+
+      <!-- PROFESSIONALS PANEL -->
+      <div class="role-panel is-active" id="panel-professionals">
+        <h2 style="font-size:34px; line-height:1.25; color:var(--cream-on-navy); margin:0 0 64px; max-width:720px;">Advance your career with leading <span class="hl">Pharma</span> companies and <span class="hl">CROs</span></h2>
+
+        <div class="resp-grid" style="display:grid; grid-template-columns:1.1fr 0.9fr; gap:64px; margin-bottom:80px;">
+          <div>
+            <p style="font:600 13px/1 'Inter',sans-serif; color:var(--cream-on-navy-dim); letter-spacing:.1em; text-transform:uppercase; margin-bottom:22px;">Opportunities across critical functional areas</p>
+            <div style="display:flex; flex-direction:column; gap:12px;">
+              <div class="fa-pill" onclick="this.classList.toggle('is-open')">
+                <div class="fa-pill-head">
+                  <p class="fa-pill-title">Pharmacovigilance</p>
+                  <svg class="fa-pill-plus" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="var(--cyan-500)" stroke-width="1.6" stroke-linecap="round"/></svg>
+                </div>
+                <div class="fa-pill-body"><p>Case processing, signal detection, aggregate reporting, safety database management.</p></div>
+              </div>
+              <div class="fa-pill" onclick="this.classList.toggle('is-open')">
+                <div class="fa-pill-head">
+                  <p class="fa-pill-title">Medical Information</p>
+                  <svg class="fa-pill-plus" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="var(--cyan-500)" stroke-width="1.6" stroke-linecap="round"/></svg>
+                </div>
+                <div class="fa-pill-body"><p>Medical inquiry response, medical review, scientific communications.</p></div>
+              </div>
+              <div class="fa-pill" onclick="this.classList.toggle('is-open')">
+                <div class="fa-pill-head">
+                  <p class="fa-pill-title">Medical Writing</p>
+                  <svg class="fa-pill-plus" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="var(--cyan-500)" stroke-width="1.6" stroke-linecap="round"/></svg>
+                </div>
+                <div class="fa-pill-body"><p>Clinical study reports, regulatory documents, safety narratives, protocol development.</p></div>
+              </div>
+              <div class="fa-pill" onclick="this.classList.toggle('is-open')">
+                <div class="fa-pill-head">
+                  <p class="fa-pill-title">Quality Assurance</p>
+                  <svg class="fa-pill-plus" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="var(--cyan-500)" stroke-width="1.6" stroke-linecap="round"/></svg>
+                </div>
+                <div class="fa-pill-body"><p>Quality management, audit preparation, CAPA management, compliance strategy.</p></div>
+              </div>
+              <div class="fa-pill" onclick="this.classList.toggle('is-open')">
+                <div class="fa-pill-head">
+                  <p class="fa-pill-title">Regulatory Affairs</p>
+                  <svg class="fa-pill-plus" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="var(--cyan-500)" stroke-width="1.6" stroke-linecap="round"/></svg>
+                </div>
+                <div class="fa-pill-body"><p>Submissions strategy, regulatory intelligence, health authority interactions.</p></div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <p style="font:600 13px/1 'Inter',sans-serif; color:var(--cream-on-navy-dim); letter-spacing:.1em; text-transform:uppercase; margin-bottom:22px;">We're looking for</p>
+            <div>
+              <div class="looking-row">
+                <div class="looking-row-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z" stroke="var(--violet)" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+                <p><strong>Experienced professionals</strong> with functional expertise, regulatory knowledge, and a proven track record in CRO and Pharma settings, ready to make an immediate impact.</p>
+              </div>
+              <div class="looking-row">
+                <div class="looking-row-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z" stroke="var(--violet)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <p><strong>Production-ready talent</strong> with strong compliance knowledge, including SOPs, quality standards, audits, and regulatory operations.</p>
+              </div>
+              <div class="looking-row">
+                <div class="looking-row-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M10 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="var(--violet)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <p><strong>Career-driven individuals</strong> seeking advancement, whether within your current function, a new therapeutic area, or in leadership. We match your goals with the right roles.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="max-width:640px; margin:0 auto 48px; text-align:center;">
+          <h3 style="font:600 30px/1.3 var(--font-display); color:var(--cream-on-navy); margin:0 0 16px;">Submit your profile</h3>
+          <p style="font:400 17px/1.6 'Inter',sans-serif; color:var(--cream-on-navy-dim);">Share your profile with us, and we'll connect you with organizations seeking professionals with your expertise and experience.</p>
+        </div>
+
+        <div class="form-panel" style="max-width:900px; margin:0 auto;">
+          <div class="wizard-progress" id="career-progress">
+            <div class="wizard-step-ind is-active" data-step="1"><div class="wizard-dot">1</div><div class="wizard-step-label">Personal</div></div>
+            <div class="wizard-step-ind" data-step="2"><div class="wizard-dot">2</div><div class="wizard-step-label">Background</div></div>
+            <div class="wizard-step-ind" data-step="3"><div class="wizard-dot">3</div><div class="wizard-step-label">Preferences</div></div>
+            <div class="wizard-step-ind" data-step="4"><div class="wizard-dot">4</div><div class="wizard-step-label">Resume</div></div>
+          </div>
+
+          <form id="career-form" novalidate>
+            <div class="wizard-panel is-active" data-panel="1">
+              <p class="form-section-title">Personal details</p>
+              <div class="field-row">
+                <div class="field"><label>Your name <span class="req">*</span></label><input type="text" placeholder="Full Name" required></div>
+                <div class="field"><label>Email <span class="req">*</span></label><input type="email" placeholder="Email Address" required></div>
+              </div>
+              <div class="field-row">
+                <div class="field"><label>Phone number <span class="req">*</span></label><input type="tel" placeholder="Phone Number" required></div>
+                <div class="field"><label>City <span class="req">*</span></label><input type="text" placeholder="Current Location" required></div>
+              </div>
+              <div class="field-row" style="margin-bottom:0;">
+                <div class="field"><label>Country <span class="req">*</span></label><input type="text" placeholder="Current Location" required></div>
+                <div class="field"><label>LinkedIn profile URL <span style="color:var(--cream-on-navy-dim); font-weight:400;">(optional)</span></label><input type="url" placeholder="LinkedIn&hellip;"></div>
+              </div>
+              <div class="wizard-nav"><span></span><button type="button" class="btn-primary" data-wizard-next>Continue
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="var(--navy-950)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button></div>
+            </div>
+
+            <div class="wizard-panel" data-panel="2">
+              <p class="form-section-title">Professional background</p>
+              <div class="field-row">
+                <div class="field"><label>Current job title <span class="req">*</span></label><input type="text" placeholder="Current Job Title" required></div>
+                <div class="field"><label>Years of experience <span class="req">*</span></label><input type="text" placeholder="Years of Experience" required></div>
+              </div>
+              <div class="field-row" style="grid-template-columns:1fr;">
+                <div class="field"><label>Primary functional area <span class="req">*</span></label>
+                  <select required>
+                    <option value="" selected disabled>Select</option>
+                    <option>Pharmacovigilance</option>
+                    <option>Medical Information</option>
+                    <option>Medical Writing</option>
+                    <option>Quality Assurance</option>
+                    <option>Regulatory Affairs</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field-row" style="grid-template-columns:1fr; margin-bottom:0;">
+                <div class="field"><label>Secondary/additional functional areas <span style="color:var(--cream-on-navy-dim); font-weight:400;">(optional)</span></label><textarea></textarea></div>
+              </div>
+              <div class="wizard-nav"><button type="button" class="btn-outline" data-wizard-prev>Back</button><button type="button" class="btn-primary" data-wizard-next>Continue
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="var(--navy-950)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button></div>
+            </div>
+
+            <div class="wizard-panel" data-panel="3">
+              <p class="form-section-title">What you're looking for</p>
+              <div class="field-row">
+                <div class="field"><label>Preferred work location <span class="req">*</span></label>
+                  <select required><option value="" selected disabled>Select</option><option>On-site</option><option>Remote</option><option>Hybrid</option></select>
+                </div>
+                <div class="field"><label>Preferred geographic region <span class="req">*</span></label>
+                  <select required><option value="" selected disabled>Select</option><option>United States</option><option>Europe</option><option>United Kingdom</option><option>Emerging markets</option></select>
+                </div>
+              </div>
+              <div class="field-row" style="margin-bottom:0;">
+                <div class="field"><label>Employment type <span class="req">*</span></label>
+                  <select required><option value="" selected disabled>Select</option><option>Full-time</option><option>Contract</option><option>Part-time</option></select>
+                </div>
+                <div class="field"><label>Expected start date <span class="req">*</span></label>
+                  <select required><option value="" selected disabled>Select</option><option>Immediately</option><option>Within 30 days</option><option>Within 90 days</option></select>
+                </div>
+              </div>
+              <div class="wizard-nav"><button type="button" class="btn-outline" data-wizard-prev>Back</button><button type="button" class="btn-primary" data-wizard-next>Continue
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="var(--navy-950)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button></div>
+            </div>
+
+            <div class="wizard-panel" data-panel="4">
+              <p class="form-section-title">Your resume/CV</p>
+              <p style="font:400 13px/1 'Inter',sans-serif; color:var(--cream-on-navy-dim); margin-bottom:14px;">File attachment: PDF, DOC, DOCX &mdash; maximum file size 5 MB <span class="req">*</span></p>
+              <div class="file-drop" style="margin-bottom:32px;">
+                <label class="file-drop-btn">Choose a file<input type="file" id="resume-input" accept=".pdf,.doc,.docx" style="display:none;"></label>
+                <span class="file-drop-name" id="resume-filename">No file chosen.</span>
+              </div>
+
+              <p class="form-section-title">Consent and privacy</p>
+              <div class="consent-row"><input type="checkbox" id="consent1" required><label for="consent1">I consent to my information being shared with relevant organizations seeking professionals with my qualifications.</label></div>
+              <div class="consent-row" style="margin-bottom:32px;"><input type="checkbox" id="consent2"><label for="consent2">I agree to receive updates about career opportunities that match my profile.</label></div>
+
+              <div class="wizard-nav">
+                <button type="button" class="btn-outline" data-wizard-prev>Back</button>
+                <button type="submit" class="btn-primary" style="flex:1; justify-content:center;">Submit your profile
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="var(--navy-950)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <div class="form-success" id="form-success">
+            <svg class="form-success-check" width="64" height="64" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="28" stroke="var(--cyan-500)" stroke-width="2.2"/><path d="M20 33l8 8 16-17" stroke="var(--cyan-500)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <h3 style="font:600 24px/1.3 var(--font-display); color:var(--cream-on-navy); margin:0 0 12px;">Profile received</h3>
+            <p style="font:400 16px/1.6 'Inter',sans-serif; color:var(--cream-on-navy-dim); max-width:420px;">Thank you &mdash; we'll review your profile and reach out when a matching opportunity comes up.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- COMPANIES PANEL -->
+      <div class="role-panel" id="panel-companies">
+        <p style="color:var(--violet); font:600 12px/1 'Inter',sans-serif; letter-spacing:.14em; text-transform:uppercase; margin-bottom:20px; text-align:center;">For companies</p>
+        <h2 style="font-size:34px; line-height:1.25; color:var(--cream-on-navy); margin:0 0 64px; max-width:720px; text-align:center; margin-left:auto; margin-right:auto;">Reach qualified, <span class="hl">production-ready</span> professionals</h2>
+
+        <p style="font:600 13px/1 'Inter',sans-serif; color:var(--cream-on-navy-dim); letter-spacing:.1em; text-transform:uppercase; margin-bottom:26px;">Why list your positions with us</p>
+        <div class="resp-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:80px;">
+          <div class="benefit-row" data-spotlight>
+            <div class="benefit-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="var(--violet)" stroke-width="1.5"/><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="var(--violet)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <p><strong>Gain access</strong> to a pool of experienced professionals, actively seeking positions in Pharma and CRO organizations.</p>
+          </div>
+          <div class="benefit-row" data-spotlight>
+            <div class="benefit-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M10 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="var(--violet)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <p><strong>Connect with professionals</strong> in Pharmacovigilance, Medical Information, Medical Writing, Quality Assurance, and Regulatory Affairs.</p>
+          </div>
+          <div class="benefit-row" data-spotlight>
+            <div class="benefit-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z" stroke="var(--violet)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <p><strong>Hire pre-screened, production-ready candidates</strong> and streamline your hiring process and increase fitment predictability.</p>
+          </div>
+          <div class="benefit-row" data-spotlight>
+            <div class="benefit-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="var(--violet)" stroke-width="1.5"/><path d="M3 12h18M12 3c2.5 2.5 3.5 5.7 3.5 9s-1 6.5-3.5 9c-2.5-2.5-3.5-5.7-3.5-9s1-6.5 3.5-9Z" stroke="var(--violet)" stroke-width="1.3"/></svg></div>
+            <p><strong>Reach candidates across the US, EU, UK, APAC, and emerging markets.</strong> This enables you to hire locally or build global team diversity.</p>
+          </div>
+        </div>
+
+        <div style="max-width:640px; margin:0 auto 48px; text-align:center;">
+          <h3 style="font:600 30px/1.3 var(--font-display); color:var(--cream-on-navy); margin:0 0 16px;">List an open position</h3>
+          <p style="font:400 17px/1.6 'Inter',sans-serif; color:var(--cream-on-navy-dim);">Share your open position with us, and we'll match it against our community of trained, production-ready professionals.</p>
+        </div>
+
+        <div class="form-panel" style="max-width:900px; margin:0 auto;">
+          <div class="wizard-progress" id="company-progress">
+            <div class="wizard-step-ind is-active" data-step="1"><div class="wizard-dot">1</div><div class="wizard-step-label">Company</div></div>
+            <div class="wizard-step-ind" data-step="2"><div class="wizard-dot">2</div><div class="wizard-step-label">Position</div></div>
+            <div class="wizard-step-ind" data-step="3"><div class="wizard-dot">3</div><div class="wizard-step-label">Description</div></div>
+            <div class="wizard-step-ind" data-step="4"><div class="wizard-dot">4</div><div class="wizard-step-label">Review</div></div>
+          </div>
+
+          <form id="company-form" novalidate>
+            <div class="wizard-panel is-active" data-panel="1">
+              <p class="form-section-title">Company &amp; contact details</p>
+              <div class="field-row">
+                <div class="field"><label>Company name <span class="req">*</span></label><input type="text" placeholder="Company Name" required></div>
+                <div class="field"><label>Your name <span class="req">*</span></label><input type="text" placeholder="Full Name" required></div>
+              </div>
+              <div class="field-row" style="margin-bottom:0;">
+                <div class="field"><label>Work email <span class="req">*</span></label><input type="email" placeholder="Work Email Address" required></div>
+                <div class="field"><label>Phone number <span class="req">*</span></label><input type="tel" placeholder="Phone Number" required></div>
+              </div>
+              <div class="wizard-nav"><span></span><button type="button" class="btn-primary" data-wizard-next>Continue
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="var(--navy-950)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button></div>
+            </div>
+
+            <div class="wizard-panel" data-panel="2">
+              <p class="form-section-title">Position details</p>
+              <div class="field-row">
+                <div class="field"><label>Job title <span class="req">*</span></label><input type="text" placeholder="Job Title" required></div>
+                <div class="field"><label>Primary functional area <span class="req">*</span></label>
+                  <select required>
+                    <option value="" selected disabled>Select</option>
+                    <option>Pharmacovigilance</option>
+                    <option>Medical Information</option>
+                    <option>Medical Writing</option>
+                    <option>Quality Assurance</option>
+                    <option>Regulatory Affairs</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field-row">
+                <div class="field"><label>Employment type <span class="req">*</span></label>
+                  <select required><option value="" selected disabled>Select</option><option>Full-time</option><option>Contract</option><option>Part-time</option></select>
+                </div>
+                <div class="field"><label>Work location <span class="req">*</span></label>
+                  <select required><option value="" selected disabled>Select</option><option>On-site</option><option>Remote</option><option>Hybrid</option></select>
+                </div>
+              </div>
+              <div class="field-row" style="margin-bottom:0;">
+                <div class="field"><label>Candidate region <span class="req">*</span></label>
+                  <select required><option value="" selected disabled>Select</option><option>United States</option><option>Europe</option><option>United Kingdom</option><option>Emerging markets</option></select>
+                </div>
+                <div class="field"><label>Number of openings <span class="req">*</span></label><input type="text" placeholder="e.g. 1" required></div>
+              </div>
+              <div class="wizard-nav"><button type="button" class="btn-outline" data-wizard-prev>Back</button><button type="button" class="btn-primary" data-wizard-next>Continue
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="var(--navy-950)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button></div>
+            </div>
+
+            <div class="wizard-panel" data-panel="3">
+              <p class="form-section-title">Job description</p>
+              <div class="field-row" style="grid-template-columns:1fr;">
+                <div class="field"><label>Role summary &amp; requirements <span class="req">*</span></label><textarea placeholder="Key responsibilities, required experience, and qualifications" required></textarea></div>
+              </div>
+              <p style="font:400 13px/1 'Inter',sans-serif; color:var(--cream-on-navy-dim); margin-bottom:14px;">File attachment: PDF, DOC, DOCX &mdash; maximum file size 5 MB <span style="color:var(--cream-on-navy-dim); font-weight:400;">(optional)</span></p>
+              <div class="file-drop" style="margin-bottom:0;">
+                <label class="file-drop-btn">Choose a file<input type="file" id="jd-input" accept=".pdf,.doc,.docx" style="display:none;"></label>
+                <span class="file-drop-name" id="jd-filename">No file chosen.</span>
+              </div>
+              <div class="wizard-nav"><button type="button" class="btn-outline" data-wizard-prev>Back</button><button type="button" class="btn-primary" data-wizard-next>Continue
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="var(--navy-950)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button></div>
+            </div>
+
+            <div class="wizard-panel" data-panel="4">
+              <p class="form-section-title">Consent and privacy</p>
+              <div class="consent-row"><input type="checkbox" id="company-consent1" required><label for="company-consent1">I consent to this position being shared with relevant professionals in our community.</label></div>
+              <div class="consent-row" style="margin-bottom:32px;"><input type="checkbox" id="company-consent2"><label for="company-consent2">I agree to receive updates about candidates matching this position.</label></div>
+              <div class="wizard-nav">
+                <button type="button" class="btn-outline" data-wizard-prev>Back</button>
+                <button type="submit" class="btn-primary" style="flex:1; justify-content:center;">Submit position
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="var(--navy-950)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <div class="form-success" id="company-form-success">
+            <svg class="form-success-check" width="64" height="64" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="28" stroke="var(--violet)" stroke-width="2.2"/><path d="M20 33l8 8 16-17" stroke="var(--violet)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <h3 style="font:600 24px/1.3 var(--font-display); color:var(--cream-on-navy); margin:0 0 12px;">Position received</h3>
+            <p style="font:400 16px/1.6 'Inter',sans-serif; color:var(--cream-on-navy-dim); max-width:420px;">Thank you &mdash; we'll review your listing and reach out to discuss matching candidates.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section id="discuss" style="width:100%; position:relative; overflow:hidden; min-height:420px; display:flex; align-items:center;">
+    <div class="photo-tint" style="position:absolute; inset:0; background-image:url('assets/img8.jpg'); background-size:cover; background-position:center;"></div>
+    <div style="position:absolute; inset:0; background:linear-gradient(100deg, rgba(7,22,45,0.96) 0%, rgba(7,22,45,0.82) 40%, rgba(7,22,45,0.42) 75%, rgba(7,22,45,0.25) 100%);"></div>
+    <div style="position:absolute; inset:0; background:radial-gradient(circle at 85% 20%, rgba(40,188,210,0.14), transparent 50%);"></div>
+    <div class="wrap" style="position:relative; padding-top:90px; padding-bottom:90px;">
+      <div style="max-width:600px;">
+        <h2 style="font-size:36px; line-height:1.25; color:var(--cream-on-navy); margin:0 0 20px 0;">Have a question about a role or a hire?</h2>
+        <p style="font:400 18px/1.7 'Inter',sans-serif; color:var(--cream-on-navy-dim); margin-bottom:36px; max-width:520px;">Whether you're mapping out your next career move or building your team, our team is ready to help.</p>
+        <button type="button" class="btn-primary" onclick="openLeadModal('careers-final-cta')">Talk to our team
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="var(--navy-950)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="width:100%; background:var(--navy-950); border-top:1px solid var(--line-dark);">
+    <div class="wrap" style="padding-top:80px; padding-bottom:40px;">
+      <div class="resp-grid" style="display:grid; grid-template-columns:1.4fr 0.8fr 0.8fr; gap:64px; margin-bottom:64px;">
+        <div>
+          <div style="margin-bottom:24px;">
+            <img src="assets/logo-dark.png" alt="ExpertiseInPharma" style="height:36px; width:auto; display:block;">
+          </div>
+          <p style="font:400 18px/1.8 'Inter',sans-serif; color:var(--cream-on-navy-dim); max-width:460px;">ExpertiseInPharma helps pharmaceutical sponsors and contract research organizations navigate complex regulatory landscapes, accelerate innovation and boost productivity &mdash; through SME on Demand, Resource on Demand and Outsourced L&amp;D, curated and delivered by industry practitioners who understand pharma delivery environments, regulatory expectations, and execution pressures.</p>
+        </div>
+        <div>
+          <p class="eyebrow" style="color:var(--cyan-500); margin-bottom:24px;">Explore</p>
+          <div style="display:flex; flex-direction:column; gap:20px;">
+            <a href="index.html" class="foot-link">Home</a>
+            <a href="about.html" class="foot-link">About Us</a>
+            <a href="sme-on-demand.html" class="foot-link">Services</a>
+            <a href="pharmaceutical-companies.html" class="foot-link">Industry Solutions</a>
+            <a href="how-we-partner.html" class="foot-link">How We Partner</a>
+            <a href="careers.html" class="foot-link">Careers</a>
+            <a href="contact.html" class="foot-link">Contact</a>
+          </div>
+        </div>
+        <div>
+          <p class="eyebrow" style="color:var(--cyan-500); margin-bottom:24px;">Contact us</p>
+          <p style="font:400 17px/1.65 'Inter',sans-serif; color:var(--cream-on-navy-dim); margin-bottom:32px;">connect@sipedtech.com</p>
+          <p class="eyebrow" style="color:var(--cyan-500); margin-bottom:24px;">Other links</p>
+          <div style="display:flex; flex-direction:column; gap:20px;">
+            <a href="#" class="foot-link">Privacy Policy</a>
+            <a href="#" class="foot-link">Terms of Use</a>
+          </div>
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--line-dark); padding-top:28px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+        <p style="font:400 14px/1.3 'Inter',sans-serif; color:var(--cream-on-navy-dim);">&copy; 2026 ExpertiseInPharma. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- LEAD-CAPTURE MODAL -->
+  <div class="modal-overlay" id="lead-modal">
+    <div class="modal-card">
+      <button type="button" class="modal-close" onclick="closeLeadModal()" aria-label="Close">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+      <p class="eyebrow" style="color:var(--cyan-500); margin-bottom:10px;">Talk to our team</p>
+      <h3 class="modal-title">Let's find the right fit</h3>
+      <p class="modal-sub">Tell us a little about what you need and someone from our team will follow up within one business day.</p>
+
+      <form id="lead-form" novalidate>
+        <input type="hidden" id="lead-source">
+        <div class="field-row">
+          <div class="field"><label>Your name <span class="req">*</span></label><input type="text" placeholder="Full name" required></div>
+          <div class="field"><label>Email <span class="req">*</span></label><input type="email" placeholder="Email address" required></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label>Phone <span style="color:var(--cream-on-navy-dim); font-weight:400;">(optional)</span></label><input type="tel" placeholder="Phone number"></div>
+          <div class="field"><label>I am a&hellip; <span class="req">*</span></label>
+            <select required><option value="" selected disabled>Select</option><option>Pharma company / CRO hiring talent</option><option>Professional looking for a role</option><option>Other</option></select>
+          </div>
+        </div>
+        <div class="field-row" style="grid-template-columns:1fr;">
+          <div class="field"><label>How can we help? <span style="color:var(--cream-on-navy-dim); font-weight:400;">(optional)</span></label><textarea placeholder="A quick note on what you're looking for"></textarea></div>
+        </div>
+        <div class="consent-row"><input type="checkbox" id="lead-consent" required><label for="lead-consent">I agree to be contacted by ExpertiseInPharma about this enquiry.</label></div>
+        <button type="submit" class="btn-primary" style="width:100%; justify-content:center; margin-top:8px;">Send message
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="var(--navy-950)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </form>
+      <div class="form-success" id="lead-form-success">
+        <svg class="form-success-check" width="56" height="56" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="28" stroke="var(--cyan-500)" stroke-width="2.2"/><path d="M20 33l8 8 16-17" stroke="var(--cyan-500)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3 style="font:600 22px/1.3 var(--font-display); color:var(--cream-on-navy); margin:12px 0 10px;">Message sent</h3>
+        <p style="font:400 15px/1.6 'Inter',sans-serif; color:var(--cream-on-navy-dim);">Thanks &mdash; we'll be in touch within one business day.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/site.js"></script>
+  <script>
+  (function(){
+
+    // Featured roles filter tabs
+    var jobTabs = document.getElementById('job-tabs');
+    var jobGrid = document.getElementById('job-grid');
+    if (jobTabs && jobGrid){
+      var jobCards = jobGrid.querySelectorAll('.job-card');
+      jobTabs.querySelectorAll('.tab-btn').forEach(function(btn){
+        btn.addEventListener('click', function(){
+          jobTabs.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('is-active'); });
+          btn.classList.add('is-active');
+          var fn = btn.getAttribute('data-job-tab');
+          jobCards.forEach(function(card){
+            var show = fn === 'all' || card.getAttribute('data-job-fn') === fn;
+            card.classList.toggle('job-card-hidden', !show);
+          });
+        });
+      });
+    }
+
+    // File inputs
+    var resumeInput = document.getElementById('resume-input');
+    var resumeFilename = document.getElementById('resume-filename');
+    if (resumeInput){
+      resumeInput.addEventListener('change', function(){
+        resumeFilename.textContent = resumeInput.files.length ? resumeInput.files[0].name : 'No file chosen.';
+      });
+    }
+    var jdInput = document.getElementById('jd-input');
+    var jdFilename = document.getElementById('jd-filename');
+    if (jdInput){
+      jdInput.addEventListener('change', function(){
+        jdFilename.textContent = jdInput.files.length ? jdInput.files[0].name : 'No file chosen.';
+      });
+    }
+
+    // Generic multi-step wizard controller
+    function initWizard(formId, progressId, onSubmit){
+      var form = document.getElementById(formId);
+      var progress = document.getElementById(progressId);
+      if (!form || !progress) return;
+      var panels = Array.prototype.slice.call(form.querySelectorAll('.wizard-panel'));
+      var steps = Array.prototype.slice.call(progress.querySelectorAll('.wizard-step-ind'));
+      var current = 0;
+
+      function render(){
+        panels.forEach(function(p, i){ p.classList.toggle('is-active', i === current); });
+        steps.forEach(function(s, i){
+          s.classList.toggle('is-active', i === current);
+          s.classList.toggle('is-done', i < current);
+        });
+      }
+
+      function panelValid(i){
+        var fields = panels[i].querySelectorAll('input, select, textarea');
+        for (var j = 0; j < fields.length; j++){
+          if (!fields[j].checkValidity()){ fields[j].reportValidity(); return false; }
+        }
+        return true;
+      }
+
+      panels.forEach(function(panel, i){
+        var nextBtn = panel.querySelector('[data-wizard-next]');
+        var prevBtn = panel.querySelector('[data-wizard-prev]');
+        if (nextBtn){
+          nextBtn.addEventListener('click', function(){
+            if (!panelValid(i)) return;
+            current = Math.min(current + 1, panels.length - 1);
+            render();
+          });
+        }
+        if (prevBtn){
+          prevBtn.addEventListener('click', function(){
+            current = Math.max(current - 1, 0);
+            render();
+          });
+        }
+      });
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        if (!panelValid(current)) return;
+        onSubmit();
+      });
+
+      render();
+    }
+
+    initWizard('career-form', 'career-progress', function(){
+      document.getElementById('career-form').style.display = 'none';
+      document.getElementById('form-success').classList.add('is-visible');
+    });
+    initWizard('company-form', 'company-progress', function(){
+      document.getElementById('company-form').style.display = 'none';
+      document.getElementById('company-form-success').classList.add('is-visible');
+    });
+
+    // Role toggle (candidate / employer switch)
+    window.switchRole = function(role, scroll){
+      var toggle = document.getElementById('role-toggle');
+      toggle.setAttribute('data-active', role);
+      document.getElementById('toggle-professionals').classList.toggle('is-active', role === 'professionals');
+      document.getElementById('toggle-companies').classList.toggle('is-active', role === 'companies');
+      document.getElementById('panel-professionals').classList.toggle('is-active', role === 'professionals');
+      document.getElementById('panel-companies').classList.toggle('is-active', role === 'companies');
+      if (scroll){
+        document.getElementById('role-section').scrollIntoView({ behavior:'smooth', block:'start' });
+      }
+    };
+
+    // Respect the path chosen on the homepage / a #professionals /#companies deep link
+    var hash = window.location.hash.replace('#', '');
+    var stashedRole = null;
+    try { stashedRole = localStorage.getItem('eip-role'); } catch(e){}
+    if (hash === 'professionals' || hash === 'companies'){
+      switchRole(hash);
+    } else if (stashedRole === 'professionals' || stashedRole === 'companies'){
+      switchRole(stashedRole);
+    }
+  })();
+  </script>
+
+</body>
+</html>

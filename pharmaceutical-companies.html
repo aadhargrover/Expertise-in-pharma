@@ -1,0 +1,756 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pharmaceutical Companies — ExpertiseInPharma</title>
+<meta name="description" content="Production-ready workforce solutions for Pharma operational excellence — market expansion, compliance readiness, vendor optimization, process transformation, and talent acquisition.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+  :root{
+    --navy-950: oklch(0.19 0.055 262);
+    --navy-900: oklch(0.235 0.058 262);
+    --navy-800: oklch(0.28 0.089 259);
+    --navy-700: oklch(0.36 0.08 260);
+    --cream-50: oklch(0.992 0.003 106);
+    --cream-100: oklch(0.97 0.004 106);
+    --cream-200: oklch(0.93 0.006 100);
+    --ink-900: oklch(0.20 0.05 262);
+    --ink-600: oklch(0.42 0.03 262);
+    --ink-400: oklch(0.60 0.02 262);
+    --cyan-700: oklch(0.50 0.10 213);
+    --cyan-600: oklch(0.60 0.115 213);
+    --cyan-500: oklch(0.73 0.117 213);
+    --cyan-400: oklch(0.80 0.09 213);
+    --violet: oklch(0.55 0.135 292);
+    --violet-100: oklch(0.93 0.03 292);
+    --amber-500: oklch(0.76 0.15 70);
+    --orange-500: oklch(0.68 0.17 40);
+    --red-500: oklch(0.60 0.19 25);
+    --line: oklch(0.88 0.008 100);
+    --line-dark: oklch(0.32 0.04 262);
+    --cream-on-navy: oklch(0.97 0.004 106);
+    --cream-on-navy-dim: oklch(0.97 0.004 106 / 0.68);
+  }
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; width:100%; overflow-x:clip; }
+  html{ scroll-behavior:smooth; }
+  body{ font-family:'Inter',sans-serif; color:var(--ink-900); background:var(--cream-50); animation:pageFadeIn .7s ease both; }
+  a{ color:inherit; text-decoration:none; }
+  p{ margin:0; }
+
+  @keyframes pageFadeIn{ from{ opacity:0; } to{ opacity:1; } }
+
+  .reveal{ opacity:0; transform:translateY(26px); transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+  .reveal.is-visible{ opacity:1; transform:none; }
+  .reveal-scale{ opacity:0; transform:scale(.92); transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+  .reveal-scale.is-visible{ opacity:1; transform:scale(1); }
+  @media (prefers-reduced-motion: reduce){
+    body{ animation:none; }
+    .reveal, .reveal-scale{ transition:none; opacity:1; transform:none; }
+    .trust-badge::before{ animation:none; }
+  }
+  img{ max-width:100%; display:block; }
+
+  .wrap{ max-width:1440px; margin:0 auto; padding-left:clamp(20px,5vw,100px); padding-right:clamp(20px,5vw,100px); width:100%; }
+
+  .btn-primary{ display:inline-flex; align-items:center; gap:14px; background:var(--cyan-500); color:var(--navy-950); font:600 16px/1 'Inter',sans-serif; padding:17px 26px 17px 30px; border-radius:1px; transition:background .2s ease, transform .2s ease; border:none; cursor:pointer; }
+  .btn-primary:hover{ background:var(--cyan-400); transform:translateY(-1px); }
+  .btn-primary svg{ flex:none; }
+
+  .btn-outline{ display:inline-flex; align-items:center; gap:14px; background:transparent; color:var(--cream-on-navy); border:1px solid var(--line-dark); font:600 16px/1 'Inter',sans-serif; padding:17px 30px; border-radius:1px; transition:border-color .2s ease, background .2s ease; }
+  .btn-outline:hover{ border-color:var(--cyan-500); background:rgba(255,255,255,0.035); }
+
+  .nav-link{ font:500 16px/1 'Inter',sans-serif; color:var(--cream-on-navy-dim); padding:6px 0; border-bottom:1px solid transparent; transition:color .2s ease, border-color .2s ease; white-space:nowrap; }
+  .nav-link:hover{ color:var(--cream-on-navy); border-color:var(--cyan-500); }
+  .nav-link.is-current{ color:var(--cream-on-navy); border-color:var(--cyan-500); }
+  #site-nav.nav--scrolled .nav-link.is-current{ color:var(--ink-900); }
+
+  .nav-item{ position:relative; display:flex; align-items:center; height:100%; }
+  .nav-caret{ margin-left:6px; transition:transform .18s ease; flex:none; }
+  .nav-item:hover .nav-caret{ transform:rotate(180deg); }
+
+  .mega{ position:absolute; top:100%; left:50%; transform:translateX(-50%) translateY(6px); background:var(--navy-950); border:1px solid var(--line-dark); border-top:2px solid var(--cyan-500); box-shadow:0 28px 56px -16px rgba(3,9,20,0.5); padding:28px; opacity:0; visibility:hidden; pointer-events:none; transition:opacity .16s ease, transform .16s ease; z-index:80; }
+  .nav-item:hover .mega{ opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); pointer-events:auto; }
+  .mega-services{ width:340px; }
+  .mega-industry{ width:520px; }
+  .mega-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:4px; }
+  .mega-grid-1col{ grid-template-columns:1fr; }
+  .mega-item{ display:block; padding:16px; border-radius:2px; transition:background .16s ease; }
+  .mega-item:hover{ background:rgba(40,188,210,0.07); }
+  .mega-item.is-current{ background:rgba(40,188,210,0.09); }
+  .mega-num{ display:block; font:500 13px/1 'Inter',sans-serif; color:var(--cyan-500); margin-bottom:9px; }
+  .mega-title{ display:block; font:600 16px/1.35 'Inter',sans-serif; color:var(--cream-on-navy); margin-bottom:6px; }
+  .mega-desc{ display:block; font:400 14px/1.55 'Inter',sans-serif; color:var(--cream-on-navy-dim); }
+
+  .foot-link{ font:400 17px/1 'Inter',sans-serif; color:var(--cream-on-navy-dim); transition:color .2s ease; }
+  .foot-link:hover{ color:var(--cyan-500); }
+
+  /* NAV */
+  #site-nav{ position:fixed; top:0; left:0; right:0; z-index:100; background:transparent; border-bottom:1px solid transparent; transition:background .3s ease, border-color .3s ease, box-shadow .3s ease; }
+  #site-nav.nav--scrolled{ background:var(--cream-50); border-bottom-color:var(--line); box-shadow:0 4px 24px rgba(3,9,20,0.06); }
+  #site-nav .logo-mark-onLight{ display:none; }
+  #site-nav .logo-mark-onDark{ display:flex; align-items:center; }
+  #site-nav.nav--scrolled .logo-mark-onDark{ display:none; }
+  #site-nav.nav--scrolled .logo-mark-onLight{ display:flex; align-items:center; }
+  #site-nav.nav--scrolled .nav-link{ color:var(--ink-600); }
+  #site-nav.nav--scrolled .nav-link:hover{ color:var(--ink-900); border-color:var(--cyan-600); }
+
+  /* HERO */
+  .hero-carousel{ position:relative; width:100%; height:78vh; min-height:600px; max-height:760px; overflow:hidden; background:var(--navy-950); }
+  .hero-slide{ position:absolute; inset:0; opacity:0; visibility:hidden; transition:opacity .9s ease; }
+  .hero-slide.is-active{ opacity:1; visibility:visible; z-index:2; }
+  .hero-slide-bg{ position:absolute; inset:0; }
+  .hero-slide-overlay{ position:absolute; inset:0; background:linear-gradient(0deg, rgba(7,22,45,0.96) 0%, rgba(7,22,45,0.82) 35%, rgba(7,22,45,0.68) 60%, rgba(7,22,45,0.78) 100%); }
+  .hero-slide-content{ position:absolute; left:0; right:0; bottom:0; padding:0 clamp(20px,5vw,100px) 72px clamp(100px,10vw,160px); max-width:1120px; }
+  .breadcrumb{ display:flex; align-items:center; gap:8px; font:500 13px/1 'Inter',sans-serif; color:var(--cream-on-navy-dim); margin-bottom:22px; }
+  .breadcrumb a{ transition:color .2s ease; }
+  .breadcrumb a:hover{ color:var(--cyan-500); }
+
+  /* 01 Readiness gap — editorial column */
+  .gap-highlight{ color:var(--ink-900); font-weight:600; }
+  .gap-callout{ position:relative; margin-top:32px; padding:32px 36px; border:1px solid var(--line-dark); border-left:3px solid var(--cyan-500); border-radius:6px; background:var(--navy-950); max-width:800px; }
+  .gap-callout p{ font:500 22px/1.5 'Inter',sans-serif; color:var(--cream-on-navy); }
+
+  /* 02 Cascade flow diagram — escalating urgency, stage 01 (calm) through Outcome (alarm) */
+  .flow-row{ position:relative; display:flex; align-items:flex-start; gap:0; padding-top:6px; }
+  .flow-row::before{ content:''; position:absolute; top:54px; left:9%; right:9%; height:2px; background:linear-gradient(90deg, rgba(40,188,210,0.55) 0%, rgba(234,179,8,0.55) 35%, rgba(216,120,40,0.6) 60%, rgba(220,50,40,0.7) 85%, rgba(220,50,40,0.85) 100%); z-index:0; }
+  .flow-node{ position:relative; z-index:1; flex:1; display:flex; flex-direction:column; align-items:center; text-align:center; padding:0 6px; }
+  .flow-node-stage{ font:700 11px/1 'Inter',sans-serif; letter-spacing:.14em; text-transform:uppercase; color:var(--cyan-500); margin-bottom:14px; }
+  .flow-node-icon{ position:relative; width:108px; height:108px; border-radius:50%; background:radial-gradient(circle at 32% 28%, var(--navy-700) 0%, var(--navy-800) 62%); border:1.5px solid rgba(40,188,210,0.4); box-shadow:0 0 0 7px rgba(40,188,210,0.06), 0 18px 34px -16px rgba(3,9,20,0.7); display:flex; align-items:center; justify-content:center; margin-bottom:22px; transition:border-color .35s ease, box-shadow .35s ease, transform .35s ease; }
+  .flow-node:hover .flow-node-icon{ transform:translateY(-6px) scale(1.05); }
+  .flow-node-label{ font:600 15px/1.4 'Inter',sans-serif; color:var(--cream-on-navy); transition:color .3s ease; max-width:150px; }
+  .flow-arrow{ position:relative; z-index:1; flex:none; width:44px; display:flex; align-items:center; justify-content:center; padding-top:38px; }
+  .flow-arrow-chip{ width:34px; height:34px; border-radius:50%; background:var(--navy-950); border:1.5px solid rgba(40,188,210,0.55); display:flex; align-items:center; justify-content:center; }
+
+  /* Stage accent escalation: cyan → amber → orange → red, alarm pulse on the outcome */
+  .flow-node--s1 .flow-node-stage{ color:var(--cyan-500); }
+  .flow-node--s1 .flow-node-icon{ border-color:rgba(40,188,210,0.4); box-shadow:0 0 0 7px rgba(40,188,210,0.06), 0 18px 34px -16px rgba(3,9,20,0.7); }
+  .flow-node--s1:hover .flow-node-icon{ border-color:var(--cyan-500); box-shadow:0 0 0 10px rgba(40,188,210,0.12), 0 22px 40px -16px rgba(3,9,20,0.8); }
+  .flow-node--s1:hover .flow-node-label{ color:var(--cyan-400); }
+
+  .flow-node--s2 .flow-node-stage{ color:var(--amber-500); }
+  .flow-node--s2 .flow-node-icon{ border-color:rgba(234,179,8,0.4); box-shadow:0 0 0 7px rgba(234,179,8,0.07), 0 18px 34px -16px rgba(3,9,20,0.7); }
+  .flow-node--s2:hover .flow-node-icon{ border-color:var(--amber-500); box-shadow:0 0 0 10px rgba(234,179,8,0.14), 0 22px 40px -16px rgba(3,9,20,0.8); }
+  .flow-node--s2:hover .flow-node-label{ color:var(--amber-500); }
+
+  .flow-node--s3 .flow-node-stage{ color:var(--orange-500); }
+  .flow-node--s3 .flow-node-icon{ border-color:rgba(216,120,40,0.45); box-shadow:0 0 0 7px rgba(216,120,40,0.08), 0 18px 34px -16px rgba(3,9,20,0.7); }
+  .flow-node--s3:hover .flow-node-icon{ border-color:var(--orange-500); box-shadow:0 0 0 10px rgba(216,120,40,0.16), 0 22px 40px -16px rgba(3,9,20,0.8); }
+  .flow-node--s3:hover .flow-node-label{ color:var(--orange-500); }
+
+  .flow-node--s4 .flow-node-stage{ color:var(--red-500); }
+  .flow-node--s4 .flow-node-icon{ border-color:rgba(220,50,40,0.5); box-shadow:0 0 0 7px rgba(220,50,40,0.09), 0 18px 34px -16px rgba(3,9,20,0.7); }
+  .flow-node--s4:hover .flow-node-icon{ border-color:var(--red-500); box-shadow:0 0 0 10px rgba(220,50,40,0.18), 0 22px 40px -16px rgba(3,9,20,0.8); }
+  .flow-node--s4:hover .flow-node-label{ color:var(--red-500); }
+
+  .flow-node--final .flow-node-stage{ color:var(--red-500); }
+  .flow-node--final .flow-node-icon{ border-color:var(--red-500); box-shadow:0 0 0 7px rgba(220,50,40,0.14), 0 18px 34px -16px rgba(3,9,20,0.7); }
+  .flow-node--final .flow-node-icon::before{ content:''; position:absolute; inset:-9px; border-radius:50%; border:1.5px solid rgba(220,50,40,0.55); animation:trustPulse 1.6s ease-out infinite; }
+  .flow-node--final:hover .flow-node-icon{ box-shadow:0 0 0 10px rgba(220,50,40,0.22), 0 22px 40px -16px rgba(3,9,20,0.8); }
+  .flow-node--final:hover .flow-node-label{ color:var(--red-500); }
+  .flow-node--final .flow-node-icon{ border-color:rgba(124,92,196,0.55); box-shadow:0 0 0 7px rgba(124,92,196,0.08), 0 18px 34px -16px rgba(3,9,20,0.7); }
+  .flow-node--final:hover .flow-node-icon{ border-color:var(--violet); box-shadow:0 0 0 10px rgba(124,92,196,0.14), 0 22px 40px -16px rgba(3,9,20,0.8); }
+  .flow-node--final:hover .flow-node-label{ color:var(--violet); }
+
+  /* 03 Alternating partner rows */
+  .partner-row-media{ position:relative; width:100%; height:420px; border-radius:1px; overflow:hidden; }
+  .partner-row-eyebrow{ font:600 12px/1 'Inter',sans-serif; letter-spacing:.14em; text-transform:uppercase; margin-bottom:16px; }
+  .partner-row-list{ list-style:none; margin:24px 0 0; padding:0; display:flex; flex-direction:column; gap:12px; }
+  .partner-row-list li{ display:flex; align-items:flex-start; gap:12px; font:400 16px/1.55 'Inter',sans-serif; }
+  .partner-row-list li svg{ flex:none; margin-top:5px; }
+  .partner-row-ctas{ display:flex; flex-wrap:wrap; gap:12px; margin-top:32px; }
+  .partner-cta{ display:inline-flex; align-items:center; gap:8px; font:600 14px/1 'Inter',sans-serif; padding:13px 20px; border-radius:20px; border:1px solid; transition:transform .2s ease, box-shadow .25s ease; }
+  .partner-cta:hover{ transform:translateY(-2px); box-shadow:0 10px 24px -10px currentColor; }
+
+  /* 04 Why — dark spotlight tiles */
+  .why-tile{ position:relative; background:linear-gradient(155deg, rgba(255,255,255,0.045) 0%, rgba(255,255,255,0.014) 100%); border:1px solid rgba(255,255,255,0.09); border-radius:16px; padding:42px 28px 34px; overflow:hidden; transition:transform .4s cubic-bezier(.2,.7,.2,1), border-color .4s ease, box-shadow .4s ease; }
+  .why-tile::before{ content:''; position:absolute; inset:0; background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%), rgba(40,188,210,0.16), transparent 62%); opacity:0; transition:opacity .45s ease; pointer-events:none; }
+  .why-tile:hover{ transform:translateY(-7px); border-color:rgba(40,188,210,0.55); box-shadow:0 32px 60px -24px rgba(3,9,20,0.65); }
+  .why-tile:hover::before{ opacity:1; }
+  .why-tile-index{ position:absolute; top:20px; right:24px; font:700 12px/1 'Inter',sans-serif; letter-spacing:.1em; color:rgba(255,255,255,0.22); }
+  .why-tile-icon{ position:relative; z-index:1; width:58px; height:58px; margin:0 0 26px; display:flex; align-items:center; justify-content:center; background:rgba(40,188,210,0.09); border:1px solid rgba(40,188,210,0.4); border-radius:14px; transform:rotate(45deg); transition:transform .4s ease, border-color .4s ease, background .4s ease; }
+  .why-tile-icon svg{ transform:rotate(-45deg); }
+  .why-tile:hover .why-tile-icon{ transform:rotate(0deg) scale(1.08); border-color:var(--cyan-500); background:rgba(40,188,210,0.16); }
+  .why-tile-title{ position:relative; z-index:1; font:600 18px/1.4 'Inter',sans-serif; color:var(--cream-on-navy); max-width:220px; }
+  .why-tile-arrow{ position:absolute; bottom:20px; right:22px; opacity:0; transform:translate(-6px,6px); transition:opacity .35s ease, transform .35s ease; }
+  .why-tile:hover .why-tile-arrow{ opacity:1; transform:translate(0,0); }
+  .why-tile--violet .why-tile-icon{ border-color:rgba(124,92,196,0.45); background:rgba(124,92,196,0.1); }
+  .why-tile--violet:hover .why-tile-icon{ border-color:var(--violet); background:rgba(124,92,196,0.18); }
+  .why-tile--violet:hover{ border-color:rgba(124,92,196,0.55); }
+  .why-tile--violet::before{ background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%), rgba(124,92,196,0.18), transparent 62%); }
+  @media (min-width:981px){ .why-tile:nth-child(2), .why-tile:nth-child(4), .why-tile:nth-child(6){ margin-top:30px; } }
+
+  /* 05 Trust panel — data dashboard */
+  .trust-panel{ position:relative; border:1px solid rgba(255,255,255,0.1); border-radius:20px; overflow:hidden; background:var(--navy-950); background-image:linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px); background-size:44px 44px; }
+  .trust-panel::before{ content:''; position:absolute; top:-140px; right:-100px; width:380px; height:380px; border-radius:50%; background:radial-gradient(circle, rgba(40,188,210,0.16) 0%, transparent 70%); pointer-events:none; }
+  .trust-panel::after{ content:''; position:absolute; bottom:-160px; left:-80px; width:360px; height:360px; border-radius:50%; background:radial-gradient(circle, rgba(124,92,196,0.14) 0%, transparent 70%); pointer-events:none; }
+  .trust-cell{ position:relative; z-index:1; padding:44px 34px; transition:background .3s ease; }
+  .trust-cell:hover{ background:rgba(255,255,255,0.02); }
+  .trust-cell + .trust-cell{ border-top:1px solid rgba(255,255,255,0.09); }
+  @media (min-width:981px){ .trust-cell{ border-top:none !important; border-left:1px solid rgba(255,255,255,0.09); } .trust-cell:first-child{ border-left:none; } }
+  .stat-count-row{ display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+  .stat-count{ font:700 46px/1 'Inter',sans-serif; color:var(--cyan-500); font-variant-numeric:tabular-nums; }
+  .stat-bar{ height:3px; width:100%; background:rgba(255,255,255,0.08); border-radius:2px; overflow:hidden; margin:20px 0 22px; }
+  .stat-bar-fill{ display:block; height:100%; width:0%; border-radius:2px; background:linear-gradient(90deg, var(--cyan-600), var(--cyan-400)); transition:width 1.3s cubic-bezier(.2,.7,.2,1); }
+  .trust-panel.is-counted .trust-cell:nth-child(1) .stat-bar-fill{ width:100%; transition-delay:.05s; }
+  .trust-panel.is-counted .trust-cell:nth-child(2) .stat-bar-fill{ width:100%; transition-delay:.2s; }
+  .trust-panel.is-counted .trust-cell:nth-child(3) .stat-bar-fill{ width:100%; transition-delay:.35s; }
+  .trust-badge{ position:relative; width:44px; height:44px; border-radius:50%; background:rgba(124,92,196,0.14); border:1px solid rgba(124,92,196,0.5); display:flex; align-items:center; justify-content:center; margin-bottom:18px; }
+  .trust-badge::before{ content:''; position:absolute; inset:-6px; border-radius:50%; border:1px solid rgba(124,92,196,0.35); animation:trustPulse 2.6s ease-out infinite; }
+  @keyframes trustPulse{ 0%{ transform:scale(0.8); opacity:.8; } 100%{ transform:scale(1.5); opacity:0; } }
+
+  @media (max-width: 980px){
+    .nav-links, .nav-cta{ display:none !important; }
+    .resp-grid{ grid-template-columns:1fr !important; }
+    .flow-row{ flex-direction:column; align-items:stretch; }
+    .flow-row::before{ display:none; }
+    .flow-node-icon{ width:88px; height:88px; }
+    .flow-arrow{ transform:rotate(90deg); padding:8px 0; align-self:center; }
+    .partner-row-reverse{ flex-direction:column-reverse !important; }
+    .partner-row{ flex-direction:column !important; }
+    .gap-callout{ margin-left:0; }
+    h1{ font-size:38px !important; line-height:1.2 !important; }
+    h2{ font-size:28px !important; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <div id="site-nav">
+    <div class="wrap" style="height:84px; display:flex; align-items:center; justify-content:space-between;">
+      <a href="index.html" class="logo-mark-onDark"><img src="assets/logo-dark.png" alt="ExpertiseInPharma" style="height:38px; width:auto; display:block;"></a>
+      <a href="index.html" class="logo-mark-onLight"><img src="assets/logo-light.png" alt="ExpertiseInPharma" style="height:38px; width:auto; display:block;"></a>
+
+      <div class="nav-links" style="display:flex; align-items:center; gap:36px; height:100%;">
+        <div class="nav-item"><a href="about.html" class="nav-link">About Us</a></div>
+
+        <div class="nav-item">
+          <a href="sme-on-demand.html" class="nav-link" style="display:flex; align-items:center;">Services
+            <svg class="nav-caret" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="mega mega-services">
+            <div class="mega-grid mega-grid-1col">
+              <a href="sme-on-demand.html" class="mega-item">
+                <span class="mega-num">01</span>
+                <span class="mega-title">SME on Demand</span>
+                <span class="mega-desc">Industry-ready expertise, delivered on demand.</span>
+              </a>
+              <a href="resource-on-demand.html" class="mega-item">
+                <span class="mega-num">02</span>
+                <span class="mega-title">Resource on Demand</span>
+                <span class="mega-desc">Vetted, production-ready life sciences talent &mdash; 75% faster search-to-productivity.</span>
+              </a>
+              <a href="outsourced-ld.html" class="mega-item">
+                <span class="mega-num">03</span>
+                <span class="mega-title">Outsourced L&amp;D Enablement</span>
+                <span class="mega-desc">Enterprise training without expanding your L&amp;D team.</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <a href="pharmaceutical-companies.html" class="nav-link is-current" style="display:flex; align-items:center;">Industry Solutions
+            <svg class="nav-caret" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="mega mega-industry">
+            <div class="mega-grid">
+              <a href="pharmaceutical-companies.html" class="mega-item is-current">
+                <span class="mega-title">Pharmaceutical Companies</span>
+                <span class="mega-desc">Accelerate innovation, ensure compliance, reduce vendor dependency.</span>
+              </a>
+              <a href="index.html" class="mega-item">
+                <span class="mega-title">Clinical Research Organizations (CRO)</span>
+                <span class="mega-desc">Protect margins, strengthen client confidence, scale delivery capacity.</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item"><a href="how-we-partner.html" class="nav-link">How We Partner</a></div>
+        <div class="nav-item"><a href="careers.html" class="nav-link">Careers</a></div>
+        <div class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></div>
+      </div>
+
+      <a href="#discuss" class="btn-primary nav-cta" style="padding:13px 24px;">Talk to our team</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero-carousel" id="hero-carousel">
+    <div class="hero-slide is-active">
+      <div class="hero-slide-bg" style="background-image:url('assets/img7.jpg'); background-size:cover; background-position:center;"></div>
+      <div class="hero-slide-overlay"></div>
+      <div class="hero-slide-content">
+        <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><a href="pharmaceutical-companies.html">Industry Solutions</a><span>/</span><span style="color:var(--cyan-500);">Pharmaceutical Companies</span></div>
+        <p style="color:var(--cyan-500); font:600 12px/1 'Inter',sans-serif; letter-spacing:.18em; text-transform:uppercase; margin-bottom:18px;">Pharmaceutical Companies</p>
+        <h1 style="font:600 38px/1.25 'Inter',sans-serif; color:var(--cream-on-navy); margin:0 0 24px 0; max-width:900px;">Production-ready solutions<br>for Pharma operational excellence</h1>
+        <a href="#discuss" class="btn-primary">Talk to an expert
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="var(--navy-950)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 THE READINESS GAP -->
+  <section style="width:100%; background:var(--cream-50);">
+    <div class="wrap" style="padding-top:120px; padding-bottom:120px;">
+      <p style="color:var(--cyan-700); font:600 12px/1 'Inter',sans-serif; letter-spacing:.18em; text-transform:uppercase; margin-bottom:24px;">01 &mdash; The challenge</p>
+      <h2 style="font:600 40px/1.2 'Inter',sans-serif; color:var(--ink-900); margin:0 0 48px; max-width:760px;">The readiness gap impacting Pharma operations</h2>
+
+      <div class="resp-grid" style="display:grid; grid-template-columns:1.35fr 0.65fr; gap:64px; align-items:start;">
+        <div class="reveal">
+          <div style="display:flex; flex-direction:column; gap:26px;">
+            <p style="font:400 19px/1.75 'Inter',sans-serif; color:var(--ink-600);">You are accelerating drug development and expanding into new markets. At the same time, you are managing complex regulatory requirements and navigating talent gaps that impact timelines, compliance confidence, and operational efficiency.</p>
+            <p style="font:400 19px/1.75 'Inter',sans-serif; color:var(--ink-600);">This <span class="gap-highlight">operational reality</span> leads to disruption in business continuity across safety, regulatory, and clinical functions. Time-to-productivity for new hires delays critical milestones. Vendor dependency limits control over quality and costs. When you encounter expertise gaps such as CAPA remediation, rare disease specialists, or building internal delivery capability, you face constraints from limited internal capacity and the availability of external vendors.</p>
+            <p style="font:400 19px/1.75 'Inter',sans-serif; color:var(--ink-600);">The <span class="gap-highlight">impact is strategic in nature</span> &mdash; delayed regulatory submissions, audit findings, vendor margin inflation, limited operational control, and the inability to scale internal capability at the pace innovation demands.</p>
+          </div>
+
+          <div class="gap-callout reveal">
+            <p>The question isn't whether you need better workforce solutions. It's whether your current model supports the speed and control your product pipeline requires.</p>
+          </div>
+        </div>
+
+        <div class="reveal-scale" style="position:sticky; top:110px; width:100%; height:640px; border-radius:1px; overflow:hidden;">
+          <div style="position:absolute; inset:0; background-image:url('assets/img4.jpg'); background-size:cover; background-position:center;"></div>
+          <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(7,22,45,0.08) 0%, rgba(7,22,45,0.05) 40%, rgba(7,22,45,0.65) 100%);"></div>
+          <div style="position:absolute; top:16px; left:16px; width:22px; height:22px; border-top:1px solid var(--cyan-600); border-left:1px solid var(--cyan-600);"></div>
+          <div style="position:absolute; bottom:16px; right:16px; width:22px; height:22px; border-bottom:1px solid var(--violet); border-right:1px solid var(--violet);"></div>
+          <div style="position:absolute; left:20px; right:20px; bottom:20px;">
+            <p style="font:500 12px/1.4 'Inter',sans-serif; letter-spacing:.05em; text-transform:uppercase; color:var(--cream-on-navy-dim);">Operational readiness under constant pressure</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 CASCADE -->
+  <section style="width:100%; background:var(--navy-900);">
+    <div class="wrap" style="padding-top:120px; padding-bottom:120px;">
+      <p style="color:var(--cyan-500); font:600 12px/1 'Inter',sans-serif; letter-spacing:.18em; text-transform:uppercase; margin-bottom:24px;">02 &mdash; The cascade</p>
+      <h2 style="font:600 36px/1.25 'Inter',sans-serif; color:var(--cream-on-navy); margin:0 0 64px; max-width:820px;">How workforce challenges cascade into business impact</h2>
+
+      <div class="flow-row">
+        <div class="flow-node flow-node--s1">
+          <p class="flow-node-stage">Stage 01</p>
+          <div class="flow-node-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M10 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="var(--cyan-500)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <p class="flow-node-label">Workforce<br>Challenges</p>
+        </div>
+        <div class="flow-arrow"><div class="flow-arrow-chip"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 12h16M14 6l6 6-6 6" stroke="var(--cyan-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+        <div class="flow-node flow-node--s2">
+          <p class="flow-node-stage">Stage 02</p>
+          <div class="flow-node-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3.2" stroke="var(--amber-500)" stroke-width="1.5"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1" stroke="var(--amber-500)" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <p class="flow-node-label">Operational<br>Impact</p>
+        </div>
+        <div class="flow-arrow"><div class="flow-arrow-chip" style="border-color:rgba(234,179,8,0.55);"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 12h16M14 6l6 6-6 6" stroke="var(--amber-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+        <div class="flow-node flow-node--s3">
+          <p class="flow-node-stage">Stage 03</p>
+          <div class="flow-node-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="var(--orange-500)" stroke-width="1.5"/><circle cx="12" cy="12" r="3" stroke="var(--orange-500)" stroke-width="1.5"/></svg>
+          </div>
+          <p class="flow-node-label">Strategic<br>Constraints</p>
+        </div>
+        <div class="flow-arrow"><div class="flow-arrow-chip" style="border-color:rgba(216,120,40,0.6);"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 12h16M14 6l6 6-6 6" stroke="var(--orange-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+        <div class="flow-node flow-node--s4">
+          <p class="flow-node-stage">Stage 04</p>
+          <div class="flow-node-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="var(--red-500)" stroke-width="1.5"/><path d="M12 7v5l3.5 2" stroke="var(--red-500)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <p class="flow-node-label">Innovation Delays &amp;<br>Market Expansion</p>
+        </div>
+        <div class="flow-arrow"><div class="flow-arrow-chip" style="border-color:rgba(220,50,40,0.65);"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 12h16M14 6l6 6-6 6" stroke="var(--red-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+        <div class="flow-node flow-node--final">
+          <p class="flow-node-stage">Outcome</p>
+          <div class="flow-node-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M3 17l6-9 4 4 8-9" stroke="var(--red-500)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <p class="flow-node-label">Missed Windows &amp;<br>Shrinking Share</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 WHEN PHARMA COMPANIES PARTNER WITH US -->
+  <section style="width:100%; background:var(--cream-50);">
+    <div class="wrap" style="padding-top:120px; padding-bottom:56px;">
+      <p style="color:var(--cyan-700); font:600 12px/1 'Inter',sans-serif; letter-spacing:.18em; text-transform:uppercase; margin-bottom:24px;">03 &mdash; Where we help</p>
+      <h2 style="font:600 40px/1.2 'Inter',sans-serif; color:var(--ink-900); margin:0; max-width:760px;">When Pharma companies partner with us</h2>
+    </div>
+  </section>
+
+  <!-- Row 1 -->
+  <section style="width:100%; background:var(--cream-50);">
+    <div class="wrap" style="padding-bottom:100px;">
+      <div class="resp-grid partner-row" style="display:flex; align-items:center; gap:64px;">
+        <div class="partner-row-media reveal" style="flex:0 0 44%;">
+          <div style="position:absolute; inset:0; background-image:url('assets/img2.jpg'); background-size:cover; background-position:center;"></div>
+          <div style="position:absolute; inset:0; background:linear-gradient(160deg, rgba(7,22,45,0.2) 0%, rgba(7,22,45,0.02) 55%);"></div>
+          <div style="position:absolute; top:16px; left:16px; width:22px; height:22px; border-top:1px solid var(--cyan-600); border-left:1px solid var(--cyan-600);"></div>
+        </div>
+        <div class="reveal" style="flex:1;">
+          <p class="partner-row-eyebrow" style="color:var(--cyan-700);">01</p>
+          <h3 style="font:600 28px/1.3 'Inter',sans-serif; color:var(--ink-900); margin:0;">Strategic Expansion and Market Entry</h3>
+          <ul class="partner-row-list" style="color:var(--ink-600);">
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--cyan-600)" stroke-width="1.3"/><path d="M4.5 7l1.8 1.8L9.5 5" stroke="var(--cyan-600)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Entering new markets (China, Japan, EU) requiring guidance on regulatory differences and reporting timelines</li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--cyan-600)" stroke-width="1.3"/><path d="M4.5 7l1.8 1.8L9.5 5" stroke="var(--cyan-600)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Adding new therapeutic indications where regulations differ by indication</li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--cyan-600)" stroke-width="1.3"/><path d="M4.5 7l1.8 1.8L9.5 5" stroke="var(--cyan-600)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Limited experts for rare diseases and precision medicine development</li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--cyan-600)" stroke-width="1.3"/><path d="M4.5 7l1.8 1.8L9.5 5" stroke="var(--cyan-600)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Defining local partner ecosystem strategy and execution frameworks</li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--cyan-600)" stroke-width="1.3"/><path d="M4.5 7l1.8 1.8L9.5 5" stroke="var(--cyan-600)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Moving from one phase of clinical trials to another requiring different expertise</li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--cyan-600)" stroke-width="1.3"/><path d="M4.5 7l1.8 1.8L9.5 5" stroke="var(--cyan-600)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Rolling out Pharmacovigilance, Clinical Operations, or Regulatory Affairs systems across new geographies</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Row 2 -->
+  <section style="width:100%; background:var(--navy-900);">
+    <div class="wrap" style="padding-top:100px; padding-bottom:100px;">
+      <div class="resp-grid partner-row partner-row-reverse" style="display:flex; align-items:center; gap:64px; flex-direction:row-reverse;">
+        <div class="partner-row-media reveal" style="flex:0 0 44%;">
+          <div style="position:absolute; inset:0; background-image:url('assets/img6.jpg'); background-size:cover; background-position:center;"></div>
+          <div style="position:absolute; inset:0; background:linear-gradient(200deg, rgba(7,22,45,0.2) 0%, rgba(7,22,45,0.02) 55%);"></div>
+          <div style="position:absolute; top:16px; right:16px; width:22px; height:22px; border-top:1px solid var(--cyan-500); border-right:1px solid var(--cyan-500);"></div>
+        </div>
+        <div class="reveal" style="flex:1;">
+          <p class="partner-row-eyebrow" style="color:var(--cyan-500);">02</p>
+          <h3 style="font:600 28px/1.3 'Inter',sans-serif; color:var(--cream-on-navy); margin:0;">Compliance and Regulatory Readiness</h3>
+          <ul class="partner-row-list" style="color:var(--cream-on-navy-dim);">
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--cyan-500)" stroke-width="1.3"/><path d="M4.5 7l1.8 1.8L9.5 5" stroke="var(--cyan-500)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Navigating complex compliance guidelines or interpreting new regulatory announcements (FDA/MHRA/EMA)</li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--cyan-500)" stroke-width="1.3"/><path d="M4.5 7l1.8 1.8L9.5 5" stroke="var(--cyan-500)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Driving CAPA initiatives to ensure inspection readiness and risk mitigation</li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--cyan-500)" stroke-width="1.3"/><path d="M4.5 7l1.8 1.8L9.5 5" stroke="var(--cyan-500)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Creating clean, auditable environments ahead of regulatory inspections</li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--cyan-500)" stroke-width="1.3"/><path d="M4.5 7l1.8 1.8L9.5 5" stroke="var(--cyan-500)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Inadequate in-house expertise to drive strategy across Pharmacovigilance, Medical Information, Medical Writing, Regulatory Affairs, or Quality Assurance functions</li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--cyan-500)" stroke-width="1.3"/><path d="M4.5 7l1.8 1.8L9.5 5" stroke="var(--cyan-500)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Identifying improvement areas in legacy systems requiring compliance upgrades</li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--cyan-500)" stroke-width="1.3"/><path d="M4.5 7l1.8 1.8L9.5 5" stroke="var(--cyan-500)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>System validation and documentation ahead of regulatory scrutiny</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Row 3 -->
+  <section style="width:100%; background:var(--cream-50);">
+    <div class="wrap" style="padding-top:100px; padding-bottom:100px;">
+      <div class="resp-grid partner-row" style="display:flex; align-items:center; gap:64px;">
+        <div class="partner-row-media reveal" style="flex:0 0 44%;">
+          <div style="position:absolute; inset:0; background-image:url('assets/img8.jpg'); background-size:cover; background-position:center;"></div>
+          <div style="position:absolute; inset:0; background:linear-gradient(160deg, rgba(7,22,45,0.2) 0%, rgba(7,22,45,0.02) 55%);"></div>
+          <div style="position:absolute; bottom:16px; left:16px; width:22px; height:22px; border-bottom:1px solid var(--violet); border-left:1px solid var(--violet);"></div>
+        </div>
+        <div class="reveal" style="flex:1;">
+          <p class="partner-row-eyebrow" style="color:var(--violet);">03</p>
+          <h3 style="font:600 28px/1.3 'Inter',sans-serif; color:var(--ink-900); margin:0;">Vendor Optimization &amp; In-House Transformation</h3>
+          <ul class="partner-row-list" style="color:var(--ink-600);">
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--violet)" stroke-width="1.3"/><path d="M4.5 7l1.8 1.8L9.5 5" stroke="var(--violet)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Transitioning from outsourced vendors to in-house teams</li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--violet)" stroke-width="1.3"/><path d="M4.5 7l1.8 1.8L9.5 5" stroke="var(--violet)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Mandate to build or expand internal delivery capability for cost optimization</li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--violet)" stroke-width="1.3"/><path d="M4.5 7l1.8 1.8L9.5 5" stroke="var(--violet)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Harmonizing processes and systems when moving to internally-managed operations</li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--violet)" stroke-width="1.3"/><path d="M4.5 7l1.8 1.8L9.5 5" stroke="var(--violet)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Streamlining operations to reduce vendor margins (typically 40&ndash;60%)</li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--violet)" stroke-width="1.3"/><path d="M4.5 7l1.8 1.8L9.5 5" stroke="var(--violet)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Planning global consolidation and harmonization across functional areas</li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--violet)" stroke-width="1.3"/><path d="M4.5 7l1.8 1.8L9.5 5" stroke="var(--violet)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Building sustainable internal capability for long-term strategic control</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Row 4 -->
+  <section style="width:100%; background:var(--navy-900);">
+    <div class="wrap" style="padding-top:100px; padding-bottom:100px;">
+      <div class="resp-grid partner-row partner-row-reverse" style="display:flex; align-items:center; gap:64px; flex-direction:row-reverse;">
+        <div class="partner-row-media reveal" style="flex:0 0 44%;">
+          <div style="position:absolute; inset:0; background-image:url('assets/img3.jpg'); background-size:cover; background-position:center;"></div>
+          <div style="position:absolute; inset:0; background:linear-gradient(200deg, rgba(7,22,45,0.2) 0%, rgba(7,22,45,0.02) 55%);"></div>
+          <div style="position:absolute; top:16px; right:16px; width:22px; height:22px; border-top:1px solid var(--cyan-500); border-right:1px solid var(--cyan-500);"></div>
+        </div>
+        <div class="reveal" style="flex:1;">
+          <p class="partner-row-eyebrow" style="color:var(--cyan-500);">04</p>
+          <h3 style="font:600 28px/1.3 'Inter',sans-serif; color:var(--cream-on-navy); margin:0;">Process Optimization and Transformation</h3>
+          <ul class="partner-row-list" style="color:var(--cream-on-navy-dim);">
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--cyan-500)" stroke-width="1.3"/><path d="M4.5 7l1.8 1.8L9.5 5" stroke="var(--cyan-500)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Defining or refining Pharmacovigilance, Medical Writing, Regulatory Affairs, or Quality Assurance strategies across the organization</li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--cyan-500)" stroke-width="1.3"/><path d="M4.5 7l1.8 1.8L9.5 5" stroke="var(--cyan-500)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Gap analysis of existing processes, systems, or compliance frameworks</li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--cyan-500)" stroke-width="1.3"/><path d="M4.5 7l1.8 1.8L9.5 5" stroke="var(--cyan-500)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Rolling out new systems and implementing SOPs across functions or geographies</li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--cyan-500)" stroke-width="1.3"/><path d="M4.5 7l1.8 1.8L9.5 5" stroke="var(--cyan-500)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Building new functional capabilities internally during transformation periods</li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--cyan-500)" stroke-width="1.3"/><path d="M4.5 7l1.8 1.8L9.5 5" stroke="var(--cyan-500)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Moving from legacy systems to modern, compliant technology platforms</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Row 5 -->
+  <section style="width:100%; background:var(--cream-50);">
+    <div class="wrap" style="padding-top:100px; padding-bottom:120px;">
+      <div class="resp-grid partner-row" style="display:flex; align-items:center; gap:64px;">
+        <div class="partner-row-media reveal" style="flex:0 0 44%;">
+          <div style="position:absolute; inset:0; background-image:url('assets/img5.jpg'); background-size:cover; background-position:center;"></div>
+          <div style="position:absolute; inset:0; background:linear-gradient(160deg, rgba(7,22,45,0.2) 0%, rgba(7,22,45,0.02) 55%);"></div>
+          <div style="position:absolute; top:16px; left:16px; width:22px; height:22px; border-top:1px solid var(--cyan-600); border-left:1px solid var(--cyan-600);"></div>
+        </div>
+        <div class="reveal" style="flex:1;">
+          <p class="partner-row-eyebrow" style="color:var(--cyan-700);">05</p>
+          <h3 style="font:600 28px/1.3 'Inter',sans-serif; color:var(--ink-900); margin:0;">Talent Acquisition and Capability Building</h3>
+          <ul class="partner-row-list" style="color:var(--ink-600);">
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--cyan-600)" stroke-width="1.3"/><path d="M4.5 7l1.8 1.8L9.5 5" stroke="var(--cyan-600)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>High turnover among junior staff impacting continuity and training costs</li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--cyan-600)" stroke-width="1.3"/><path d="M4.5 7l1.8 1.8L9.5 5" stroke="var(--cyan-600)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Long, inconsistent time-to-productivity for new hires in safety and medical functions</li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--cyan-600)" stroke-width="1.3"/><path d="M4.5 7l1.8 1.8L9.5 5" stroke="var(--cyan-600)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Heavy dependency on functional leaders for onboarding and refresher training</li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--cyan-600)" stroke-width="1.3"/><path d="M4.5 7l1.8 1.8L9.5 5" stroke="var(--cyan-600)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Skill gaps surfacing after deployment, leading to rework and quality issues</li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--cyan-600)" stroke-width="1.3"/><path d="M4.5 7l1.8 1.8L9.5 5" stroke="var(--cyan-600)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Need to reduce costs by hiring production-ready talent (shift-left strategy)</li>
+            <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="var(--cyan-600)" stroke-width="1.3"/><path d="M4.5 7l1.8 1.8L9.5 5" stroke="var(--cyan-600)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Lagging onboarding due to lack of structured training systems</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="partner-row-ctas" style="justify-content:center; margin-top:8px; padding-top:56px; border-top:1px solid var(--line);">
+        <a href="sme-on-demand.html" class="partner-cta" style="color:var(--cyan-700); border-color:var(--cyan-600);">SME on Demand services</a>
+        <a href="outsourced-ld.html" class="partner-cta" style="color:var(--violet); border-color:rgba(124,92,196,0.4);">Outsourced L&amp;D services</a>
+        <a href="resource-on-demand.html" class="partner-cta" style="color:var(--cyan-700); border-color:var(--cyan-600);">Resource on Demand services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 WHY -->
+  <section style="width:100%; background:var(--navy-950);">
+    <div class="wrap" style="padding-top:120px; padding-bottom:120px;">
+      <p style="color:var(--cyan-500); font:600 12px/1 'Inter',sans-serif; letter-spacing:.18em; text-transform:uppercase; margin-bottom:24px;">04 &mdash; The payoff</p>
+      <h2 style="font:600 40px/1.2 'Inter',sans-serif; color:var(--cream-on-navy); margin:0 0 56px; max-width:640px;">Why Pharma companies choose to partner with us</h2>
+
+      <div class="resp-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px;">
+        <div class="why-tile">
+          <span class="why-tile-index">01</span>
+          <div class="why-tile-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M12 5l-5.5 5.5M12 5l5.5 5.5" stroke="var(--cyan-500)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 21h12" stroke="var(--cyan-500)" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+          <p class="why-tile-title">Accelerated regulatory timelines</p>
+          <svg class="why-tile-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="var(--cyan-500)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="why-tile why-tile--violet">
+          <span class="why-tile-index">02</span>
+          <div class="why-tile-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="var(--violet)" stroke-width="1.6"/><path d="M12 8v8M9.5 10.2c0-1.2 1.1-2.2 2.5-2.2s2.5 1 2.5 2.2c0 2.8-5 1.6-5 4.2 0 1.2 1.1 2.2 2.5 2.2s2.5-1 2.5-2.2" stroke="var(--violet)" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          <p class="why-tile-title">Optimized operational costs</p>
+          <svg class="why-tile-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="var(--violet)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="why-tile">
+          <span class="why-tile-index">03</span>
+          <div class="why-tile-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.2" stroke="var(--cyan-500)" stroke-width="1.6"/><path d="M6 20c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="var(--cyan-500)" stroke-width="1.6" stroke-linecap="round"/><path d="M17.5 5.5l1 1 2-2" stroke="var(--cyan-500)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <p class="why-tile-title">Complete operational control</p>
+          <svg class="why-tile-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="var(--cyan-500)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="why-tile why-tile--violet">
+          <span class="why-tile-index">04</span>
+          <div class="why-tile-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z" stroke="var(--violet)" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="var(--violet)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <p class="why-tile-title">Stronger compliance confidence</p>
+          <svg class="why-tile-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="var(--violet)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="why-tile">
+          <span class="why-tile-index">05</span>
+          <div class="why-tile-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="var(--cyan-500)" stroke-width="1.6"/><path d="M12 7v5l3.5 2" stroke="var(--cyan-500)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <p class="why-tile-title">Faster time-to-productivity</p>
+          <svg class="why-tile-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="var(--cyan-500)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="why-tile why-tile--violet">
+          <span class="why-tile-index">06</span>
+          <div class="why-tile-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="9" r="3" stroke="var(--violet)" stroke-width="1.6"/><circle cx="16" cy="9" r="3" stroke="var(--violet)" stroke-width="1.6"/><path d="M2.5 20c0-3.3 2.5-6 5.5-6s5.5 2.7 5.5 6M10.5 14.3c1-.8 2.2-1.3 3.5-1.3 3 0 5.5 2.7 5.5 6" stroke="var(--violet)" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+          <p class="why-tile-title">Reduced burden on functional leaders</p>
+          <svg class="why-tile-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="var(--violet)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 TRUSTED -->
+  <section style="width:100%; background:var(--navy-950);">
+    <div class="wrap" style="padding-top:0; padding-bottom:120px;">
+      <p style="color:var(--cyan-500); font:600 12px/1 'Inter',sans-serif; letter-spacing:.18em; text-transform:uppercase; margin-bottom:24px;">05 &mdash; Global credibility</p>
+      <h2 style="font:600 36px/1.25 'Inter',sans-serif; color:var(--cream-on-navy); margin:0 0 48px; max-width:640px;">Trusted across the Pharma ecosystem</h2>
+
+      <div class="trust-panel">
+        <div class="resp-grid" style="display:grid; grid-template-columns:repeat(4,1fr);">
+          <div class="trust-cell">
+            <div class="stat-count-row">
+              <p class="stat-count" data-target="5000" data-suffix="+">0</p>
+              <svg width="34" height="22" viewBox="0 0 34 22" fill="none"><path d="M1 18L9 11L14 15L22 5L33 1" stroke="var(--cyan-500)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity=".55"/><circle cx="33" cy="1" r="2.4" fill="var(--cyan-500)"/></svg>
+            </div>
+            <div class="stat-bar"><span class="stat-bar-fill"></span></div>
+            <p style="font:600 16px/1.3 'Inter',sans-serif; color:var(--cream-on-navy); margin-bottom:10px;">Professionals trained globally</p>
+            <p style="font:400 14px/1.6 'Inter',sans-serif; color:var(--cream-on-navy-dim);">Across Pharmacovigilance, Clinical Operations, Clinical Data Management, Medical Writing, Medical Coding, Drug Safety, Regulatory Affairs, and SAS Programming.</p>
+          </div>
+          <div class="trust-cell">
+            <div class="stat-count-row">
+              <p class="stat-count" data-target="50" data-suffix="+">0</p>
+              <svg width="34" height="22" viewBox="0 0 34 22" fill="none"><path d="M1 18L9 11L14 15L22 5L33 1" stroke="var(--cyan-500)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity=".55"/><circle cx="33" cy="1" r="2.4" fill="var(--cyan-500)"/></svg>
+            </div>
+            <div class="stat-bar"><span class="stat-bar-fill"></span></div>
+            <p style="font:600 16px/1.3 'Inter',sans-serif; color:var(--cream-on-navy); margin-bottom:10px;">CRO and Pharma companies</p>
+            <p style="font:400 14px/1.6 'Inter',sans-serif; color:var(--cream-on-navy-dim);">Employing our graduates and engaging our services across the US, EU, UK, and emerging markets.</p>
+          </div>
+          <div class="trust-cell">
+            <div class="stat-count-row">
+              <p class="stat-count" data-target="14" data-suffix="+">0</p>
+              <svg width="34" height="22" viewBox="0 0 34 22" fill="none"><path d="M1 18L9 11L14 15L22 5L33 1" stroke="var(--cyan-500)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity=".55"/><circle cx="33" cy="1" r="2.4" fill="var(--cyan-500)"/></svg>
+            </div>
+            <div class="stat-bar"><span class="stat-bar-fill"></span></div>
+            <p style="font:600 16px/1.3 'Inter',sans-serif; color:var(--cream-on-navy); margin-bottom:10px;">Industry collaborations</p>
+            <p style="font:400 14px/1.6 'Inter',sans-serif; color:var(--cream-on-navy-dim);">With leading organizations to ensure training remains aligned with real-world delivery and compliance expectations.</p>
+          </div>
+          <div class="trust-cell" style="background:rgba(124,92,196,0.07);">
+            <div class="trust-badge"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M8 12l3 3 6-7" stroke="var(--violet)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="var(--violet)" stroke-width="1.5"/></svg></div>
+            <p style="font:600 12px/1 'Inter',sans-serif; color:var(--violet); letter-spacing:.1em; text-transform:uppercase; margin-bottom:14px;">Strategic partnerships</p>
+            <p style="font:400 15px/1.65 'Inter',sans-serif; color:var(--cream-on-navy-dim);">We partner with Pharma companies, CROs, technology platforms, and service ecosystem organizations to ensure our training, talent, and enablement services remain aligned with evolving delivery standards and compliance expectations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section id="discuss" style="width:100%; position:relative; overflow:hidden; min-height:480px; display:flex; align-items:center;">
+    <div style="position:absolute; inset:0; background-image:url('assets/img1.jpg'); background-size:cover; background-position:center;"></div>
+    <div style="position:absolute; inset:0; background:linear-gradient(100deg, rgba(7,22,45,0.96) 0%, rgba(7,22,45,0.8) 40%, rgba(7,22,45,0.4) 75%, rgba(7,22,45,0.25) 100%);"></div>
+    <div style="position:absolute; inset:0; background:radial-gradient(circle at 85% 20%, rgba(124,92,196,0.14), transparent 50%);"></div>
+    <div class="wrap" style="position:relative; padding-top:100px; padding-bottom:100px;">
+      <div style="max-width:640px;">
+        <h2 style="font:600 42px/1.2 'Inter',sans-serif; color:var(--cream-on-navy); margin:0 0 24px 0;">Ready to build the capability your pipeline demands?</h2>
+        <p style="font:400 19px/1.7 'Inter',sans-serif; color:var(--cream-on-navy-dim); margin-bottom:40px; max-width:580px;">Production-ready teams, full operational control, and measurable cost savings. Talk to us about accessing expert SMEs or deploying ready resources for critical launches.</p>
+        <a href="mailto:contact@sipedtech.com" class="btn-primary">Discuss your Pharma workforce priorities
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="var(--navy-950)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="width:100%; background:var(--navy-950); border-top:1px solid var(--line-dark);">
+    <div class="wrap" style="padding-top:80px; padding-bottom:40px;">
+      <div class="resp-grid" style="display:grid; grid-template-columns:1.4fr 0.8fr 0.8fr; gap:64px; margin-bottom:64px;">
+        <div>
+          <div style="margin-bottom:24px;">
+            <img src="assets/logo-dark.png" alt="ExpertiseInPharma" style="height:36px; width:auto; display:block;">
+          </div>
+          <p style="font:400 18px/1.8 'Inter',sans-serif; color:var(--cream-on-navy-dim); max-width:460px; margin-bottom:18px;">ExpertiseInPharma is a global organization dedicated to helping pharmaceutical sponsors and contract research organizations navigate complex regulatory landscapes, accelerate innovation and boost productivity.</p>
+          <p style="font:400 18px/1.8 'Inter',sans-serif; color:var(--cream-on-navy-dim); max-width:460px;">Our solutions &mdash; SME on Demand, Resource on Demand and Outsourced L&amp;D &mdash; are curated and delivered by industry practitioners who understand pharma delivery environments, regulatory expectations, and execution pressures.</p>
+        </div>
+        <div>
+          <p style="font:600 12px/1 'Inter',sans-serif; color:var(--cyan-500); letter-spacing:.12em; text-transform:uppercase; margin-bottom:24px;">Explore</p>
+          <div style="display:flex; flex-direction:column; gap:20px;">
+            <a href="index.html" class="foot-link">Home</a>
+            <a href="about.html" class="foot-link">About Us</a>
+            <a href="sme-on-demand.html" class="foot-link">Services</a>
+            <a href="pharmaceutical-companies.html" class="foot-link">Industry Solutions</a>
+            <a href="how-we-partner.html" class="foot-link">How We Partner</a>
+            <a href="careers.html" class="foot-link">Careers</a>
+            <a href="contact.html" class="foot-link">Contact</a>
+          </div>
+        </div>
+        <div>
+          <p style="font:600 12px/1 'Inter',sans-serif; color:var(--cyan-500); letter-spacing:.12em; text-transform:uppercase; margin-bottom:24px;">Contact us</p>
+          <p style="font:400 17px/1.65 'Inter',sans-serif; color:var(--cream-on-navy-dim); margin-bottom:32px;">contact@sipedtech.com</p>
+          <p style="font:600 12px/1 'Inter',sans-serif; color:var(--cyan-500); letter-spacing:.12em; text-transform:uppercase; margin-bottom:24px;">Other links</p>
+          <div style="display:flex; flex-direction:column; gap:20px;">
+            <a href="#" class="foot-link">Privacy Policy</a>
+            <a href="#" class="foot-link">Terms of Use</a>
+          </div>
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--line-dark); padding-top:28px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+        <p style="font:400 14px/1.3 'Inter',sans-serif; color:var(--cream-on-navy-dim);">&copy; 2026 ExpertiseInPharma. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function(){
+    var nav = document.getElementById('site-nav');
+    function onScroll(){
+      if (window.scrollY > 60) { nav.classList.add('nav--scrolled'); }
+      else { nav.classList.remove('nav--scrolled'); }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Scroll reveal
+    var revealTargets = [];
+    function addReveal(selector, stagger){
+      document.querySelectorAll(selector).forEach(function(el, i){
+        el.classList.add('reveal');
+        if (stagger) el.style.transitionDelay = (Math.min(i, 5) * 0.09) + 's';
+        revealTargets.push(el);
+      });
+    }
+    addReveal('h2');
+    addReveal('.flow-node', true);
+    addReveal('.why-tile', true);
+
+    if ('IntersectionObserver' in window){
+      var revealObserver = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (entry.isIntersecting){
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+      revealTargets.forEach(function(el){ revealObserver.observe(el); });
+      document.querySelectorAll('.reveal:not([data-obs]), .reveal-scale:not([data-obs])').forEach(function(el){
+        el.setAttribute('data-obs','1');
+        revealObserver.observe(el);
+      });
+    } else {
+      revealTargets.forEach(function(el){ el.classList.add('is-visible'); });
+      document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('is-visible'); });
+    }
+
+    // Count-up stats
+    var countEls = document.querySelectorAll('.stat-count[data-target]');
+    if (countEls.length){
+      var counted = false;
+      function animateCounts(){
+        if (counted) return;
+        counted = true;
+        countEls.forEach(function(el){
+          var target = parseInt(el.getAttribute('data-target'), 10) || 0;
+          var suffix = el.getAttribute('data-suffix') || '';
+          var start = null;
+          var duration = 1600;
+          function step(ts){
+            if (!start) start = ts;
+            var p = Math.min((ts - start) / duration, 1);
+            var eased = 1 - Math.pow(1 - p, 3);
+            el.textContent = Math.floor(eased * target).toLocaleString() + (p > 0.1 ? suffix : '');
+            if (p < 1) requestAnimationFrame(step);
+            else el.textContent = target.toLocaleString() + suffix;
+          }
+          requestAnimationFrame(step);
+        });
+      }
+      var panel = document.querySelector('.trust-panel');
+      if (panel && 'IntersectionObserver' in window){
+        var countObserver = new IntersectionObserver(function(entries){
+          entries.forEach(function(entry){
+            if (entry.isIntersecting){ animateCounts(); panel.classList.add('is-counted'); countObserver.disconnect(); }
+          });
+        }, { threshold: 0.3 });
+        countObserver.observe(panel);
+      } else {
+        animateCounts();
+        if (panel) panel.classList.add('is-counted');
+      }
+    }
+
+    // Spotlight hover on why-tiles
+    document.querySelectorAll('.why-tile').forEach(function(tile){
+      tile.addEventListener('mousemove', function(e){
+        var r = tile.getBoundingClientRect();
+        tile.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        tile.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
+    });
+  })();
+  </script>
+
+</body>
+</html>
