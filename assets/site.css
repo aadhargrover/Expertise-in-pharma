@@ -86,27 +86,43 @@ h1 .hl, h2 .hl, h1 .hl-onlight, h2 .hl-onlight, h1 .hl-amber, h2 .hl-amber, h1 .
 footer .eyebrow::before{ display:none; }
 
 /* ---------- buttons — soft rounded pills ---------- */
-.btn-primary{ display:inline-flex; align-items:center; gap:12px; background:var(--cyan-500); color:var(--navy-950); font:600 15px/1 var(--font-body); letter-spacing:.005em; padding:17px 28px; border-radius:var(--radius-sm); border:none; cursor:pointer; box-shadow:inset 0 1px 0 rgba(255,255,255,0.25), 0 1px 2px rgba(3,9,20,0.18), 0 8px 20px -12px rgba(3,9,20,0.45); transition:transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s ease, filter .25s ease, background .25s ease; }
-.btn-primary:hover{ transform:translateY(-1px); box-shadow:inset 0 1px 0 rgba(255,255,255,0.25), 0 2px 4px rgba(3,9,20,0.18), 0 14px 28px -14px rgba(3,9,20,0.5); filter:brightness(1.04); }
-.btn-primary:active{ transform:translateY(0); filter:brightness(0.98); }
-.btn-primary svg{ flex:none; transition:transform .25s ease; }
-.btn-primary:hover svg{ transform:translateX(3px); }
-.btn-primary--violet{ background:var(--violet); color:var(--cream-50); }
-.btn-primary--amber{ background:var(--amber-500); color:var(--navy-950); }
-/* light solid + frosted outline - for use over photography */
-.btn-light{ background:var(--cream-50); color:var(--navy-950); }
-.btn-light:hover{ background:#fff; }
-.btn-glass{ background:rgba(245,246,242,0.06); border-color:rgba(245,246,242,0.32); color:var(--cream-on-navy); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); }
-.btn-glass:hover{ background:rgba(245,246,242,0.12); border-color:rgba(245,246,242,0.6); }
-.btn-outline svg{ flex:none; transition:transform .25s ease; }
-.btn-outline:hover svg{ transform:translateX(3px); }
+/* Buttons: a pill with the arrow in its own round badge. The badge turns 45° on hover.
+   The default is navy on light backgrounds; dark sections switch it to cream (see the context rules below). */
+.btn-primary{ --btn-bg:var(--navy-950); --btn-fg:var(--cream-50); --btn-ic-bg:var(--cyan-500); --btn-ic-fg:var(--navy-950);
+  position:relative; display:inline-flex; align-items:center; gap:16px; background:var(--btn-bg); color:var(--btn-fg); font:600 15px/1 var(--font-body); letter-spacing:.01em; padding:7px 7px 7px 26px; min-height:54px; border-radius:999px; border:1px solid transparent; cursor:pointer; box-shadow:0 1px 1px rgba(3,9,20,0.08), 0 12px 28px -16px rgba(3,9,20,0.55); transition:transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s ease, background .3s ease, color .3s ease; }
+.btn-primary:hover{ transform:translateY(-2px); box-shadow:0 2px 2px rgba(3,9,20,0.08), 0 20px 36px -18px rgba(3,9,20,0.6); }
+.btn-primary:active{ transform:translateY(0); }
+.btn-primary svg, .btn-outline svg{ flex:none; box-sizing:border-box; width:40px; height:40px; padding:12px; border-radius:50%; background:var(--btn-ic-bg); color:var(--btn-ic-fg); transition:transform .4s cubic-bezier(.2,.8,.2,1), background .3s ease; }
+.btn-primary svg path, .btn-outline svg path{ stroke:currentColor; }
+.btn-primary:hover svg, .btn-outline:hover svg{ transform:rotate(-45deg); }
+/* buttons without an icon (e.g. nav) get balanced padding */
+.btn-primary:not(:has(svg)), .btn-outline:not(:has(svg)){ padding:7px 26px; }
 
-.btn-outline{ display:inline-flex; align-items:center; gap:10px; background:rgba(255,255,255,0.045); color:var(--cream-on-navy); border:1px solid var(--line-dark); font:600 15px/1 var(--font-body); letter-spacing:.005em; padding:16px 27px; border-radius:var(--radius-sm); transition:border-color .25s ease, background .25s ease, transform .25s ease; cursor:pointer; }
-.btn-outline:hover{ border-color:var(--cyan-500); background:rgba(40,188,210,0.09); transform:translateY(-1px); }
-.btn-outline--onlight{ color:var(--ink-900); background:var(--cream-100); border-color:var(--line); }
-.btn-outline--onlight:hover{ border-color:var(--cyan-600); background:rgba(40,188,210,0.07); }
+.btn-primary--violet{ --btn-bg:var(--violet); --btn-fg:var(--cream-50); --btn-ic-bg:var(--cream-50); --btn-ic-fg:var(--violet); }
+.btn-primary--amber{ --btn-bg:var(--amber-500); --btn-fg:var(--navy-950); --btn-ic-bg:var(--navy-950); --btn-ic-fg:var(--amber-400); }
+.btn-light{ --btn-bg:var(--cream-50); --btn-fg:var(--navy-950); --btn-ic-bg:var(--navy-950); --btn-ic-fg:var(--cyan-400); }
+.btn-light:hover{ --btn-bg:#fff; }
 
-.btn-icon{ width:50px; height:50px; padding:0; justify-content:center; border-radius:50%; flex:none; gap:0; }
+.btn-outline{ --btn-ic-bg:transparent; --btn-ic-fg:currentColor; display:inline-flex; align-items:center; gap:14px; background:transparent; color:var(--cream-on-navy); border:1px solid rgba(245,246,242,0.3); font:600 15px/1 var(--font-body); letter-spacing:.01em; padding:7px 7px 7px 26px; min-height:54px; border-radius:999px; transition:border-color .3s ease, background .3s ease, transform .3s ease; cursor:pointer; }
+.btn-outline svg{ border:1px solid currentColor; opacity:.9; }
+.btn-outline:hover{ border-color:var(--cream-on-navy); background:rgba(245,246,242,0.06); transform:translateY(-2px); }
+.btn-outline--onlight{ color:var(--ink-900); border-color:var(--ink-900); background:transparent; }
+.btn-outline--onlight:hover{ border-color:var(--ink-900); background:var(--ink-900); color:var(--cream-50); }
+.btn-glass{ background:rgba(245,246,242,0.06); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); }
+
+/* dark contexts → cream button */
+.sec--navy .btn-primary:not(.btn-primary--amber):not(.btn-primary--violet),
+.sec--navy-2 .btn-primary:not(.btn-primary--amber):not(.btn-primary--violet),
+.form-panel .btn-primary:not(.btn-primary--amber):not(.btn-primary--violet),
+.modal-card .btn-primary:not(.btn-primary--amber):not(.btn-primary--violet),
+.mobile-drawer .btn-primary{ --btn-bg:var(--cream-50); --btn-fg:var(--navy-950); --btn-ic-bg:var(--navy-950); --btn-ic-fg:var(--cyan-400); }
+
+/* nav CTA: frosted outline over the hero, solid navy once the nav turns light */
+.nav-cta{ min-height:46px !important; font-size:14px !important; }
+#site-nav:not(.nav--scrolled) .nav-cta{ --btn-bg:rgba(245,246,242,0.08); --btn-fg:var(--cream-on-navy); border-color:rgba(245,246,242,0.35); box-shadow:none; backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); }
+#site-nav:not(.nav--scrolled) .nav-cta:hover{ --btn-bg:var(--cream-50); --btn-fg:var(--navy-950); }
+
+.btn-icon{ width:54px; height:54px; padding:0 !important; justify-content:center; border-radius:50%; flex:none; gap:0; }
 
 .btn-ghost-sm{ display:inline-flex; align-items:center; gap:8px; font:600 14px/1 var(--font-body); padding:12px 20px; border-radius:var(--radius-sm); border:1px solid currentColor; cursor:pointer; background:transparent; transition:background .2s ease, transform .2s ease; }
 .btn-ghost-sm:hover{ transform:translateY(-1px); }

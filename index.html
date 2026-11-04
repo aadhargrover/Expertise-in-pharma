@@ -128,7 +128,42 @@
   .cmp-big{ font:italic 400 28px/1 var(--font-display); color:var(--cyan-400); }
 
   /* ===== 04 INDUSTRY ===== */
-  .ind-grid{ display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+  .ind-grid{ display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:stretch; }
+  .ind-card{ --accent:var(--cyan-500); --accent-ink:var(--cyan-700); --accent-soft:rgba(40,188,210,0.1); display:flex; flex-direction:column; background:#fff; border:1px solid var(--line); border-radius:20px; overflow:hidden; box-shadow:var(--shadow-sm); transition:transform .45s cubic-bezier(.2,.7,.2,1), box-shadow .45s ease; }
+  .ind-card--violet{ --accent:var(--violet); --accent-ink:var(--violet-600); --accent-soft:var(--violet-100); }
+  .ind-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-lg); }
+  .ind-cover{ height:330px; display:flex; align-items:flex-end; }
+  .ind-cover.img-slot::after{ background:linear-gradient(180deg, rgba(7,22,45,0.05) 15%, rgba(7,22,45,0.55) 55%, rgba(7,22,45,0.94) 100%); }
+  .ind-cover-in{ position:relative; z-index:1; padding:30px 36px 32px; }
+  .ind-tag{ display:inline-flex; align-items:center; gap:8px; padding:7px 13px; margin-bottom:16px; border-radius:999px; background:rgba(245,246,242,0.12); border:1px solid rgba(245,246,242,0.24); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); font:600 10.5px/1 var(--font-body); letter-spacing:.18em; text-transform:uppercase; color:var(--cream-on-navy); }
+  .ind-tag i{ width:6px; height:6px; border-radius:50%; background:var(--accent); }
+  .ind-title{ font:500 clamp(26px,2.4vw,34px)/1.1 var(--font-display); letter-spacing:-.02em; color:var(--cream-on-navy); margin:0 0 10px; }
+  .ind-tagline{ font:400 15.5px/1.55 var(--font-body); color:rgba(245,246,242,0.8); max-width:440px; }
+  .ind-stat{ position:absolute; z-index:1; top:22px; right:22px; display:flex; flex-direction:column; align-items:flex-end; gap:6px; padding:14px 16px; border-radius:14px; background:rgba(7,22,45,0.5); border:1px solid rgba(245,246,242,0.18); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); }
+  .ind-stat b{ font:italic 400 32px/1 var(--font-display); color:#fff; }
+  .ind-stat span{ font:500 11.5px/1.35 var(--font-body); color:rgba(245,246,242,0.78); max-width:130px; text-align:right; }
+  .ind-body{ flex:1; display:flex; flex-direction:column; gap:30px; padding:32px 36px 0; }
+  .ind-label{ display:flex; align-items:center; gap:14px; margin-bottom:14px; font:600 10.5px/1 var(--font-body); letter-spacing:.2em; text-transform:uppercase; color:var(--ink-400); }
+  .ind-label::after{ content:''; flex:1; height:1px; background:var(--line); }
+  .ind-chips{ display:flex; flex-wrap:wrap; gap:8px; }
+  .ind-chips span{ font:500 13.5px/1 var(--font-body); padding:9px 14px; border-radius:999px; background:var(--accent-soft); color:var(--accent-ink); }
+  .ind-help{ display:grid; gap:10px; }
+  .ind-help-row{ display:grid; grid-template-columns:44px 1fr; gap:16px; align-items:center; padding:13px 16px 13px 13px; border:1px solid var(--line); border-radius:14px; background:var(--cream-50); transition:border-color .25s ease, background .25s ease, transform .25s ease; }
+  .ind-help-row:hover{ border-color:var(--accent); background:#fff; transform:translateX(4px); }
+  .ind-help-ic{ width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; background:var(--accent-soft); color:var(--accent-ink); }
+  .ind-help-svc{ font:600 15px/1.3 var(--font-body); color:var(--ink-900); margin:0 0 3px; }
+  .ind-help-out{ font:400 14px/1.45 var(--font-body); color:var(--ink-600); }
+  .ind-foot{ display:flex; justify-content:space-between; align-items:center; gap:16px; margin:30px 36px 34px; padding:7px 7px 7px 26px; min-height:56px; border-radius:999px; background:var(--navy-950); color:var(--cream-50); font:600 15px/1 var(--font-body); transition:background .3s ease; }
+  .ind-foot:hover{ background:var(--navy-800); }
+  .ind-foot-go{ flex:none; width:42px; height:42px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:var(--accent); color:var(--navy-950); transition:transform .4s cubic-bezier(.2,.8,.2,1); }
+  .ind-card--violet .ind-foot-go{ color:#fff; }
+  .ind-foot:hover .ind-foot-go{ transform:rotate(-45deg); }
+  @media (max-width:980px){
+    .ind-cover{ height:300px; }
+    .ind-cover-in, .ind-body{ padding-left:24px; padding-right:24px; }
+    .ind-foot{ margin:26px 24px 26px; }
+    .ind-stat{ top:16px; right:16px; padding:12px 14px; }
+  }
 
   /* ===== 05 ENGAGE ===== */
   .engage{ display:grid; grid-template-columns:5fr 7fr; gap:80px; align-items:start; }
@@ -320,7 +355,7 @@
         <div class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></div>
       </div>
 
-      <button type="button" class="btn-primary nav-cta" style="padding:13px 24px;" onclick="openLeadModal('nav')">Talk to our team</button>
+      <button type="button" class="btn-primary nav-cta" onclick="openLeadModal('nav')">Talk to our team</button>
 
       <button type="button" id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
@@ -558,35 +593,58 @@
         <p class="sec-intro">Pharma companies and CROs operate with distinct business models and strategic priorities &mdash; yet both face talent gaps, compliance risk, vendor dependency and scaling pressure.</p>
       </div>
       <div class="ind-grid">
-        <div class="media-card" data-reveal="up" data-reveal-group="ind">
-          <div class="img-slot photo-tint" data-slot="ind-pharma" style="background-image:url('assets/professionals-walking.jpg');"></div>
-          <div class="media-card-body">
-            <p class="media-card-title">For Pharmaceutical Companies</p>
-            <p class="media-card-desc">Accelerate innovation, ensure compliance, reduce vendor dependency.</p>
-            <p class="media-card-label">How we help</p>
-            <ul class="media-card-list">
-              <li><strong>SME on Demand</strong> &mdash; regulatory strategy &amp; audit prep</li>
-              <li><strong>Resource on Demand</strong> &mdash; pre-trained PV &amp; RA talent</li>
-              <li><strong>Outsourced L&amp;D</strong> &mdash; training without new headcount</li>
-            </ul>
-            <a href="pharmaceutical-companies.html" class="arrow-link">Explore solutions for Pharma <svg class="arrow-ic" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <article class="ind-card ind-card--cyan" data-reveal="up" data-reveal-group="ind">
+          <div class="ind-cover img-slot photo-tint" data-slot="ind-pharma" style="background-image:url('assets/professionals-walking.jpg');">
+            <div class="ind-stat"><b>75%</b><span>faster search-to-productivity</span></div>
+            <div class="ind-cover-in">
+              <span class="ind-tag"><i></i>Pharma sponsors</span>
+              <p class="ind-title">For Pharmaceutical Companies</p>
+              <p class="ind-tagline">Accelerate innovation, ensure compliance, reduce vendor dependency.</p>
+            </div>
           </div>
-        </div>
-        <div class="media-card" data-reveal="up" data-reveal-group="ind">
-          <div class="img-slot photo-tint" data-slot="ind-cro" style="background-image:url('assets/networking.jpg');"></div>
-          <div class="media-card-body">
-            <p class="media-card-title">For Clinical Research Organizations</p>
-            <p class="media-card-desc">Protect margins, strengthen client confidence, scale delivery capacity.</p>
-            <p class="media-card-label">How we help</p>
-            <ul class="media-card-list">
-              <li><strong>SME on Demand</strong> &mdash; audit support &amp; bid representation</li>
-              <li><strong>Resource on Demand</strong> &mdash; time-to-billability down 75%</li>
-              <li><strong>Outsourced L&amp;D</strong> &mdash; training off your delivery teams</li>
-              <li><strong>Flexible models</strong> &mdash; scale without long-term lock-in</li>
-            </ul>
-            <a href="#" onclick="openLeadModal('ind-cro'); return false;" class="arrow-link">Talk to us about CRO solutions <svg class="arrow-ic" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="ind-body">
+            <div>
+              <p class="ind-label">Your priorities</p>
+              <div class="ind-chips"><span>Accelerate innovation</span><span>Regulatory compliance</span><span>Domain specialists</span><span>Speed to market</span><span>Vendor independence</span></div>
+            </div>
+            <div>
+              <p class="ind-label">How we help</p>
+              <div class="ind-help">
+                <div class="ind-help-row"><span class="ind-help-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 3h6M10 3v6.2c0 .5-.15 1-.43 1.4L5.9 16.3c-.9 1.28.02 3.03 1.58 3.03h9.04c1.56 0 2.48-1.75 1.58-3.03l-3.67-5.7A2.5 2.5 0 0 1 14 9.2V3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><p class="ind-help-svc">SME on Demand</p><p class="ind-help-out">Regulatory strategy &amp; audit prep</p></div></div>
+                <div class="ind-help-row"><span class="ind-help-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span><div><p class="ind-help-svc">Resource on Demand</p><p class="ind-help-out">Pre-trained PV &amp; RA talent</p></div></div>
+                <div class="ind-help-row"><span class="ind-help-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span><div><p class="ind-help-svc">Outsourced L&amp;D</p><p class="ind-help-out">Training without new headcount</p></div></div>
+              </div>
+            </div>
           </div>
-        </div>
+          <a href="pharmaceutical-companies.html" class="ind-foot">Explore solutions for Pharma<span class="ind-foot-go"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+        </article>
+
+        <article class="ind-card ind-card--violet" data-reveal="up" data-reveal-group="ind">
+          <div class="ind-cover img-slot photo-tint" data-slot="ind-cro" style="background-image:url('assets/networking.jpg');">
+            <div class="ind-stat"><b>75%</b><span>lower time-to-billability</span></div>
+            <div class="ind-cover-in">
+              <span class="ind-tag"><i></i>Contract research</span>
+              <p class="ind-title">For Clinical Research Organizations</p>
+              <p class="ind-tagline">Protect margins, strengthen client confidence, scale delivery capacity.</p>
+            </div>
+          </div>
+          <div class="ind-body">
+            <div>
+              <p class="ind-label">Your priorities</p>
+              <div class="ind-chips"><span>Protect margins</span><span>Client confidence</span><span>Competitive bids</span><span>Delivery capacity</span><span>Time-to-billability</span></div>
+            </div>
+            <div>
+              <p class="ind-label">How we help</p>
+              <div class="ind-help">
+                <div class="ind-help-row"><span class="ind-help-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 3h6M10 3v6.2c0 .5-.15 1-.43 1.4L5.9 16.3c-.9 1.28.02 3.03 1.58 3.03h9.04c1.56 0 2.48-1.75 1.58-3.03l-3.67-5.7A2.5 2.5 0 0 1 14 9.2V3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><p class="ind-help-svc">SME on Demand</p><p class="ind-help-out">Audit support &amp; bid representation</p></div></div>
+                <div class="ind-help-row"><span class="ind-help-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span><div><p class="ind-help-svc">Resource on Demand</p><p class="ind-help-out">Time-to-billability down 75%</p></div></div>
+                <div class="ind-help-row"><span class="ind-help-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span><div><p class="ind-help-svc">Outsourced L&amp;D</p><p class="ind-help-out">Training off your delivery teams</p></div></div>
+                <div class="ind-help-row"><span class="ind-help-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="16" cy="6" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="12" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="18" cy="18" r="2" stroke="currentColor" stroke-width="1.5"/></svg></span><div><p class="ind-help-svc">Flexible models</p><p class="ind-help-out">Scale without long-term lock-in</p></div></div>
+              </div>
+            </div>
+          </div>
+          <a href="#" onclick="openLeadModal('ind-cro'); return false;" class="ind-foot">Talk to us about CRO solutions<span class="ind-foot-go"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+        </article>
       </div>
     </div>
   </section>
