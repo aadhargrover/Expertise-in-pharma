@@ -294,3 +294,94 @@ footer .eyebrow::before{ display:none; }
   .role-toggle{ width:100%; }
   .role-toggle-btn{ flex:1; padding:14px 12px; }
 }
+
+/* ==========================================================================
+   Shared section components (homepage + careers)
+   ========================================================================== */
+.sec{ width:100%; padding:120px 0; }
+.sec--paper{ background:var(--cream-50); }
+.sec--cream{ background:var(--cream-100); }
+.sec--navy{ background:var(--navy-950); color:var(--cream-on-navy); }
+.sec--navy-2{ background:var(--navy-900); color:var(--cream-on-navy); }
+
+/* header: eyebrow + serif title left, intro right */
+.sec-head{ display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:end; margin-bottom:64px; }
+.sec-head--stack{ grid-template-columns:1fr; gap:20px; max-width:760px; }
+.sec-eyebrow{ color:var(--cyan-700); margin-bottom:22px; }
+.sec--navy .sec-eyebrow, .sec--navy-2 .sec-eyebrow{ color:var(--cyan-500); }
+.sec-title{ font-size:clamp(32px,3.2vw,46px); line-height:1.12; margin:0; color:var(--ink-900); }
+.sec--navy .sec-title, .sec--navy-2 .sec-title{ color:var(--cream-on-navy); }
+.sec-kicker{ font:italic 400 22px/1.4 var(--font-display); color:var(--ink-600); margin-bottom:14px; }
+.sec--navy .sec-kicker, .sec--navy-2 .sec-kicker{ color:var(--cream-on-navy); }
+.sec-intro{ font:400 17px/1.7 var(--font-body); color:var(--ink-600); max-width:520px; }
+.sec--navy .sec-intro, .sec--navy-2 .sec-intro{ color:var(--cream-on-navy-dim); }
+
+/* image slot — swap photos by changing one background-image */
+.img-slot{ position:relative; overflow:hidden; background-color:var(--navy-800); background-size:cover; background-position:center; }
+.img-slot::after{ content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(7,22,45,0) 55%, rgba(7,22,45,0.35) 100%); pointer-events:none; }
+
+/* numbered feature list — hairline grid */
+.feature-grid{ display:grid; grid-template-columns:repeat(2,1fr); column-gap:48px; }
+.feature-grid--3{ grid-template-columns:repeat(3,1fr); }
+.feature-item{ border-top:1px solid var(--line); padding:26px 0 30px; display:grid; grid-template-columns:44px 1fr; gap:4px 12px; transition:border-color .3s ease; }
+.feature-item:hover{ border-top-color:var(--cyan-600); }
+.feature-num{ grid-row:span 2; font:italic 400 20px/1.2 var(--font-display); color:var(--cyan-700); }
+.feature-title{ font:600 17px/1.35 var(--font-body); color:var(--ink-900); margin:0 0 6px; }
+.feature-desc{ font:400 15.5px/1.65 var(--font-body); color:var(--ink-600); }
+.on-dark .feature-item{ border-top-color:var(--line-dark); }
+.on-dark .feature-item:hover{ border-top-color:var(--cyan-500); }
+.on-dark .feature-num{ color:var(--cyan-500); }
+.on-dark .feature-title{ color:var(--cream-on-navy); }
+.on-dark .feature-desc{ color:var(--cream-on-navy-dim); }
+
+/* steps row */
+.step-row{ display:grid; grid-template-columns:repeat(4,1fr); gap:28px; counter-reset:step; }
+.step{ position:relative; padding-top:28px; border-top:1px solid var(--line); }
+.step::before{ content:''; position:absolute; top:-1px; left:0; width:40px; height:2px; background:var(--cyan-600); }
+.step-num{ font:500 12px/1 var(--font-body); letter-spacing:.18em; text-transform:uppercase; color:var(--ink-400); margin-bottom:16px; }
+.step-title{ font:500 26px/1.2 var(--font-display); color:var(--ink-900); margin:0 0 10px; }
+.step-desc{ font:400 15.5px/1.65 var(--font-body); color:var(--ink-600); }
+.step-row--amber .step::before{ background:var(--amber-500); }
+
+/* testimonial */
+.voice-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+.voice{ position:relative; background:#fff; border:1px solid var(--line); border-radius:var(--radius-lg); padding:40px; display:flex; flex-direction:column; gap:22px; box-shadow:var(--shadow-sm); }
+.voice-mark{ font:italic 400 80px/.5 var(--font-display); color:var(--cyan-600); height:30px; }
+.voice-text{ font:italic 400 21px/1.55 var(--font-display); color:var(--ink-900); flex:1; }
+.voice-person{ display:flex; align-items:center; gap:14px; padding-top:22px; border-top:1px solid var(--line); }
+.voice-avatar{ width:46px; height:46px; border-radius:50%; object-fit:cover; }
+.voice-name{ font:600 15px/1.3 var(--font-body); color:var(--ink-900); }
+.voice-role{ font:400 13.5px/1.3 var(--font-body); color:var(--ink-400); }
+.voice--amber .voice-mark{ color:var(--amber-700); }
+
+/* image-topped card (industry / career stage) */
+.media-card{ background:#fff; border:1px solid var(--line); border-radius:var(--radius-lg); overflow:hidden; display:flex; flex-direction:column; box-shadow:var(--shadow-sm); transition:transform .4s cubic-bezier(.2,.7,.2,1), box-shadow .4s ease; }
+.media-card:hover{ transform:translateY(-4px); box-shadow:var(--shadow-lg); }
+.media-card .img-slot{ height:260px; }
+.media-card-body{ padding:34px 36px 36px; display:flex; flex-direction:column; flex:1; }
+.media-card-title{ font:500 28px/1.2 var(--font-display); color:var(--ink-900); margin:0 0 10px; }
+.media-card-desc{ font:400 16px/1.65 var(--font-body); color:var(--ink-600); margin-bottom:24px; }
+.media-card-label{ font:600 11.5px/1 var(--font-body); letter-spacing:.18em; text-transform:uppercase; color:var(--cyan-700); margin-bottom:6px; }
+.media-card-list{ list-style:none; margin:0 0 28px; padding:0; }
+.media-card-list li{ font:400 15.5px/1.55 var(--font-body); color:var(--ink-600); padding:13px 0; border-bottom:1px solid var(--line); }
+.media-card-list li strong{ color:var(--ink-900); font-weight:600; }
+.media-card .arrow-link{ margin-top:auto; }
+.media-card--amber .media-card-label, .media-card--amber .arrow-link{ color:var(--amber-700); }
+
+@media (max-width:980px){
+  .sec{ padding:84px 0; }
+  .sec-head{ grid-template-columns:1fr; gap:20px; margin-bottom:44px; align-items:start; }
+  .feature-grid, .feature-grid--3{ grid-template-columns:1fr; }
+  .step-row{ grid-template-columns:1fr 1fr; gap:36px 24px; }
+  .voice-grid{ grid-template-columns:1fr; }
+  .media-card-body{ padding:28px 24px; }
+}
+@media (max-width:560px){
+  .step-row{ grid-template-columns:1fr; }
+}
+
+/* amber variants (careers) + two-up card grid */
+.feature-grid--amber .feature-num{ color:var(--amber-700); }
+.feature-grid--amber .feature-item:hover{ border-top-color:var(--amber-500); }
+.stage-grid{ display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+@media (max-width:980px){ .stage-grid{ grid-template-columns:1fr; } }
