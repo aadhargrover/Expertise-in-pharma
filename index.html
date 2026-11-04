@@ -56,7 +56,7 @@
   }
 
   /* ===== DARK SECTION GLOW ===== */
-  .sec--glow{ position:relative; overflow:hidden; }
+  .sec--glow{ position:relative; overflow:clip; }
   .sec--glow::before{ content:''; position:absolute; width:1000px; height:1000px; right:-380px; top:-460px; border-radius:50%; background:radial-gradient(circle, rgba(40,188,210,0.11), transparent 62%); pointer-events:none; }
   .sec--glow-left::before{ right:auto; left:-420px; top:auto; bottom:-520px; }
   .sec--glow > .wrap{ position:relative; }
