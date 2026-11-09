@@ -11,10 +11,10 @@ RewriteRule ^services/sme-on-demand/?$ /sme-on-demand.html [L,R=301]
 RewriteRule ^services/resource-on-demand/?$ /resource-on-demand.html [L,R=301]
 RewriteRule ^services/outsourced-ld-enablement/?$ /outsourced-ld.html [L,R=301]
 RewriteRule ^services/global-capability-center-gcc-enablement/?$ / [L,R=301]
-RewriteRule ^services/?$ /sme-on-demand.html [L,R=301]
+RewriteRule ^services/?$ /services.html [L,R=301]
 RewriteRule ^industry-solutions/pharmaceutical-companies/?$ /pharmaceutical-companies.html [L,R=301]
 RewriteRule ^industry-solutions/clinical-research-organization/?$ /cro.html [L,R=301]
-RewriteRule ^industry-solutions/?$ /pharmaceutical-companies.html [L,R=301]
+RewriteRule ^industry-solutions/?$ /industries.html [L,R=301]
 RewriteRule ^(sme-on-demand|resource-on-demand)/?$ /$1.html [L,R=301]
 RewriteRule ^outsourced-ld-enablement/?$ /outsourced-ld.html [L,R=301]
 RewriteRule ^about-us/?$ /about.html [L,R=301]
@@ -28,7 +28,7 @@ RewriteRule ^(partials|tools|form-backend)(/|$) - [F,L]
   Require all denied
 </FilesMatch>
 
-ErrorDocument 404 /index.html
+ErrorDocument 404 /404.html
 Options -Indexes
 
 # Compression

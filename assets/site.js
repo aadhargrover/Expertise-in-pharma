@@ -133,6 +133,65 @@
     });
   });
 
+  // ---- on-page subnav: <body data-subnav="Label"> builds a sticky bar from each section's "NN — Label" eyebrow ----
+  var subLabel = document.body.getAttribute('data-subnav');
+  var hero = document.querySelector('.page-hero');
+  if (subLabel && hero){
+    var targets = [];
+    document.querySelectorAll('.sec-eyebrow').forEach(function(eb){
+      var m = eb.textContent.match(/^\s*\d+\s*[—–-]\s*(.+)$/);
+      if (!m || eb.closest('.cta-band, .cta-sec, footer')) return;
+      var host = eb.closest('.svc-block') || eb.closest('section');
+      if (!host || targets.some(function(t){ return t.el === host; })) return;
+      if (!host.id) host.id = 'sec-' + m[1].toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+      host.setAttribute('data-subnav-target', '');
+      targets.push({ el:host, label:m[1].trim() });
+    });
+    if (targets.length >= 3){
+      var bar = document.createElement('nav');
+      bar.className = 'subnav'; bar.setAttribute('aria-label', 'On this page');
+      bar.innerHTML = '<div class="wrap"><span class="subnav-label">' + subLabel + '</span></div><span class="subnav-progress"></span>';
+      var row = bar.firstChild;
+      targets.forEach(function(t){
+        var a = document.createElement('a');
+        a.href = '#' + t.el.id; a.textContent = t.label; t.link = a; row.appendChild(a);
+      });
+      hero.parentNode.insertBefore(bar, hero.nextSibling);
+      var prog = bar.querySelector('.subnav-progress'), lastActive;
+      function onSubScroll(){
+        var y = window.scrollY, heroEnd = hero.offsetTop + hero.offsetHeight - 90;
+        bar.classList.toggle('is-shown', y > heroEnd);
+        var active = null;
+        targets.forEach(function(t){ if (t.el.getBoundingClientRect().top < 200) active = t; });
+        if (active !== lastActive){
+          lastActive = active;
+          targets.forEach(function(t){ t.link.classList.toggle('is-active', t === active); });
+          if (active) row.scrollTo({ left:Math.max(0, active.link.offsetLeft - 120), behavior:'smooth' });
+        }
+        var doc = document.documentElement, max = doc.scrollHeight - window.innerHeight;
+        prog.style.width = (max > 0 ? Math.min(100, (y / max) * 100) : 0) + '%';
+      }
+      window.addEventListener('scroll', onSubScroll, { passive:true });
+      onSubScroll();
+    }
+  }
+
+  // ---- mobile sticky CTA bar (phones): appears after the hero, hides near the footer ----
+  if (document.getElementById('lead-modal')){
+    var mcta = document.createElement('div');
+    mcta.className = 'm-cta';
+    mcta.innerHTML = '<button type="button">Talk to our team</button><a href="mailto:contact@sipedtech.com" aria-label="Email us">Email</a>';
+    mcta.querySelector('button').addEventListener('click', function(){ window.openLeadModal('mobile-bar'); });
+    document.body.appendChild(mcta);
+    var foot = document.querySelector('footer');
+    function onMctaScroll(){
+      var nearEnd = foot && foot.getBoundingClientRect().top < window.innerHeight + 40;
+      mcta.classList.toggle('is-shown', window.scrollY > 520 && !nearEnd);
+    }
+    window.addEventListener('scroll', onMctaScroll, { passive:true });
+    onMctaScroll();
+  }
+
   // ---- count-up: [data-count="5000"] — the number is pre-filled so it reads correctly without JS ----
   var counters = document.querySelectorAll('[data-count]');
   if (counters.length && 'IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){

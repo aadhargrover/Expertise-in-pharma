@@ -62,7 +62,7 @@
   @media (max-width:560px){ .leaders{ grid-template-columns:1fr; } }
 </style>
 </head>
-<body>
+<body data-subnav="On this page">
 
   <!-- @partial nav -->
   <div id="site-nav">
@@ -74,7 +74,7 @@
         <div class="nav-item"><a href="about.html" class="nav-link">About Us</a></div>
 
         <div class="nav-item">
-          <a href="sme-on-demand.html" class="nav-link" data-nav-group="services" style="display:flex; align-items:center;">Services
+          <a href="services.html" class="nav-link" data-nav-group="services" style="display:flex; align-items:center;">Services
             <svg class="nav-caret" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
           <div class="mega mega-services">
@@ -99,7 +99,7 @@
         </div>
 
         <div class="nav-item">
-          <a href="pharmaceutical-companies.html" class="nav-link" data-nav-group="industry" style="display:flex; align-items:center;">Industry Solutions
+          <a href="industries.html" class="nav-link" data-nav-group="industry" style="display:flex; align-items:center;">Industry Solutions
             <svg class="nav-caret" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
           <div class="mega mega-industry">
@@ -131,13 +131,13 @@
     <div class="wrap">
       <a href="index.html" class="nav-link">Home</a>
       <a href="about.html" class="nav-link">About Us</a>
-      <a href="sme-on-demand.html" class="nav-link has-sub" data-nav-group="services">Services</a>
+      <a href="services.html" class="nav-link has-sub" data-nav-group="services">Services</a>
       <div class="drawer-sub">
         <a href="sme-on-demand.html">SME on Demand</a>
         <a href="resource-on-demand.html">Resource on Demand</a>
         <a href="outsourced-ld.html">Outsourced L&amp;D Enablement</a>
       </div>
-      <a href="pharmaceutical-companies.html" class="nav-link has-sub" data-nav-group="industry">Industry Solutions</a>
+      <a href="industries.html" class="nav-link has-sub" data-nav-group="industry">Industry Solutions</a>
       <div class="drawer-sub">
         <a href="pharmaceutical-companies.html">Pharmaceutical Companies</a>
         <a href="cro.html">Clinical Research Organizations (CRO)</a>
@@ -276,7 +276,7 @@
   <!-- @partial footer -->
   <footer class="site-foot">
     <div class="wrap">
-      <div class="foot-grid">
+      <div class="foot-grid foot-grid--4">
         <div class="foot-about">
           <img src="assets/logo-dark.png" alt="ExpertiseInPharma" style="height:36px; width:auto; margin-bottom:26px;">
           <p><strong>ExpertiseInPharma</strong> is a global organization dedicated to empowering pharmaceutical sponsors and contract research organizations (CROs) navigate complex regulatory landscapes, accelerate innovation and boost productivity.</p>
@@ -287,11 +287,20 @@
           <div class="foot-links">
             <a href="index.html" class="foot-link">Home</a>
             <a href="about.html" class="foot-link">About Us</a>
-            <a href="sme-on-demand.html" class="foot-link">Services</a>
-            <a href="pharmaceutical-companies.html" class="foot-link">Industry Solutions</a>
             <a href="how-we-partner.html" class="foot-link">How We Partner</a>
             <a href="careers.html" class="foot-link">Careers</a>
             <a href="contact.html" class="foot-link">Contact</a>
+          </div>
+        </div>
+        <div>
+          <p class="eyebrow foot-col-title">Solutions</p>
+          <div class="foot-links">
+            <a href="services.html" class="foot-link">All services</a>
+            <a href="sme-on-demand.html" class="foot-link">SME on Demand</a>
+            <a href="resource-on-demand.html" class="foot-link">Resource on Demand</a>
+            <a href="outsourced-ld.html" class="foot-link">Outsourced L&amp;D</a>
+            <a href="pharmaceutical-companies.html" class="foot-link">For Pharma companies</a>
+            <a href="cro.html" class="foot-link">For CROs</a>
           </div>
         </div>
         <div>
@@ -305,10 +314,11 @@
         </div>
       </div>
       <div class="foot-bottom">
-        <p>&copy; 2025 SIP Edtech Private Limited. All rights reserved.</p>
-        <p>CIN &ndash; U85499GJ2025PTC167504 &nbsp;&middot;&nbsp; GST &ndash; 24ABRCS2808M1ZU</p>
+        <p>&copy; 2025 SIP Edtech Private Limited. All rights reserved. &nbsp;&middot;&nbsp; CIN &ndash; U85499GJ2025PTC167504 &nbsp;&middot;&nbsp; GST &ndash; 24ABRCS2808M1ZU</p>
+        <a href="#top" class="to-top" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">Back to top <span><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M8 13V3M8 3L4 7M8 3l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
       </div>
     </div>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"ExpertiseInPharma","legalName":"SIP Edtech Private Limited","url":"https://expertiseinpharma.com/","logo":"https://expertiseinpharma.com/assets/favicon-512.png","email":"contact@sipedtech.com","address":{"@type":"PostalAddress","streetAddress":"260, Lane 14, Sector 6, Satyagrah Chavni","addressLocality":"Ahmedabad","postalCode":"380015","addressRegion":"Gujarat","addressCountry":"IN"}}</script>
   </footer>
   <!-- /@partial footer -->
 

@@ -9,7 +9,7 @@ No database, no build step: upload the files and it runs.
 
 | Path | What it is | Upload to server? |
 |---|---|---|
-| `*.html` (12 pages) | The site | Yes |
+| `*.html` (15 pages incl. `404.html`) | The site | Yes |
 | `assets/` | Stylesheet, scripts, images, logos, favicon, share image | Yes |
 | `favicon.ico`, `robots.txt`, `sitemap.xml`, `.htaccess` | Browser icon, search engine files, server settings (cPanel) | Yes |
 | `_redirects` | Same redirects for the Netlify preview (ignored by cPanel) | Optional |
@@ -17,7 +17,9 @@ No database, no build step: upload the files and it runs.
 | `partials/`, `tools/` | Shared nav/footer/modal and the script that copies them into pages | **No** (only needed when editing) |
 | `HANDOVER.md`, `HOMEPAGE-SECTIONS.md`, `README.md` | Documentation | No |
 
-Pages: `index`, `about`, `sme-on-demand`, `resource-on-demand`, `outsourced-ld`, `pharmaceutical-companies`, `cro`, `how-we-partner`, `careers`, `contact`, `privacy`, `terms`.
+Pages: `index`, `about`, `services` (overview), `industries` (overview), `sme-on-demand`, `resource-on-demand`, `outsourced-ld`, `pharmaceutical-companies`, `cro`, `how-we-partner`, `careers`, `contact`, `privacy`, `terms`, `404`.
+
+Site-wide behaviour in `assets/site.js`: a sticky "On this page" bar is built automatically on pages whose `<body>` has `data-subnav` (from each section's "NN — Label" eyebrow), and phones get a floating "Talk to our team" bar.
 
 ---
 

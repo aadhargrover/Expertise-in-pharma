@@ -7,12 +7,12 @@
 /services/outsourced-ld-enablement                   /outsourced-ld.html             301
 /services/outsourced-ld-enablement/                  /outsourced-ld.html             301
 /services/global-capability-center-gcc-enablement/*  /                               301
-/services                                            /sme-on-demand.html             301
-/services/                                           /sme-on-demand.html             301
+/services                                            /services.html                  301
+/services/                                           /services.html                  301
 /industry-solutions/pharmaceutical-companies/*       /pharmaceutical-companies.html  301
 /industry-solutions/clinical-research-organization/* /cro.html                       301
-/industry-solutions                                  /pharmaceutical-companies.html  301
-/industry-solutions/                                 /pharmaceutical-companies.html  301
+/industry-solutions                                  /industries.html                301
+/industry-solutions/                                 /industries.html                301
 /sme-on-demand/                                      /sme-on-demand.html             301
 /resource-on-demand/                                 /resource-on-demand.html        301
 /outsourced-ld-enablement/*                          /outsourced-ld.html             301
