@@ -1060,3 +1060,8 @@ body > section.cta-band:last-of-type, body > section.cta-sec{ box-shadow:0 40px 
 .partners .voice-mark{ top:30px; right:34px; font-size:150px; line-height:.75; height:auto; }
 .partners .voice-text{ padding-right:84px; }
 @media (max-width:980px){ .partners .voice-mark{ font-size:110px; top:22px; right:20px; } .partners .voice-text{ padding-right:56px; } }
+/* "We enable workforces." emphasis */
+.kicker-hl{ font-style:italic; font-weight:500; color:var(--cyan-400); background:linear-gradient(90deg, rgba(40,188,210,0.22), rgba(124,92,196,0.18)) no-repeat 0 88%/100% .38em; padding:0 .08em; }
+.sec--paper .kicker-hl, .sec--cream .kicker-hl{ color:var(--cyan-700); }
+.page-hero .kicker-hl{ color:var(--cyan-400); }
+.kicker-hl{ display:inline-block; font-weight:600; background-image:linear-gradient(90deg, rgba(40,188,210,0.45), rgba(124,92,196,0.4)); background-size:100% .42em; background-position:0 90%; padding:0 .12em; }

@@ -20,15 +20,6 @@
 <style>
   /* ---- page-specific: careers.html ---- */
 
-  .hero-carousel{ position:relative; width:100%; height:64vh; min-height:520px; max-height:640px; overflow:hidden; background:var(--navy-950); }
-  .hero-slide{ position:absolute; inset:0; opacity:1; }
-  .hero-slide-bg{ position:absolute; inset:0; }
-  .hero-slide-overlay{ position:absolute; inset:0; background:linear-gradient(0deg, rgba(7,22,45,0.96) 0%, rgba(7,22,45,0.82) 35%, rgba(7,22,45,0.62) 60%, rgba(7,22,45,0.72) 100%); }
-  .hero-slide-content{ position:absolute; left:0; right:0; bottom:0; padding:0 clamp(20px,5vw,100px) 68px clamp(64px,9vw,160px); max-width:1000px; }
-  .breadcrumb{ display:flex; align-items:center; gap:8px; font:500 13px/1 'Inter',sans-serif; color:var(--cream-on-navy-dim); margin-bottom:22px; }
-  .breadcrumb a{ transition:color .2s ease; }
-  .breadcrumb a:hover{ color:var(--cyan-500); }
-  .hero-quick-actions{ display:flex; flex-wrap:wrap; gap:14px; margin-top:34px; }
 
   /* Featured roles */
   .job-card{ position:relative; background:var(--cream-50); border:1px solid var(--line); border-radius:16px; padding:26px 24px 24px; overflow:hidden; transition:transform .3s cubic-bezier(.2,.7,.2,1), border-color .3s ease, box-shadow .3s ease; }
@@ -79,6 +70,17 @@
   .benefit-row strong{ color:var(--cream-on-navy); font-weight:600; }
 
   .h-onlight-title{ font-family:var(--font-display); }
+  .role-title{ margin:0 0 56px !important; max-width:760px; }
+  .role-title--center{ text-align:center; margin-left:auto !important; margin-right:auto !important; }
+  .role-eyebrow{ justify-content:center; color:oklch(0.75 0.11 292); margin-bottom:20px; }
+  .role-eyebrow::after{ content:''; width:28px; height:1px; background:currentColor; opacity:.7; }
+  .role-label{ font:600 11.5px/1 var(--font-body); letter-spacing:.18em; text-transform:uppercase; color:var(--cyan-400); margin-bottom:22px; }
+  .role-form-title{ font:500 32px/1.2 var(--font-display); letter-spacing:-.02em; color:var(--cream-on-navy); margin:0 0 14px; }
+  .role-form-sub{ font:400 17px/1.65 var(--font-body); color:var(--cream-on-navy-dim); }
+  .job-card{ background:#fff; box-shadow:var(--shadow-sm); }
+  .job-title{ font-weight:500; font-size:20px; }
+  .job-fn-tag{ font-family:var(--font-body); }
+  .job-meta-item, .fa-pill-title, .looking-row p, .benefit-row p, .fa-pill-body p{ font-family:var(--font-body); }
 </style>
 </head>
 <body>
@@ -170,42 +172,47 @@
   <!-- /@partial nav -->
 
   <!-- HERO -->
-  <section class="hero-carousel" id="hero-carousel">
-    <div class="hero-slide">
-      <div class="hero-slide-bg photo-tint" style="background-image:url('assets/professionals-walking.jpg'); background-size:cover; background-position:center 30%;"></div>
-      <div class="hero-slide-overlay"></div>
-      <div class="hero-slide-content">
-        <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span style="color:var(--cyan-500);">Careers</span></div>
-        <h1 style="font-size:42px; line-height:1.22; color:var(--cream-on-navy); margin:0 0 22px 0; max-width:760px;">Connecting <span class="hl">talent</span> with <span class="hl">opportunity</span></h1>
-        <p style="font:400 19px/1.65 'Inter',sans-serif; color:var(--cream-on-navy-dim); max-width:640px;">Whether you're an organization seeking production-ready professionals or an experienced candidate looking for your next career move &mdash; we bridge the gap.</p>
-        <div class="hero-quick-actions">
-          <button class="btn-primary btn-primary--amber" onclick="switchRole('professionals', true)">I'm looking for a role
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="var(--navy-950)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <button class="btn-primary btn-primary--violet" onclick="switchRole('companies', true)">I'm hiring talent
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="var(--cream-50)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
+  <section class="page-hero">
+    <div class="page-hero-bg photo-tint" style="background-image:url('assets/professionals-walking.jpg'); background-position:center 30%;"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="wrap">
+      <div class="page-hero-inner">
+        <div class="page-hero-rule"></div>
+        <div class="page-hero-text">
+          <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> <span aria-hidden="true">/</span> <span>Careers</span></nav>
+          <h1>Connecting <span class="hl">talent</span> with <span class="hl">opportunity</span></h1>
+          <p class="page-hero-lede">Whether you're an organization seeking production-ready professionals or an experienced candidate looking for your next career move &mdash; we bridge the gap.</p>
+          <div class="page-hero-actions">
+            <button type="button" class="btn-primary btn-primary--amber" onclick="switchRole('professionals', true)">I'm looking for a role <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button type="button" class="btn-primary btn-primary--violet" onclick="switchRole('companies', true)">I'm hiring talent <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- 01 INTRO -->
-  <section style="width:100%; background:var(--cream-50);" data-rail-section data-rail-num="01" data-rail-label="Two paths" data-rail-theme="light">
-    <div class="wrap" style="padding-top:110px; padding-bottom:90px;">
-      <p class="eyebrow" style="color:var(--cyan-700); margin-bottom:24px;">01 &mdash; Two paths, one platform</p>
-      <h2 data-reveal="up" style="font-size:38px; line-height:1.25; color:var(--ink-900); margin:0 0 28px; max-width:720px;">We work at the intersection of workforce readiness and career growth</h2>
-      <p data-reveal="up" style="font:400 19px/1.7 'Inter',sans-serif; color:var(--ink-600); max-width:760px;">We connect talented professionals with organizations that value their expertise, and help companies find the skilled talent they need to deliver with confidence.</p>
+  <section class="sec sec--paper careers-intro">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow sec-eyebrow">01 &mdash; Two paths, one platform</p>
+          <h2 class="sec-title" data-reveal="up">We work at the intersection of workforce readiness and career growth</h2>
+        </div>
+        <p class="sec-intro" data-reveal="up">We connect talented professionals with organizations that value their expertise, and help companies find the skilled talent they need to deliver with confidence.</p>
+      </div>
     </div>
   </section>
 
   <!-- 02 FEATURED OPEN ROLES -->
-  <section style="width:100%; background:var(--cream-100);" data-rail-section data-rail-num="02" data-rail-label="Open roles" data-rail-theme="light">
-    <div class="wrap" style="padding-top:90px; padding-bottom:100px;">
-      <p class="eyebrow" style="color:var(--cyan-700); margin-bottom:24px;">02 &mdash; A sample of what's open right now</p>
-      <div class="resp-grid" style="display:grid; grid-template-columns:0.82fr 1.18fr; gap:88px; align-items:start; margin-bottom:44px;">
-        <h2 data-reveal="up" style="font-size:36px; line-height:1.25; color:var(--ink-900); margin:0;">Featured open roles</h2>
-        <p style="font:400 17px/1.7 'Inter',sans-serif; color:var(--ink-600); max-width:540px; margin:0;">A representative slice of the roles our community works across &mdash; filter by function, then submit your profile below to be matched against these and roles not yet listed.</p>
+  <section class="sec sec--cream">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow sec-eyebrow">02 &mdash; A sample of what's open right now</p>
+          <h2 class="sec-title" data-reveal="up">Featured open roles</h2>
+        </div>
+        <p class="sec-intro">A representative slice of the roles our community works across &mdash; filter by function, then submit your profile below to be matched against these and roles not yet listed.</p>
       </div>
 
       <div class="tab-row tab-row--onlight" id="job-tabs" style="margin-bottom:36px;">
@@ -416,9 +423,9 @@
   </section>
 
   <!-- 07 ROLE PANELS -->
-  <section id="role-section" style="width:100%; background:var(--navy-950);" data-rail-section data-rail-num="07" data-rail-label="Choose your path" data-rail-theme="dark">
-    <div class="wrap" style="padding-top:100px; padding-bottom:120px;">
-      <p class="eyebrow" style="color:var(--cyan-500); margin-bottom:24px; text-align:center;">07 &mdash; Choose your path</p>
+  <section id="role-section" class="sec sec--navy sec--glow">
+    <div class="wrap">
+      <p class="eyebrow sec-eyebrow" style="justify-content:center;">07 &mdash; Choose your path</p>
       <div style="display:flex; justify-content:center; margin-bottom:80px;">
         <div class="role-toggle" id="role-toggle" data-active="professionals">
           <span class="role-toggle-glow"></span>
@@ -429,11 +436,11 @@
 
       <!-- PROFESSIONALS PANEL -->
       <div class="role-panel is-active" id="panel-professionals">
-        <h2 style="font-size:34px; line-height:1.25; color:var(--cream-on-navy); margin:0 0 64px; max-width:720px;">Advance your career with leading <span class="hl">Pharma</span> companies and <span class="hl">CROs</span></h2>
+        <h2 class="sec-title role-title">Advance your career with leading <span class="hl">Pharma</span> companies and <span class="hl">CROs</span></h2>
 
         <div class="resp-grid" style="display:grid; grid-template-columns:1.1fr 0.9fr; gap:64px; margin-bottom:80px;">
           <div>
-            <p style="font:600 13px/1 'Inter',sans-serif; color:var(--cream-on-navy-dim); letter-spacing:.1em; text-transform:uppercase; margin-bottom:22px;">Opportunities across critical functional areas</p>
+            <p class="role-label">Opportunities across critical functional areas</p>
             <div style="display:flex; flex-direction:column; gap:12px;">
               <div class="fa-pill" onclick="this.classList.toggle('is-open')">
                 <div class="fa-pill-head">
@@ -474,7 +481,7 @@
           </div>
 
           <div>
-            <p style="font:600 13px/1 'Inter',sans-serif; color:var(--cream-on-navy-dim); letter-spacing:.1em; text-transform:uppercase; margin-bottom:22px;">We're looking for</p>
+            <p class="role-label">We're looking for</p>
             <div>
               <div class="looking-row">
                 <div class="looking-row-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z" stroke="var(--violet)" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
@@ -493,8 +500,8 @@
         </div>
 
         <div style="max-width:640px; margin:0 auto 48px; text-align:center;">
-          <h3 style="font:600 30px/1.3 var(--font-display); color:var(--cream-on-navy); margin:0 0 16px;">Submit your profile</h3>
-          <p style="font:400 17px/1.6 'Inter',sans-serif; color:var(--cream-on-navy-dim);">Share your profile with us, and we'll connect you with organizations seeking professionals with your expertise and experience.</p>
+          <h3 class="role-form-title">Submit your profile</h3>
+          <p class="role-form-sub">Share your profile with us, and we'll connect you with organizations seeking professionals with your expertise and experience.</p>
         </div>
 
         <div class="form-panel" style="max-width:900px; margin:0 auto;">
@@ -605,10 +612,10 @@
 
       <!-- COMPANIES PANEL -->
       <div class="role-panel" id="panel-companies">
-        <p style="color:var(--violet); font:600 12px/1 'Inter',sans-serif; letter-spacing:.14em; text-transform:uppercase; margin-bottom:20px; text-align:center;">For companies</p>
-        <h2 style="font-size:34px; line-height:1.25; color:var(--cream-on-navy); margin:0 0 64px; max-width:720px; text-align:center; margin-left:auto; margin-right:auto;">Reach qualified, <span class="hl">production-ready</span> professionals</h2>
+        <p class="eyebrow role-eyebrow">For companies</p>
+        <h2 class="sec-title role-title role-title--center">Reach qualified, <span class="hl">production-ready</span> professionals</h2>
 
-        <p style="font:600 13px/1 'Inter',sans-serif; color:var(--cream-on-navy-dim); letter-spacing:.1em; text-transform:uppercase; margin-bottom:26px;">Why list your positions with us</p>
+        <p class="role-label">Why list your positions with us</p>
         <div class="resp-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:80px;">
           <div class="benefit-row" data-spotlight>
             <div class="benefit-row-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="var(--violet)" stroke-width="1.5"/><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="var(--violet)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
@@ -629,8 +636,8 @@
         </div>
 
         <div style="max-width:640px; margin:0 auto 48px; text-align:center;">
-          <h3 style="font:600 30px/1.3 var(--font-display); color:var(--cream-on-navy); margin:0 0 16px;">List an open position</h3>
-          <p style="font:400 17px/1.6 'Inter',sans-serif; color:var(--cream-on-navy-dim);">Share your open position with us, and we'll match it against our community of trained, production-ready professionals.</p>
+          <h3 class="role-form-title">List an open position</h3>
+          <p class="role-form-sub">Share your open position with us, and we'll match it against our community of trained, production-ready professionals.</p>
         </div>
 
         <div class="form-panel" style="max-width:900px; margin:0 auto;">
@@ -731,17 +738,15 @@
   </section>
 
   <!-- FINAL CTA -->
-  <section id="discuss" style="width:100%; position:relative; overflow:hidden; min-height:420px; display:flex; align-items:center;">
-    <div class="photo-tint" style="position:absolute; inset:0; background-image:url('assets/woman-laptop.jpg'); background-size:cover; background-position:center;"></div>
-    <div style="position:absolute; inset:0; background:linear-gradient(100deg, rgba(7,22,45,0.96) 0%, rgba(7,22,45,0.82) 40%, rgba(7,22,45,0.42) 75%, rgba(7,22,45,0.25) 100%);"></div>
-    <div style="position:absolute; inset:0; background:radial-gradient(circle at 85% 20%, rgba(40,188,210,0.14), transparent 50%);"></div>
-    <div class="wrap" style="position:relative; padding-top:90px; padding-bottom:90px;">
-      <div style="max-width:600px;">
-        <h2 style="font-size:36px; line-height:1.25; color:var(--cream-on-navy); margin:0 0 20px 0;">Have a question about a role or a hire?</h2>
-        <p style="font:400 18px/1.7 'Inter',sans-serif; color:var(--cream-on-navy-dim); margin-bottom:36px; max-width:520px;">Whether you're mapping out your next career move or building your team, our team is ready to help.</p>
-        <button type="button" class="btn-primary btn-light" onclick="openLeadModal('careers-final-cta')">Talk to our team
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="var(--navy-950)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
+  <section class="cta-band" id="discuss">
+    <div class="img-slot photo-tint" style="background-image:url('assets/cta-office.jpg');"></div>
+    <div class="wrap">
+      <div>
+        <h2 class="cta-title">Have a question about a role or a hire?</h2>
+        <p class="cta-desc">Whether you're mapping out your next career move or building your team, our team is ready to help.</p>
+      </div>
+      <div class="cta-band-actions">
+        <button type="button" class="btn-primary btn-light" onclick="openLeadModal('careers-final-cta')">Talk to our team <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       </div>
     </div>
   </section>
