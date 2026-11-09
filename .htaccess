@@ -1,0 +1,57 @@
+# ExpertiseInPharma — Apache / cPanel settings
+
+# Force HTTPS and the bare domain (https://expertiseinpharma.com)
+RewriteEngine On
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^ https://expertiseinpharma.com%{REQUEST_URI} [L,R=301]
+
+# Old WordPress URLs -> new pages (keeps existing links and Google results working)
+RewriteRule ^services/sme-on-demand/?$ /sme-on-demand.html [L,R=301]
+RewriteRule ^services/resource-on-demand/?$ /resource-on-demand.html [L,R=301]
+RewriteRule ^services/outsourced-ld-enablement/?$ /outsourced-ld.html [L,R=301]
+RewriteRule ^services/global-capability-center-gcc-enablement/?$ / [L,R=301]
+RewriteRule ^services/?$ /sme-on-demand.html [L,R=301]
+RewriteRule ^industry-solutions/pharmaceutical-companies/?$ /pharmaceutical-companies.html [L,R=301]
+RewriteRule ^industry-solutions/clinical-research-organization/?$ /cro.html [L,R=301]
+RewriteRule ^industry-solutions/?$ /pharmaceutical-companies.html [L,R=301]
+RewriteRule ^(sme-on-demand|resource-on-demand)/?$ /$1.html [L,R=301]
+RewriteRule ^outsourced-ld-enablement/?$ /outsourced-ld.html [L,R=301]
+RewriteRule ^about-us/?$ /about.html [L,R=301]
+RewriteRule ^how-we-partner/?$ /how-we-partner.html [L,R=301]
+RewriteRule ^careers/?$ /careers.html [L,R=301]
+RewriteRule ^contact-us/?$ /contact.html [L,R=301]
+
+# Keep working files off the public site
+RewriteRule ^(partials|tools|form-backend)(/|$) - [F,L]
+<FilesMatch "\.(md|py|gs)$">
+  Require all denied
+</FilesMatch>
+
+ErrorDocument 404 /index.html
+Options -Indexes
+
+# Compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript text/javascript image/svg+xml application/xml text/plain
+</IfModule>
+
+# Caching: pages revalidate, assets cache for 30 days
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 30 days"
+  ExpiresByType application/javascript "access plus 30 days"
+  ExpiresByType text/javascript "access plus 30 days"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/webp "access plus 30 days"
+  ExpiresByType image/x-icon "access plus 30 days"
+</IfModule>
+
+# Basic security headers
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+</IfModule>

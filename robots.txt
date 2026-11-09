@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /partials/
+Disallow: /tools/
+Disallow: /form-backend/
+
+Sitemap: https://expertiseinpharma.com/sitemap.xml
