@@ -1022,3 +1022,41 @@ body > section.cta-band:last-of-type, body > section.cta-sec{ box-shadow:0 40px 
 /* sticky side columns sit below nav (84px) + on-page subnav (52px) */
 .svc-aside, .split-intro-head{ top:160px; }
 .who-media{ top:160px; }
+
+/* ==========================================================================
+   Homepage 08: partner tiles + testimonials (restyle only)
+   ========================================================================== */
+.partners .logo-row{ gap:14px; background:none; border:none; border-radius:0; overflow:visible; margin-bottom:64px; }
+.partners .logo-chip{ position:relative; flex-direction:column; gap:14px; min-height:132px; padding:22px 16px; border:1px solid var(--line); border-radius:var(--radius-lg); background:#fff; box-shadow:var(--shadow-sm); font:600 11.5px/1.5 var(--font-body); letter-spacing:.14em; color:var(--ink-600); transition:transform .35s cubic-bezier(.2,.7,.2,1), border-color .3s ease, box-shadow .35s ease, color .3s ease; }
+.partners .logo-chip::before{ content:''; width:34px; height:34px; border-radius:10px; background:linear-gradient(140deg, var(--cyan-500), var(--violet)); opacity:.18; transition:opacity .3s ease, transform .4s ease; }
+.partners .logo-chip:nth-child(even)::before{ border-radius:50%; }
+.partners .logo-chip:hover{ transform:translateY(-4px); border-color:rgba(40,188,210,0.5); box-shadow:var(--shadow-lg); color:var(--ink-900); background:#fff; }
+.partners .logo-chip:hover::before{ opacity:.55; transform:rotate(-8deg) scale(1.05); }
+
+.partners .voice-grid{ gap:28px; }
+.partners .voice{ overflow:hidden; padding:48px 48px 40px; border-radius:22px; gap:28px; }
+.partners .voice::before{ content:''; position:absolute; left:0; right:0; top:0; height:3px; background:linear-gradient(90deg, var(--cyan-500), var(--violet)); }
+.partners .voice-mark{ position:absolute; top:-10px; right:28px; height:auto; font:italic 400 180px/1 var(--font-display); color:var(--cyan-600); opacity:.12; pointer-events:none; }
+.partners .voice-text{ position:relative; font:italic 400 clamp(22px,1.9vw,27px)/1.5 var(--font-display); }
+.partners .voice-person{ padding-top:24px; }
+.partners .voice-avatar--blank{ width:50px; height:50px; background:linear-gradient(150deg, rgba(40,188,210,0.18), rgba(124,92,196,0.18)) center/24px no-repeat; position:relative; }
+.partners .voice-avatar--blank::after{ content:''; position:absolute; inset:0; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%231f7f95' stroke-width='1.5' stroke-linecap='round'%3E%3Ccircle cx='12' cy='8' r='4'/%3E%3Cpath d='M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8'/%3E%3C/svg%3E") center/22px no-repeat; }
+.partners .voice-name{ font-size:16px; }
+/* first testimonial on navy for contrast */
+.partners .voice:first-child{ background:var(--navy-950); border-color:var(--navy-950); box-shadow:var(--shadow-lg); }
+.partners .voice:first-child .voice-text, .partners .voice:first-child .voice-name{ color:var(--cream-on-navy); }
+.partners .voice:first-child .voice-role{ color:var(--cream-on-navy-dim); }
+.partners .voice:first-child .voice-person{ border-top-color:var(--line-dark); }
+.partners .voice:first-child .voice-mark{ color:var(--cyan-400); opacity:.18; }
+.partners .voice:first-child .voice-avatar--blank{ border-color:var(--line-dark); }
+.partners .voice:first-child .voice-avatar--blank::after{ filter:brightness(2.2); }
+@media (max-width:980px){ .partners .logo-row{ grid-template-columns:repeat(3,1fr); gap:10px; } .partners .voice{ padding:38px 28px 32px; } }
+@media (max-width:560px){ .partners .logo-row{ grid-template-columns:1fr 1fr; } }
+.partners .voice-mark{ top:-46px; right:24px; font-size:200px; }
+.partners .voice-text{ padding-right:56px; }
+.partners .voice-avatar--blank{ background:linear-gradient(150deg, rgba(40,188,210,0.18), rgba(124,92,196,0.18)); }
+.partners .logo-chip::before{ opacity:.3; }
+@media (max-width:980px){ .partners .voice-text{ padding-right:0; } }
+.partners .voice-mark{ top:30px; right:34px; font-size:150px; line-height:.75; height:auto; }
+.partners .voice-text{ padding-right:84px; }
+@media (max-width:980px){ .partners .voice-mark{ font-size:110px; top:22px; right:20px; } .partners .voice-text{ padding-right:56px; } }
