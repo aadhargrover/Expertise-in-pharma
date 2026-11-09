@@ -908,3 +908,6 @@ body > section.cta-band:last-of-type, body > section.cta-sec{ box-shadow:0 40px 
 /* hero: wider text column so proof-point tags stay on one line */
 .page-hero-inner{ max-width:1180px; }
 .page-hero-lede{ max-width:640px; }
+
+/* placeholder testimonial avatar (no real person's photo) */
+.voice-avatar--blank{ display:block; flex:none; background:linear-gradient(150deg, rgba(40,188,210,0.25), rgba(124,92,196,0.25)); border:1px solid var(--line); }
