@@ -1019,3 +1019,6 @@ body > section.cta-band:last-of-type, body > section.cta-sec{ box-shadow:0 40px 
 .site-foot .foot-bottom{ padding:22px 0 28px; }
 @media (max-width:1180px){ .site-foot .foot-grid.foot-grid--4{ grid-template-columns:1fr 1fr 1fr; gap:36px 0; } }
 @media (max-width:640px){ .site-foot .foot-grid.foot-grid--4{ grid-template-columns:1fr 1fr; padding-top:32px; } .foot-head{ padding:40px 0 24px; } }
+/* sticky side columns sit below nav (84px) + on-page subnav (52px) */
+.svc-aside, .split-intro-head{ top:160px; }
+.who-media{ top:160px; }
