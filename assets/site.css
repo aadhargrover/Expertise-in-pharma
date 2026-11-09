@@ -1010,3 +1010,12 @@ body > section.cta-band:last-of-type, body > section.cta-sec{ box-shadow:0 40px 
 @media (max-width:640px){ .site-foot .foot-grid.foot-grid--4{ grid-template-columns:1fr 1fr; } .site-foot .foot-link{ white-space:normal; } }
 @media (max-width:1180px){ .site-foot .foot-grid--4 > *:not(.foot-about){ margin-left:0; } .site-foot .foot-grid--4 > nav:first-of-type{ padding-left:0; border-left:none; } }
 @media (max-width:640px){ .site-foot .foot-grid--4 > nav + nav{ padding-left:20px; } .site-foot .foot-grid--4 > .foot-contact{ padding-left:0; border-left:none; margin-left:0; } }
+/* footer v3.1: no About box, wider About column, compact spacing, dividers only as tall as their content */
+.foot-about{ padding:0; border:none; border-radius:0; background:none; }
+.site-foot .foot-grid.foot-grid--4{ grid-template-columns:2.1fr .8fr 1fr 1.15fr; padding:44px 0 48px; }
+.site-foot .foot-grid--4 > *:not(.foot-about){ min-height:0; }
+.site-foot .foot-about p{ font-size:15.5px; line-height:1.7; margin-bottom:12px; }
+.foot-head{ padding:48px 0 30px; }
+.site-foot .foot-bottom{ padding:22px 0 28px; }
+@media (max-width:1180px){ .site-foot .foot-grid.foot-grid--4{ grid-template-columns:1fr 1fr 1fr; gap:36px 0; } }
+@media (max-width:640px){ .site-foot .foot-grid.foot-grid--4{ grid-template-columns:1fr 1fr; padding-top:32px; } .foot-head{ padding:40px 0 24px; } }
