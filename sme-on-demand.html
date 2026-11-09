@@ -5,241 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SME on Demand — ExpertiseInPharma</title>
 <meta name="description" content="Access senior Pharmacovigilance, Clinical Operations, Medical Writing, Regulatory Affairs and Quality Assurance experts as fractional heads. Organizations working with our SMEs realize 1.5-3X ROI in under a year.">
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-
-  :root{
-    --navy-950: oklch(0.19 0.055 262);
-    --navy-900: oklch(0.235 0.058 262);
-    --navy-800: oklch(0.28 0.089 259);
-    --navy-700: oklch(0.36 0.08 260);
-    --cream-50: oklch(0.992 0.003 106);
-    --cream-100: oklch(0.97 0.004 106);
-    --cream-200: oklch(0.93 0.006 100);
-    --ink-900: oklch(0.20 0.05 262);
-    --ink-600: oklch(0.42 0.03 262);
-    --ink-400: oklch(0.60 0.02 262);
-    --cyan-700: oklch(0.50 0.10 213);
-    --cyan-600: oklch(0.60 0.115 213);
-    --cyan-500: oklch(0.73 0.117 213);
-    --cyan-400: oklch(0.80 0.09 213);
-    --violet: oklch(0.55 0.135 292);
-    --violet-100: oklch(0.93 0.03 292);
-    --line: oklch(0.88 0.008 100);
-    --line-dark: oklch(0.32 0.04 262);
-    --cream-on-navy: oklch(0.97 0.004 106);
-    --cream-on-navy-dim: oklch(0.97 0.004 106 / 0.68);
-  }
-  *{ box-sizing:border-box; }
-  html,body{ margin:0; padding:0; width:100%; overflow-x:clip; }
-  html{ scroll-behavior:smooth; }
-  body{ font-family:'Inter',sans-serif; color:var(--ink-900); background:var(--cream-50); animation:pageFadeIn .7s ease both; }
-  a{ color:inherit; text-decoration:none; }
-  p{ margin:0; }
-
-  @keyframes pageFadeIn{ from{ opacity:0; } to{ opacity:1; } }
-
-  .reveal{ opacity:0; transform:translateY(26px); transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
-  .reveal.is-visible{ opacity:1; transform:none; }
-  .reveal-scale{ opacity:0; transform:scale(.92); transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
-  .reveal-scale.is-visible{ opacity:1; transform:scale(1); }
-  @media (prefers-reduced-motion: reduce){
-    body{ animation:none; }
-    .reveal, .reveal-scale{ transition:none; opacity:1; transform:none; }
-  }
-  img{ max-width:100%; display:block; }
-
-  .wrap{ max-width:1440px; margin:0 auto; padding-left:clamp(20px,5vw,100px); padding-right:clamp(20px,5vw,100px); width:100%; }
-
-  .btn-primary{ display:inline-flex; align-items:center; gap:14px; background:var(--cyan-500); color:var(--navy-950); font:600 16px/1 'Inter',sans-serif; padding:17px 26px 17px 30px; border-radius:1px; transition:background .2s ease, transform .2s ease; border:none; cursor:pointer; }
-  .btn-primary:hover{ background:var(--cyan-400); transform:translateY(-1px); }
-  .btn-primary svg{ flex:none; }
-
-  .btn-outline{ display:inline-flex; align-items:center; gap:14px; background:transparent; color:var(--cream-on-navy); border:1px solid var(--line-dark); font:600 16px/1 'Inter',sans-serif; padding:17px 30px; border-radius:1px; transition:border-color .2s ease, background .2s ease; }
-  .btn-outline:hover{ border-color:var(--cyan-500); background:rgba(255,255,255,0.035); }
-
-  .nav-link{ font:500 16px/1 'Inter',sans-serif; color:var(--cream-on-navy-dim); padding:6px 0; border-bottom:1px solid transparent; transition:color .2s ease, border-color .2s ease; white-space:nowrap; }
-  .nav-link:hover{ color:var(--cream-on-navy); border-color:var(--cyan-500); }
-  .nav-link.is-current{ color:var(--cream-on-navy); border-color:var(--cyan-500); }
-  #site-nav.nav--scrolled .nav-link.is-current{ color:var(--ink-900); }
-
-  .nav-item{ position:relative; display:flex; align-items:center; height:100%; }
-  .nav-caret{ margin-left:6px; transition:transform .18s ease; flex:none; }
-  .nav-item:hover .nav-caret{ transform:rotate(180deg); }
-
-  .mega{ position:absolute; top:100%; left:50%; transform:translateX(-50%) translateY(6px); background:var(--navy-950); border:1px solid var(--line-dark); border-top:2px solid var(--cyan-500); box-shadow:0 28px 56px -16px rgba(3,9,20,0.5); padding:28px; opacity:0; visibility:hidden; pointer-events:none; transition:opacity .16s ease, transform .16s ease; z-index:80; }
-  .nav-item:hover .mega{ opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); pointer-events:auto; }
-  .mega-services{ width:340px; }
-  .mega-industry{ width:520px; }
-  .mega-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:4px; }
-  .mega-grid-1col{ grid-template-columns:1fr; }
-  .mega-item{ display:block; padding:16px; border-radius:2px; transition:background .16s ease; }
-  .mega-item:hover{ background:rgba(40,188,210,0.07); }
-  .mega-item.is-current{ background:rgba(40,188,210,0.09); }
-  .mega-num{ display:block; font:500 13px/1 'Inter',sans-serif; color:var(--cyan-500); margin-bottom:9px; }
-  .mega-title{ display:block; font:600 16px/1.35 'Inter',sans-serif; color:var(--cream-on-navy); margin-bottom:6px; }
-  .mega-desc{ display:block; font:400 14px/1.55 'Inter',sans-serif; color:var(--cream-on-navy-dim); }
-
-  .arrow-link{ display:inline-flex; align-items:center; gap:8px; font:600 15px/1 'Inter',sans-serif; color:var(--cyan-700); }
-  .arrow-link .arrow-ic{ transition:transform .2s ease; }
-  .arrow-link:hover .arrow-ic{ transform:translateX(4px); }
-
-  .foot-link{ font:400 17px/1 'Inter',sans-serif; color:var(--cream-on-navy-dim); transition:color .2s ease; }
-  .foot-link:hover{ color:var(--cyan-500); }
-
-  /* NAV */
-  #site-nav{ position:fixed; top:0; left:0; right:0; z-index:100; background:transparent; border-bottom:1px solid transparent; transition:background .3s ease, border-color .3s ease, box-shadow .3s ease; }
-  #site-nav.nav--scrolled{ background:var(--cream-50); border-bottom-color:var(--line); box-shadow:0 4px 24px rgba(3,9,20,0.06); }
-  #site-nav .logo-mark-onLight{ display:none; }
-  #site-nav .logo-mark-onDark{ display:flex; align-items:center; }
-  #site-nav.nav--scrolled .logo-mark-onDark{ display:none; }
-  #site-nav.nav--scrolled .logo-mark-onLight{ display:flex; align-items:center; }
-  #site-nav.nav--scrolled .nav-link{ color:var(--ink-600); }
-  #site-nav.nav--scrolled .nav-link:hover{ color:var(--ink-900); border-color:var(--cyan-600); }
-
-  /* HERO */
-  .hero-carousel{ position:relative; width:100%; height:74vh; min-height:600px; max-height:760px; overflow:hidden; background:var(--navy-950); }
-  .hero-slide{ position:absolute; inset:0; opacity:0; visibility:hidden; transition:opacity .9s ease; }
-  .hero-slide.is-active{ opacity:1; visibility:visible; z-index:2; }
-  .hero-slide-bg{ position:absolute; inset:0; }
-  .hero-slide-overlay{ position:absolute; inset:0; background:linear-gradient(0deg, rgba(7,22,45,0.96) 0%, rgba(7,22,45,0.82) 35%, rgba(7,22,45,0.68) 60%, rgba(7,22,45,0.78) 100%); }
-  .hero-slide-content{ position:absolute; left:0; right:0; bottom:0; padding:0 clamp(20px,5vw,100px) 64px clamp(100px,10vw,160px); max-width:880px; }
-  .breadcrumb{ display:flex; align-items:center; gap:8px; font:500 13px/1 'Inter',sans-serif; color:var(--cream-on-navy-dim); margin-bottom:22px; }
-  .breadcrumb a{ transition:color .2s ease; }
-  .breadcrumb a:hover{ color:var(--cyan-500); }
-
-  /* Service switcher */
-  .svc-tabs-bar{ width:100%; background:var(--cream-50); border-bottom:1px solid var(--line); }
-  .svc-tab{ display:inline-flex; align-items:center; font:600 14px/1 'Inter',sans-serif; color:var(--ink-600); border:1px solid var(--line); border-radius:20px; padding:11px 18px; transition:border-color .2s ease, color .2s ease, background .2s ease; white-space:nowrap; }
-  .svc-tab:hover{ border-color:var(--cyan-500); color:var(--ink-900); }
-  .svc-tab.is-current{ background:var(--navy-950); border-color:var(--navy-950); color:var(--cream-on-navy); }
-
-  /* Big stat */
-  .stat-huge-num{ font:700 88px/1 'Inter',sans-serif; color:var(--cyan-500); letter-spacing:-.02em; margin:0; }
-  .stat-huge-label{ font:600 16px/1.3 'Inter',sans-serif; color:var(--cream-on-navy); margin-top:14px; }
-
-  /* Scenario list (gap-card style) */
-  .gap-card{ border-top:1px solid var(--line); padding:30px 0; transition:border-color .2s ease; }
-  .gap-card:hover{ border-color:var(--cyan-700); }
-  .gap-card:hover .gap-num{ color:var(--cyan-700); }
-  .gap-card--on-dark:hover{ border-color:var(--cyan-500) !important; }
-  .gap-card--on-dark:hover .gap-num{ color:var(--cyan-500) !important; }
-
-  /* Scenario cards */
-  .scenario-card{ display:flex; align-items:flex-start; gap:20px; background:var(--navy-800); border:1px solid var(--line-dark); border-radius:8px; padding:24px 26px; transition:border-color .25s ease, background .25s ease, transform .25s ease; }
-  .scenario-card:hover{ border-color:var(--cyan-500); background:var(--navy-700); transform:translateX(4px); }
-  .scenario-num{ flex:none; font:600 15px/1 'Inter',sans-serif; color:var(--cyan-500); border:1px solid var(--line-dark); border-radius:50%; width:38px; height:38px; display:flex; align-items:center; justify-content:center; }
-  .scenario-text{ font:400 17px/1.55 'Inter',sans-serif; color:var(--cream-on-navy-dim); padding-top:6px; }
-
-  /* Functional-area cards */
-  .sme-func-card{ background:var(--navy-800); border:1px solid var(--line-dark); border-radius:10px; padding:32px 28px; transition:border-color .25s ease, transform .25s ease, background .25s ease, box-shadow .25s ease; }
-  .sme-func-card:hover{ border-color:var(--cyan-500); transform:translateY(-5px); background:var(--navy-700); box-shadow:0 20px 40px -16px rgba(3,9,20,0.5); }
-  .sme-func-title{ font:600 20px/1.3 'Inter',sans-serif; color:var(--cream-on-navy); margin:0 0 16px; }
-  .sme-func-stat{ display:flex; align-items:baseline; gap:6px; margin-bottom:20px; }
-  .sme-func-num{ font:700 40px/1 'Inter',sans-serif; color:var(--cyan-500); }
-  .sme-func-num-label{ font:500 13px/1.3 'Inter',sans-serif; color:var(--cream-on-navy-dim); text-transform:uppercase; letter-spacing:.06em; }
-  .sme-func-tags{ display:flex; flex-wrap:wrap; gap:8px; }
-  .sme-tag{ font:500 13px/1 'Inter',sans-serif; color:var(--cream-on-navy-dim); border:1px solid var(--line-dark); border-radius:14px; padding:8px 12px; }
-
-  .sme-func-card--light{ background:var(--cream-100); border-color:var(--line); }
-  .sme-func-card--light:hover{ border-color:var(--cyan-600); background:var(--cream-200); box-shadow:0 20px 40px -18px rgba(3,9,20,0.12); }
-  .sme-func-card--light .sme-func-title{ color:var(--ink-900); }
-  .sme-func-card--light .sme-func-num{ color:var(--cyan-700); }
-  .sme-func-card--light .sme-func-num-label{ color:var(--ink-400); }
-  .sme-func-card--light .sme-tag{ color:var(--ink-600); border-color:var(--line); background:var(--cream-50); }
-
-  .sme-func2{ background:var(--cream-50); border:1px solid var(--line); border-radius:10px; overflow:hidden; transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
-  .sme-func2:hover{ transform:translateY(-6px); box-shadow:0 26px 50px -20px rgba(3,9,20,0.16); }
-  .sme-func2-bar{ height:4px; width:100%; }
-  .sme-func2--cyan .sme-func2-bar{ background:var(--cyan-500); }
-  .sme-func2--violet .sme-func2-bar{ background:var(--violet); }
-  .sme-func2-body{ padding:28px 24px; }
-  .sme-func2-icon{ width:46px; height:46px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin-bottom:20px; border:1px solid var(--line); transition:transform .25s ease; }
-  .sme-func2--cyan .sme-func2-icon{ background:rgba(40,188,210,0.08); border-color:rgba(40,188,210,0.3); }
-  .sme-func2--violet .sme-func2-icon{ background:rgba(124,92,196,0.08); border-color:rgba(124,92,196,0.35); }
-  .sme-func2:hover .sme-func2-icon{ transform:scale(1.08) rotate(-4deg); }
-  .sme-func2 .sme-func-title{ color:var(--ink-900); }
-  .sme-func2 .sme-func-num{ color:var(--cyan-700); }
-  .sme-func2--violet .sme-func-num{ color:var(--violet); }
-  .sme-func2 .sme-func-num-label{ color:var(--ink-400); }
-  .sme-func2 .sme-tag{ color:var(--ink-600); border-color:var(--line); background:var(--cream-100); }
-  .sme-func2--cyan:hover .sme-tag{ border-color:rgba(40,188,210,0.4); }
-  .sme-func2--violet:hover .sme-tag{ border-color:rgba(124,92,196,0.4); }
-
-  .sme-carousel{ position:relative; }
-  .sme-carousel-track{ display:flex; gap:24px; overflow-x:auto; scroll-snap-type:x proximity; scroll-behavior:smooth; padding:4px 4px 16px; margin:0 -4px; scrollbar-width:none; -ms-overflow-style:none; }
-  .sme-carousel-track::-webkit-scrollbar{ display:none; }
-  .sme-carousel-track > .sme-func2{ flex:0 0 calc(25% - 18px); min-width:250px; scroll-snap-align:start; }
-  .sme-carousel-arrow{ position:absolute; top:50%; transform:translateY(-50%); width:44px; height:44px; border-radius:50%; background:var(--cream-50); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:2; box-shadow:0 12px 28px -12px rgba(3,9,20,0.25); transition:background .2s ease, border-color .2s ease, opacity .2s ease; }
-  .sme-carousel-arrow:hover{ background:var(--cream-100); border-color:var(--cyan-500); }
-  .sme-carousel-arrow:disabled{ opacity:.35; cursor:default; }
-  .sme-carousel-arrow:disabled:hover{ background:var(--cream-50); border-color:var(--line); }
-  .sme-carousel-arrow--prev{ left:-22px; }
-  .sme-carousel-arrow--next{ right:-22px; }
-  @media (max-width: 980px){
-    .sme-carousel-track > .sme-func2{ flex:0 0 calc(82% - 12px); min-width:220px; }
-    .sme-carousel-arrow{ display:none; }
-  }
-
-  /* Persona rows */
-  .persona-card{ background:var(--cream-100); border:1px solid var(--line); border-radius:10px; padding:28px; transition:border-color .25s ease, transform .25s ease, box-shadow .25s ease; }
-  .persona-card:hover{ border-color:var(--cyan-600); transform:translateY(-5px); box-shadow:0 20px 40px -18px rgba(3,9,20,0.12); }
-  .persona-icon{ width:44px; height:44px; border-radius:50%; background:rgba(40,188,210,0.08); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; margin-bottom:18px; }
-  .persona-title{ font:600 18px/1.3 'Inter',sans-serif; color:var(--ink-900); margin-bottom:8px; }
-  .persona-desc{ font:400 16px/1.6 'Inter',sans-serif; color:var(--ink-600); }
-
-  .persona-card--dark{ background:var(--navy-800); border-color:var(--line-dark); }
-  .persona-card--dark:hover{ border-color:var(--cyan-500); background:var(--navy-700); box-shadow:0 20px 40px -16px rgba(3,9,20,0.5); }
-  .persona-card--dark .persona-icon{ background:rgba(40,188,210,0.1); border-color:var(--line-dark); }
-  .persona-card--dark .persona-title{ color:var(--cream-on-navy); }
-  .persona-card--dark .persona-desc{ color:var(--cream-on-navy-dim); }
-
-  .persona2{ position:relative; min-height:270px; display:flex; flex-direction:column; background:var(--navy-800); border:1px solid var(--line-dark); border-radius:12px; padding:30px 26px 26px; overflow:hidden; transition:border-color .3s ease, transform .3s ease, box-shadow .3s ease, background .3s ease; }
-  .persona2:hover{ transform:translateY(-6px); box-shadow:0 26px 50px -20px rgba(3,9,20,0.5); background:var(--navy-700); }
-  .persona2--cyan:hover{ border-color:var(--cyan-500); }
-  .persona2--violet:hover{ border-color:var(--violet); }
-  .persona2-num{ position:absolute; top:-14px; right:10px; font:800 92px/1 'Inter',sans-serif; color:rgba(245,246,242,0.035); letter-spacing:-.03em; pointer-events:none; transition:color .35s ease; }
-  .persona2--cyan:hover .persona2-num{ color:rgba(40,188,210,0.14); }
-  .persona2--violet:hover .persona2-num{ color:rgba(124,92,196,0.16); }
-  .persona2-icon{ position:relative; z-index:1; width:48px; height:48px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin-bottom:22px; border:1px solid var(--line-dark); transition:transform .35s ease, border-color .3s ease; }
-  .persona2--cyan .persona2-icon{ background:rgba(40,188,210,0.08); }
-  .persona2--violet .persona2-icon{ background:rgba(124,92,196,0.1); }
-  .persona2:hover .persona2-icon{ transform:rotate(-8deg) scale(1.1); }
-  .persona2--cyan:hover .persona2-icon{ border-color:var(--cyan-500); }
-  .persona2--violet:hover .persona2-icon{ border-color:var(--violet); }
-  .persona2-title{ position:relative; z-index:1; font:600 19px/1.3 'Inter',sans-serif; color:var(--cream-on-navy); margin:0; }
-  .persona2-desc-wrap{ position:relative; z-index:1; margin-top:14px; }
-  .persona2-desc{ font:400 15px/1.6 'Inter',sans-serif; color:var(--cream-on-navy-dim); transition:color .3s ease; }
-  .persona2:hover .persona2-desc{ color:var(--cream-on-navy); }
-
-  /* Why checklist */
-  .why-row{ display:flex; align-items:flex-start; gap:16px; padding:20px 0; border-top:1px solid var(--line-dark); }
-  .why-row:last-child{ border-bottom:1px solid var(--line-dark); }
-  .why-check{ flex:none; width:26px; height:26px; border-radius:50%; background:rgba(40,188,210,0.12); border:1px solid var(--cyan-500); display:flex; align-items:center; justify-content:center; margin-top:2px; }
-  .why-text{ font:500 19px/1.5 'Inter',sans-serif; color:var(--cream-on-navy); }
-
-  .why-row--light{ border-top-color:var(--line); }
-  .why-row--light:last-child{ border-bottom-color:var(--line); }
-  .why-row--light .why-check{ background:rgba(40,188,210,0.08); border-color:var(--cyan-700); }
-  .why-row--light .why-text{ color:var(--ink-900); }
-
-  .why-item{ display:flex; align-items:flex-start; gap:20px; background:var(--cream-100); border:1px solid var(--line); border-radius:8px; padding:22px 24px; transition:border-color .25s ease, background .25s ease, transform .25s ease; }
-  .why-item:hover{ border-color:var(--cyan-600); background:var(--cream-200); transform:translateX(4px); }
-  .why-item-num{ flex:none; font:600 15px/1 'Inter',sans-serif; color:var(--cyan-700); border:1px solid var(--line); border-radius:50%; width:38px; height:38px; display:flex; align-items:center; justify-content:center; }
-  .why-item-text{ font:500 18px/1.5 'Inter',sans-serif; color:var(--ink-900); padding-top:6px; }
-
-  @media (max-width: 980px){
-    .nav-links, .nav-cta{ display:none !important; }
-    .resp-grid{ grid-template-columns:1fr !important; }
-    h1{ font-size:38px !important; line-height:1.2 !important; }
-    h2{ font-size:28px !important; }
-    .stat-huge-num{ font-size:58px !important; }
-  }
-</style>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/favicon-512.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="canonical" href="https://expertiseinpharma.com/sme-on-demand.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ExpertiseInPharma">
+<meta property="og:title" content="SME on Demand — ExpertiseInPharma">
+<meta property="og:description" content="Access senior Pharmacovigilance, Clinical Operations, Medical Writing, Regulatory Affairs and Quality Assurance experts as fractional heads. Organizations working with our SMEs realize 1.5-3X ROI in under a year.">
+<meta property="og:url" content="https://expertiseinpharma.com/sme-on-demand.html">
+<meta property="og:image" content="https://expertiseinpharma.com/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
 
-  <!-- NAV -->
+  <!-- @partial nav -->
   <div id="site-nav">
     <div class="wrap" style="height:84px; display:flex; align-items:center; justify-content:space-between;">
       <a href="index.html" class="logo-mark-onDark"><img src="assets/logo-dark.png" alt="ExpertiseInPharma" style="height:38px; width:auto; display:block;"></a>
@@ -249,22 +30,22 @@
         <div class="nav-item"><a href="about.html" class="nav-link">About Us</a></div>
 
         <div class="nav-item">
-          <a href="sme-on-demand.html" class="nav-link is-current" style="display:flex; align-items:center;">Services
+          <a href="sme-on-demand.html" class="nav-link" data-nav-group="services" style="display:flex; align-items:center;">Services
             <svg class="nav-caret" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
           <div class="mega mega-services">
             <div class="mega-grid mega-grid-1col">
-              <a href="sme-on-demand.html" class="mega-item is-current">
+              <a href="sme-on-demand.html" class="mega-item" data-nav-group="services">
                 <span class="mega-num">01</span>
                 <span class="mega-title">SME on Demand</span>
                 <span class="mega-desc">Industry-ready expertise, delivered on demand.</span>
               </a>
-              <a href="resource-on-demand.html" class="mega-item">
+              <a href="resource-on-demand.html" class="mega-item" data-nav-group="services">
                 <span class="mega-num">02</span>
                 <span class="mega-title">Resource on Demand</span>
                 <span class="mega-desc">Vetted, production-ready life sciences talent &mdash; 75% faster search-to-productivity.</span>
               </a>
-              <a href="outsourced-ld.html" class="mega-item">
+              <a href="outsourced-ld.html" class="mega-item" data-nav-group="services">
                 <span class="mega-num">03</span>
                 <span class="mega-title">Outsourced L&amp;D Enablement</span>
                 <span class="mega-desc">Enterprise training without expanding your L&amp;D team.</span>
@@ -274,16 +55,16 @@
         </div>
 
         <div class="nav-item">
-          <a href="pharmaceutical-companies.html" class="nav-link" style="display:flex; align-items:center;">Industry Solutions
+          <a href="pharmaceutical-companies.html" class="nav-link" data-nav-group="industry" style="display:flex; align-items:center;">Industry Solutions
             <svg class="nav-caret" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
           <div class="mega mega-industry">
             <div class="mega-grid">
-              <a href="pharmaceutical-companies.html" class="mega-item">
+              <a href="pharmaceutical-companies.html" class="mega-item" data-nav-group="industry">
                 <span class="mega-title">Pharmaceutical Companies</span>
                 <span class="mega-desc">Accelerate innovation, ensure compliance, reduce vendor dependency.</span>
               </a>
-              <a href="index.html" class="mega-item">
+              <a href="cro.html" class="mega-item" data-nav-group="industry">
                 <span class="mega-title">Clinical Research Organizations (CRO)</span>
                 <span class="mega-desc">Protect margins, strengthen client confidence, scale delivery capacity.</span>
               </a>
@@ -296,310 +77,172 @@
         <div class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></div>
       </div>
 
-      <a href="#discuss" class="btn-primary nav-cta" style="padding:13px 24px;">Talk to our team</a>
+      <button type="button" class="btn-primary nav-cta" onclick="openLeadModal('nav')">Talk to our team</button>
+
+      <button type="button" id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
   </div>
 
-  <!-- HERO -->
-  <section class="hero-carousel" id="hero-carousel">
-    <div class="hero-slide is-active">
-      <div class="hero-slide-bg" style="background-image:url('assets/executives-meeting.jpg'); background-size:cover; background-position:center;"></div>
-      <div class="hero-slide-overlay"></div>
-      <div class="hero-slide-content">
-        <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><a href="sme-on-demand.html">Services</a><span>/</span><span style="color:var(--cyan-500);">SME on Demand</span></div>
-        <p style="color:var(--cyan-500); font:600 12px/1 'Inter',sans-serif; letter-spacing:.18em; text-transform:uppercase; margin-bottom:18px;">SME on Demand</p>
-        <h1 style="font:600 56px/1.12 'Inter',sans-serif; color:var(--cream-on-navy); margin:0 0 20px 0;">3X ROI in under a year.</h1>
-        <p style="font:400 18px/1.65 'Inter',sans-serif; color:var(--cream-on-navy-dim); max-width:640px; margin-bottom:32px;">You need best practices, technical depth, and mid-to-senior level experience, but hiring a full-time Subject Matter Expert doesn't make sense for a project-based, interim, or strategic need.</p>
-        <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
-          <a href="#discuss" class="btn-primary">Talk to an expert
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="var(--navy-950)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-          <a href="mailto:contact@sipedtech.com" class="btn-outline">Contact Us</a>
+  <div id="mobile-drawer" class="mobile-drawer">
+    <div class="wrap">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About Us</a>
+      <a href="sme-on-demand.html" class="nav-link has-sub" data-nav-group="services">Services</a>
+      <div class="drawer-sub">
+        <a href="sme-on-demand.html">SME on Demand</a>
+        <a href="resource-on-demand.html">Resource on Demand</a>
+        <a href="outsourced-ld.html">Outsourced L&amp;D Enablement</a>
+      </div>
+      <a href="pharmaceutical-companies.html" class="nav-link has-sub" data-nav-group="industry">Industry Solutions</a>
+      <div class="drawer-sub">
+        <a href="pharmaceutical-companies.html">Pharmaceutical Companies</a>
+        <a href="cro.html">Clinical Research Organizations (CRO)</a>
+      </div>
+      <a href="how-we-partner.html" class="nav-link">How We Partner</a>
+      <a href="careers.html" class="nav-link">Careers</a>
+      <a href="contact.html" class="nav-link">Contact Us</a>
+      <button type="button" class="btn-primary" onclick="openLeadModal('mobile-nav')">Talk to our team</button>
+    </div>
+  </div>
+  <!-- /@partial nav -->
+
+  <section class="page-hero">
+    <div class="page-hero-bg photo-tint" style="background-image:url('assets/executives-meeting.jpg'); background-position:center;"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="wrap">
+      <div class="page-hero-inner">
+        <div class="page-hero-rule"></div>
+        <div class="page-hero-text">
+          <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> <span aria-hidden="true">/</span> <a href="sme-on-demand.html">Services</a> <span aria-hidden="true">/</span> <span>SME on Demand</span></nav>
+          <p class="eyebrow" style="color:var(--cyan-400);">SME on Demand</p>
+          <h1><span class="hl">3X ROI</span> in under a year.</h1>
+          <p class="page-hero-lede">You need best practices, technical depth, and mid-to-senior level experience, but hiring a full-time Subject Matter Expert doesn&rsquo;t make sense for a project-based, interim, or strategic need.</p>
+          <div class="page-hero-actions"><button type="button" class="btn-primary btn-light" onclick="openLeadModal('sme-hero')">Talk to an expert <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><a href="contact.html" class="btn-outline btn-glass">Contact Us <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 01 THE BUSINESS CASE -->
-  <section style="width:100%; background:var(--cream-50);">
-    <div class="wrap" style="padding-top:120px; padding-bottom:120px;">
-      <p style="color:var(--cyan-700); font:600 12px/1 'Inter',sans-serif; letter-spacing:.18em; text-transform:uppercase; margin-bottom:24px;">01 &mdash; The business case</p>
+  <section class="sec sec--paper">
+    <div class="wrap">
+      <div class="svc-layout">
+        <aside class="svc-aside">
+          <nav class="svc-nav" aria-label="Services"><p class="svc-nav-label">Services</p><a href="sme-on-demand.html">SME on Demand <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a href="resource-on-demand.html">Resource on Demand <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a href="outsourced-ld.html">Outsourced L&amp;D Enablement <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav>
+          <div class="expert-card">
+            <p class="eyebrow" style="color:var(--cyan-400); margin-bottom:16px;">Let&rsquo;s talk</p>
+            <p class="expert-card-title">Talk to an expert</p>
+            <a href="contact.html" class="btn-primary" style="margin-top:20px;">Contact Us <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </aside>
+        <div class="svc-main">
+          <div class="svc-block">
+            <p class="eyebrow sec-eyebrow">01 &mdash; The business case</p>
+            <div class="big-stat" data-reveal="up"><b>1.5&ndash;3X</b><span>ROI in under a year</span></div>
+            <p class="lead-text">The business case is clear. The impact comes through accelerated delivery, audit risk reduction, and optimized resource utilization &mdash; all without recruitment costs or long-term overhead.</p>
+            <p class="lead-text">Our SMEs bring real-world experience from leading clinical research organizations and global Pharma companies. They&rsquo;ve cleared audits, built SOPs, scaled teams, and delivered under regulatory scrutiny. They&rsquo;re available when you need them, for as long as you need them &mdash; as fractional heads or specialized advisors.</p>
 
-      <div class="resp-grid" style="display:grid; grid-template-columns:1fr 0.85fr; gap:64px; align-items:start;">
+          </div>
+
+          <div class="svc-block">
+            <p class="eyebrow sec-eyebrow">02 &mdash; When to engage</p>
+            <h2 class="sec-title" data-reveal="up">When to engage SME on Demand services</h2>
+
+<div class="num-grid">
+  <div class="num-card num-card--plain" data-spotlight data-reveal="up" data-reveal-group="num"><span class="num-card-n">1</span><p class="num-card-text">Defining your Pharmacovigilance, Clinical Research, Medical Writing, Regulatory Affairs, or Quality Assurance strategy.</p></div>
+  <div class="num-card num-card--plain" data-spotlight data-reveal="up" data-reveal-group="num"><span class="num-card-n">2</span><p class="num-card-text">Rolling out Pharmacovigilance, Clinical Research, Medical Writing, Regulatory Affairs, or Quality Assurance systems and implementing SOPs across functions or geographies.</p></div>
+  <div class="num-card num-card--plain" data-spotlight data-reveal="up" data-reveal-group="num"><span class="num-card-n">3</span><p class="num-card-text">Planning global consolidation and harmonization of processes, systems, or teams.</p></div>
+  <div class="num-card num-card--plain" data-spotlight data-reveal="up" data-reveal-group="num"><span class="num-card-n">4</span><p class="num-card-text">Initiating gap analysis of existing processes, systems, or compliance frameworks.</p></div>
+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--navy sec--glow">
+    <div class="wrap">
+      <div class="sec-head">
         <div>
-          <div class="reveal-scale" style="display:flex; align-items:baseline; gap:20px; flex-wrap:wrap; margin-bottom:40px;">
-            <p class="stat-huge-num" style="font-size:84px; color:var(--cyan-700); margin:0;">1.5&ndash;3X</p>
-            <p style="font:600 22px/1.3 'Inter',sans-serif; color:var(--ink-900);">ROI in under a year</p>
-          </div>
-          <div style="display:flex; flex-direction:column; gap:24px; max-width:600px;">
-            <p style="font:400 19px/1.75 'Inter',sans-serif; color:var(--ink-600);">The business case is clear. The impact comes through accelerated delivery, audit risk reduction, and optimized resource utilization &mdash; all without recruitment costs or long-term overhead.</p>
-            <p style="font:400 19px/1.75 'Inter',sans-serif; color:var(--ink-600);">Our SMEs bring real-world experience from leading clinical research organizations and global Pharma companies. They've cleared audits, built SOPs, scaled teams, and delivered under regulatory scrutiny. They're available when you need them, for as long as you need them &mdash; as fractional heads or specialized advisors.</p>
-          </div>
+          <p class="eyebrow sec-eyebrow">03 &mdash; What we provide</p>
+          <h2 class="sec-title" data-reveal="up">Functional expertise on demand</h2>
         </div>
-        <div style="position:sticky; top:110px; width:100%; height:480px; border-radius:1px; overflow:hidden;">
-          <div style="position:absolute; inset:0; background-image:url('assets/woman-laptop.jpg'); background-size:cover; background-position:center;"></div>
-          <div style="position:absolute; inset:0; background:linear-gradient(0deg, rgba(7,22,45,0.5) 0%, rgba(7,22,45,0.03) 45%);"></div>
-          <div style="position:absolute; top:16px; right:16px; width:22px; height:22px; border-top:1px solid var(--cyan-600); border-right:1px solid var(--cyan-600);"></div>
-          <div style="position:absolute; left:20px; right:20px; bottom:18px;">
-            <p style="font:500 11px/1.4 'Inter',sans-serif; letter-spacing:.06em; text-transform:uppercase; color:var(--cream-on-navy-dim);">Delivery, backed by data</p>
-          </div>
-        </div>
+        <p class="sec-intro">Access senior SMEs as fractional heads, with deep domain knowledge, operational experience, regulatory understanding and people management skills across Pharmacovigilance, Clinical Operations, Medical Information, Quality Assurance, Regulatory Affairs, and Medical Writing.</p>
       </div>
+
+      <p class="pool-caption">Our SME network available across functional areas as fractional heads</p>
+<div class="pool-grid pool-grid--6">
+  <div class="pool-card" data-reveal="up" data-reveal-group="pool"><span class="pool-fn">Pharmacovigilance</span><p class="pool-num"><b data-count="100" style="font-weight:inherit;">100</b><span>+</span></p><p class="pool-label">SMEs available</p><div class="pool-skills"><span>Case Processing</span><span>Signal Detection</span><span>ICSR Narratives</span><span>Aggregate Reporting</span><span>Safety Database Management</span></div></div>
+  <div class="pool-card" data-reveal="up" data-reveal-group="pool"><span class="pool-fn">Medical Writing</span><p class="pool-num"><b data-count="100" style="font-weight:inherit;">100</b><span>+</span></p><p class="pool-label">SMEs available</p><div class="pool-skills"><span>Clinical Study Reports</span><span>Regulatory Documents</span><span>Safety Narratives</span><span>Protocol Development</span><span>Investigator Brochures</span></div></div>
+  <div class="pool-card" data-reveal="up" data-reveal-group="pool"><span class="pool-fn">Quality Assurance</span><p class="pool-num"><b data-count="100" style="font-weight:inherit;">100</b><span>+</span></p><p class="pool-label">SMEs available</p><div class="pool-skills"><span>Quality Management Systems</span><span>Audit Preparation</span><span>CAPA Management</span><span>SOP Development</span><span>Compliance Strategy</span></div></div>
+  <div class="pool-card" data-reveal="up" data-reveal-group="pool"><span class="pool-fn">Medical Information</span><p class="pool-num"><b data-count="100" style="font-weight:inherit;">100</b><span>+</span></p><p class="pool-label">SMEs available</p><div class="pool-skills"><span>Medical Inquiry Response</span><span>Medical Review</span><span>Scientific Communications</span><span>Product Information Management</span></div></div>
+  <div class="pool-card" data-reveal="up" data-reveal-group="pool"><span class="pool-fn">Drug Safety Physician Program</span><p class="pool-num"><b data-count="100" style="font-weight:inherit;">100</b><span>+</span></p><p class="pool-label">SMEs available</p><div class="pool-skills"><span>Signal Evaluation</span><span>Benefit-Risk Assessment</span><span>Aggregate Report Review</span><span>Medical Monitoring</span><span>PSUR/PBRER Sign-off</span></div></div>
+  <div class="pool-card" data-reveal="up" data-reveal-group="pool"><span class="pool-fn">Clinical Research &amp; CDM</span><p class="pool-num"><b data-count="100" style="font-weight:inherit;">100</b><span>+</span></p><p class="pool-label">SMEs available</p><div class="pool-skills"><span>Clinical Data Management</span><span>CRF Design &amp; Edit Checks</span><span>Database Build &amp; Validation</span><span>Data Cleaning &amp; Query Resolution</span><span>Clinical Trial Monitoring</span></div></div>
+</div>
+      <p class="pool-foot">Plus shared business verticals &mdash; IT, HR, Finance, Admin.</p>
     </div>
   </section>
 
-  <!-- 02 WHEN TO ENGAGE -->
-  <section style="width:100%; background:var(--navy-900);">
-    <div class="wrap" style="padding-top:120px; padding-bottom:120px;">
-      <p style="color:var(--cyan-500); font:600 12px/1 'Inter',sans-serif; letter-spacing:.18em; text-transform:uppercase; margin-bottom:24px;">02 &mdash; When to engage</p>
-      <h2 style="font:600 38px/1.2 'Inter',sans-serif; color:var(--cream-on-navy); margin:0 0 56px; max-width:680px;">When to engage SME on Demand services</h2>
-
-      <div class="resp-grid" style="display:grid; grid-template-columns:0.42fr 0.58fr; gap:56px; align-items:start;">
-        <div style="position:sticky; top:110px; width:100%; height:560px; border-radius:1px; overflow:hidden;">
-          <div style="position:absolute; inset:0; background-image:url('assets/hands-laptop.jpg'); background-size:cover; background-position:center 20%;"></div>
-          <div style="position:absolute; inset:0; background:linear-gradient(0deg, rgba(7,22,45,0.5) 0%, rgba(7,22,45,0.05) 45%);"></div>
-          <div style="position:absolute; top:16px; left:16px; width:22px; height:22px; border-top:1px solid var(--cyan-500); border-left:1px solid var(--cyan-500);"></div>
-        </div>
-
-        <div style="display:flex; flex-direction:column; gap:16px;">
-          <div class="scenario-card">
-            <span class="scenario-num">01</span>
-            <p class="scenario-text">Defining your Pharmacovigilance, Clinical Research, Medical Writing, Regulatory Affairs, or Quality Assurance strategy.</p>
-          </div>
-          <div class="scenario-card">
-            <span class="scenario-num">02</span>
-            <p class="scenario-text">Rolling out Pharmacovigilance, Clinical Research, Medical Writing, Regulatory Affairs, or Quality Assurance systems and implementing SOPs across functions or geographies.</p>
-          </div>
-          <div class="scenario-card">
-            <span class="scenario-num">03</span>
-            <p class="scenario-text">Planning global consolidation and harmonization of processes, systems, or teams.</p>
-          </div>
-          <div class="scenario-card">
-            <span class="scenario-num">04</span>
-            <p class="scenario-text">Initiating gap analysis of existing processes, systems, or compliance frameworks.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 03 WHAT WE PROVIDE -->
-  <section style="width:100%; background:var(--cream-50);">
-    <div class="wrap" style="padding-top:120px; padding-bottom:120px;">
-      <div class="resp-grid" style="display:grid; grid-template-columns:0.82fr 1.18fr; gap:88px; align-items:start; margin-bottom:24px;">
+  <section class="sec sec--cream">
+    <div class="wrap">
+      <div class="sec-head sec-head--stack">
         <div>
-          <p style="color:var(--cyan-700); font:600 12px/1 'Inter',sans-serif; letter-spacing:.18em; text-transform:uppercase; margin-bottom:24px;">03 &mdash; What we provide</p>
-          <h2 style="font:600 38px/1.2 'Inter',sans-serif; color:var(--ink-900); margin:0;">Functional expertise on demand</h2>
-        </div>
-        <p style="font:400 18px/1.7 'Inter',sans-serif; color:var(--ink-600); max-width:560px; margin:0;">Access senior SMEs as fractional heads, with deep domain knowledge, operational experience, regulatory understanding and people management skills across Pharmacovigilance, Clinical Operations, Medical Information, Quality Assurance, Regulatory Affairs, and Medical Writing.</p>
-      </div>
-
-      <p style="font:600 12px/1 'Inter',sans-serif; color:var(--cyan-700); letter-spacing:.12em; text-transform:uppercase; margin-bottom:28px;">Our SME network available across functional areas as fractional heads</p>
-
-      <div class="sme-carousel">
-      <button class="sme-carousel-arrow sme-carousel-arrow--prev" type="button" aria-label="Previous functional areas" onclick="document.getElementById('sme-carousel-track').scrollBy({left:-280, behavior:'smooth'})"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 5l-7 7 7 7" stroke="var(--ink-700, #1a2a3a)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <button class="sme-carousel-arrow sme-carousel-arrow--next" type="button" aria-label="Next functional areas" onclick="document.getElementById('sme-carousel-track').scrollBy({left:280, behavior:'smooth'})"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 5l7 7-7 7" stroke="var(--ink-700, #1a2a3a)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <div class="sme-carousel-track" id="sme-carousel-track" style="margin-bottom:8px;">
-        <div class="sme-func2 sme-func2--cyan">
-          <div class="sme-func2-bar"></div>
-          <div class="sme-func2-body">
-            <div class="sme-func2-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z" stroke="var(--cyan-600)" stroke-width="1.5" stroke-linejoin="round"/><path d="M12 8v5M12 16h.01" stroke="var(--cyan-600)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-            <p class="sme-func-title">Pharmacovigilance</p>
-            <div class="sme-func-stat"><span class="sme-func-num" data-target="100" data-suffix="+">0</span><span class="sme-func-num-label">SMEs<br>available</span></div>
-            <div class="sme-func-tags">
-              <span class="sme-tag">Case Processing</span>
-              <span class="sme-tag">Signal Detection</span>
-              <span class="sme-tag">ICSR Narratives</span>
-              <span class="sme-tag">Aggregate Reporting</span>
-              <span class="sme-tag">Safety Database Management</span>
-            </div>
-          </div>
-        </div>
-        <div class="sme-func2 sme-func2--violet">
-          <div class="sme-func2-bar"></div>
-          <div class="sme-func2-body">
-            <div class="sme-func2-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M14 3l7 7-10 10H4v-7L14 3Z" stroke="var(--violet)" stroke-width="1.5" stroke-linejoin="round"/><path d="M3 21h18" stroke="var(--violet)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-            <p class="sme-func-title">Medical Writing</p>
-            <div class="sme-func-stat"><span class="sme-func-num" data-target="100" data-suffix="+">0</span><span class="sme-func-num-label">SMEs<br>available</span></div>
-            <div class="sme-func-tags">
-              <span class="sme-tag">Clinical Study Reports</span>
-              <span class="sme-tag">Regulatory Documents</span>
-              <span class="sme-tag">Safety Narratives</span>
-              <span class="sme-tag">Protocol Development</span>
-              <span class="sme-tag">Investigator Brochures</span>
-            </div>
-          </div>
-        </div>
-        <div class="sme-func2 sme-func2--cyan">
-          <div class="sme-func2-bar"></div>
-          <div class="sme-func2-body">
-            <div class="sme-func2-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="var(--cyan-600)" stroke-width="1.5"/><path d="M8.5 12.3l2.3 2.3L15.5 9" stroke="var(--cyan-600)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <p class="sme-func-title">Quality Assurance</p>
-            <div class="sme-func-stat"><span class="sme-func-num" data-target="100" data-suffix="+">0</span><span class="sme-func-num-label">SMEs<br>available</span></div>
-            <div class="sme-func-tags">
-              <span class="sme-tag">Quality Management Systems</span>
-              <span class="sme-tag">Audit Preparation</span>
-              <span class="sme-tag">CAPA Management</span>
-              <span class="sme-tag">SOP Development</span>
-              <span class="sme-tag">Compliance Strategy</span>
-            </div>
-          </div>
-        </div>
-        <div class="sme-func2 sme-func2--violet">
-          <div class="sme-func2-bar"></div>
-          <div class="sme-func2-body">
-            <div class="sme-func2-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 5h16v11H8l-4 4V5Z" stroke="var(--violet)" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 9h8M8 12h5" stroke="var(--violet)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-            <p class="sme-func-title">Medical Information</p>
-            <div class="sme-func-stat"><span class="sme-func-num" data-target="100" data-suffix="+">0</span><span class="sme-func-num-label">SMEs<br>available</span></div>
-            <div class="sme-func-tags">
-              <span class="sme-tag">Medical Inquiry Response</span>
-              <span class="sme-tag">Medical Review</span>
-              <span class="sme-tag">Scientific Communications</span>
-              <span class="sme-tag">Product Information Management</span>
-            </div>
-          </div>
-        </div>
-        <div class="sme-func2 sme-func2--cyan">
-          <div class="sme-func2-bar"></div>
-          <div class="sme-func2-body">
-            <div class="sme-func2-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 3v3M15 3v3M4 9h16" stroke="var(--cyan-600)" stroke-width="1.5" stroke-linecap="round"/><rect x="3.5" y="5" width="17" height="16" rx="2.5" stroke="var(--cyan-600)" stroke-width="1.5"/><path d="M12 12v5M9.5 14.5h5" stroke="var(--cyan-600)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-            <p class="sme-func-title">Drug Safety Physician Program</p>
-            <div class="sme-func-stat"><span class="sme-func-num" data-target="100" data-suffix="+">0</span><span class="sme-func-num-label">SMEs<br>available</span></div>
-            <div class="sme-func-tags">
-              <span class="sme-tag">Signal Evaluation</span>
-              <span class="sme-tag">Benefit-Risk Assessment</span>
-              <span class="sme-tag">Aggregate Report Review</span>
-              <span class="sme-tag">Medical Monitoring</span>
-              <span class="sme-tag">PSUR/PBRER Sign-off</span>
-            </div>
-          </div>
-        </div>
-        <div class="sme-func2 sme-func2--violet">
-          <div class="sme-func2-bar"></div>
-          <div class="sme-func2-body">
-            <div class="sme-func2-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><ellipse cx="12" cy="6" rx="7" ry="3" stroke="var(--violet)" stroke-width="1.5"/><path d="M5 6v6c0 1.66 3.13 3 7 3s7-1.34 7-3V6" stroke="var(--violet)" stroke-width="1.5" stroke-linecap="round"/><path d="M5 12v6c0 1.66 3.13 3 7 3s7-1.34 7-3v-6" stroke="var(--violet)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-            <p class="sme-func-title">Clinical Research &amp; CDM</p>
-            <div class="sme-func-stat"><span class="sme-func-num" data-target="100" data-suffix="+">0</span><span class="sme-func-num-label">SMEs<br>available</span></div>
-            <div class="sme-func-tags">
-              <span class="sme-tag">Clinical Data Management</span>
-              <span class="sme-tag">CRF Design &amp; Edit Checks</span>
-              <span class="sme-tag">Database Build &amp; Validation</span>
-              <span class="sme-tag">Data Cleaning &amp; Query Resolution</span>
-              <span class="sme-tag">Clinical Trial Monitoring</span>
-            </div>
-          </div>
+          <p class="eyebrow sec-eyebrow">04 &mdash; Who benefits</p>
+          <h2 class="sec-title" data-reveal="up">Who benefits</h2>
         </div>
       </div>
-      </div>
 
-      <p style="font:400 15px/1.5 'Inter',sans-serif; color:var(--ink-600);">Plus shared business verticals &mdash; IT, HR, Finance, Admin.</p>
-    </div>
-  </section>
-
-  <!-- 04 WHO BENEFITS -->
-  <section style="width:100%; background:var(--navy-900);">
-    <div class="wrap" style="padding-top:120px; padding-bottom:120px;">
-      <p style="color:var(--cyan-500); font:600 12px/1 'Inter',sans-serif; letter-spacing:.18em; text-transform:uppercase; margin-bottom:24px;">04 &mdash; Who benefits</p>
-      <h2 style="font:600 38px/1.2 'Inter',sans-serif; color:var(--cream-on-navy); margin:0 0 56px; max-width:560px;">Who benefits</h2>
-
-      <div class="resp-grid" style="display:grid; grid-template-columns:repeat(4,1fr); gap:24px;">
-        <div class="persona2 persona2--cyan">
-          <span class="persona2-num">01</span>
-          <div class="persona2-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="var(--cyan-500)" stroke-width="1.5"/><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="var(--cyan-500)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-          <p class="persona2-title">Chief Operations Officer</p>
-          <div class="persona2-desc-wrap"><p class="persona2-desc">Overseeing organization-wide delivery, compliance readiness, and operational continuity.</p></div>
-        </div>
-        <div class="persona2 persona2--violet">
-          <span class="persona2-num">02</span>
-          <div class="persona2-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M10 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="var(--violet)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <p class="persona2-title">Functional heads &amp; leaders</p>
-          <div class="persona2-desc-wrap"><p class="persona2-desc">Navigating SOPs, strategy, or expansion into new therapeutic areas or geographies, and managing interim coverage during transitions or unexpected departures.</p></div>
-        </div>
-        <div class="persona2 persona2--cyan">
-          <span class="persona2-num">03</span>
-          <div class="persona2-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z" stroke="var(--cyan-500)" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="var(--cyan-500)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <p class="persona2-title">Quality &amp; Compliance teams</p>
-          <div class="persona2-desc-wrap"><p class="persona2-desc">Preparing for inspections, managing CAPA responses, and maintaining audit-ready documentation.</p></div>
-        </div>
-        <div class="persona2 persona2--violet">
-          <span class="persona2-num">04</span>
-          <div class="persona2-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 17l6-6 4 4 8-8M21 7v6M21 7h-6" stroke="var(--violet)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <p class="persona2-title">Business Development Directors</p>
-          <div class="persona2-desc-wrap"><p class="persona2-desc">Requiring SME representation during client bids or proposals (specific to CRO / services providers).</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 05 WHY -->
-  <section style="width:100%; background:var(--cream-50);">
-    <div class="wrap" style="padding-top:120px; padding-bottom:120px;">
-      <p style="color:var(--cyan-700); font:600 12px/1 'Inter',sans-serif; letter-spacing:.18em; text-transform:uppercase; margin-bottom:24px;">05 &mdash; Why SME on Demand</p>
-      <h2 style="font:600 38px/1.2 'Inter',sans-serif; color:var(--ink-900); margin:0 0 56px; max-width:640px;">Why organizations choose SME on Demand</h2>
-
-      <div class="resp-grid" style="display:grid; grid-template-columns:0.56fr 0.44fr; gap:56px; align-items:start;">
-        <div style="display:flex; flex-direction:column; gap:14px;">
-          <div class="why-item">
-            <span class="why-item-num">01</span>
-            <p class="why-item-text">Reduce audit risk and improve compliance readiness.</p>
-          </div>
-          <div class="why-item">
-            <span class="why-item-num">02</span>
-            <p class="why-item-text">Accelerate decision-making with experienced guidance.</p>
-          </div>
-          <div class="why-item">
-            <span class="why-item-num">03</span>
-            <p class="why-item-text">Avoid long-term hiring overhead for short-term needs.</p>
-          </div>
-          <div class="why-item">
-            <span class="why-item-num">04</span>
-            <p class="why-item-text">Maintain delivery continuity during transitions.</p>
-          </div>
-          <div class="why-item">
-            <span class="why-item-num">05</span>
-            <p class="why-item-text">Acquire more business by showcasing the right team of SMEs for strategy &amp; execution.</p>
-          </div>
-        </div>
-
-        <div style="position:sticky; top:110px; width:100%; height:500px; border-radius:1px; overflow:hidden;">
-          <div style="position:absolute; inset:0; background-image:url('assets/boardroom.jpg'); background-size:cover; background-position:center;"></div>
-          <div style="position:absolute; inset:0; background:linear-gradient(160deg, rgba(7,22,45,0.15) 0%, rgba(7,22,45,0.02) 55%);"></div>
-          <div style="position:absolute; bottom:16px; right:16px; width:22px; height:22px; border-bottom:1px solid var(--violet); border-right:1px solid var(--violet);"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FINAL CTA -->
-  <section id="discuss" style="width:100%; position:relative; overflow:hidden; min-height:480px; display:flex; align-items:center;">
-    <div style="position:absolute; inset:0; background-image:url('assets/professionals-walking.jpg'); background-size:cover; background-position:center;"></div>
-    <div style="position:absolute; inset:0; background:linear-gradient(100deg, rgba(7,22,45,0.96) 0%, rgba(7,22,45,0.8) 40%, rgba(7,22,45,0.4) 75%, rgba(7,22,45,0.25) 100%);"></div>
-    <div style="position:absolute; inset:0; background:radial-gradient(circle at 85% 20%, rgba(124,92,196,0.14), transparent 50%);"></div>
-    <div class="wrap" style="position:relative; padding-top:100px; padding-bottom:100px;">
-      <div style="max-width:620px;">
-        <h2 style="font:600 42px/1.2 'Inter',sans-serif; color:var(--cream-on-navy); margin:0 0 24px 0;">Let's discuss your workforce priorities</h2>
-        <p style="font:400 19px/1.7 'Inter',sans-serif; color:var(--cream-on-navy-dim); margin-bottom:40px; max-width:560px;">Whether you're managing a talent gap, preparing for an audit, or building bench capacity for an upcoming bid &mdash; we're here to help.</p>
-        <a href="mailto:contact@sipedtech.com" class="btn-primary">Discuss your SME needs
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="var(--navy-950)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer style="width:100%; background:var(--navy-950); border-top:1px solid var(--line-dark);">
-    <div class="wrap" style="padding-top:80px; padding-bottom:40px;">
-      <div class="resp-grid" style="display:grid; grid-template-columns:1.4fr 0.8fr 0.8fr; gap:64px; margin-bottom:64px;">
+<div class="who-list">
+  <div class="who-row" data-reveal="up" data-reveal-group="who"><span class="who-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h8.5a3.5 3.5 0 0 0 0-7h-9a3.5 3.5 0 0 1 0-7H16"/></svg></span><div><p class="who-role">Chief Operations Officer</p><p class="who-desc">Overseeing organization-wide delivery, compliance readiness, and operational continuity.</p></div></div>
+  <div class="who-row" data-reveal="up" data-reveal-group="who"><span class="who-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></span><div><p class="who-role">Functional heads &amp; leaders</p><p class="who-desc">Navigating SOPs, strategy, or expansion into new therapeutic areas or geographies, and managing interim coverage during transitions or unexpected departures.</p></div></div>
+  <div class="who-row" data-reveal="up" data-reveal-group="who"><span class="who-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8.4 8 9 4.6-.6 8-4.5 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></span><div><p class="who-role">Quality &amp; Compliance teams</p><p class="who-desc">Preparing for inspections, managing CAPA responses, and maintaining audit-ready documentation.</p></div></div>
+  <div class="who-row" data-reveal="up" data-reveal-group="who"><span class="who-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><div><p class="who-role">Business Development Directors</p><p class="who-desc">Requiring SME representation during client bids or proposals (specific to CRO / services providers).</p></div></div>
+</div>
+      <div style="margin-top:110px;">
+      <div class="sec-head sec-head--stack">
         <div>
-          <div style="margin-bottom:24px;">
-            <img src="assets/logo-dark.png" alt="ExpertiseInPharma" style="height:36px; width:auto; display:block;">
-          </div>
-          <p style="font:400 18px/1.8 'Inter',sans-serif; color:var(--cream-on-navy-dim); max-width:460px; margin-bottom:18px;">ExpertiseInPharma is a global organization dedicated to helping pharmaceutical sponsors and contract research organizations navigate complex regulatory landscapes, accelerate innovation and boost productivity.</p>
-          <p style="font:400 18px/1.8 'Inter',sans-serif; color:var(--cream-on-navy-dim); max-width:460px;">Our solutions &mdash; SME on Demand, Resource on Demand and Outsourced L&amp;D &mdash; are curated and delivered by industry practitioners who understand pharma delivery environments, regulatory expectations, and execution pressures.</p>
+          <p class="eyebrow sec-eyebrow">05 &mdash; Why us</p>
+          <h2 class="sec-title" data-reveal="up">Why organizations choose SME on Demand</h2>
+        </div>
+      </div>
+
+<div class="benefit-grid">
+  <div class="benefit-card" data-reveal="up" data-reveal-group="ben"><span class="benefit-n">01</span><span class="benefit-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8.4 8 9 4.6-.6 8-4.5 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></span><p class="benefit-text">Reduce audit risk and improve compliance readiness.</p></div>
+  <div class="benefit-card" data-reveal="up" data-reveal-group="ben"><span class="benefit-n">02</span><span class="benefit-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg></span><p class="benefit-text">Accelerate decision-making with experienced guidance.</p></div>
+  <div class="benefit-card" data-reveal="up" data-reveal-group="ben"><span class="benefit-n">03</span><span class="benefit-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18M16 15h2"/><path d="M6 6V5a1 1 0 0 1 1-1h10"/></svg></span><p class="benefit-text">Avoid long-term hiring overhead for short-term needs.</p></div>
+  <div class="benefit-card" data-reveal="up" data-reveal-group="ben"><span class="benefit-n">04</span><span class="benefit-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h8.5a3.5 3.5 0 0 0 0-7h-9a3.5 3.5 0 0 1 0-7H16"/></svg></span><p class="benefit-text">Maintain delivery continuity during transitions.</p></div>
+  <div class="benefit-card" data-reveal="up" data-reveal-group="ben"><span class="benefit-n">05</span><span class="benefit-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M6 17v-3M10 17v-6M14 17v-4M18 17V8"/><path d="m4 10 5-4 4 3 7-6"/></svg></span><p class="benefit-text">Acquire more business by showcasing the right team of SMEs for strategy &amp; execution.</p></div>
+</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="img-slot photo-tint" style="background-image:url('assets/professional-laptop.jpg');"></div>
+    <div class="wrap">
+      <div>
+        <p class="eyebrow sec-eyebrow" style="color:var(--cyan-500);">Let's talk</p>
+        <h2 class="cta-title">Let&rsquo;s discuss your workforce priorities</h2>
+        <p class="cta-desc">Whether you&rsquo;re managing a talent gap, preparing for an audit, or building bench capacity for an upcoming bid &mdash; we&rsquo;re here to help.</p>
+      </div>
+      <div class="cta-band-actions">
+        <button type="button" class="btn-primary btn-light" onclick="openLeadModal('sme-page')">Discuss your SME needs <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <p class="cta-band-mail">or email <a href="mailto:contact@sipedtech.com">contact@sipedtech.com</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- @partial footer -->
+  <footer class="site-foot">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-about">
+          <img src="assets/logo-dark.png" alt="ExpertiseInPharma" style="height:36px; width:auto; margin-bottom:26px;">
+          <p><strong>ExpertiseInPharma</strong> is a global organization dedicated to empowering pharmaceutical sponsors and contract research organizations (CROs) navigate complex regulatory landscapes, accelerate innovation and boost productivity.</p>
+          <p>Our solutions, including SME on Demand, Resource on Demand and Outsourced L&amp;D, are curated and delivered by industry practitioners who understand pharma delivery environments, regulatory expectations, and execution pressures, thus helping clients convert capability into measurable outcomes.</p>
         </div>
         <div>
-          <p style="font:600 12px/1 'Inter',sans-serif; color:var(--cyan-500); letter-spacing:.12em; text-transform:uppercase; margin-bottom:24px;">Explore</p>
-          <div style="display:flex; flex-direction:column; gap:20px;">
+          <p class="eyebrow foot-col-title">Explore</p>
+          <div class="foot-links">
             <a href="index.html" class="foot-link">Home</a>
             <a href="about.html" class="foot-link">About Us</a>
             <a href="sme-on-demand.html" class="foot-link">Services</a>
@@ -610,116 +253,62 @@
           </div>
         </div>
         <div>
-          <p style="font:600 12px/1 'Inter',sans-serif; color:var(--cyan-500); letter-spacing:.12em; text-transform:uppercase; margin-bottom:24px;">Contact us</p>
-          <p style="font:400 17px/1.65 'Inter',sans-serif; color:var(--cream-on-navy-dim); margin-bottom:32px;">contact@sipedtech.com</p>
-          <p style="font:600 12px/1 'Inter',sans-serif; color:var(--cyan-500); letter-spacing:.12em; text-transform:uppercase; margin-bottom:24px;">Other links</p>
-          <div style="display:flex; flex-direction:column; gap:20px;">
-            <a href="#" class="foot-link">Privacy Policy</a>
-            <a href="#" class="foot-link">Terms of Use</a>
+          <p class="eyebrow foot-col-title">Contact us</p>
+          <a href="mailto:contact@sipedtech.com" class="foot-link" style="display:inline-block; margin-bottom:40px;">contact@sipedtech.com</a>
+          <p class="eyebrow foot-col-title">Other links</p>
+          <div class="foot-links">
+            <a href="privacy.html" class="foot-link">Privacy Policy</a>
+            <a href="terms.html" class="foot-link">Terms of Use</a>
           </div>
         </div>
       </div>
-      <div style="border-top:1px solid var(--line-dark); padding-top:28px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
-        <p style="font:400 14px/1.3 'Inter',sans-serif; color:var(--cream-on-navy-dim);">&copy; 2026 ExpertiseInPharma. All rights reserved.</p>
+      <div class="foot-bottom">
+        <p>&copy; 2025 SIP Edtech Private Limited. All rights reserved.</p>
+        <p>CIN &ndash; U85499GJ2025PTC167504 &nbsp;&middot;&nbsp; GST &ndash; 24ABRCS2808M1ZU</p>
       </div>
     </div>
   </footer>
+  <!-- /@partial footer -->
 
-  <script>
-  (function(){
-    var nav = document.getElementById('site-nav');
-    function onScroll(){
-      if (window.scrollY > 60) { nav.classList.add('nav--scrolled'); }
-      else { nav.classList.remove('nav--scrolled'); }
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+  <!-- @partial modal -->
+  <div class="modal-overlay" id="lead-modal">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="lead-modal-title">
+      <button type="button" class="modal-close" onclick="closeLeadModal()" aria-label="Close">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+      <p class="eyebrow" style="color:var(--cyan-500); margin-bottom:10px;">Talk to our team</p>
+      <h3 class="modal-title" id="lead-modal-title">Let's find the right fit</h3>
+      <p class="modal-sub">Tell us a little about what you need and someone from our team will follow up within one business day.</p>
 
-    // SME functional areas carousel — disable arrows at each end
-    var smeTrack = document.getElementById('sme-carousel-track');
-    if (smeTrack){
-      var smePrev = document.querySelector('.sme-carousel-arrow--prev');
-      var smeNext = document.querySelector('.sme-carousel-arrow--next');
-      function updateSmeArrows(){
-        smePrev.disabled = smeTrack.scrollLeft < 4;
-        smeNext.disabled = smeTrack.scrollLeft + smeTrack.clientWidth > smeTrack.scrollWidth - 4;
-      }
-      smeTrack.addEventListener('scroll', updateSmeArrows, { passive: true });
-      window.addEventListener('resize', updateSmeArrows);
-      updateSmeArrows();
-    }
+      <form id="lead-form" novalidate>
+        <input type="hidden" id="lead-source" data-label="Clicked from">
+        <div class="field-row">
+          <div class="field"><label>Your name <span class="req">*</span></label><input type="text" placeholder="Full name" required></div>
+          <div class="field"><label>Work email <span class="req">*</span></label><input type="email" placeholder="Email address" required></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label>Company <span class="req">*</span></label><input type="text" placeholder="Company name" required></div>
+          <div class="field"><label>Phone <span style="color:var(--cream-on-navy-dim); font-weight:400;">(optional)</span></label><input type="tel" placeholder="Phone number"></div>
+        </div>
+        <div class="field-row" style="grid-template-columns:1fr;">
+          <div class="field"><label>How can we help? <span style="color:var(--cream-on-navy-dim); font-weight:400;">(optional)</span></label><textarea placeholder="A quick note on what you're looking for"></textarea></div>
+        </div>
+        <div class="consent-row"><input type="checkbox" id="lead-consent" data-label="Consent: contact" required><label for="lead-consent">I agree to be contacted by ExpertiseInPharma about this enquiry.</label></div>
+        <button type="submit" class="btn-primary" style="width:100%; justify-content:center; margin-top:8px;">Send message
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="var(--navy-950)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </form>
+      <div class="form-success" id="lead-form-success">
+        <svg class="form-success-check" width="56" height="56" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="28" stroke="var(--cyan-500)" stroke-width="2.2"/><path d="M20 33l8 8 16-17" stroke="var(--cyan-500)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3 style="font:500 22px/1.3 var(--font-display); color:var(--cream-on-navy); margin:12px 0 10px;">Message sent</h3>
+        <p style="font:400 15px/1.6 var(--font-body); color:var(--cream-on-navy-dim);">Thanks &mdash; we'll be in touch within one business day.</p>
+      </div>
+    </div>
+  </div>
+  <!-- /@partial modal -->
 
-    // Scroll reveal
-    var revealTargets = [];
-    function addReveal(selector, stagger){
-      document.querySelectorAll(selector).forEach(function(el, i){
-        el.classList.add('reveal');
-        if (stagger) el.style.transitionDelay = (Math.min(i, 5) * 0.09) + 's';
-        revealTargets.push(el);
-      });
-    }
-    addReveal('h2');
-    addReveal('.scenario-card', true);
-    addReveal('.sme-func2', true);
-    addReveal('.persona2', true);
-    addReveal('.why-item', true);
-
-    var scaleTargets = [];
-    document.querySelectorAll('.reveal-scale').forEach(function(el){ scaleTargets.push(el); });
-
-    if ('IntersectionObserver' in window){
-      var revealObserver = new IntersectionObserver(function(entries){
-        entries.forEach(function(entry){
-          if (entry.isIntersecting){
-            entry.target.classList.add('is-visible');
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-      revealTargets.forEach(function(el){ revealObserver.observe(el); });
-      scaleTargets.forEach(function(el){ revealObserver.observe(el); });
-    } else {
-      revealTargets.forEach(function(el){ el.classList.add('is-visible'); });
-      scaleTargets.forEach(function(el){ el.classList.add('is-visible'); });
-    }
-
-    // Count-up numbers (SME network stats)
-    var countEls = document.querySelectorAll('.sme-func-num[data-target]');
-    if (countEls.length){
-      var counted = false;
-      function animateCounts(){
-        if (counted) return;
-        counted = true;
-        countEls.forEach(function(el){
-          var target = parseInt(el.getAttribute('data-target'), 10) || 0;
-          var suffix = el.getAttribute('data-suffix') || '';
-          var start = null;
-          var duration = 1400;
-          function step(ts){
-            if (!start) start = ts;
-            var p = Math.min((ts - start) / duration, 1);
-            var eased = 1 - Math.pow(1 - p, 3);
-            el.textContent = Math.floor(eased * target) + (p > 0.15 ? suffix : '');
-            if (p < 1) requestAnimationFrame(step);
-            else el.textContent = target + suffix;
-          }
-          requestAnimationFrame(step);
-        });
-      }
-      var firstCard = document.querySelector('.sme-func2');
-      if (firstCard && 'IntersectionObserver' in window){
-        var countObserver = new IntersectionObserver(function(entries){
-          entries.forEach(function(entry){
-            if (entry.isIntersecting){ animateCounts(); countObserver.disconnect(); }
-          });
-        }, { threshold: 0.3 });
-        countObserver.observe(firstCard);
-      } else {
-        animateCounts();
-      }
-    }
-  })();
-  </script>
+  <script src="assets/site.js"></script>
+  <script src="assets/forms.js"></script>
 
 </body>
 </html>

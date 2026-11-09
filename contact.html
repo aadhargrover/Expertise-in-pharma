@@ -4,149 +4,41 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Contact Us — ExpertiseInPharma</title>
-<meta name="description" content="Get in touch with ExpertiseInPharma. Whether you're managing a talent gap, preparing for an audit, or scaling a global delivery center — we're here to help.">
+<meta name="description" content="Get in touch with ExpertiseInPharma. Whether you&#x27;re managing a talent gap, preparing for an audit, or building bench capacity for an upcoming bid — we&#x27;re here to help.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/favicon-512.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="canonical" href="https://expertiseinpharma.com/contact.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ExpertiseInPharma">
+<meta property="og:title" content="Contact Us — ExpertiseInPharma">
+<meta property="og:description" content="Get in touch with ExpertiseInPharma. Whether you&#x27;re managing a talent gap, preparing for an audit, or building bench capacity for an upcoming bid — we&#x27;re here to help.">
+<meta property="og:url" content="https://expertiseinpharma.com/contact.html">
+<meta property="og:image" content="https://expertiseinpharma.com/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="assets/site.css">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-
-  :root{
-    --navy-950: oklch(0.19 0.055 262);
-    --navy-900: oklch(0.235 0.058 262);
-    --navy-800: oklch(0.28 0.089 259);
-    --navy-700: oklch(0.36 0.08 260);
-    --cream-50: oklch(0.992 0.003 106);
-    --cream-100: oklch(0.97 0.004 106);
-    --cream-200: oklch(0.93 0.006 100);
-    --ink-900: oklch(0.20 0.05 262);
-    --ink-600: oklch(0.42 0.03 262);
-    --ink-400: oklch(0.60 0.02 262);
-    --cyan-700: oklch(0.50 0.10 213);
-    --cyan-600: oklch(0.60 0.115 213);
-    --cyan-500: oklch(0.73 0.117 213);
-    --cyan-400: oklch(0.80 0.09 213);
-    --violet: oklch(0.55 0.135 292);
-    --violet-100: oklch(0.93 0.03 292);
-    --line: oklch(0.88 0.008 100);
-    --line-dark: oklch(0.32 0.04 262);
-    --cream-on-navy: oklch(0.97 0.004 106);
-    --cream-on-navy-dim: oklch(0.97 0.004 106 / 0.68);
-  }
-  *{ box-sizing:border-box; }
-  html,body{ margin:0; padding:0; width:100%; overflow-x:clip; }
-  html{ scroll-behavior:smooth; }
-  body{ font-family:'Inter',sans-serif; color:var(--ink-900); background:var(--cream-50); animation:pageFadeIn .7s ease both; }
-  a{ color:inherit; text-decoration:none; }
-  p{ margin:0; }
-
-  @keyframes pageFadeIn{ from{ opacity:0; } to{ opacity:1; } }
-
-  .reveal{ opacity:0; transform:translateY(26px); transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
-  .reveal.is-visible{ opacity:1; transform:none; }
-  @media (prefers-reduced-motion: reduce){
-    body{ animation:none; }
-    .reveal{ transition:none; opacity:1; transform:none; }
-    .form-success-check circle, .form-success-check path{ animation:none !important; }
-  }
-  img{ max-width:100%; display:block; }
-
-  .wrap{ max-width:1440px; margin:0 auto; padding-left:clamp(20px,5vw,100px); padding-right:clamp(20px,5vw,100px); width:100%; }
-
-  .btn-primary{ display:inline-flex; align-items:center; gap:14px; background:var(--cyan-500); color:var(--navy-950); font:600 16px/1 'Inter',sans-serif; padding:17px 26px 17px 30px; border-radius:1px; transition:background .2s ease, transform .2s ease; border:none; cursor:pointer; }
-  .btn-primary:hover{ background:var(--cyan-400); transform:translateY(-1px); }
-  .btn-primary svg{ flex:none; }
-
-  .nav-link{ font:500 16px/1 'Inter',sans-serif; color:var(--cream-on-navy-dim); padding:6px 0; border-bottom:1px solid transparent; transition:color .2s ease, border-color .2s ease; white-space:nowrap; }
-  .nav-link:hover{ color:var(--cream-on-navy); border-color:var(--cyan-500); }
-  .nav-link.is-current{ color:var(--cream-on-navy); border-color:var(--cyan-500); }
-  #site-nav.nav--scrolled .nav-link.is-current{ color:var(--ink-900); }
-
-  .nav-item{ position:relative; display:flex; align-items:center; height:100%; }
-  .nav-caret{ margin-left:6px; transition:transform .18s ease; flex:none; }
-  .nav-item:hover .nav-caret{ transform:rotate(180deg); }
-
-  .mega{ position:absolute; top:100%; left:50%; transform:translateX(-50%) translateY(6px); background:var(--navy-950); border:1px solid var(--line-dark); border-top:2px solid var(--cyan-500); box-shadow:0 28px 56px -16px rgba(3,9,20,0.5); padding:28px; opacity:0; visibility:hidden; pointer-events:none; transition:opacity .16s ease, transform .16s ease; z-index:80; }
-  .nav-item:hover .mega{ opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); pointer-events:auto; }
-  .mega-services{ width:340px; }
-  .mega-industry{ width:520px; }
-  .mega-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:4px; }
-  .mega-grid-1col{ grid-template-columns:1fr; }
-  .mega-item{ display:block; padding:16px; border-radius:2px; transition:background .16s ease; }
-  .mega-item:hover{ background:rgba(40,188,210,0.07); }
-  .mega-num{ display:block; font:500 13px/1 'Inter',sans-serif; color:var(--cyan-500); margin-bottom:9px; }
-  .mega-title{ display:block; font:600 16px/1.35 'Inter',sans-serif; color:var(--cream-on-navy); margin-bottom:6px; }
-  .mega-desc{ display:block; font:400 14px/1.55 'Inter',sans-serif; color:var(--cream-on-navy-dim); }
-
-  .foot-link{ font:400 17px/1 'Inter',sans-serif; color:var(--cream-on-navy-dim); transition:color .2s ease; }
-  .foot-link:hover{ color:var(--cyan-500); }
-
-  /* NAV */
-  #site-nav{ position:fixed; top:0; left:0; right:0; z-index:100; background:transparent; border-bottom:1px solid transparent; transition:background .3s ease, border-color .3s ease, box-shadow .3s ease; }
-  #site-nav.nav--scrolled{ background:var(--cream-50); border-bottom-color:var(--line); box-shadow:0 4px 24px rgba(3,9,20,0.06); }
-  #site-nav .logo-mark-onLight{ display:none; }
-  #site-nav .logo-mark-onDark{ display:flex; align-items:center; }
-  #site-nav.nav--scrolled .logo-mark-onDark{ display:none; }
-  #site-nav.nav--scrolled .logo-mark-onLight{ display:flex; align-items:center; }
-  #site-nav.nav--scrolled .nav-link{ color:var(--ink-600); }
-  #site-nav.nav--scrolled .nav-link:hover{ color:var(--ink-900); border-color:var(--cyan-600); }
-
-  /* HERO */
-  .hero-carousel{ position:relative; width:100%; height:48vh; min-height:360px; max-height:460px; overflow:hidden; background:var(--navy-950); }
-  .hero-slide{ position:absolute; inset:0; opacity:0; visibility:hidden; transition:opacity .9s ease; }
-  .hero-slide.is-active{ opacity:1; visibility:visible; z-index:2; }
-  .hero-slide-bg{ position:absolute; inset:0; }
-  .hero-slide-overlay{ position:absolute; inset:0; background:linear-gradient(0deg, rgba(7,22,45,0.96) 0%, rgba(7,22,45,0.82) 35%, rgba(7,22,45,0.68) 60%, rgba(7,22,45,0.78) 100%); }
-  .hero-slide-content{ position:absolute; left:0; right:0; bottom:0; padding:0 clamp(20px,5vw,100px) 56px clamp(100px,10vw,160px); max-width:900px; }
-  .breadcrumb{ display:flex; align-items:center; gap:8px; font:500 13px/1 'Inter',sans-serif; color:var(--cream-on-navy-dim); margin-bottom:22px; }
-  .breadcrumb a{ transition:color .2s ease; }
-  .breadcrumb a:hover{ color:var(--cyan-500); }
-
-  /* Contact info */
-  .contact-info-row{ display:flex; align-items:flex-start; gap:18px; margin-bottom:28px; }
-  .contact-info-icon{ flex:none; width:48px; height:48px; border-radius:50%; background:rgba(124,92,196,0.1); border:1px solid rgba(124,92,196,0.4); display:flex; align-items:center; justify-content:center; }
-  .contact-info-row p{ font:400 17px/1.6 'Inter',sans-serif; color:var(--ink-600); padding-top:8px; }
-
-  /* Contact form (dark card) */
-  .career-form{ position:relative; background:var(--navy-950); border:1px solid var(--line-dark); border-radius:22px; padding:clamp(28px,5vw,56px); overflow:hidden; }
-  .career-form::before{ content:''; position:absolute; top:-120px; right:-100px; width:340px; height:340px; border-radius:50%; background:radial-gradient(circle, rgba(40,188,210,0.13) 0%, transparent 70%); pointer-events:none; }
-  .form-section{ position:relative; z-index:1; margin-bottom:32px; }
-  .field-row{ display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-bottom:22px; }
-  .field label{ display:block; font:600 13px/1 'Inter',sans-serif; color:var(--cream-on-navy-dim); margin-bottom:9px; }
-  .field label .req{ color:var(--cyan-500); }
-  .field input[type="text"], .field input[type="email"], .field select, .field textarea{
-    width:100%; background:rgba(255,255,255,0.035); border:1px solid var(--line-dark); border-radius:8px; padding:14px 16px; font:400 15px/1.4 'Inter',sans-serif; color:var(--cream-on-navy); transition:border-color .25s ease, background .25s ease, box-shadow .25s ease; appearance:none; -webkit-appearance:none;
-  }
-  .field select{ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%2394A3B8' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 16px center; padding-right:40px; }
-  .field input::placeholder, .field textarea::placeholder{ color:var(--cream-on-navy-dim); opacity:.55; }
-  .field input:focus, .field select:focus, .field textarea:focus{ outline:none; border-color:var(--cyan-500); background:rgba(255,255,255,0.05); box-shadow:0 0 0 3px rgba(40,188,210,0.14); }
-  .field textarea{ resize:vertical; min-height:100px; font-family:'Inter',sans-serif; }
-  .form-success{ display:none; position:relative; z-index:1; flex-direction:column; align-items:center; text-align:center; padding:60px 20px; }
-  .form-success.is-visible{ display:flex; }
-  .form-success-check{ margin-bottom:22px; }
-  .form-success-check circle{ stroke-dasharray:150; stroke-dashoffset:150; animation:drawCircle .6s ease forwards; }
-  .form-success-check path{ stroke-dasharray:40; stroke-dashoffset:40; animation:drawCheck .35s ease .5s forwards; }
-  @keyframes drawCircle{ to{ stroke-dashoffset:0; } }
-  @keyframes drawCheck{ to{ stroke-dashoffset:0; } }
-
-  /* Explore links */
-  .explore-links{ display:flex; flex-wrap:wrap; gap:12px; }
-  .explore-link{ display:inline-flex; align-items:center; gap:8px; font:600 15px/1 'Inter',sans-serif; color:var(--violet); padding:13px 20px; border-radius:20px; border:1px solid rgba(124,92,196,0.4); transition:transform .2s ease, box-shadow .25s ease, background .2s ease; }
-  .explore-link:hover{ transform:translateY(-2px); background:var(--violet-100); box-shadow:0 10px 24px -12px rgba(85,55,150,0.4); }
-  .explore-link--dark{ color:var(--cream-on-navy); background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.22); backdrop-filter:blur(6px); }
-  .explore-link--dark:hover{ background:rgba(255,255,255,0.14); box-shadow:0 10px 24px -12px rgba(3,9,20,0.5); }
-  .eyebrow{ display:inline-flex; align-items:center; gap:10px; font:700 12px/1 'Inter',sans-serif; letter-spacing:.18em; text-transform:uppercase; margin-bottom:16px; }
-  .eyebrow::before{ content:''; width:26px; height:2px; background:currentColor; border-radius:2px; }
-
-  @media (max-width: 980px){
-    .nav-links, .nav-cta{ display:none !important; }
-    .resp-grid{ grid-template-columns:1fr !important; }
-    .field-row{ grid-template-columns:1fr !important; }
-    h1{ font-size:32px !important; line-height:1.25 !important; }
-    h2{ font-size:28px !important; }
-  }
+.contact-grid{ display:grid; grid-template-columns:5fr 7fr; gap:72px; align-items:start; }
+  .contact-info{ display:grid; gap:14px; margin-top:36px; }
+  .contact-row{ display:flex; gap:18px; align-items:flex-start; padding:22px 24px; background:#fff; border:1px solid var(--line); border-radius:var(--radius-lg); box-shadow:var(--shadow-sm); }
+  .contact-row .benefit-ic{ width:46px; height:46px; border-radius:14px; flex:none; }
+  .contact-row-label{ font:600 11px/1 var(--font-body); letter-spacing:.18em; text-transform:uppercase; color:var(--ink-400); margin-bottom:8px; }
+  .contact-row-value{ font:500 16px/1.6 var(--font-body); color:var(--ink-900); }
+  .contact-row-value a{ border-bottom:1px solid var(--line); transition:border-color .2s ease; }
+  .contact-row-value a:hover{ border-color:var(--cyan-600); }
+  .contact-photo{ margin-top:14px; height:240px; border-radius:var(--radius-lg); }
+  .explore{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+  .explore-card{ padding:36px 36px 32px; border-radius:var(--radius-lg); border:1px solid var(--line-dark); background:linear-gradient(160deg, rgba(245,246,242,0.06), rgba(245,246,242,0.015)); }
+  .explore-card h3{ font-size:28px; line-height:1.2; color:var(--cream-on-navy); margin:0 0 22px; }
+  .explore-links{ display:flex; flex-wrap:wrap; gap:10px; }
+  .explore-links .svc-chip{ background:rgba(245,246,242,0.06); border-color:var(--line-dark); color:var(--cream-on-navy); }
+  .explore-links .svc-chip:hover{ background:var(--cream-50); color:var(--navy-950); }
+  @media (max-width:980px){ .contact-grid, .explore{ grid-template-columns:1fr; gap:40px; } }
 </style>
 </head>
 <body>
 
-  <!-- NAV -->
+  <!-- @partial nav -->
   <div id="site-nav">
     <div class="wrap" style="height:84px; display:flex; align-items:center; justify-content:space-between;">
       <a href="index.html" class="logo-mark-onDark"><img src="assets/logo-dark.png" alt="ExpertiseInPharma" style="height:38px; width:auto; display:block;"></a>
@@ -156,22 +48,22 @@
         <div class="nav-item"><a href="about.html" class="nav-link">About Us</a></div>
 
         <div class="nav-item">
-          <a href="sme-on-demand.html" class="nav-link" style="display:flex; align-items:center;">Services
+          <a href="sme-on-demand.html" class="nav-link" data-nav-group="services" style="display:flex; align-items:center;">Services
             <svg class="nav-caret" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
           <div class="mega mega-services">
             <div class="mega-grid mega-grid-1col">
-              <a href="sme-on-demand.html" class="mega-item">
+              <a href="sme-on-demand.html" class="mega-item" data-nav-group="services">
                 <span class="mega-num">01</span>
                 <span class="mega-title">SME on Demand</span>
                 <span class="mega-desc">Industry-ready expertise, delivered on demand.</span>
               </a>
-              <a href="resource-on-demand.html" class="mega-item">
+              <a href="resource-on-demand.html" class="mega-item" data-nav-group="services">
                 <span class="mega-num">02</span>
                 <span class="mega-title">Resource on Demand</span>
                 <span class="mega-desc">Vetted, production-ready life sciences talent &mdash; 75% faster search-to-productivity.</span>
               </a>
-              <a href="outsourced-ld.html" class="mega-item">
+              <a href="outsourced-ld.html" class="mega-item" data-nav-group="services">
                 <span class="mega-num">03</span>
                 <span class="mega-title">Outsourced L&amp;D Enablement</span>
                 <span class="mega-desc">Enterprise training without expanding your L&amp;D team.</span>
@@ -181,16 +73,16 @@
         </div>
 
         <div class="nav-item">
-          <a href="pharmaceutical-companies.html" class="nav-link" style="display:flex; align-items:center;">Industry Solutions
+          <a href="pharmaceutical-companies.html" class="nav-link" data-nav-group="industry" style="display:flex; align-items:center;">Industry Solutions
             <svg class="nav-caret" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
           <div class="mega mega-industry">
             <div class="mega-grid">
-              <a href="pharmaceutical-companies.html" class="mega-item">
+              <a href="pharmaceutical-companies.html" class="mega-item" data-nav-group="industry">
                 <span class="mega-title">Pharmaceutical Companies</span>
                 <span class="mega-desc">Accelerate innovation, ensure compliance, reduce vendor dependency.</span>
               </a>
-              <a href="index.html" class="mega-item">
+              <a href="cro.html" class="mega-item" data-nav-group="industry">
                 <span class="mega-title">Clinical Research Organizations (CRO)</span>
                 <span class="mega-desc">Protect margins, strengthen client confidence, scale delivery capacity.</span>
               </a>
@@ -200,138 +92,125 @@
 
         <div class="nav-item"><a href="how-we-partner.html" class="nav-link">How We Partner</a></div>
         <div class="nav-item"><a href="careers.html" class="nav-link">Careers</a></div>
-        <div class="nav-item"><a href="contact.html" class="nav-link is-current">Contact Us</a></div>
+        <div class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></div>
       </div>
 
-      <a href="contact.html" class="btn-primary nav-cta" style="padding:13px 24px;">Talk to our team</a>
+      <button type="button" class="btn-primary nav-cta" onclick="openLeadModal('nav')">Talk to our team</button>
+
+      <button type="button" id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
   </div>
 
-  <!-- HERO -->
-  <section class="hero-carousel" id="hero-carousel">
-    <div class="hero-slide is-active">
-      <div class="hero-slide-bg" style="background-image:url('assets/professionals-walking.jpg'); background-size:cover; background-position:center;"></div>
-      <div class="hero-slide-overlay"></div>
-      <div class="hero-slide-content">
-        <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span style="color:var(--cyan-500);">Contact Us</span></div>
-        <h1 style="font:600 44px/1.2 'Inter',sans-serif; color:var(--cream-on-navy); margin:0;">Contact Us</h1>
+  <div id="mobile-drawer" class="mobile-drawer">
+    <div class="wrap">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About Us</a>
+      <a href="sme-on-demand.html" class="nav-link has-sub" data-nav-group="services">Services</a>
+      <div class="drawer-sub">
+        <a href="sme-on-demand.html">SME on Demand</a>
+        <a href="resource-on-demand.html">Resource on Demand</a>
+        <a href="outsourced-ld.html">Outsourced L&amp;D Enablement</a>
       </div>
+      <a href="pharmaceutical-companies.html" class="nav-link has-sub" data-nav-group="industry">Industry Solutions</a>
+      <div class="drawer-sub">
+        <a href="pharmaceutical-companies.html">Pharmaceutical Companies</a>
+        <a href="cro.html">Clinical Research Organizations (CRO)</a>
+      </div>
+      <a href="how-we-partner.html" class="nav-link">How We Partner</a>
+      <a href="careers.html" class="nav-link">Careers</a>
+      <a href="contact.html" class="nav-link">Contact Us</a>
+      <button type="button" class="btn-primary" onclick="openLeadModal('mobile-nav')">Talk to our team</button>
     </div>
-  </section>
+  </div>
+  <!-- /@partial nav -->
 
-  <!-- 01 GET IN TOUCH -->
-  <section style="width:100%; background:var(--cream-50);">
-    <div class="wrap" style="padding-top:110px; padding-bottom:100px;">
-      <div class="resp-grid" style="display:grid; grid-template-columns:1fr 0.9fr; gap:64px; align-items:start;">
-        <div class="reveal">
-          <p style="color:var(--cyan-700); font:600 12px/1 'Inter',sans-serif; letter-spacing:.18em; text-transform:uppercase; margin-bottom:20px;">Let&rsquo;s talk about your workforce priorities</p>
-          <h2 style="font:600 40px/1.2 'Inter',sans-serif; color:var(--ink-900); margin:0 0 20px;">Get in touch with us</h2>
-          <p style="font:400 18px/1.7 'Inter',sans-serif; color:var(--ink-600); max-width:480px; margin-bottom:40px;">Whether you&rsquo;re managing a talent gap, preparing for an audit, or scaling a global delivery center &mdash; we&rsquo;re here to help.</p>
-
-          <div class="contact-info-row">
-            <div class="contact-info-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="var(--violet)" stroke-width="1.5"/><path d="M4 6.5l8 6 8-6" stroke="var(--violet)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <p>contact@sipedtech.com</p>
-          </div>
-          <div class="contact-info-row">
-            <div class="contact-info-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.4 7-12a7 7 0 1 0-14 0c0 5.6 7 12 7 12Z" stroke="var(--violet)" stroke-width="1.5" stroke-linejoin="round"/><circle cx="12" cy="9" r="2.6" stroke="var(--violet)" stroke-width="1.5"/></svg></div>
-            <p>SIPEdTech PRIVATE LIMITED<br>260, Lane 14, Sector 6, Satyagrah Chavni, S A C,<br>Ahmadabad City, Ahmedabad&ndash; 380015, Gujarat</p>
-          </div>
-        </div>
-
-        <div class="reveal" style="position:relative; width:100%; height:420px; border-radius:12px; overflow:hidden;">
-          <div style="position:absolute; inset:0; background-image:url('assets/executive-laptop.jpg'); background-size:cover; background-position:center;"></div>
-          <div style="position:absolute; inset:0; background:linear-gradient(160deg, rgba(7,22,45,0.15) 0%, rgba(7,22,45,0.02) 55%);"></div>
+  <section class="page-hero page-hero--short">
+    <div class="page-hero-bg photo-tint" style="background-image:url('assets/professionals-walking.jpg'); background-position:center;"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="wrap">
+      <div class="page-hero-inner">
+        <div class="page-hero-rule"></div>
+        <div class="page-hero-text">
+          <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> <span aria-hidden="true">/</span> <span>Contact Us</span></nav>
+          <h1>Contact <span class="hl">Us</span></h1>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 02 FORM -->
-  <section style="width:100%; background:var(--cream-100);">
-    <div class="wrap" style="padding-top:100px; padding-bottom:120px;">
-      <p style="color:var(--cyan-700); font:600 12px/1 'Inter',sans-serif; letter-spacing:.14em; text-transform:uppercase; margin-bottom:16px; text-align:center;">Contact with us now</p>
-      <h2 style="font:600 32px/1.25 'Inter',sans-serif; color:var(--ink-900); margin:0 0 48px; text-align:center;">Tell us about your priorities</h2>
+  <section class="sec sec--paper">
+    <div class="wrap contact-grid">
+      <div>
+        <p class="eyebrow sec-eyebrow">Let&rsquo;s talk about your workforce priorities</p>
+        <h2 class="sec-title" data-reveal="up" style="margin-bottom:20px;">Get in touch with us</h2>
+        <p class="sec-intro">Whether you&rsquo;re managing a talent gap, preparing for an audit, or building bench capacity for an upcoming bid &mdash; we&rsquo;re here to help.</p>
+        <div class="contact-info">
+          <div class="contact-row"><span class="benefit-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></span><div><p class="contact-row-label">Email</p><p class="contact-row-value"><a href="mailto:contact@sipedtech.com">contact@sipedtech.com</a></p></div></div>
+          <div class="contact-row"><span class="benefit-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.4 7-12a7 7 0 1 0-14 0c0 5.6 7 12 7 12Z"/><circle cx="12" cy="9" r="2.6"/></svg></span><div><p class="contact-row-label">Office</p><p class="contact-row-value">SIPEdTech PRIVATE LIMITED<br>260, Lane 14, Sector 6, Satyagrah Chavni, S A C,<br>Ahmadabad City, Ahmedabad&ndash; 380015, Gujarat</p></div></div>
+          <div class="img-slot photo-tint contact-photo" style="background-image:url('assets/executive-laptop.jpg');"></div>
+        </div>
+      </div>
 
-      <div class="career-form reveal" style="max-width:900px; margin:0 auto;">
+      <div class="form-panel" data-reveal="up">
         <form id="contact-form" novalidate>
-          <div class="form-section">
-            <div class="field-row">
-              <div class="field"><label>Full name <span class="req">*</span></label><input type="text" placeholder="Full Name" required></div>
-              <div class="field"><label>Work email address <span class="req">*</span></label><input type="email" placeholder="Work Email Address" required></div>
-            </div>
-            <div class="field-row">
-              <div class="field"><label>Company name <span class="req">*</span></label><input type="text" placeholder="Company Name" required></div>
-              <div class="field"><label>Job title / function <span class="req">*</span></label><input type="text" placeholder="Job Title / Function" required></div>
-            </div>
-            <div class="field-row">
-              <div class="field"><label>Region / country <span class="req">*</span></label><input type="text" placeholder="Region / Country" required></div>
-              <div class="field"><label>What would you like to discuss? <span class="req">*</span></label>
-                <select required>
-                  <option value="" selected disabled>Select</option>
-                  <option>SME on Demand</option>
-                  <option>Resource on Demand</option>
-                  <option>Outsourced L&amp;D Enablement</option>
-                  <option>Global Capability Center (GCC) Enablement</option>
-                  <option>Careers / Talent</option>
-                  <option>General inquiry</option>
-                </select>
-              </div>
-            </div>
-            <div class="field-row" style="grid-template-columns:1fr; margin-bottom:0;">
-              <div class="field"><label>Additional context <span style="color:var(--cream-on-navy-dim); font-weight:400;">(optional)</span></label><textarea placeholder="Anything else that will help us prepare for the conversation"></textarea></div>
+          <p class="form-section-title">Contact with us now &mdash; tell us about your priorities</p>
+          <div class="field-row">
+            <div class="field"><label>Full name <span class="req">*</span></label><input type="text" placeholder="Full Name" required></div>
+            <div class="field"><label>Work email address <span class="req">*</span></label><input type="email" placeholder="Work Email Address" required></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label>Company name <span class="req">*</span></label><input type="text" placeholder="Company Name" required></div>
+            <div class="field"><label>Job title / function <span class="req">*</span></label><input type="text" placeholder="Job Title / Function" required></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label>Region / country <span class="req">*</span></label><input type="text" placeholder="Region / Country" required></div>
+            <div class="field"><label>What would you like to discuss? <span class="req">*</span></label>
+              <select required>
+                <option value="" selected disabled>Select</option>
+                <option>SME on Demand</option>
+                <option>Resource on Demand</option>
+                <option>Outsourced L&amp;D Enablement</option>
+                <option>Careers / Talent</option>
+                <option>General inquiry</option>
+              </select>
             </div>
           </div>
-
-          <button type="submit" class="btn-primary" style="position:relative; z-index:1; width:100%; justify-content:center;">Submit
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="var(--navy-950)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
+          <div class="field-row" style="grid-template-columns:1fr;">
+            <div class="field"><label>Additional context <span style="color:var(--cream-on-navy-dim); font-weight:400;">(optional)</span></label><textarea placeholder="Anything else that will help us prepare for the conversation"></textarea></div>
+          </div>
+          <button type="submit" class="btn-primary" style="position:relative; z-index:1; width:100%; justify-content:center; margin-top:6px;">Submit <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </form>
-
         <div class="form-success" id="contact-form-success">
           <svg class="form-success-check" width="64" height="64" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="28" stroke="var(--cyan-500)" stroke-width="2.2"/><path d="M20 33l8 8 16-17" stroke="var(--cyan-500)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <h3 style="font:600 24px/1.3 'Inter',sans-serif; color:var(--cream-on-navy); margin:0 0 12px;">Message received</h3>
-          <p style="font:400 16px/1.6 'Inter',sans-serif; color:var(--cream-on-navy-dim); max-width:420px;">Thank you &mdash; we&rsquo;ll review your message and get back to you shortly.</p>
+          <h3 style="font:500 24px/1.3 var(--font-display); color:var(--cream-on-navy); margin:14px 0 10px;">Message received</h3>
+          <p style="font:400 16px/1.6 var(--font-body); color:var(--cream-on-navy-dim); max-width:420px;">Thank you &mdash; we&rsquo;ll review your message and get back to you shortly.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 03 WANT TO LEARN MORE FIRST -->
-  <section style="width:100%; position:relative; overflow:hidden;">
-    <div style="position:absolute; inset:0; background-image:url('assets/boardroom.jpg'); background-size:cover; background-position:center;"></div>
-    <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(7,22,45,0.94) 0%, rgba(7,22,45,0.88) 55%, rgba(7,22,45,0.94) 100%);"></div>
-    <div style="position:absolute; inset:0; background:radial-gradient(circle at 18% 20%, rgba(124,92,196,0.24), transparent 45%), radial-gradient(circle at 85% 80%, rgba(40,188,210,0.16), transparent 45%);"></div>
-    <div class="wrap" style="position:relative; padding-top:110px; padding-bottom:120px; text-align:center;">
-      <p class="eyebrow" style="color:var(--cyan-400); justify-content:center; width:100%;">Want to learn more first?</p>
-      <h2 style="font:600 32px/1.3 'Inter',sans-serif; color:var(--cream-on-navy); margin:0 0 32px;">Explore our services</h2>
-      <div class="explore-links" style="justify-content:center; margin-bottom:64px;">
-        <a href="sme-on-demand.html" class="explore-link explore-link--dark">SME on Demand</a>
-        <a href="resource-on-demand.html" class="explore-link explore-link--dark">Resource on Demand</a>
-        <a href="outsourced-ld.html" class="explore-link explore-link--dark">Outsourced L&amp;D Enablement</a>
-      </div>
-      <div style="height:1px; max-width:120px; margin:0 auto 56px; background:rgba(255,255,255,0.18);"></div>
-      <h2 style="font:600 32px/1.3 'Inter',sans-serif; color:var(--cream-on-navy); margin:0 0 32px;">Learn more about us</h2>
-      <div class="explore-links" style="justify-content:center;">
-        <a href="about.html" class="explore-link explore-link--dark">About Us</a>
-        <a href="how-we-partner.html" class="explore-link explore-link--dark">How We Partner</a>
+  <section class="sec sec--navy sec--glow">
+    <div class="wrap">
+      <p class="eyebrow sec-eyebrow">Want to learn more first?</p>
+      <div class="explore" style="margin-top:28px;">
+        <div class="explore-card" data-reveal="up"><h3>Explore our services</h3><div class="explore-links"><a href="sme-on-demand.html" class="svc-chip">SME on Demand <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a href="resource-on-demand.html" class="svc-chip">Resource on Demand <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a href="outsourced-ld.html" class="svc-chip">Outsourced L&amp;D Enablement <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div>
+        <div class="explore-card" data-reveal="up"><h3>Learn more about us</h3><div class="explore-links"><a href="about.html" class="svc-chip">About Us <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a href="how-we-partner.html" class="svc-chip">How We Partner <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer style="width:100%; background:var(--navy-950); border-top:1px solid var(--line-dark);">
-    <div class="wrap" style="padding-top:80px; padding-bottom:40px;">
-      <div class="resp-grid" style="display:grid; grid-template-columns:1.4fr 0.8fr 0.8fr; gap:64px; margin-bottom:64px;">
-        <div>
-          <div style="margin-bottom:24px;">
-            <img src="assets/logo-dark.png" alt="ExpertiseInPharma" style="height:36px; width:auto; display:block;">
-          </div>
-          <p style="font:400 18px/1.8 'Inter',sans-serif; color:var(--cream-on-navy-dim); max-width:460px; margin-bottom:18px;">ExpertiseInPharma is a global organization dedicated to helping pharmaceutical sponsors and contract research organizations navigate complex regulatory landscapes, accelerate innovation and boost productivity.</p>
-          <p style="font:400 18px/1.8 'Inter',sans-serif; color:var(--cream-on-navy-dim); max-width:460px;">Our solutions &mdash; SME on Demand, Resource on Demand and Outsourced L&amp;D &mdash; are curated and delivered by industry practitioners who understand pharma delivery environments, regulatory expectations, and execution pressures.</p>
+  <!-- @partial footer -->
+  <footer class="site-foot">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-about">
+          <img src="assets/logo-dark.png" alt="ExpertiseInPharma" style="height:36px; width:auto; margin-bottom:26px;">
+          <p><strong>ExpertiseInPharma</strong> is a global organization dedicated to empowering pharmaceutical sponsors and contract research organizations (CROs) navigate complex regulatory landscapes, accelerate innovation and boost productivity.</p>
+          <p>Our solutions, including SME on Demand, Resource on Demand and Outsourced L&amp;D, are curated and delivered by industry practitioners who understand pharma delivery environments, regulatory expectations, and execution pressures, thus helping clients convert capability into measurable outcomes.</p>
         </div>
         <div>
-          <p style="font:600 12px/1 'Inter',sans-serif; color:var(--cyan-500); letter-spacing:.12em; text-transform:uppercase; margin-bottom:24px;">Explore</p>
-          <div style="display:flex; flex-direction:column; gap:20px;">
+          <p class="eyebrow foot-col-title">Explore</p>
+          <div class="foot-links">
             <a href="index.html" class="foot-link">Home</a>
             <a href="about.html" class="foot-link">About Us</a>
             <a href="sme-on-demand.html" class="foot-link">Services</a>
@@ -342,56 +221,74 @@
           </div>
         </div>
         <div>
-          <p style="font:600 12px/1 'Inter',sans-serif; color:var(--cyan-500); letter-spacing:.12em; text-transform:uppercase; margin-bottom:24px;">Contact us</p>
-          <p style="font:400 17px/1.65 'Inter',sans-serif; color:var(--cream-on-navy-dim); margin-bottom:32px;">contact@sipedtech.com</p>
-          <p style="font:600 12px/1 'Inter',sans-serif; color:var(--cyan-500); letter-spacing:.12em; text-transform:uppercase; margin-bottom:24px;">Other links</p>
-          <div style="display:flex; flex-direction:column; gap:20px;">
-            <a href="#" class="foot-link">Privacy Policy</a>
-            <a href="#" class="foot-link">Terms of Use</a>
+          <p class="eyebrow foot-col-title">Contact us</p>
+          <a href="mailto:contact@sipedtech.com" class="foot-link" style="display:inline-block; margin-bottom:40px;">contact@sipedtech.com</a>
+          <p class="eyebrow foot-col-title">Other links</p>
+          <div class="foot-links">
+            <a href="privacy.html" class="foot-link">Privacy Policy</a>
+            <a href="terms.html" class="foot-link">Terms of Use</a>
           </div>
         </div>
       </div>
-      <div style="border-top:1px solid var(--line-dark); padding-top:28px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
-        <p style="font:400 14px/1.3 'Inter',sans-serif; color:var(--cream-on-navy-dim);">&copy; 2026 ExpertiseInPharma. All rights reserved.</p>
+      <div class="foot-bottom">
+        <p>&copy; 2025 SIP Edtech Private Limited. All rights reserved.</p>
+        <p>CIN &ndash; U85499GJ2025PTC167504 &nbsp;&middot;&nbsp; GST &ndash; 24ABRCS2808M1ZU</p>
       </div>
     </div>
   </footer>
+  <!-- /@partial footer -->
 
+  <!-- @partial modal -->
+  <div class="modal-overlay" id="lead-modal">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="lead-modal-title">
+      <button type="button" class="modal-close" onclick="closeLeadModal()" aria-label="Close">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+      <p class="eyebrow" style="color:var(--cyan-500); margin-bottom:10px;">Talk to our team</p>
+      <h3 class="modal-title" id="lead-modal-title">Let's find the right fit</h3>
+      <p class="modal-sub">Tell us a little about what you need and someone from our team will follow up within one business day.</p>
+
+      <form id="lead-form" novalidate>
+        <input type="hidden" id="lead-source" data-label="Clicked from">
+        <div class="field-row">
+          <div class="field"><label>Your name <span class="req">*</span></label><input type="text" placeholder="Full name" required></div>
+          <div class="field"><label>Work email <span class="req">*</span></label><input type="email" placeholder="Email address" required></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label>Company <span class="req">*</span></label><input type="text" placeholder="Company name" required></div>
+          <div class="field"><label>Phone <span style="color:var(--cream-on-navy-dim); font-weight:400;">(optional)</span></label><input type="tel" placeholder="Phone number"></div>
+        </div>
+        <div class="field-row" style="grid-template-columns:1fr;">
+          <div class="field"><label>How can we help? <span style="color:var(--cream-on-navy-dim); font-weight:400;">(optional)</span></label><textarea placeholder="A quick note on what you're looking for"></textarea></div>
+        </div>
+        <div class="consent-row"><input type="checkbox" id="lead-consent" data-label="Consent: contact" required><label for="lead-consent">I agree to be contacted by ExpertiseInPharma about this enquiry.</label></div>
+        <button type="submit" class="btn-primary" style="width:100%; justify-content:center; margin-top:8px;">Send message
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="var(--navy-950)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </form>
+      <div class="form-success" id="lead-form-success">
+        <svg class="form-success-check" width="56" height="56" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="28" stroke="var(--cyan-500)" stroke-width="2.2"/><path d="M20 33l8 8 16-17" stroke="var(--cyan-500)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3 style="font:500 22px/1.3 var(--font-display); color:var(--cream-on-navy); margin:12px 0 10px;">Message sent</h3>
+        <p style="font:400 15px/1.6 var(--font-body); color:var(--cream-on-navy-dim);">Thanks &mdash; we'll be in touch within one business day.</p>
+      </div>
+    </div>
+  </div>
+  <!-- /@partial modal -->
+
+  <script src="assets/site.js"></script>
+  <script src="assets/forms.js"></script>
   <script>
   (function(){
-    var nav = document.getElementById('site-nav');
-    function onScroll(){
-      if (window.scrollY > 60) { nav.classList.add('nav--scrolled'); }
-      else { nav.classList.remove('nav--scrolled'); }
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-
-    // Scroll reveal
-    if ('IntersectionObserver' in window){
-      var revealObserver = new IntersectionObserver(function(entries){
-        entries.forEach(function(entry){
-          if (entry.isIntersecting){
-            entry.target.classList.add('is-visible');
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-      document.querySelectorAll('.reveal').forEach(function(el){ revealObserver.observe(el); });
-    } else {
-      document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('is-visible'); });
-    }
-
-    // Form submit (demo only — static site, no backend)
     var form = document.getElementById('contact-form');
-    if (form){
-      form.addEventListener('submit', function(e){
-        e.preventDefault();
-        if (!form.checkValidity()){ form.reportValidity(); return; }
+    if (!form) return;
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      if (!form.checkValidity()){ form.reportValidity(); return; }
+      eipSubmit(form, 'Contact page', function(){
         form.style.display = 'none';
         document.getElementById('contact-form-success').classList.add('is-visible');
       });
-    }
+    });
   })();
   </script>
 
