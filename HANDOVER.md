@@ -11,7 +11,8 @@ No database, no build step: upload the files and it runs.
 |---|---|---|
 | `*.html` (12 pages) | The site | Yes |
 | `assets/` | Stylesheet, scripts, images, logos, favicon, share image | Yes |
-| `favicon.ico`, `robots.txt`, `sitemap.xml`, `.htaccess` | Browser icon, search engine files, server settings | Yes |
+| `favicon.ico`, `robots.txt`, `sitemap.xml`, `.htaccess` | Browser icon, search engine files, server settings (cPanel) | Yes |
+| `_redirects` | Same redirects for the Netlify preview (ignored by cPanel) | Optional |
 | `form-backend/Code.gs` | The Google Apps Script that receives form submissions | **No** (it is pasted into Google, see §2) |
 | `partials/`, `tools/` | Shared nav/footer/modal and the script that copies them into pages | **No** (only needed when editing) |
 | `HANDOVER.md`, `HOMEPAGE-SECTIONS.md`, `README.md` | Documentation | No |

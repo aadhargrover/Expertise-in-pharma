@@ -1,0 +1,29 @@
+# Netlify redirects (Netlify ignores .htaccess; cPanel ignores this file).
+# Netlify already forces HTTPS. Old WordPress URLs -> new pages:
+/services/sme-on-demand                              /sme-on-demand.html             301
+/services/sme-on-demand/                             /sme-on-demand.html             301
+/services/resource-on-demand                         /resource-on-demand.html        301
+/services/resource-on-demand/                        /resource-on-demand.html        301
+/services/outsourced-ld-enablement                   /outsourced-ld.html             301
+/services/outsourced-ld-enablement/                  /outsourced-ld.html             301
+/services/global-capability-center-gcc-enablement/*  /                               301
+/services                                            /sme-on-demand.html             301
+/services/                                           /sme-on-demand.html             301
+/industry-solutions/pharmaceutical-companies/*       /pharmaceutical-companies.html  301
+/industry-solutions/clinical-research-organization/* /cro.html                       301
+/industry-solutions                                  /pharmaceutical-companies.html  301
+/industry-solutions/                                 /pharmaceutical-companies.html  301
+/sme-on-demand/                                      /sme-on-demand.html             301
+/resource-on-demand/                                 /resource-on-demand.html        301
+/outsourced-ld-enablement/*                          /outsourced-ld.html             301
+/about-us/*                                          /about.html                     301
+/how-we-partner/                                     /how-we-partner.html            301
+/careers/                                            /careers.html                   301
+/contact-us/*                                        /contact.html                   301
+
+# Keep working files off the public site
+/partials/*      /index.html  404!
+/tools/*         /index.html  404!
+/form-backend/*  /index.html  404!
+/HANDOVER.md     /index.html  404!
+/HOMEPAGE-SECTIONS.md  /index.html  404!
