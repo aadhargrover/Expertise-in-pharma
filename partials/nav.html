@@ -1,0 +1,83 @@
+  <div id="site-nav">
+    <div class="wrap" style="height:84px; display:flex; align-items:center; justify-content:space-between;">
+      <a href="index.html" class="logo-mark-onDark"><img src="assets/logo-dark.png" alt="ExpertiseInPharma" style="height:38px; width:auto; display:block;"></a>
+      <a href="index.html" class="logo-mark-onLight"><img src="assets/logo-light.png" alt="ExpertiseInPharma" style="height:38px; width:auto; display:block;"></a>
+
+      <div class="nav-links" style="display:flex; align-items:center; gap:36px; height:100%;">
+        <div class="nav-item"><a href="about.html" class="nav-link">About Us</a></div>
+
+        <div class="nav-item">
+          <a href="sme-on-demand.html" class="nav-link" data-nav-group="services" style="display:flex; align-items:center;">Services
+            <svg class="nav-caret" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="mega mega-services">
+            <div class="mega-grid mega-grid-1col">
+              <a href="sme-on-demand.html" class="mega-item" data-nav-group="services">
+                <span class="mega-num">01</span>
+                <span class="mega-title">SME on Demand</span>
+                <span class="mega-desc">Industry-ready expertise, delivered on demand.</span>
+              </a>
+              <a href="resource-on-demand.html" class="mega-item" data-nav-group="services">
+                <span class="mega-num">02</span>
+                <span class="mega-title">Resource on Demand</span>
+                <span class="mega-desc">Vetted, production-ready life sciences talent &mdash; 75% faster search-to-productivity.</span>
+              </a>
+              <a href="outsourced-ld.html" class="mega-item" data-nav-group="services">
+                <span class="mega-num">03</span>
+                <span class="mega-title">Outsourced L&amp;D Enablement</span>
+                <span class="mega-desc">Enterprise training without expanding your L&amp;D team.</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <a href="pharmaceutical-companies.html" class="nav-link" data-nav-group="industry" style="display:flex; align-items:center;">Industry Solutions
+            <svg class="nav-caret" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <div class="mega mega-industry">
+            <div class="mega-grid">
+              <a href="pharmaceutical-companies.html" class="mega-item" data-nav-group="industry">
+                <span class="mega-title">Pharmaceutical Companies</span>
+                <span class="mega-desc">Accelerate innovation, ensure compliance, reduce vendor dependency.</span>
+              </a>
+              <a href="cro.html" class="mega-item" data-nav-group="industry">
+                <span class="mega-title">Clinical Research Organizations (CRO)</span>
+                <span class="mega-desc">Protect margins, strengthen client confidence, scale delivery capacity.</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-item"><a href="how-we-partner.html" class="nav-link">How We Partner</a></div>
+        <div class="nav-item"><a href="careers.html" class="nav-link">Careers</a></div>
+        <div class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></div>
+      </div>
+
+      <button type="button" class="btn-primary nav-cta" onclick="openLeadModal('nav')">Talk to our team</button>
+
+      <button type="button" id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+
+  <div id="mobile-drawer" class="mobile-drawer">
+    <div class="wrap">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About Us</a>
+      <a href="sme-on-demand.html" class="nav-link has-sub" data-nav-group="services">Services</a>
+      <div class="drawer-sub">
+        <a href="sme-on-demand.html">SME on Demand</a>
+        <a href="resource-on-demand.html">Resource on Demand</a>
+        <a href="outsourced-ld.html">Outsourced L&amp;D Enablement</a>
+      </div>
+      <a href="pharmaceutical-companies.html" class="nav-link has-sub" data-nav-group="industry">Industry Solutions</a>
+      <div class="drawer-sub">
+        <a href="pharmaceutical-companies.html">Pharmaceutical Companies</a>
+        <a href="cro.html">Clinical Research Organizations (CRO)</a>
+      </div>
+      <a href="how-we-partner.html" class="nav-link">How We Partner</a>
+      <a href="careers.html" class="nav-link">Careers</a>
+      <a href="contact.html" class="nav-link">Contact Us</a>
+      <button type="button" class="btn-primary" onclick="openLeadModal('mobile-nav')">Talk to our team</button>
+    </div>
+  </div>
