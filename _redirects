@@ -20,6 +20,14 @@
 /how-we-partner/                                     /how-we-partner.html            301
 /careers/                                            /careers.html                   301
 /contact-us/*                                        /contact.html                   301
+/contact                                             /contact.html                   301
+/contact/                                            /contact.html                   301
+/privacy-policy/*                                    /privacy.html                   301
+/mr-nitin-charekar/*                                 /about.html                     301
+/purav-thakkar/*                                     /about.html                     301
+/2026/*                                              /                               301
+/category/*                                          /                               301
+/metform-form/*                                      /                               301
 
 # Keep working files off the public site
 /partials/*      /index.html  404!

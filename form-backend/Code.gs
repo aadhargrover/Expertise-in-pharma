@@ -4,11 +4,12 @@
  * Every form on the site POSTs JSON here. For each submission this script:
  *   1. appends a row to a tab named after the form (tabs/columns are created automatically),
  *   2. saves any attached CV / JD into a Drive folder and links it in the row,
- *   3. emails a notification to NOTIFY_EMAIL (Reply-To set to the submitter).
+ *   3. emails a notification to NOTIFY_EMAIL (Reply-To set to the submitter, so replying answers them directly).
  *
  * Setup is described in HANDOVER.md → "Forms". This file is NOT uploaded to the web host.
  */
 
+var SHEET_ID = '1IR0GvwSCqDV9XUsgvNoPMEuLA1JXG6lc_BPAEAmG5ts'; // 'EIP Form' spreadsheet that stores every submission
 var NOTIFY_EMAIL = 'contact@sipedtech.com';        // who receives notifications (comma-separate for several)
 var UPLOAD_FOLDER_NAME = 'Website form uploads';   // Drive folder for CVs / JDs
 var ALLOWED_EXT = /\.(pdf|docx?)$/i;
@@ -58,7 +59,7 @@ function findEmail(fields) {
 }
 
 function appendRow(formName, row) {
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ss = SpreadsheetApp.openById(SHEET_ID);
   var sheet = ss.getSheetByName(formName) || ss.insertSheet(formName);
   var keys = Object.keys(row);
   var lastCol = sheet.getLastColumn();
@@ -100,7 +101,7 @@ function notify(formName, row, replyTo) {
     subject: 'Website: ' + formName,
     htmlBody: '<p>New submission from the website form <b>' + esc(formName) + '</b>.</p>' +
               '<table style="font:14px Arial,sans-serif">' + lines + '</table>' +
-              '<p style="color:#888">All submissions: ' + SpreadsheetApp.getActiveSpreadsheet().getUrl() + '</p>'
+              '<p style="color:#888">All submissions: ' + SpreadsheetApp.openById(SHEET_ID).getUrl() + '</p>'
   });
 }
 

@@ -32,10 +32,10 @@ The six forms (contact page, homepage contact, the "Talk to our team" pop-up on 
 
 **Until steps 1–7 are done, forms show "Message sent" but nothing is delivered.**
 
-1. Sign in to the Google account that should own the submissions (e.g. the contact@sipedtech.com Google Workspace account).
-2. Create a new Google Sheet, e.g. *Website enquiries*.
-3. In the Sheet: **Extensions → Apps Script**. Delete the sample code and paste the whole of `form-backend/Code.gs`.
-4. At the top of the script, set `NOTIFY_EMAIL` to the inbox(es) that should be notified (comma-separate several).
+1. Sign in to the Google account that owns the **EIP Form** spreadsheet (https://docs.google.com/spreadsheets/d/1IR0GvwSCqDV9XUsgvNoPMEuLA1JXG6lc_BPAEAmG5ts/edit). Ideally this is the contact@sipedtech.com account, because notification emails are sent from the account that deploys the script.
+2. Open that spreadsheet. (`Code.gs` already points to it via `SHEET_ID`, and one tab per form is created automatically.)
+3. In the spreadsheet: **Extensions → Apps Script**. Delete the sample code and paste the whole of `form-backend/Code.gs`.
+4. `NOTIFY_EMAIL` is already set to contact@sipedtech.com. Every notification has Reply-To set to the person who submitted, so pressing Reply answers them directly. Add more addresses comma-separated if needed.
 5. **Deploy → New deployment → Select type: Web app.** Execute as: **Me**. Who has access: **Anyone**. Click Deploy and approve the permissions (Sheets, Drive, Gmail).
 6. Copy the **Web app URL** (ends in `/exec`). Opening it in a browser should show `{"ok":true,"status":"…running"}`.
 7. In `assets/forms.js`, paste it into line 6:
