@@ -1,1 +1,4 @@
 *.docx
+upload/
+*.pptx
+grep.exe.stackdump

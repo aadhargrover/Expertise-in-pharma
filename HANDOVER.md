@@ -47,10 +47,11 @@ If you later edit `Code.gs`, use **Deploy → Manage deployments → Edit → Ne
 
 ---
 
-## 3. Uploading to cPanel
+## 3. Uploading to Namecheap (cPanel)
 
-1. cPanel → **File Manager** → `public_html`.
-2. Upload everything marked "Yes" in §1, keeping the folder structure (`assets/` stays a folder).
+0. Build the upload folder: from the site root run `python tools/build-upload.py`. It creates `upload/public_html/` (only the files the live site needs) and the same thing as `upload/expertiseinpharma-public_html.zip`. Re-run it after every change.
+1. Back up the current WordPress site first: Namecheap cPanel → **Backup** (or File Manager → select all in `public_html` → Compress), and download the backup.
+2. Clear the old WordPress files out of `public_html` (move them into a folder outside it, e.g. `~/wordpress-old`, so you can roll back). Then upload `expertiseinpharma-public_html.zip` into `public_html` and **Extract** it there. `index.html`, `.htaccess` and the `assets/` folder must sit directly inside `public_html`, not in a subfolder.
 3. `.htaccess` is a hidden file. In File Manager → Settings, tick **Show hidden files** to see it. It:
    - forces `https://expertiseinpharma.com` (no www),
    - **301-redirects the old WordPress URLs** (`/services/resource-on-demand/`, `/industry-solutions/clinical-research-organization/`, etc.) to the new pages so existing links and Google results keep working,
