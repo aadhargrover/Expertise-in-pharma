@@ -102,3 +102,9 @@ If you later edit `Code.gs`, use **Deploy → Manage deployments → Edit → Ne
 | Social media URLs | Footer | Icons removed until provided |
 | Confirm registered address spelling | Contact ("SIPEdTech PRIVATE LIMITED, … Ahmadabad City") | Copied from previous site |
 | Wording sign-off list | `HOMEPAGE-SECTIONS.md` → "Wording to confirm" | Pending |
+
+---
+
+## Cache-busting after edits
+
+Pages load `assets/site.css`, `assets/site.js` and `assets/forms.js` with a version tag (e.g. `site.css?v=20261117`). After changing any of those files, change the number on every page (search-and-replace `?v=20261117` with today's date) so visitors' browsers fetch the new file instead of a cached copy.
