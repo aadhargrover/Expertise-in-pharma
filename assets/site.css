@@ -1116,3 +1116,33 @@ body > section.cta-band:last-of-type, body > section.cta-sec{ box-shadow:0 40px 
 /* callout spanning the content width */
 .callout--wide{ margin-top:36px; }
 .callout--wide p{ max-width:none; }
+/* client review 16 Nov: two-line headings, even ROI line, top-to-bottom bullet order */
+.page-hero-inner:has(.h1-2l){ max-width:1180px; }
+.page-hero h1.h1-2l{ max-width:none; font-size:clamp(32px,3.9vw,56px); }
+@media (min-width:1024px){ .nowrap-lg{ white-space:nowrap; } }
+.cta-band .cta-title.cta-title--2l{ max-width:none; font-size:clamp(30px,3.1vw,46px); }
+.big-stat--even{ gap:8px 16px; }
+.big-stat--even b, .big-stat--even span{ font-size:clamp(44px,4.6vw,64px); line-height:1.05; }
+.big-stat--even span{ font-weight:400; letter-spacing:-.02em; }
+.tabs--top .check-list{ display:block; columns:2; column-gap:40px; }
+.tabs--top .check-list li{ break-inside:avoid; margin-bottom:16px; }
+@media (max-width:760px){ .tabs--top .check-list{ columns:1; } }
+/* footer: about text on its own row, then four link columns (explore, services, industry solutions, contact) */
+@media (min-width:641px){
+  .site-foot .foot-grid.foot-grid--5{ grid-template-columns:repeat(4, auto); justify-content:space-between; gap:36px 0; }
+  .site-foot .foot-grid--5 > .foot-about{ grid-column:1 / -1; }
+  .site-foot .foot-grid--5 > .foot-about p{ max-width:980px; }
+  .site-foot .foot-grid--5 > nav:first-of-type{ margin-left:0; padding-left:0; border-left:none; }
+  .site-foot .foot-grid--5 > *:not(.foot-about):not(nav:first-of-type){ margin-left:0; padding-left:40px; }
+  .site-foot .foot-grid--5 > .foot-contact{ grid-column:auto; border-left:1px solid var(--line-dark) !important; padding-left:40px !important; }
+}
+@media (max-width:640px){
+  .site-foot .foot-grid--5 > nav:nth-of-type(3){ padding-left:0; margin-left:0; border-left:none; }
+}
+.foot-legal{ display:flex; gap:22px; margin:0; }
+.foot-legal a{ color:inherit; transition:color .2s ease; }
+.foot-legal a:hover{ color:var(--cream-on-navy); }
+@media (min-width:641px) and (max-width:1180px){
+  .site-foot .foot-grid--5 > *:not(.foot-about):not(nav:first-of-type), .site-foot .foot-grid--5 > .foot-contact{ padding-left:24px !important; }
+  .site-foot .foot-grid--5 .foot-mail{ font-size:16px; }
+}

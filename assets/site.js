@@ -142,7 +142,7 @@
       var m = eb.textContent.match(/^\s*\d+\s*[—–-]\s*(.+)$/);
       if (!m || eb.closest('.cta-band, .cta-sec, footer')) return;
       var host = eb.closest('.svc-block') || eb.closest('section');
-      if (!host || targets.some(function(t){ return t.el === host; })) return;
+      if (!host || host.closest('[hidden]') || targets.some(function(t){ return t.el === host; })) return;
       if (!host.id) host.id = 'sec-' + m[1].toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
       host.setAttribute('data-subnav-target', '');
       targets.push({ el:host, label:m[1].trim() });

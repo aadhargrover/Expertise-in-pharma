@@ -85,8 +85,9 @@
   .gaps-media-tag span{ width:8px; height:8px; border-radius:50%; background:var(--cyan-500); flex:none; box-shadow:0 0 0 4px rgba(40,188,210,0.2); }
   .gaps-body .sec-intro{ max-width:620px; margin:22px 0 40px; }
   .gap-fix{ grid-column:2; display:inline-flex; align-items:center; gap:8px; margin-top:14px; font:600 12px/1 var(--font-body); letter-spacing:.04em; color:var(--cyan-700); }
-  .gap-fix::before{ content:'Solved by'; font-weight:500; color:var(--ink-400); letter-spacing:.02em; }
-  .gap-fix::after{ content:''; order:-1; width:16px; height:1px; background:var(--cyan-600); }
+  .gap-fix::before{ content:"→"; order:2; font-weight:500; }
+  .gap-fix:hover{ color:var(--cyan-600); }
+  
 
   /* ===== 02 SERVICES — sticky story ===== */
   .svc-story{ display:grid; grid-template-columns:1fr 1fr; gap:88px; align-items:start; }
@@ -291,7 +292,7 @@
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
             </div>
-            <a href="#open-roles" class="hero-careers-link">Looking for a role? <strong>Visit Careers</strong> <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a href="careers.html" class="hero-careers-link">Looking for a role? <strong>Visit Careers</strong> <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </div>
         </div>
       </div>
@@ -307,7 +308,7 @@
             <p class="eyebrow" style="color:var(--cyan-400);">SME on Demand</p>
             <h1>Industry-ready expertise, delivered <span class="hl">on demand</span></h1>
             <p class="hero-lede">Senior experts in Pharmacovigilance, Clinical Operations, Quality Assurance, Regulatory Affairs and Medical Writing &mdash; without the cost of a full-time hire.</p>
-            <a href="sme-on-demand.html" class="arrow-link" style="color:var(--cyan-400);">Explore SME on Demand <svg class="arrow-ic" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <div class="hero-path-row"><a href="sme-on-demand.html" class="btn-primary btn-light">Explore SME on Demand <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
           </div>
         </div>
       </div>
@@ -323,7 +324,7 @@
             <p class="eyebrow" style="color:var(--cyan-400);">Resource on Demand</p>
             <h1><span class="hl">75% faster</span> search-to-productivity</h1>
             <p class="hero-lede">A vetted pool of entry-level and experienced life sciences graduates and MBBS professionals, screened and ready for immediate impact.</p>
-            <a href="resource-on-demand.html" class="arrow-link" style="color:var(--cyan-400);">Explore Resource on Demand <svg class="arrow-ic" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <div class="hero-path-row"><a href="resource-on-demand.html" class="btn-primary btn-light">Explore Resource on Demand <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
           </div>
         </div>
       </div>
@@ -339,7 +340,7 @@
             <p class="eyebrow" style="color:var(--cyan-400);">Outsourced L&amp;D Enablement</p>
             <h1>Enterprise training without expanding your <span class="hl">L&amp;D team</span></h1>
             <p class="hero-lede">Role-based onboarding, refresher and upskilling programs tailored to your SOPs and audit needs.</p>
-            <a href="outsourced-ld.html" class="arrow-link" style="color:var(--cyan-400);">Explore Outsourced L&amp;D <svg class="arrow-ic" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <div class="hero-path-row"><a href="outsourced-ld.html" class="btn-primary btn-light">Explore Outsourced L&amp;D <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
           </div>
         </div>
       </div>
@@ -375,19 +376,18 @@
   <section class="sec sec--paper">
     <div class="wrap gaps">
       <div class="img-slot gaps-media photo-tint" data-slot="gaps" style="background-image:url('assets/mentoring.jpg'); background-position:42% center;" data-reveal="up">
-        <div class="gaps-media-tag"><span></span>Getting the right people ready &mdash; fast enough, and at the right quality.</div>
       </div>
       <div class="gaps-body">
         <p class="eyebrow sec-eyebrow">01 &mdash; The constraint</p>
         <h2 class="sec-title" data-reveal="up">The readiness gaps holding you back</h2>
         <p class="sec-intro">You&rsquo;re managing complex product launch timelines, regulatory expectations, and margin pressures. But the real constraint? Getting the right people ready, fast enough, and at the right quality.</p>
         <div class="feature-grid">
-          <div class="feature-item" data-reveal="up" data-reveal-group="gaps"><span class="feature-num">01</span><p class="feature-title">Talent shortages</p><p class="feature-desc">High turnover and slow hiring keep roles unfilled.</p><p class="gap-fix">Resource on Demand</p></div>
-          <div class="feature-item" data-reveal="up" data-reveal-group="gaps"><span class="feature-num">02</span><p class="feature-title">Slow onboarding</p><p class="feature-desc">Delays in getting new hires production-ready; and skill gaps appear too late.</p><p class="gap-fix">Outsourced L&amp;D</p></div>
-          <div class="feature-item" data-reveal="up" data-reveal-group="gaps"><span class="feature-num">03</span><p class="feature-title">Compliance risk</p><p class="feature-desc">Limited SME support leaves you exposed to audits and inspections.</p><p class="gap-fix">SME on Demand</p></div>
-          <div class="feature-item" data-reveal="up" data-reveal-group="gaps"><span class="feature-num">04</span><p class="feature-title">Execution uncertainty</p><p class="feature-desc">Gaps in management and quality impact client, and regulator trust and time to market/product launch schedules.</p><p class="gap-fix">SME on Demand</p></div>
-          <div class="feature-item" data-reveal="up" data-reveal-group="gaps"><span class="feature-num">05</span><p class="feature-title">No flex capacity</p><p class="feature-desc">Limitations to scale up quickly for bids or project surges.</p><p class="gap-fix">Resource on Demand</p></div>
-          <div class="feature-item" data-reveal="up" data-reveal-group="gaps"><span class="feature-num">06</span><p class="feature-title">Expansion hurdles</p><p class="feature-desc">Scaling delivery or shifting operating models strains current resources.</p><p class="gap-fix">All three, combined</p></div>
+          <div class="feature-item" data-reveal="up" data-reveal-group="gaps"><span class="feature-num">01</span><p class="feature-title">Talent shortages</p><p class="feature-desc">High turnover and slow hiring keep roles unfilled.</p><a class="gap-fix" href="resource-on-demand.html">Explore Resource on Demand</a></div>
+          <div class="feature-item" data-reveal="up" data-reveal-group="gaps"><span class="feature-num">02</span><p class="feature-title">Slow onboarding</p><p class="feature-desc">Delays in getting new hires production-ready; and skill gaps appear too late.</p><a class="gap-fix" href="outsourced-ld.html">Explore Outsourced L&amp;D</a></div>
+          <div class="feature-item" data-reveal="up" data-reveal-group="gaps"><span class="feature-num">03</span><p class="feature-title">Compliance risk</p><p class="feature-desc">Limited SME support leaves you exposed to audits and inspections.</p><a class="gap-fix" href="sme-on-demand.html">Explore SME on Demand</a></div>
+          <div class="feature-item" data-reveal="up" data-reveal-group="gaps"><span class="feature-num">04</span><p class="feature-title">Execution uncertainty</p><p class="feature-desc">Gaps in management and quality impact client, and regulator trust and time to market/product launch schedules.</p><a class="gap-fix" href="sme-on-demand.html">Explore SME on Demand</a></div>
+          <div class="feature-item" data-reveal="up" data-reveal-group="gaps"><span class="feature-num">05</span><p class="feature-title">No flex capacity</p><p class="feature-desc">Limitations to scale up quickly for bids or project surges.</p><a class="gap-fix" href="resource-on-demand.html">Explore Resource on Demand</a></div>
+          <div class="feature-item" data-reveal="up" data-reveal-group="gaps"><span class="feature-num">06</span><p class="feature-title">Expansion hurdles</p><p class="feature-desc">Scaling delivery or shifting operating models strains current resources.</p><a class="gap-fix" href="services.html">Explore our services</a></div>
         </div>
       </div>
     </div>
@@ -422,7 +422,7 @@
             <div class="svc-panel-top"><span class="svc-panel-num">02</span><p class="svc-panel-title">Resource-on-Demand</p></div>
             <p class="svc-panel-desc">Access a vetted pool of entry-level and experienced Lifesciences graduates, MBBS professionals. They are thoroughly trained on real life scenarios, screened, and ready for immediate impact as per industry KPIs &ndash; thus providing scalability and bringing down your cost of onboarding-to-production cycle.</p>
             <p class="svc-ideal-label">Ideal for</p>
-            <div class="svc-ideal"><span>Scaling delivery teams</span><span>Project surges</span><span>Backfilling critical roles</span><span>New function build-outs</span></div>
+            <div class="svc-ideal"><span>Scaling delivery teams</span><span>Manage volume surges</span><span>Backfilling critical roles</span><span>New function build-outs</span></div>
             <a href="resource-on-demand.html" class="arrow-link">Explore Resource on Demand <svg class="arrow-ic" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </div>
           <div class="svc-panel" data-svc="2">
@@ -430,7 +430,7 @@
             <div class="svc-panel-top"><span class="svc-panel-num">03</span><p class="svc-panel-title">Outsourced L&amp;D Enablement</p></div>
             <p class="svc-panel-desc">Shift training responsibility without expanding your L&amp;D team. We deliver custom, role-based onboarding, refresher, and upskilling programs tailored to your SOPs and audit needs. We administer L&amp;D requirements and manage functional curriculums to make your business compliant.</p>
             <p class="svc-ideal-label">Ideal for</p>
-            <div class="svc-ideal"><span>Onboarding at scale</span><span>SOP refreshers</span><span>Upskilling programs</span><span>Curriculum management</span></div>
+            <div class="svc-ideal"><span>SOP refresher programs</span><span>Customized upskilling programs</span><span>Curriculum management</span></div>
             <a href="outsourced-ld.html" class="arrow-link">Explore Outsourced L&amp;D <svg class="arrow-ic" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </div>
         </div>
@@ -444,167 +444,15 @@
     </div>
   </section>
 
-  <!-- 03 — COMPARISON (our view) -->
-  <section class="sec sec--cream">
-    <div class="wrap">
-      <div class="sec-head">
-        <div>
-          <p class="eyebrow sec-eyebrow">03 &mdash; The difference in practice</p>
-          <h2 class="sec-title" data-reveal="up">Not a staffing agency. Not a training vendor.</h2>
-        </div>
-        <p class="sec-intro">Staffing fills roles. Training fills calendars. Neither gets your people production-ready. Here&rsquo;s how workforce enablement compares.</p>
-      </div>
-      <div class="cmp-wrap" data-reveal="up">
-        <table class="cmp">
-          <thead>
-            <tr>
-              <th scope="col">What your business needs</th>
-              <th scope="col">Staffing agency</th>
-              <th scope="col">Training vendor</th>
-              <th scope="col" class="is-us"><span class="cmp-us-tag">Workforce enablement</span>ExpertiseInPharma</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>Pharma domain depth across GxP, PV, RA &amp; QA</td><td data-label="Staffing agency"><span class="cmp-part">Varies</span></td><td data-label="Training vendor"><span class="cmp-part">Partial</span></td><td data-label="ExpertiseInPharma" class="is-us"><span class="cmp-yes"></span></td></tr>
-            <tr><td>People production-ready from day one</td><td data-label="Staffing agency"><span class="cmp-no"></span></td><td data-label="Training vendor"><span class="cmp-no"></span></td><td data-label="ExpertiseInPharma" class="is-us"><span class="cmp-yes"></span></td></tr>
-            <tr><td>Mentor accountability through to readiness</td><td data-label="Staffing agency"><span class="cmp-no"></span></td><td data-label="Training vendor"><span class="cmp-part">Course completion</span></td><td data-label="ExpertiseInPharma" class="is-us"><span class="cmp-yes"></span></td></tr>
-            <tr><td>Audit &amp; inspection readiness built in</td><td data-label="Staffing agency"><span class="cmp-no"></span></td><td data-label="Training vendor"><span class="cmp-part">Partial</span></td><td data-label="ExpertiseInPharma" class="is-us"><span class="cmp-yes"></span></td></tr>
-            <tr><td>Flex capacity for bids and project surges</td><td data-label="Staffing agency"><span class="cmp-yes cmp-yes--muted"></span></td><td data-label="Training vendor"><span class="cmp-no"></span></td><td data-label="ExpertiseInPharma" class="is-us"><span class="cmp-yes"></span></td></tr>
-            <tr><td>Programs tailored to your SOPs</td><td data-label="Staffing agency"><span class="cmp-no"></span></td><td data-label="Training vendor"><span class="cmp-yes cmp-yes--muted"></span></td><td data-label="ExpertiseInPharma" class="is-us"><span class="cmp-yes"></span></td></tr>
-            <tr class="cmp-total"><td>Search-to-productivity</td><td data-label="Staffing agency">Months</td><td data-label="Training vendor">&mdash;</td><td data-label="ExpertiseInPharma" class="is-us"><span class="cmp-big">75% faster</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
 
-  <!-- 04 — INDUSTRY SOLUTIONS -->
-  <section class="sec sec--paper">
-    <div class="wrap">
-      <div class="sec-head">
-        <div>
-          <p class="eyebrow sec-eyebrow">04 &mdash; Industry solutions</p>
-          <h2 class="sec-title" data-reveal="up">Different business models. Shared workforce challenges.</h2>
-        </div>
-        <p class="sec-intro">Pharma companies and CROs operate with distinct business models and strategic priorities &mdash; yet both face talent gaps, compliance risk, vendor dependency and scaling pressure.</p>
-      </div>
-      <div class="ind-grid">
-        <article class="ind-card ind-card--cyan" data-reveal="up" data-reveal-group="ind">
-          <div class="ind-cover img-slot photo-tint" data-slot="ind-pharma" style="background-image:url('assets/lab-scientist.jpg');">
-            <div class="ind-stat"><b>75%</b><span>faster search-to-productivity</span></div>
-            <div class="ind-cover-in">
-              <span class="ind-tag"><i></i>Pharma sponsors</span>
-              <p class="ind-title">For Pharmaceutical Companies</p>
-              <p class="ind-tagline">Accelerate innovation, ensure compliance, reduce vendor dependency.</p>
-            </div>
-          </div>
-          <div class="ind-body">
-            <div>
-              <p class="ind-label">Your priorities</p>
-              <div class="ind-chips"><span>Accelerate innovation</span><span>Regulatory compliance</span><span>Domain specialists</span><span>Speed to market</span><span>Vendor independence</span></div>
-            </div>
-            <div>
-              <p class="ind-label">How we help</p>
-              <div class="ind-help">
-                <div class="ind-help-row"><span class="ind-help-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 3h6M10 3v6.2c0 .5-.15 1-.43 1.4L5.9 16.3c-.9 1.28.02 3.03 1.58 3.03h9.04c1.56 0 2.48-1.75 1.58-3.03l-3.67-5.7A2.5 2.5 0 0 1 14 9.2V3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><p class="ind-help-svc">SME on Demand</p><p class="ind-help-out">Regulatory strategy &amp; audit prep</p></div></div>
-                <div class="ind-help-row"><span class="ind-help-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span><div><p class="ind-help-svc">Resource on Demand</p><p class="ind-help-out">Pre-trained PV &amp; RA talent</p></div></div>
-                <div class="ind-help-row"><span class="ind-help-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span><div><p class="ind-help-svc">Outsourced L&amp;D</p><p class="ind-help-out">Training without new headcount</p></div></div>
-              </div>
-            </div>
-          </div>
-          <a href="pharmaceutical-companies.html" class="ind-foot">Explore solutions for Pharma<span class="ind-foot-go"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
-        </article>
 
-        <article class="ind-card ind-card--violet" data-reveal="up" data-reveal-group="ind">
-          <div class="ind-cover img-slot photo-tint" data-slot="ind-cro" style="background-image:url('assets/cro-team.jpg');">
-            <div class="ind-stat"><b>75%</b><span>lower time-to-billability</span></div>
-            <div class="ind-cover-in">
-              <span class="ind-tag"><i></i>Contract research</span>
-              <p class="ind-title">For Clinical Research Organizations</p>
-              <p class="ind-tagline">Protect margins, strengthen client confidence, scale delivery capacity.</p>
-            </div>
-          </div>
-          <div class="ind-body">
-            <div>
-              <p class="ind-label">Your priorities</p>
-              <div class="ind-chips"><span>Protect margins</span><span>Client confidence</span><span>Competitive bids</span><span>Delivery capacity</span><span>Time-to-billability</span></div>
-            </div>
-            <div>
-              <p class="ind-label">How we help</p>
-              <div class="ind-help">
-                <div class="ind-help-row"><span class="ind-help-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 3h6M10 3v6.2c0 .5-.15 1-.43 1.4L5.9 16.3c-.9 1.28.02 3.03 1.58 3.03h9.04c1.56 0 2.48-1.75 1.58-3.03l-3.67-5.7A2.5 2.5 0 0 1 14 9.2V3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><p class="ind-help-svc">SME on Demand</p><p class="ind-help-out">Audit support &amp; bid representation</p></div></div>
-                <div class="ind-help-row"><span class="ind-help-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span><div><p class="ind-help-svc">Resource on Demand</p><p class="ind-help-out">Time-to-billability down 75%</p></div></div>
-                <div class="ind-help-row"><span class="ind-help-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span><div><p class="ind-help-svc">Outsourced L&amp;D</p><p class="ind-help-out">Training off your delivery teams</p></div></div>
-                <div class="ind-help-row"><span class="ind-help-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="16" cy="6" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="12" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="18" cy="18" r="2" stroke="currentColor" stroke-width="1.5"/></svg></span><div><p class="ind-help-svc">Flexible models</p><p class="ind-help-out">Scale without long-term lock-in</p></div></div>
-              </div>
-            </div>
-          </div>
-          <a href="cro.html" class="ind-foot">Explore solutions for CROs<span class="ind-foot-go"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- 05 — HOW WE ENGAGE (process + commercial models) -->
-  <section class="sec sec--navy-2 sec--glow sec--glow-left">
-    <div class="wrap">
-      <div class="sec-head">
-        <div>
-          <p class="eyebrow sec-eyebrow">05 &mdash; How we engage</p>
-          <h2 class="sec-title" data-reveal="up">Engage the way your business runs</h2>
-        </div>
-        <p class="sec-intro">Retainer, project-based, cohort-based, or outcome-aligned. We structure engagements that balance flexibility, cost control, and delivery confidence.</p>
-      </div>
-      <div class="engage">
-        <div>
-          <p class="engage-label">From pilot to partnership</p>
-          <div class="timeline">
-            <div class="tl-step" data-reveal="up" data-reveal-group="tl"><p class="tl-num">Step 01</p><p class="tl-title">Assess</p><p class="tl-desc">We start with your business reality &mdash; capability gaps, compliance exposure, delivery pressure and cost structure.</p></div>
-            <div class="tl-step" data-reveal="up" data-reveal-group="tl"><p class="tl-num">Step 02</p><p class="tl-title">Design</p><p class="tl-desc">We shape the right scope and commercial model: expert access, deployment-ready talent or outsourced L&amp;D.</p></div>
-            <div class="tl-step" data-reveal="up" data-reveal-group="tl"><p class="tl-num">Step 03</p><p class="tl-title">Deploy</p><p class="tl-desc">Mentor-led execution puts people, processes and programs into production with audit readiness built in.</p></div>
-            <div class="tl-step" data-reveal="up" data-reveal-group="tl"><p class="tl-num">Step 04</p><p class="tl-title">Scale</p><p class="tl-desc">Expand services, capacity or geographies as value is proven &mdash; and scale down when priorities shift.</p></div>
-          </div>
-          <a href="how-we-partner.html" class="arrow-link" style="color:var(--cyan-400);">See how we partner <svg class="arrow-ic" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </div>
-        <div>
-          <p class="engage-label">Commercial models</p>
-          <div class="model-grid">
-            <div class="model" data-reveal="up" data-reveal-group="model">
-              <div class="model-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21 12a9 9 0 1 1-3-6.7M21 4v5h-5" stroke="var(--cyan-500)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-              <p class="model-title">Retainer</p>
-              <p class="model-desc">Ongoing access to senior SMEs and a ready bench of talent, on a predictable monthly commitment.</p>
-              <p class="model-best"><span>Best for</span>Continuous compliance and delivery support</p>
-            </div>
-            <div class="model" data-reveal="up" data-reveal-group="model">
-              <div class="model-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="17" rx="2" stroke="var(--cyan-500)" stroke-width="1.5"/><path d="M3 9h18M8 2v4M16 2v4" stroke="var(--cyan-500)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-              <p class="model-title">Project-based</p>
-              <p class="model-desc">A defined scope, deliverables and timeline &mdash; from audit preparation to a submission push.</p>
-              <p class="model-best"><span>Best for</span>One-off initiatives and inspections</p>
-            </div>
-            <div class="model" data-reveal="up" data-reveal-group="model">
-              <div class="model-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M10 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="var(--cyan-500)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-              <p class="model-title">Cohort-based</p>
-              <p class="model-desc">Trained cohorts onboarded together and ready to deploy as a team, aligned to your SOPs.</p>
-              <p class="model-best"><span>Best for</span>Scaling delivery teams quickly</p>
-            </div>
-            <div class="model" data-reveal="up" data-reveal-group="model">
-              <div class="model-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="var(--cyan-500)" stroke-width="1.5"/><circle cx="12" cy="12" r="4.2" stroke="var(--cyan-500)" stroke-width="1.5"/><circle cx="12" cy="12" r=".9" fill="var(--cyan-500)"/></svg></div>
-              <p class="model-title">Outcome-aligned</p>
-              <p class="model-desc">Commercials tied to agreed readiness and delivery KPIs, so accountability is shared.</p>
-              <p class="model-best"><span>Best for</span>Programs measured on results</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- 06 — WHAT MAKES US DIFFERENT -->
   <section class="sec sec--paper">
     <div class="wrap">
       <div class="sec-head">
         <div>
-          <p class="eyebrow sec-eyebrow">06 &mdash; Difference</p>
+          <p class="eyebrow sec-eyebrow">03 &mdash; Difference</p>
           <h2 class="sec-title" data-reveal="up">What makes us different</h2>
         </div>
         <p class="sec-intro">Built by industry practitioners who understand pharma delivery environments, regulatory expectations, and execution pressures.</p>
@@ -626,12 +474,12 @@
     <div class="wrap">
       <div class="sec-head">
         <div>
-          <p class="eyebrow sec-eyebrow">07 &mdash; Global credibility</p>
+          <p class="eyebrow sec-eyebrow">04 &mdash; Global credibility</p>
           <h2 class="sec-title" data-reveal="up">Trusted across the Pharma ecosystem</h2>
         </div>
         <p class="sec-intro">Professionals trained globally and organizations engaging our services across the US, EU, UK, and emerging markets.</p>
       </div>
-      <div class="stat-row">
+      <div class="stat-row stat-row--4">
         <div class="stat" data-target="5000" data-suffix="+">
           <p class="stat-num"><span class="stat-count-num">5,000</span><span class="stat-count-suffix">+</span></p>
           <p class="stat-label">Professionals trained globally</p>
@@ -647,6 +495,7 @@
           <p class="stat-label">Industry collaborations</p>
           <p class="stat-desc">With leading organizations to ensure training remains aligned with real-world delivery and compliance expectations.</p>
         </div>
+        <div class="stat stat--text"><span class="stat-badge">Ecosystem</span><p class="stat-label">Strategic partnerships</p><p class="stat-desc">We partner with Pharma companies, CROs, technology platforms, and service ecosystem organizations to ensure our training, talent, and enablement services remain aligned with evolving delivery standards and compliance expectations.</p></div>
       </div>
       <div class="region-row">
         <span>United States</span><span>European Union</span><span>United Kingdom</span><span>Emerging markets</span>
@@ -654,79 +503,7 @@
     </div>
   </section>
 
-  <!-- 08 — PARTNERS & VOICES -->
-  <section class="sec sec--cream partners">
-    <div class="wrap">
-      <div class="sec-head">
-        <div>
-          <p class="eyebrow sec-eyebrow">08 &mdash; Strategic partnerships</p>
-          <h2 class="sec-title" data-reveal="up">Aligned with how the industry actually delivers</h2>
-        </div>
-        <p class="sec-intro">We partner with Pharma companies, CROs, technology platforms, and service ecosystem organizations to ensure our training, talent, and enablement services remain aligned with evolving delivery standards and compliance expectations.</p>
-      </div>
-      <div class="logo-row" data-reveal="up">
-        <span class="logo-chip"><span class="chip-ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9s1.3-6.3 3.8-9Z"/></svg></span><span>GLOBAL PHARMA SPONSOR</span></span>
-        <span class="logo-chip"><span class="chip-ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4h6v3H9zM9 12l2 2 4-4M9 17h6"/></svg></span><span>TOP-10 CRO</span></span>
-        <span class="logo-chip"><span class="chip-ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3c0 6 10 6 10 12 0 3-2 5-2 6M17 3c0 6-10 6-10 12 0 3 2 5 2 6M8 7h8M8 17h8"/></svg></span><span>SPECIALTY BIOTECH</span></span>
-        <span class="logo-chip"><span class="chip-ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="8.5" width="19" height="7" rx="3.5" transform="rotate(-45 12 12)"/><path d="m8.5 8.5 7 7"/></svg></span><span>REGIONAL GENERICS LEADER</span></span>
-        <span class="logo-chip"><span class="chip-ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span>EMERGING MARKETS CRO</span></span>
-        <span class="logo-chip"><span class="chip-ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9.5" y="9.5" width="5" height="5"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></span><span>TECHNOLOGY PLATFORM</span></span>
-      </div>
-      <div class="voice-grid">
-        <div class="voice" data-reveal="up" data-reveal-group="voice">
-          <span class="voice-mark">&ldquo;</span>
-          <p class="voice-text">They didn't just fill a role &mdash; they understood our audit timeline and had someone production-ready inside two weeks.</p>
-          <div class="voice-person">
-            <span class="voice-avatar voice-avatar--blank" aria-hidden="true"></span>
-            <div><p class="voice-name">Head of Regulatory Affairs</p><p class="voice-role">Global Pharma Sponsor</p></div>
-          </div>
-        </div>
-        <div class="voice" data-reveal="up" data-reveal-group="voice">
-          <span class="voice-mark">&ldquo;</span>
-          <p class="voice-text">Outsourcing L&amp;D to a team that actually understands SOPs and audit expectations meant we didn't have to hire to scale training.</p>
-          <div class="voice-person">
-            <span class="voice-avatar voice-avatar--blank" aria-hidden="true"></span>
-            <div><p class="voice-name">VP, Clinical Operations</p><p class="voice-role">Top-10 CRO</p></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- 09 — FOR PROFESSIONALS: OPEN ROLES -->
-  <section class="sec sec--paper" id="open-roles">
-    <div class="wrap roles">
-      <div>
-        <p class="eyebrow sec-eyebrow" style="color:var(--amber-700);">09 &mdash; For professionals</p>
-        <h2 class="sec-title" data-reveal="up">Your next role in <span class="hl-amber">Pharma</span> is closer than you think</h2>
-        <p class="sec-intro" style="margin-top:22px;">Submit your profile once and get matched against open roles with Pharma companies and CROs across Pharmacovigilance, Regulatory Affairs, Quality, Medical Writing and more &mdash; no recruiter chasing required.</p>
-        <div class="roles-chips">
-          <a href="careers.html#professionals" class="roles-chip">Pharmacovigilance <b>9</b></a>
-          <a href="careers.html#professionals" class="roles-chip">Clinical Operations <b>8</b></a>
-          <a href="careers.html#professionals" class="roles-chip">Quality Assurance <b>7</b></a>
-          <a href="careers.html#professionals" class="roles-chip">Regulatory Affairs <b>6</b></a>
-          <a href="careers.html#professionals" class="roles-chip">Medical Writing <b>5</b></a>
-          <a href="careers.html#professionals" class="roles-chip">Medical Information <b>4</b></a>
-        </div>
-        <div class="hero-path-row">
-          <a href="careers.html" class="btn-primary btn-primary--amber">View all open roles
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-          <a href="careers.html#professionals" class="btn-outline btn-outline--onlight">Submit your profile</a>
-        </div>
-      </div>
-
-      <div class="role-board" data-reveal="up">
-        <div class="role-board-head"><p>Featured openings</p><span><i></i>Pharma &amp; CRO roles</span></div>
-        <a href="careers.html" class="role-row"><div><p class="role-title">Senior Pharmacovigilance Associate</p><p class="role-meta"><span class="fn">Pharmacovigilance</span><span>Remote &middot; US</span><span>Full-time</span></p></div><span class="role-go"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
-        <a href="careers.html" class="role-row"><div><p class="role-title">Regulatory Affairs Manager</p><p class="role-meta"><span class="fn">Regulatory Affairs</span><span>Hybrid &middot; UK</span><span>Full-time</span></p></div><span class="role-go"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
-        <a href="careers.html" class="role-row"><div><p class="role-title">Medical Writer II &mdash; Clinical Study Reports</p><p class="role-meta"><span class="fn">Medical Writing</span><span>Remote &middot; EU</span><span>Contract</span></p></div><span class="role-go"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
-        <a href="careers.html" class="role-row"><div><p class="role-title">QA Auditor, GxP Compliance</p><p class="role-meta"><span class="fn">Quality Assurance</span><span>On-site &middot; India</span><span>Full-time</span></p></div><span class="role-go"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
-        <a href="careers.html" class="role-row"><div><p class="role-title">Clinical Trial Associate</p><p class="role-meta"><span class="fn">Clinical Operations</span><span>Hybrid &middot; Emerging markets</span><span>Full-time</span></p></div><span class="role-go"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
-        <div class="role-board-foot"><span>Illustrative roles shown for reference</span><a href="careers.html" class="arrow-link" style="color:var(--amber-700);">All roles <svg class="arrow-ic" width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
-      </div>
-    </div>
-  </section>
 
   <!-- CTA + CONTACT -->
   <section class="cta-sec">
@@ -736,9 +513,6 @@
         <p class="eyebrow sec-eyebrow" style="color:var(--cyan-500);">Let's talk</p>
         <h2 class="cta-title">Ready to build <span class="hl">production-ready</span> teams?</h2>
         <p class="cta-desc">Whether you&rsquo;re managing a talent gap, preparing for an audit, or strengthening bench capacity for an upcoming bid &mdash; we&rsquo;re here to help.</p>
-        <button type="button" class="btn-primary btn-light" onclick="openLeadModal('cta')">Talk to our team
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
         <div class="cta-mail">
           <p>Email us</p>
           <a href="mailto:contact@sipedtech.com">contact@sipedtech.com</a>
@@ -747,7 +521,7 @@
 
       <div class="form-panel">
         <form id="contact-now-form" novalidate>
-          <p class="form-section-title">Send us a message</p>
+          <p class="form-section-title">Talk to our team</p>
           <div class="field-row">
             <div class="field"><label>Your name <span class="req">*</span></label><input type="text" placeholder="Full name" required></div>
             <div class="field"><label>Work email <span class="req">*</span></label><input type="email" placeholder="Email address" required></div>
@@ -782,7 +556,7 @@
         <a href="#top" class="to-top" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">Back to top <span><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M8 13V3M8 3L4 7M8 3l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
       </div>
 
-      <div class="foot-grid foot-grid--4">
+      <div class="foot-grid foot-grid--4 foot-grid--5">
         <div class="foot-about">
           <p><strong>ExpertiseInPharma</strong> is a global organization dedicated to empowering pharmaceutical sponsors and contract research organizations (CROs) navigate complex regulatory landscapes, accelerate innovation and boost productivity.</p>
           <p>Our solutions, including SME on Demand, Resource on Demand and Outsourced L&amp;D, are curated and delivered by industry practitioners who understand pharma delivery environments, regulatory expectations, and execution pressures, thus helping clients convert capability into measurable outcomes.</p>
@@ -797,33 +571,33 @@
             <a href="contact.html" class="foot-link">Contact</a>
           </div>
         </nav>
-        <nav aria-label="Solutions">
-          <p class="foot-col-title">Solutions</p>
+        <nav aria-label="Services">
+          <p class="foot-col-title">Services</p>
           <div class="foot-links">
-            <a href="services.html" class="foot-link">All services</a>
             <a href="sme-on-demand.html" class="foot-link">SME on Demand</a>
             <a href="resource-on-demand.html" class="foot-link">Resource on Demand</a>
             <a href="outsourced-ld.html" class="foot-link">Outsourced L&amp;D</a>
-            <a href="pharmaceutical-companies.html" class="foot-link">For Pharma companies</a>
+          </div>
+        </nav>
+        <nav aria-label="Industry Solutions">
+          <p class="foot-col-title">Industry Solutions</p>
+          <div class="foot-links">
+            <a href="pharmaceutical-companies.html" class="foot-link">For Pharmaceutical Companies</a>
             <a href="cro.html" class="foot-link">For CROs</a>
           </div>
         </nav>
         <div class="foot-contact">
-          <p class="foot-col-title">Contact us</p>
+          <p class="foot-col-title">Contact</p>
           <a href="mailto:contact@sipedtech.com" class="foot-mail"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>contact@sipedtech.com</a>
-          <p class="foot-col-title" style="margin-top:40px;">Other links</p>
-          <div class="foot-links">
-            <a href="privacy.html" class="foot-link">Privacy Policy</a>
-            <a href="terms.html" class="foot-link">Terms of Use</a>
-          </div>
         </div>
       </div>
 
       <div class="foot-bottom">
-        <p>&copy; 2025 SIP Edtech Private Limited. All rights reserved. &nbsp;&middot;&nbsp; CIN &ndash; U85499GJ2025PTC167504 &nbsp;&middot;&nbsp; GST &ndash; 24ABRCS2808M1ZU</p>
+        <p>&copy; 2025 &ndash; 2027 SIP Edtech Private Limited. All rights reserved.</p>
+        <p class="foot-legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></p>
       </div>
     </div>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"ExpertiseInPharma","legalName":"SIP Edtech Private Limited","url":"https://expertiseinpharma.com/","logo":"https://expertiseinpharma.com/assets/favicon-512.png","email":"contact@sipedtech.com","address":{"@type":"PostalAddress","streetAddress":"260, Lane 14, Sector 6, Satyagrah Chavni","addressLocality":"Ahmedabad","postalCode":"380015","addressRegion":"Gujarat","addressCountry":"IN"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"ExpertiseInPharma","legalName":"SIP Edtech Private Limited","url":"https://expertiseinpharma.com/","logo":"https://expertiseinpharma.com/assets/favicon-512.png","email":"contact@sipedtech.com","address":{"@type":"PostalAddress","streetAddress":"S.G. Road, Ramdevnagar, Satellite","addressLocality":"Ahmedabad","postalCode":"380015","addressRegion":"Gujarat","addressCountry":"IN"}}</script>
   </footer>
   <!-- /@partial footer -->
 
