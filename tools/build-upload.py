@@ -11,7 +11,7 @@ It creates (and fully replaces):
 
 Only files the live site needs are copied: the pages, .htaccess, robots.txt, sitemap.xml,
 favicon.ico and the assets that the pages, CSS and scripts actually reference. Working files
-(partials/, tools/, form-backend/, *.md, the review deck, Word docs, _redirects) are left out.
+(partials/, tools/, form-backend/, *.md, the review deck, Word docs) are left out.
 """
 import pathlib
 import re
@@ -22,7 +22,7 @@ import zipfile
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = ROOT / "upload"
 PUB = OUT / "public_html"
-ROOT_FILES = [".htaccess", "robots.txt", "sitemap.xml", "favicon.ico"]
+ROOT_FILES = [".htaccess", "_redirects", "robots.txt", "sitemap.xml", "favicon.ico"]  # _redirects is for Netlify; cPanel ignores it
 ALWAYS_ASSETS = ["site.css", "site.js", "forms.js", "og-image.jpg", "favicon-512.png", "apple-touch-icon.png",
                  "logo-dark.png", "logo-light.png"]
 
