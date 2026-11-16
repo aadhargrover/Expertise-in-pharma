@@ -1146,3 +1146,8 @@ body > section.cta-band:last-of-type, body > section.cta-sec{ box-shadow:0 40px 
   .site-foot .foot-grid--5 > *:not(.foot-about):not(nav:first-of-type), .site-foot .foot-grid--5 > .foot-contact{ padding-left:24px !important; }
   .site-foot .foot-grid--5 .foot-mail{ font-size:16px; }
 }
+/* dropdown lists: options inherited the light field text on the browser's white list, so they were invisible */
+.field select{ color-scheme:dark; }
+.field select option{ background-color:#14213d; color:#f5f6f2; }
+.field select option:disabled{ color:#8a94a6; }
+.field select option:checked{ background-color:#1d6f86; color:#ffffff; }
