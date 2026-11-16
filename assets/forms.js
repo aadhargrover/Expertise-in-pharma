@@ -3,7 +3,7 @@
    which appends a row to the client's Google Sheet and emails a notification.
    Setup: see HANDOVER.md → "Forms". Paste the deployed web-app URL below.
    ========================================================================== */
-var EIP_FORM_ENDPOINT = '';           // e.g. 'https://script.google.com/macros/s/XXXX/exec'
+var EIP_FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxcLIOjSdszYaT7HU0s4p51BYeVxT-2UiqhHEd4mTRB4TteN9Lof0SE79BpK6h4afCtJg/exec';           // e.g. 'https://script.google.com/macros/s/XXXX/exec'
 var EIP_FALLBACK_EMAIL = 'contact@sipedtech.com';
 var EIP_MAX_FILE_BYTES = 5 * 1024 * 1024;
 
