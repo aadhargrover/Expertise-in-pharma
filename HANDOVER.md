@@ -119,3 +119,7 @@ Pages load `assets/site.css`, `assets/site.js` and `assets/forms.js` with a vers
 - To publish an update: push to `main`, then cPanel → Git Version Control → Manage → Pull or Deploy → **Update from Remote** → **Deploy HEAD Commit**. Then LiteSpeed Web Cache Manager → Flush All (and Cloudflare → Purge Everything if styles look stale).
 - The deploy only adds/overwrites files; it never deletes. Remove a page from `public_html` by hand if you delete it from the repo.
 - The old WordPress site is kept in `/home/expegkan/wordpress-old` (plus a full download on the owner's laptop). Move it back into `public_html` to roll back. Delete it once the new site has run cleanly for a few weeks.
+
+## Local preview
+
+Run `python tools/preview.py` and open http://127.0.0.1:8000/. It uses the same clean addresses as the live site (`/about`, `/contact`, ...), which opening the .html files directly cannot do.

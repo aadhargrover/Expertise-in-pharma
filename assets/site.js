@@ -105,10 +105,17 @@
   }
 
   // ---- current page: highlight matching nav / mega / drawer / sidebar links ----
-  var page = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+  // compare clean paths, so /about, /about.html and about.html all count as the About page
+  function pageKey(h){
+    h = (h || '').split('#')[0].split('?')[0].replace(/^https?:\/\/[^\/]+/, '').replace(/^\/+|\/+$/g, '').replace(/\.html$/, '').toLowerCase();
+    h = h.split('/').pop();
+    return (h === '' || h === 'index') ? 'index' : h;
+  }
+  var page = pageKey(location.pathname);
   var groups = {};
   document.querySelectorAll('#site-nav a, #mobile-drawer a, .svc-nav a').forEach(function(a){
-    if ((a.getAttribute('href') || '').toLowerCase() !== page) return;
+    var href = a.getAttribute('href') || '';
+    if (href.charAt(0) === '#' || pageKey(href) !== page) return;
     a.classList.add('is-current');
     var g = a.getAttribute('data-nav-group');
     if (g) groups[g] = true;

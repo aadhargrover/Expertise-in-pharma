@@ -14,25 +14,30 @@ RewriteCond %{HTTP:CF-Visitor} !https [NC]
 RewriteRule ^ https://expertiseinpharma.com%{REQUEST_URI} [L,R=301]
 
 # Old WordPress URLs -> new pages (keeps existing links and Google results working)
-RewriteRule ^services/sme-on-demand/?$ /sme-on-demand.html [L,R=301]
-RewriteRule ^services/resource-on-demand/?$ /resource-on-demand.html [L,R=301]
-RewriteRule ^services/outsourced-ld-enablement/?$ /outsourced-ld.html [L,R=301]
+RewriteRule ^services/sme-on-demand/?$ /sme-on-demand [L,R=301]
+RewriteRule ^services/resource-on-demand/?$ /resource-on-demand [L,R=301]
+RewriteRule ^services/outsourced-ld-enablement/?$ /outsourced-ld [L,R=301]
 RewriteRule ^services/global-capability-center-gcc-enablement/?$ / [L,R=301]
-RewriteRule ^services/?$ /services.html [L,R=301]
-RewriteRule ^industry-solutions/pharmaceutical-companies/?$ /pharmaceutical-companies.html [L,R=301]
-RewriteRule ^industry-solutions/clinical-research-organization/?$ /cro.html [L,R=301]
-RewriteRule ^industry-solutions/?$ /industries.html [L,R=301]
-RewriteRule ^(sme-on-demand|resource-on-demand)/?$ /$1.html [L,R=301]
-RewriteRule ^outsourced-ld-enablement/?$ /outsourced-ld.html [L,R=301]
-RewriteRule ^about-us/?$ /about.html [L,R=301]
-RewriteRule ^how-we-partner/?$ /how-we-partner.html [L,R=301]
-RewriteRule ^careers/?$ /careers.html [L,R=301]
-RewriteRule ^contact-us/?$ /contact.html [L,R=301]
-RewriteRule ^contact/?$ /contact.html [L,R=301]
-RewriteRule ^privacy-policy/?$ /privacy.html [L,R=301]
-RewriteRule ^(mr-nitin-charekar|purav-thakkar)/?$ /about.html [L,R=301]
+RewriteRule ^industry-solutions/pharmaceutical-companies/?$ /pharmaceutical-companies [L,R=301]
+RewriteRule ^industry-solutions/clinical-research-organization/?$ /cro [L,R=301]
+RewriteRule ^industry-solutions/?$ /industries [L,R=301]
+RewriteRule ^outsourced-ld-enablement/?$ /outsourced-ld [L,R=301]
+RewriteRule ^about-us/?$ /about [L,R=301]
+RewriteRule ^contact-us/?$ /contact [L,R=301]
+RewriteRule ^privacy-policy/?$ /privacy [L,R=301]
+RewriteRule ^(mr-nitin-charekar|purav-thakkar)/?$ /about [L,R=301]
 # WordPress sample posts, categories and form pages that should not stay indexed
 RewriteRule ^(20[0-9]{2}/.*|category/.*|metform-form/.*)$ / [L,R=301]
+
+# Clean URLs: /about serves about.html; /about.html, /about/ and /index.html redirect to the clean address
+RewriteCond %{THE_REQUEST} \s/+index(\.html)?[\s?] [NC]
+RewriteRule ^ / [L,R=301]
+RewriteCond %{THE_REQUEST} \s/+([^?\s/]+)\.html[\s?] [NC]
+RewriteRule ^ /%1 [L,R=301]
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^([^/.]+)/$ /$1 [L,R=301]
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^([^/.]+)$ /$1.html [L]
 
 # Keep working files off the public site
 RewriteRule ^(partials|tools|form-backend)(/|$) - [F,L]
