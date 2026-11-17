@@ -1,10 +1,16 @@
 # ExpertiseInPharma — Apache / cPanel settings
 
-# Force HTTPS and the bare domain (https://expertiseinpharma.com)
 DirectoryIndex index.html
+
+# Force HTTPS and the bare domain (https://expertiseinpharma.com)
+# The site sits behind Cloudflare: the visitor's real protocol arrives in X-Forwarded-Proto / CF-Visitor,
+# so only redirect when none of them say https (otherwise Cloudflare "Flexible" SSL would loop forever).
 RewriteEngine On
-RewriteCond %{HTTPS} off [OR]
 RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^ https://expertiseinpharma.com%{REQUEST_URI} [L,R=301]
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
+RewriteCond %{HTTP:CF-Visitor} !https [NC]
 RewriteRule ^ https://expertiseinpharma.com%{REQUEST_URI} [L,R=301]
 
 # Old WordPress URLs -> new pages (keeps existing links and Google results working)
