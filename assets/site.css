@@ -1155,3 +1155,4 @@ body > section.cta-band:last-of-type, body > section.cta-sec{ box-shadow:0 40px 
 .field select option:checked{ background-color:#1d6f86; color:#ffffff; }
 .foot-brands{ margin-top:6px; font-size:14px !important; color:oklch(0.97 0.004 106 / 0.6) !important; }
 .field select optgroup{ background-color:#0d1830; color:#8fd3e2; font-style:normal; font-weight:600; }
+.legal-updated{ font:500 13px/1 var(--font-body) !important; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-400) !important; margin-bottom:22px; }
