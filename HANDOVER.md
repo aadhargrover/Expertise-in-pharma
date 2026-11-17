@@ -108,7 +108,7 @@ If you later edit `Code.gs`, use **Deploy → Manage deployments → Edit → Ne
 
 ## Cache-busting after edits
 
-Pages load `assets/site.css`, `assets/site.js` and `assets/forms.js` with a version tag (e.g. `site.css?v=20261118a`). After changing any of those files, change the number on every page (search-and-replace `?v=20261118a` with today's date) so visitors' browsers fetch the new file instead of a cached copy.
+Pages load `assets/site.css`, `assets/site.js` and `assets/forms.js` with a version tag (e.g. `site.css?v=20261118b`). After changing any of those files, change the number on every page (search-and-replace `?v=20261118b` with today's date) so visitors' browsers fetch the new file instead of a cached copy.
 
 ---
 

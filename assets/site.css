@@ -49,7 +49,7 @@
 [hidden]{ display:none !important; }
 html,body{ margin:0; padding:0; width:100%; overflow-x:clip; }
 html{ scroll-behavior:smooth; }
-body{ font-family:var(--font-body); color:var(--ink-900); background:var(--cream-50); animation:pageFadeIn .7s ease both; position:relative; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; text-rendering:optimizeLegibility; }
+body{ font-family:var(--font-body); color:var(--ink-900); background:var(--cream-50); position:relative; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; text-rendering:optimizeLegibility; }
 ::selection{ background:oklch(0.73 0.117 213 / 0.28); color:inherit; }
 :focus-visible{ outline:2px solid var(--cyan-500); outline-offset:3px; }
 a{ color:inherit; text-decoration:none; }
