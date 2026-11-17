@@ -208,9 +208,16 @@
     mcta.querySelector('button').addEventListener('click', function(){ window.openLeadModal('mobile-bar'); });
     document.body.appendChild(mcta);
     var foot = document.querySelector('footer');
+    // shown after the hero; hidden while scrolling down (reading) and near the footer, back when scrolling up
+    var lastY = window.scrollY;
     function onMctaScroll(){
+      var y = window.scrollY;
       var nearEnd = foot && foot.getBoundingClientRect().top < window.innerHeight + 40;
-      mcta.classList.toggle('is-shown', window.scrollY > 520 && !nearEnd);
+      var goingDown = y > lastY + 4, goingUp = y < lastY - 4;
+      if (goingDown || goingUp || y <= 520 || nearEnd){
+        mcta.classList.toggle('is-shown', y > 520 && !nearEnd && !goingDown);
+      }
+      lastY = y;
     }
     window.addEventListener('scroll', onMctaScroll, { passive:true });
     onMctaScroll();

@@ -1155,3 +1155,15 @@ body > section.cta-band:last-of-type, body > section.cta-sec{ box-shadow:0 40px 
 .foot-brands{ margin-top:6px; font-size:14px !important; color:oklch(0.97 0.004 106 / 0.6) !important; }
 .field select optgroup{ background-color:#0d1830; color:#8fd3e2; font-style:normal; font-weight:600; }
 .legal-updated{ font:500 13px/1 var(--font-body) !important; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-400) !important; margin-bottom:22px; }
+/* iPhone screen edges (viewport-fit=cover): the menu bar extends behind the status bar, and the
+   phone CTA bar sits above the home indicator / Safari toolbar */
+#site-nav{ padding-top:env(safe-area-inset-top, 0px); }
+#site-nav.nav--scrolled{ background:oklch(0.992 0.003 106 / 0.97); }
+.mobile-drawer{ top:calc(84px + env(safe-area-inset-top, 0px)); }
+.subnav{ top:calc(84px + env(safe-area-inset-top, 0px)); background:oklch(0.992 0.003 106 / 0.97); }
+[data-subnav-target]{ scroll-margin-top:calc(150px + env(safe-area-inset-top, 0px)); }
+@media (max-width:760px){
+  .subnav{ top:calc(84px + env(safe-area-inset-top, 0px)); }
+  .m-cta{ bottom:calc(14px + env(safe-area-inset-bottom, 0px)); padding:6px; }
+  .m-cta button, .m-cta a{ min-height:42px; }
+}
