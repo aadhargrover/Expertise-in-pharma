@@ -1167,3 +1167,11 @@ body > section.cta-band:last-of-type, body > section.cta-sec{ box-shadow:0 40px 
   .m-cta{ bottom:calc(14px + env(safe-area-inset-bottom, 0px)); padding:6px; }
   .m-cta button, .m-cta a{ min-height:42px; }
 }
+/* phones: compact menu bar so there is no tall empty band under the status bar */
+@media (max-width:760px){
+  #site-nav > .wrap{ height:64px !important; }
+  #site-nav img{ height:34px !important; }
+  .mobile-drawer{ top:calc(64px + env(safe-area-inset-top, 0px)); }
+  .subnav{ top:calc(64px + env(safe-area-inset-top, 0px)); }
+  [data-subnav-target]{ scroll-margin-top:calc(124px + env(safe-area-inset-top, 0px)); }
+}
