@@ -104,6 +104,23 @@
     }
   }
 
+  // ---- lazy background photos: <div data-bg="assets/x.webp"> loads when it comes near the screen ----
+  (function(){
+    var els = Array.prototype.slice.call(document.querySelectorAll('[data-bg]'));
+    if (!els.length) return;
+    function show(el){ if (!el.hasAttribute('data-bg')) return; el.style.backgroundImage = "url('" + el.getAttribute('data-bg') + "')"; el.removeAttribute('data-bg'); }
+    var later = els.filter(function(el){ return el.closest('.mega-hero'); });
+    var rest = els.filter(function(el){ return !el.closest('.mega-hero'); });
+    if ('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ if (e.isIntersecting){ show(e.target); io.unobserve(e.target); } });
+      }, { rootMargin:'600px 0px' });
+      rest.forEach(function(el){ io.observe(el); });
+    } else { rest.forEach(show); }
+    function loadLater(){ setTimeout(function(){ later.forEach(show); }, 200); }
+    if (document.readyState === 'complete') loadLater(); else window.addEventListener('load', loadLater);
+  })();
+
   // ---- current page: highlight matching nav / mega / drawer / sidebar links ----
   // compare clean paths, so /about, /about.html and about.html all count as the About page
   function pageKey(h){

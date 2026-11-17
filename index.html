@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Google Analytics (GA4) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9MPPCLV3N4"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9MPPCLV3N4');</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9MPPCLV3N4');
+window.addEventListener('load',function(){setTimeout(function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-9MPPCLV3N4';document.head.appendChild(s);},1500);});</script>
 <title>ExpertiseInPharma — Global Pharma &amp; CRO Workforce Solutions</title>
 <meta name="description" content="ExpertiseInPharma helps pharmaceutical sponsors and CROs navigate complex regulatory landscapes, accelerate innovation and boost productivity through SME on Demand, Resource on Demand and Outsourced L&amp;D.">
 <link rel="icon" href="favicon.ico" sizes="any">
@@ -19,7 +19,11 @@
 <meta property="og:url" content="https://expertiseinpharma.com/">
 <meta property="og:image" content="https://expertiseinpharma.com/assets/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="assets/site.css?v=20261117e">
+<link rel="preload" as="image" href="assets/delivery-team.webp" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500;1,8..60,600&display=swap">
+<link rel="stylesheet" href="assets/site.css?v=20261118a">
 <style>
   /* ---- page-specific: index.html ---- */
 
@@ -275,7 +279,7 @@
   <section class="mega-hero" id="mega-hero">
 
     <div class="mega-hero-slide is-active">
-      <div class="mega-hero-bg photo-tint" data-slot="hero-1" style="background-image:url('assets/delivery-team.jpg');"></div>
+      <div class="mega-hero-bg photo-tint" data-slot="hero-1" style="background-image:url('assets/delivery-team.webp');"></div>
       <div class="mega-hero-overlay"></div>
       <div class="mega-hero-content wrap">
         <div class="mega-hero-content-inner">
@@ -299,7 +303,7 @@
     </div>
 
     <div class="mega-hero-slide">
-      <div class="mega-hero-bg photo-tint" data-slot="hero-2" style="background-image:url('assets/sme-advisor.jpg');"></div>
+      <div class="mega-hero-bg photo-tint" data-slot="hero-2" data-bg="assets/sme-advisor.webp"></div>
       <div class="mega-hero-overlay"></div>
       <div class="mega-hero-content wrap">
         <div class="mega-hero-content-inner">
@@ -315,7 +319,7 @@
     </div>
 
     <div class="mega-hero-slide">
-      <div class="mega-hero-bg photo-tint" data-slot="hero-3" style="background-image:url('assets/new-joiners.jpg');"></div>
+      <div class="mega-hero-bg photo-tint" data-slot="hero-3" data-bg="assets/new-joiners.webp"></div>
       <div class="mega-hero-overlay"></div>
       <div class="mega-hero-content wrap">
         <div class="mega-hero-content-inner">
@@ -331,7 +335,7 @@
     </div>
 
     <div class="mega-hero-slide">
-      <div class="mega-hero-bg photo-tint" data-slot="hero-4" style="background-image:url('assets/training-session.jpg');"></div>
+      <div class="mega-hero-bg photo-tint" data-slot="hero-4" data-bg="assets/training-session.webp"></div>
       <div class="mega-hero-overlay"></div>
       <div class="mega-hero-content wrap">
         <div class="mega-hero-content-inner">
@@ -375,7 +379,7 @@
   <!-- 01 — READINESS GAPS -->
   <section class="sec sec--paper">
     <div class="wrap gaps">
-      <div class="img-slot gaps-media photo-tint" data-slot="gaps" style="background-image:url('assets/mentoring.jpg'); background-position:42% center;" data-reveal="up">
+      <div class="img-slot gaps-media photo-tint" data-slot="gaps" data-bg="assets/mentoring.webp" style="background-position:42% center;" data-reveal="up">
       </div>
       <div class="gaps-body">
         <p class="eyebrow sec-eyebrow">01 &mdash; The constraint</p>
@@ -410,7 +414,7 @@
       <div class="svc-story">
         <div>
           <div class="svc-panel is-active" data-svc="0">
-            <div class="img-slot photo-tint" style="background-image:url('assets/sme-advisor.jpg');"></div>
+            <div class="img-slot photo-tint" data-bg="assets/sme-advisor.webp"></div>
             <div class="svc-panel-top"><span class="svc-panel-num">01</span><p class="svc-panel-title">SME-on-Demand</p></div>
             <p class="svc-panel-desc">Rapidly access senior industry experts in Pharmacovigilance, Clinical Operations/Research, Quality Assurance, Drug Safety, Regulatory Affairs, and Medical Writing. Gain deep scientific knowledge, operational expertise, and leadership, without the commitment or cost of full-time hires.</p>
             <p class="svc-ideal-label">Ideal for</p>
@@ -418,7 +422,7 @@
             <a href="/sme-on-demand" class="arrow-link">Explore SME on Demand <svg class="arrow-ic" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </div>
           <div class="svc-panel" data-svc="1">
-            <div class="img-slot photo-tint" style="background-image:url('assets/delivery-team.jpg');"></div>
+            <div class="img-slot photo-tint" data-bg="assets/delivery-team.webp"></div>
             <div class="svc-panel-top"><span class="svc-panel-num">02</span><p class="svc-panel-title">Resource-on-Demand</p></div>
             <p class="svc-panel-desc">Access a vetted pool of entry-level and experienced Lifesciences graduates, MBBS professionals. They are thoroughly trained on real life scenarios, screened, and ready for immediate impact as per industry KPIs &ndash; thus providing scalability and bringing down your cost of onboarding-to-production cycle.</p>
             <p class="svc-ideal-label">Ideal for</p>
@@ -426,7 +430,7 @@
             <a href="/resource-on-demand" class="arrow-link">Explore Resource on Demand <svg class="arrow-ic" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </div>
           <div class="svc-panel" data-svc="2">
-            <div class="img-slot photo-tint" style="background-image:url('assets/training-session.jpg');"></div>
+            <div class="img-slot photo-tint" data-bg="assets/training-session.webp"></div>
             <div class="svc-panel-top"><span class="svc-panel-num">03</span><p class="svc-panel-title">Outsourced L&amp;D Enablement</p></div>
             <p class="svc-panel-desc">Shift training responsibility without expanding your L&amp;D team. We deliver custom, role-based onboarding, refresher, and upskilling programs tailored to your SOPs and audit needs. We administer L&amp;D requirements and manage functional curriculums to make your business compliant.</p>
             <p class="svc-ideal-label">Ideal for</p>
@@ -436,9 +440,9 @@
         </div>
 
         <div class="svc-stage" aria-hidden="true">
-          <div class="img-slot photo-tint is-active" data-slot="svc-sme" style="background-image:url('assets/sme-advisor.jpg');"><div class="svc-stage-cap"><span>SME on Demand</span></div></div>
-          <div class="img-slot photo-tint" data-slot="svc-rod" style="background-image:url('assets/delivery-team.jpg');"><div class="svc-stage-cap"><span>Resource on Demand</span></div></div>
-          <div class="img-slot photo-tint" data-slot="svc-ld" style="background-image:url('assets/training-session.jpg');"><div class="svc-stage-cap"><span>Outsourced L&amp;D</span></div></div>
+          <div class="img-slot photo-tint is-active" data-slot="svc-sme" data-bg="assets/sme-advisor.webp"><div class="svc-stage-cap"><span>SME on Demand</span></div></div>
+          <div class="img-slot photo-tint" data-slot="svc-rod" data-bg="assets/delivery-team.webp"><div class="svc-stage-cap"><span>Resource on Demand</span></div></div>
+          <div class="img-slot photo-tint" data-slot="svc-ld" data-bg="assets/training-session.webp"><div class="svc-stage-cap"><span>Outsourced L&amp;D</span></div></div>
         </div>
       </div>
     </div>
@@ -470,7 +474,7 @@
 
   <!-- 07 — TRUSTED (stats band) -->
   <section class="sec sec--navy stats-band" id="numbers-section">
-    <div class="img-slot photo-tint" data-slot="stats" style="background-image:url('assets/hands-laptop.jpg');"></div>
+    <div class="img-slot photo-tint" data-slot="stats" data-bg="assets/hands-laptop.webp"></div>
     <div class="wrap">
       <div class="sec-head">
         <div>
@@ -507,7 +511,7 @@
 
   <!-- CTA + CONTACT -->
   <section class="cta-sec">
-    <div class="img-slot photo-tint" data-slot="cta" style="background-image:url('assets/cta-office.jpg');"></div>
+    <div class="img-slot photo-tint" data-slot="cta" data-bg="assets/cta-office.webp"></div>
     <div class="wrap cta-grid">
       <div>
         <p class="eyebrow sec-eyebrow" style="color:var(--cyan-500);">Let's talk</p>
@@ -639,8 +643,8 @@
   </div>
   <!-- /@partial modal -->
 
-  <script src="assets/site.js?v=20261117e"></script>
-  <script src="assets/forms.js?v=20261117e"></script>
+  <script src="assets/site.js?v=20261118a"></script>
+  <script src="assets/forms.js?v=20261118a"></script>
   <script>
   (function(){
     // Hero carousel

@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Google Analytics (GA4) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9MPPCLV3N4"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9MPPCLV3N4');</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9MPPCLV3N4');
+window.addEventListener('load',function(){setTimeout(function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-9MPPCLV3N4';document.head.appendChild(s);},1500);});</script>
 <title>Careers — ExpertiseInPharma</title>
 <meta name="description" content="Connecting talent with opportunity — explore roles with leading Pharma companies and CROs, or reach production-ready professionals for your open positions.">
 <link rel="icon" href="favicon.ico" sizes="any">
@@ -19,7 +19,11 @@
 <meta property="og:url" content="https://expertiseinpharma.com/careers">
 <meta property="og:image" content="https://expertiseinpharma.com/assets/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="assets/site.css?v=20261117e">
+<link rel="preload" as="image" href="assets/professionals-walking.webp" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500;1,8..60,600&display=swap">
+<link rel="stylesheet" href="assets/site.css?v=20261118a">
 <style>
   /* ---- page-specific: careers.html ---- */
 
@@ -173,7 +177,7 @@
 
   <!-- HERO -->
   <section class="page-hero">
-    <div class="page-hero-bg photo-tint" style="background-image:url('assets/professionals-walking.jpg'); background-position:center 30%;"></div>
+    <div class="page-hero-bg photo-tint" style="background-image:url('assets/professionals-walking.webp'); background-position:center 30%;"></div>
     <div class="page-hero-overlay"></div>
     <div class="wrap">
       <div class="page-hero-inner">
@@ -377,7 +381,7 @@
       </div>
       <div class="stage-grid">
         <div class="media-card media-card--amber" data-reveal="up" data-reveal-group="stage">
-          <div class="img-slot photo-tint" data-slot="stage-experienced" style="background-image:url('assets/executive-laptop.jpg');"></div>
+          <div class="img-slot photo-tint" data-slot="stage-experienced" data-bg="assets/executive-laptop.webp"></div>
           <div class="media-card-body">
             <p class="media-card-title">For Experienced Professionals</p>
             <p class="media-card-desc">Senior roles, leadership tracks and specialized expertise.</p>
@@ -391,7 +395,7 @@
           </div>
         </div>
         <div class="media-card media-card--amber" data-reveal="up" data-reveal-group="stage">
-          <div class="img-slot photo-tint" data-slot="stage-early" style="background-image:url('assets/new-joiners.jpg');"></div>
+          <div class="img-slot photo-tint" data-slot="stage-early" data-bg="assets/new-joiners.webp"></div>
           <div class="media-card-body">
             <p class="media-card-title">For Early-Career &amp; Graduates</p>
             <p class="media-card-desc">Structured onboarding and mentor-led training into your first pharma role.</p>
@@ -428,7 +432,7 @@
           <span class="voice-mark">&ldquo;</span>
           <p class="voice-text">I'd almost given up on finding a role at my level &mdash; three interviews later I had two competing offers.</p>
           <div class="voice-person">
-            <img class="voice-avatar" src="assets/purav.JPG" alt="">
+            <img class="voice-avatar" src="assets/purav.webp" alt="">
             <div><p class="voice-name">Regulatory Affairs Manager</p><p class="voice-role">Placed via ExpertiseInPharma</p></div>
           </div>
         </div>
@@ -746,7 +750,7 @@
 
   <!-- FINAL CTA -->
   <section class="cta-band" id="discuss">
-    <div class="img-slot photo-tint" style="background-image:url('assets/cta-office.jpg');"></div>
+    <div class="img-slot photo-tint" data-bg="assets/cta-office.webp"></div>
     <div class="wrap">
       <div>
         <h2 class="cta-title">Have a question about a role or a hire?</h2>
@@ -850,8 +854,8 @@
     </div>
   </div>
 
-  <script src="assets/site.js?v=20261117e"></script>
-  <script src="assets/forms.js?v=20261117e"></script>
+  <script src="assets/site.js?v=20261118a"></script>
+  <script src="assets/forms.js?v=20261118a"></script>
   <script>
   (function(){
 
