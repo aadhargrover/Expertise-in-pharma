@@ -109,3 +109,13 @@ If you later edit `Code.gs`, use **Deploy → Manage deployments → Edit → Ne
 ## Cache-busting after edits
 
 Pages load `assets/site.css`, `assets/site.js` and `assets/forms.js` with a version tag (e.g. `site.css?v=20261117d`). After changing any of those files, change the number on every page (search-and-replace `?v=20261117d` with today's date) so visitors' browsers fetch the new file instead of a cached copy.
+
+---
+
+## Live deployment (current setup, Nov 2026)
+
+- Hosting: Namecheap shared hosting (cPanel, LiteSpeed), account folder `/home/expegkan`. DNS and HTTPS for visitors go through Cloudflare.
+- The site is deployed from GitHub with cPanel **Git Version Control**: repository `https://github.com/aadhargrover/Expertise-in-pharma.git`, cloned to `~/repositories/expertiseinpharma`. `.cpanel.yml` copies only the pages, `.htaccess`, robots, sitemap, favicon and `assets/` into `public_html`.
+- To publish an update: push to `main`, then cPanel → Git Version Control → Manage → Pull or Deploy → **Update from Remote** → **Deploy HEAD Commit**. Then LiteSpeed Web Cache Manager → Flush All (and Cloudflare → Purge Everything if styles look stale).
+- The deploy only adds/overwrites files; it never deletes. Remove a page from `public_html` by hand if you delete it from the repo.
+- The old WordPress site is kept in `/home/expegkan/wordpress-old` (plus a full download on the owner's laptop). Move it back into `public_html` to roll back. Delete it once the new site has run cleanly for a few weeks.
