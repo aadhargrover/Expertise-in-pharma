@@ -26,7 +26,7 @@ window.addEventListener('load',function(){setTimeout(function(){var s=document.c
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500;1,8..60,600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500;1,8..60,600&display=swap"></noscript>
-<link rel="stylesheet" href="assets/site.css?v=20261118d">
+<link rel="stylesheet" href="assets/site.css?v=20261118e">
 <style>
   /* ---- page-specific: index.html ---- */
 
@@ -65,6 +65,7 @@ window.addEventListener('load',function(){setTimeout(function(){var s=document.c
   .mega-hero-arrow:hover{ background:rgba(7,22,45,0.55); border-color:var(--cyan-500); }
   @keyframes heroZoom{ from{ transform:scale(1); } to{ transform:scale(1.09); } }
   @keyframes heroBarFill{ from{ transform:scaleX(0); } to{ transform:scaleX(1); } }
+  @media (max-width:760px){ .mega-hero-content{ padding-top:calc(64px + 36px + env(safe-area-inset-top, 0px)) !important; } }
   @media (prefers-reduced-motion: reduce){ .mega-hero-bg{ animation:none; } .mega-hero-indicator-bar::after{ animation:none !important; transform:scaleX(1); } }
   @media (max-width:900px){
     .mega-hero{ height:auto; min-height:0; max-height:none; padding-top:100px; }
@@ -74,6 +75,9 @@ window.addEventListener('load',function(){setTimeout(function(){var s=document.c
     .mega-hero-controls{ bottom:24px; }
     .mega-hero-content-inner{ max-width:none; gap:20px; }
     .mega-hero-overlay{ background:linear-gradient(180deg, rgba(3,10,22,0.86) 0%, rgba(3,10,22,0.72) 50%, rgba(3,10,22,0.92) 100%); }
+    /* photo runs up behind the transparent menu bar; text starts just below the bar */
+    .mega-hero{ padding-top:0; }
+    .mega-hero-content{ padding-top:calc(84px + 40px + env(safe-area-inset-top, 0px)); }
   }
 
   /* ===== TICKER ===== */
@@ -646,8 +650,8 @@ window.addEventListener('load',function(){setTimeout(function(){var s=document.c
   </div>
   <!-- /@partial modal -->
 
-  <script src="assets/site.js?v=20261118d"></script>
-  <script src="assets/forms.js?v=20261118d"></script>
+  <script src="assets/site.js?v=20261118e"></script>
+  <script src="assets/forms.js?v=20261118e"></script>
   <script>
   (function(){
     // Hero carousel

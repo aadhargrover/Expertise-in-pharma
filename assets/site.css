@@ -1175,3 +1175,5 @@ body > section.cta-band:last-of-type, body > section.cta-sec{ box-shadow:0 40px 
   .subnav{ top:calc(64px + env(safe-area-inset-top, 0px)); }
   [data-subnav-target]{ scroll-margin-top:calc(124px + env(safe-area-inset-top, 0px)); }
 }
+/* phones: inner-page banners start right under the compact menu bar */
+@media (max-width:760px){ .page-hero{ padding-top:calc(64px + 56px + env(safe-area-inset-top, 0px)); } }
