@@ -1127,14 +1127,20 @@ body > section.cta-band:last-of-type, body > section.cta-sec{ box-shadow:0 40px 
 .tabs--top .check-list{ display:block; columns:2; column-gap:40px; }
 .tabs--top .check-list li{ break-inside:avoid; margin-bottom:16px; }
 @media (max-width:760px){ .tabs--top .check-list{ columns:1; } }
-/* footer: about text on its own row, then four link columns (explore, services, industry solutions, contact) */
-@media (min-width:641px){
-  .site-foot .foot-grid.foot-grid--5{ grid-template-columns:repeat(4, auto); justify-content:space-between; gap:36px 0; }
-  .site-foot .foot-grid--5 > .foot-about{ grid-column:1 / -1; }
-  .site-foot .foot-grid--5 > .foot-about p{ max-width:980px; }
-  .site-foot .foot-grid--5 > nav:first-of-type{ margin-left:0; padding-left:0; border-left:none; }
-  .site-foot .foot-grid--5 > *:not(.foot-about):not(nav:first-of-type){ margin-left:0; padding-left:40px; }
-  .site-foot .foot-grid--5 > .foot-contact{ grid-column:auto; border-left:1px solid var(--line-dark) !important; padding-left:40px !important; }
+/* footer: left = about text + contact email; right = Explore / Services / Industry Solutions */
+@media (min-width:1024px){
+  .site-foot .foot-grid.foot-grid--5{ grid-template-columns:minmax(0,1.35fr) auto auto auto; grid-template-rows:auto 1fr; column-gap:0; row-gap:28px; justify-content:stretch; }
+  .site-foot .foot-grid--5 > .foot-about{ grid-column:1; grid-row:1; padding-right:56px; }
+  .site-foot .foot-grid--5 > .foot-about p{ max-width:560px; }
+  .site-foot .foot-grid--5 > .foot-contact{ grid-column:1; grid-row:2; align-self:start; margin:0 !important; padding:0 !important; border:none !important; }
+  .site-foot .foot-grid--5 > nav{ grid-row:1 / span 2; margin-left:0 !important; padding:0 40px !important; border-left:1px solid var(--line-dark) !important; }
+  .site-foot .foot-grid--5 > nav:last-of-type{ padding-right:0 !important; }
+}
+@media (min-width:641px) and (max-width:1023px){
+  .site-foot .foot-grid.foot-grid--5{ grid-template-columns:repeat(3,auto); justify-content:space-between; gap:36px 0; }
+  .site-foot .foot-grid--5 > .foot-about, .site-foot .foot-grid--5 > .foot-contact{ grid-column:1 / -1; margin:0 !important; padding:0 !important; border:none !important; }
+  .site-foot .foot-grid--5 > nav{ margin-left:0 !important; padding:0 0 0 28px !important; border-left:1px solid var(--line-dark) !important; }
+  .site-foot .foot-grid--5 > nav:first-of-type{ padding-left:0 !important; border-left:none !important; }
 }
 @media (max-width:640px){
   .site-foot .foot-grid--5 > nav:nth-of-type(3){ padding-left:0; margin-left:0; border-left:none; }
@@ -1142,12 +1148,10 @@ body > section.cta-band:last-of-type, body > section.cta-sec{ box-shadow:0 40px 
 .foot-legal{ display:flex; gap:22px; margin:0; }
 .foot-legal a{ color:inherit; transition:color .2s ease; }
 .foot-legal a:hover{ color:var(--cream-on-navy); }
-@media (min-width:641px) and (max-width:1180px){
-  .site-foot .foot-grid--5 > *:not(.foot-about):not(nav:first-of-type), .site-foot .foot-grid--5 > .foot-contact{ padding-left:24px !important; }
-  .site-foot .foot-grid--5 .foot-mail{ font-size:16px; }
-}
 /* dropdown lists: options inherited the light field text on the browser's white list, so they were invisible */
 .field select{ color-scheme:dark; }
 .field select option{ background-color:#14213d; color:#f5f6f2; }
 .field select option:disabled{ color:#8a94a6; }
 .field select option:checked{ background-color:#1d6f86; color:#ffffff; }
+.foot-brands{ margin-top:6px; font-size:14px !important; color:oklch(0.97 0.004 106 / 0.6) !important; }
+.field select optgroup{ background-color:#0d1830; color:#8fd3e2; font-style:normal; font-weight:600; }
