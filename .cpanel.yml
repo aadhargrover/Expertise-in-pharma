@@ -1,0 +1,11 @@
+---
+# cPanel "Git Version Control" deployment for expertiseinpharma.com (Namecheap).
+# In cPanel: Git Version Control -> Manage -> Pull or Deploy -> "Update from Remote", then "Deploy HEAD Commit".
+# Copies only what the live site needs into public_html; partials/, tools/, form-backend/ and docs stay out.
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/expegkan/public_html/
+    - /bin/cp -f *.html $DEPLOYPATH
+    - /bin/cp -f .htaccess robots.txt sitemap.xml favicon.ico $DEPLOYPATH
+    - /bin/mkdir -p ${DEPLOYPATH}assets
+    - /bin/cp -Rf assets/. ${DEPLOYPATH}assets/
